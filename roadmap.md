@@ -17,3 +17,4 @@
 - [x] Verify the redesigned Farmer Partnership page on desktop and mobile.- [ ] Redesign only the About page around Afrifama’s verified company journey.
 - [ ] Add and verify the About timeline, system mural, proof strip and final story statement.
 - [ ] Show complete desktop and mobile About previews without publishing.
+- [ ] Fold Cargill and Irvine’s Group storytelling principles into the About page without copying their identity or claims.
