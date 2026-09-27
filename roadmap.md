@@ -19,3 +19,5 @@
 - [x] Add and verify the About timeline, system mural, proof strip and final story statement.
 - [x] Show complete desktop and mobile About previews without publishing.
 - [x] Fold Cargill and Irvine’s Group storytelling principles into the About page without copying their identity or claims.
+
+- [x] Global spacing, type scale and compact footer correction (desktop footer ~328px, no gap before footer, no horizontal overflow at 1440/1366/768/390)
