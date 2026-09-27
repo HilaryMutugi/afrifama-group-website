@@ -204,64 +204,121 @@ export const problems = [
 export type FeedProduct = {
   name: string;
   stage: string;
-  summary: string;
-  useFor: string;
+  purpose: string;
+  flockType: string;
+  journeyStage: "Start" | "Grow" | "Prepare" | "Produce";
   status: Status;
 };
 
 export const feedProducts: FeedProduct[] = [
   {
     name: "Chick Mash",
-    stage: "Day 1 – Week 8",
-    summary:
-      "A fine, highly digestible starter formulated for early frame development, appetite and a strong start in the brooder.",
-    useFor: "Layer and dual-purpose chicks from placement through the brooding period.",
+    stage: "Early development",
+    purpose: "Nutrition for early growth, skeletal development and a strong start.",
+    flockType: "Commercial layer, improved kienyeji and dual-purpose chicks.",
+    journeyStage: "Start",
     status: "Operational",
   },
   {
     name: "Growers Mash",
-    stage: "Week 9 – Week 18",
-    summary:
-      "A controlled-energy grower diet aimed at steady, even body-weight development before the onset of lay.",
-    useFor: "Pullets being prepared for a productive laying cycle.",
+    stage: "Frame and body-weight development",
+    purpose: "Balanced nutrition supporting controlled growth, frame development and flock uniformity.",
+    flockType: "Growing pullets and improved kienyeji birds.",
+    journeyStage: "Grow",
     status: "Operational",
   },
   {
-    name: "Layers Mash",
-    stage: "Week 19 onward",
-    summary:
-      "A balanced layer diet with attention to calcium supply, shell quality and persistency across the laying cycle.",
-    useFor: "Commercial layer flocks in production.",
+    name: "Layers Economy",
+    stage: "Egg production",
+    purpose: "A practical layer-feed option designed for cost-conscious production systems.",
+    flockType: "Laying flocks managed around practical commercial objectives.",
+    journeyStage: "Produce",
     status: "Operational",
   },
   {
-    name: "Kienyeji & Dual-Purpose Mash",
-    stage: "Grower to production",
-    summary:
-      "A practical diet for improved kienyeji and dual-purpose birds kept under semi-intensive conditions.",
-    useFor: "Mixed-purpose flocks producing both eggs and meat.",
+    name: "Layers Premium 1.0",
+    stage: "Egg production and persistence",
+    purpose: "Stage-specific nutrition for commercial laying performance and flock consistency.",
+    flockType: "Commercial layer flocks in production.",
+    journeyStage: "Produce",
+    status: "Operational",
+  },
+  {
+    name: "Layers Premium 1.2",
+    stage: "Targeted laying programme",
+    purpose: "A higher-specification option for producers requiring a more targeted nutritional programme.",
+    flockType: "Commercial layer flocks with defined production requirements.",
+    journeyStage: "Produce",
+    status: "Operational",
+  },
+  {
+    name: "Kienyeji Mash",
+    stage: "Growth through production",
+    purpose: "Balanced nutrition for improved kienyeji and dual-purpose production systems.",
+    flockType: "Improved kienyeji and dual-purpose flocks.",
+    journeyStage: "Prepare",
     status: "Operational",
   },
 ];
 
-export const formulationProcess = [
-  {
-    title: "Professional feed formulation",
-    body: "Diets are built in professional feed-formulation software against nutrient specifications for each production stage.",
-  },
-  {
-    title: "Laboratory analysis",
-    body: "Raw materials and finished feed are checked through laboratory analysis rather than assumed to be within specification.",
-  },
-  {
-    title: "Practical production data",
-    body: "Intake, growth and laying data from our own and partner farms are reviewed and fed back into formulation decisions.",
-  },
-  {
-    title: "Specialist technical input",
-    body: "Formulations draw on technical input from qualified poultry-nutrition specialists in East Africa and Europe.",
-  },
-];
+export const feedsPage = {
+  positioning: "Stage-specific poultry nutrition, connected to real production.",
+  supportingCopy:
+    "We formulate poultry feeds around the changing nutritional needs of the bird—from the first days of growth through development and laying. Our production experience, farmer feedback, raw-material evaluation and qualified technical input help keep nutrition connected to practical flock performance.",
+  stages: [
+    { name: "Start", objective: "Early development", detail: "Build the nutritional foundation for growth and skeletal development." },
+    { name: "Grow", objective: "Frame and body-weight development", detail: "Support controlled development and flock uniformity." },
+    { name: "Prepare", objective: "Preparation for production", detail: "Align nutrition with the transition toward productive maturity." },
+    { name: "Produce", objective: "Egg production and persistence", detail: "Match the nutritional programme to the demands of the laying stage." },
+  ],
+  productionFactors: [
+    "Genetics",
+    "Age and production stage",
+    "Body weight and uniformity",
+    "Feed intake",
+    "Water quality and availability",
+    "Housing and environmental conditions",
+    "Health status",
+    "Raw-material consistency",
+    "Farm-management discipline",
+  ],
+  developmentProcess: [
+    { title: "Understand the production objective", body: "Begin with the bird, flock type, production stage and practical farm objective." },
+    { title: "Evaluate available raw materials", body: "Review ingredient condition, consistency, suitability, availability and cost." },
+    { title: "Develop the formulation", body: "Build the stage-specific formulation with qualified technical input." },
+    { title: "Mix and monitor production", body: "Control the formulation version, mixing process and associated batch records." },
+    { title: "Review flock response and farmer feedback", body: "Use practical observations and production evidence to inform future review." },
+  ],
+  processCopy:
+    "Feed formulation is not a one-time exercise. Ingredient quality, availability, cost and flock requirements change. Afrifama’s approach is to review these factors carefully and improve formulations through production evidence and qualified technical guidance.",
+  qualityDisciplines: [
+    "Supplier assessment",
+    "Ingredient inspection",
+    "Raw-material sampling",
+    "Laboratory testing where applicable",
+    "Formulation control",
+    "Mixing consistency",
+    "Batch records",
+    "Finished-feed review",
+  ],
+  farmerSupport: [
+    "Product-selection guidance",
+    "Stage-transition planning",
+    "Feeding and water-management guidance",
+    "Farm record-keeping",
+    "Flock-performance review",
+    "Practical farmer training",
+  ],
+  futureResources: ["Feeding guides", "Record sheets", "Technical notes", "Frequently asked questions"],
+  customerPathways: [
+    { title: "Poultry farmers", body: "Discuss the flock type, production stage and product option that fits your current objective.", to: "/contact" },
+    { title: "Partner farmers", body: "Connect feed decisions with Afrifama’s structured production partnership and field support.", to: "/farmer-partnership" },
+    { title: "Dealers and distributors", body: "Start a conversation about local demand, product access and distribution requirements.", to: "/contact" },
+    { title: "Commercial farms", body: "Discuss a stage-specific nutritional programme around your operating context.", to: "/contact" },
+    { title: "Technical and nutrition partners", body: "Contribute qualified expertise to formulation review, quality discipline and farmer guidance.", to: "/contact" },
+    { title: "Raw-material suppliers", body: "Share ingredient specifications, consistency controls and delivery capability.", to: "/contact" },
+  ],
+} as const;
 
 export const partnershipAfrifamaProvides = [
   "Quality birds",
@@ -514,11 +571,11 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         q: "Which feeds are available?",
-        a: "Four products: Chick Mash, Growers Mash, Layers Mash, and Kienyeji & Dual-Purpose Mash — each formulated for a specific production stage.",
+        a: "Afrifama's current range includes Chick Mash, Growers Mash, Layers Economy, Layers Premium 1.0, Layers Premium 1.2 and Kienyeji Mash. Product selection should reflect flock type, production stage and farm objectives.",
       },
       {
         q: "How are formulations developed?",
-        a: "Using professional feed-formulation software, laboratory analysis of raw materials and finished feed, practical production data, and technical input from qualified nutrition specialists in East Africa and Europe.",
+        a: "Afrifama reviews the production objective, available raw materials, formulation requirements, mixing process and flock response, with laboratory testing where applicable and qualified technical input.",
       },
       {
         q: "Can I buy feed without joining the farmer partnership?",
