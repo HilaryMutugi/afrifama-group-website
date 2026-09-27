@@ -339,41 +339,41 @@ function FarmerPartnership() {
                 });
               }}
             >
-              <FormField id="fullName" label="Full name" error={errors.fullName}>
+              <FormField id="fullName" label="Full name" error={errors["fullName"]}>
                 <Input id="fullName" name="fullName" autoComplete="name" maxLength={100} />
               </FormField>
-              <FormField id="phone" label="Phone number" error={errors.phone}>
+              <FormField id="phone" label="Phone number" error={errors["phone"]}>
                 <Input id="phone" name="phone" type="tel" autoComplete="tel" maxLength={30} />
               </FormField>
-              <FormField id="county" label="County" error={errors.county}>
+              <FormField id="county" label="County" error={errors["county"]}>
                 <Input id="county" name="county" autoComplete="address-level1" maxLength={80} />
               </FormField>
-              <FormField id="location" label="Sub-county or location" error={errors.location}>
+              <FormField id="location" label="Sub-county or location" error={errors["location"]}>
                 <Input id="location" name="location" autoComplete="address-level2" maxLength={120} />
               </FormField>
-              <SelectField id="experience" label="Poultry experience" error={errors.experience} options={["No previous experience", "Less than 1 year", "1–3 years", "More than 3 years"]} />
-              <SelectField id="housingStatus" label="Housing status" error={errors.housingStatus} options={["Not started", "Under construction", "Nearly complete", "Complete and ready"]} />
-              <FormField id="housingCapacity" label="Estimated housing capacity" error={errors.housingCapacity}>
+              <SelectField id="experience" label="Poultry experience" error={errors["experience"]} options={["No previous experience", "Less than 1 year", "1–3 years", "More than 3 years"]} />
+              <SelectField id="housingStatus" label="Housing status" error={errors["housingStatus"]} options={["Not started", "Under construction", "Nearly complete", "Complete and ready"]} />
+              <FormField id="housingCapacity" label="Estimated housing capacity" error={errors["housingCapacity"]}>
                 <Input id="housingCapacity" name="housingCapacity" type="number" min={1} max={100000} inputMode="numeric" />
               </FormField>
-              <SelectField id="waterAvailability" label="Water availability" error={errors.waterAvailability} options={["Reliable on-farm supply", "Stored supply", "Seasonal or intermittent", "Not yet available"]} />
-              <SelectField id="caretakerAvailability" label="Daily caretaker availability" error={errors.caretakerAvailability} options={["Full-time caretaker available", "Farmer available daily", "Shared or part-time care", "Not yet arranged"]} />
-              <FormField id="preferredFlockSize" label="Preferred flock size" error={errors.preferredFlockSize}>
+              <SelectField id="waterAvailability" label="Water availability" error={errors["waterAvailability"]} options={["Reliable on-farm supply", "Stored supply", "Seasonal or intermittent", "Not yet available"]} />
+              <SelectField id="caretakerAvailability" label="Daily caretaker availability" error={errors["caretakerAvailability"]} options={["Full-time caretaker available", "Farmer available daily", "Shared or part-time care", "Not yet arranged"]} />
+              <FormField id="preferredFlockSize" label="Preferred flock size" error={errors["preferredFlockSize"]}>
                 <Input id="preferredFlockSize" name="preferredFlockSize" type="number" min={1} max={100000} inputMode="numeric" />
               </FormField>
               <div className="sm:col-span-2">
                 <Label htmlFor="motivation">Why do you want to join?</Label>
-                <Textarea id="motivation" name="motivation" rows={5} maxLength={1000} className="mt-2" aria-invalid={Boolean(errors.motivation)} aria-describedby={errors.motivation ? "motivation-error" : undefined} />
-                {errors.motivation ? <FieldError id="motivation-error" message={errors.motivation} /> : null}
+                <Textarea id="motivation" name="motivation" rows={5} maxLength={1000} className="mt-2" aria-invalid={Boolean(errors["motivation"])} aria-describedby={errors["motivation"] ? "motivation-error" : undefined} />
+                {errors["motivation"] ? <FieldError id="motivation-error" message={errors["motivation"]} /> : null}
               </div>
               <div className="sm:col-span-2">
                 <div className="flex items-start gap-3">
-                  <Checkbox id="consent" name="consent" checked={consent} onCheckedChange={(checked) => setConsent(checked === true)} aria-invalid={Boolean(errors.consent)} aria-describedby={errors.consent ? "consent-error" : undefined} />
+                  <Checkbox id="consent" name="consent" checked={consent} onCheckedChange={(checked) => setConsent(checked === true)} aria-invalid={Boolean(errors["consent"])} aria-describedby={errors["consent"] ? "consent-error" : undefined} />
                   <Label htmlFor="consent" className="font-normal leading-relaxed">
                     I consent to Afrifama contacting me about this expression of interest.
                   </Label>
                 </div>
-                {errors.consent ? <FieldError id="consent-error" message={errors.consent} /> : null}
+                {errors["consent"] ? <FieldError id="consent-error" message={errors["consent"]} /> : null}
               </div>
               <div className="sm:col-span-2">
                 <Button type="submit" size="lg">Submit Expression of Interest</Button>
@@ -420,7 +420,7 @@ function FormField({
 }: {
   id: string;
   label: string;
-  error?: string;
+  error: string | undefined;
   children: React.ReactNode;
 }) {
   return (
@@ -432,7 +432,7 @@ function FormField({
   );
 }
 
-function SelectField({ id, label, error, options }: { id: string; label: string; error?: string; options: string[] }) {
+function SelectField({ id, label, error, options }: { id: string; label: string; error: string | undefined; options: string[] }) {
   return (
     <div>
       <Label htmlFor={id}>{label}</Label>
