@@ -405,8 +405,8 @@ export const farmerPartnership = {
   /** Photo captions: distinguish illustrative imagery from documentary photography. Credits come from src/content/photos.ts. */
   captions: {
     hero: "Illustrative image — not an Afrifama farm. Afrifama field photography will replace this.",
-    chickCare: "Documentary photo — not an Afrifama farm, farmer or flock.",
-    fieldDemo: "Documentary photo — not an Afrifama event or farm.",
+    chickCare: "not an Afrifama farm, farmer or flock.",
+    fieldDemo: "not an Afrifama event or farm.",
   },
 } as const;
 
