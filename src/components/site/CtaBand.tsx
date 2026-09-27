@@ -7,7 +7,7 @@ import { Section, SectionHeading } from "./primitives";
 export function CtaBand() {
   return (
     <Section tone="forest">
-      <div className="grid gap-12 lg:grid-cols-12">
+      <div className="grid gap-8 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <SectionHeading
             eyebrow="Partnership"

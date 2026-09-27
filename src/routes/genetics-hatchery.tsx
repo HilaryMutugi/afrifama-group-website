@@ -42,7 +42,7 @@ function Genetics() {
                 <p className="eyebrow text-gold">Genetics & Hatchery</p>
                 <StatusBadge status="In Development" />
               </div>
-              <h1 className="mt-5 max-w-4xl text-4xl font-extrabold leading-[1.02] sm:text-6xl lg:text-7xl">
+              <h1 className="mt-5 max-w-4xl h1-hero font-extrabold">
                 Productive flocks begin before the birds reach the farm.
               </h1>
             </div>
@@ -59,7 +59,7 @@ function Genetics() {
       </section>
 
       <Section>
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-5">
             <SectionHeading
               eyebrow="The genetics behind a productive flock"
@@ -98,7 +98,7 @@ function Genetics() {
       </Section>
 
       <Section tone="muted">
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <SectionHeading
               eyebrow="Our parent-stock direction"
@@ -158,7 +158,7 @@ function Genetics() {
       </Section>
 
       <Section>
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Handshake className="size-9 text-terracotta" aria-hidden="true" />
             <SectionHeading
@@ -200,12 +200,12 @@ function Genetics() {
         </div>
       </Section>
 
-      <section className="bg-gold/20 py-16 sm:py-20">
+      <section className="bg-gold/20 section-pad">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
           <div>
             <p className="eyebrow text-terracotta">Partner with Afrifama</p>
-            <h2 className="mt-3 max-w-3xl text-3xl font-extrabold sm:text-4xl">Discuss a technical partnership</h2>
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            <h2 className="mt-3 max-w-3xl h2-section font-extrabold">Discuss a technical partnership</h2>
+            <p className="mt-4 max-w-2xl body-copy text-muted-foreground">
               We are looking for technical partners who value responsible development, clear evidence and practical farmer outcomes.
             </p>
           </div>

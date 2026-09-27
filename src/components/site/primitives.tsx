@@ -40,7 +40,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`${compact ? "py-14 sm:py-16" : "py-20 sm:py-24"} ${tones[tone]} ${className}`}
+      className={`${compact ? "py-10 sm:py-12" : "section-pad"} ${tones[tone]} ${className}`}
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">{children}</div>
     </section>
@@ -61,14 +61,14 @@ export function SectionHeading({
   inverted?: boolean;
 }) {
   return (
-    <div className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}>
+    <div className={`max-w-[62ch] ${align === "center" ? "mx-auto text-center" : ""}`}>
       {eyebrow ? (
         <p className={`eyebrow ${inverted ? "text-gold" : "text-terracotta"}`}>{eyebrow}</p>
       ) : null}
-      <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">{title}</h2>
+      <h2 className="mt-2 h2-section font-extrabold">{title}</h2>
       {lead ? (
         <p
-          className={`mt-4 text-lg leading-relaxed ${
+          className={`mt-3 body-copy ${
             inverted ? "text-primary-foreground/80" : "text-muted-foreground"
           }`}
         >
@@ -81,7 +81,7 @@ export function SectionHeading({
 
 export function Breadcrumbs({ items }: { items: { label: string; to?: string }[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-8">
+    <nav aria-label="Breadcrumb" className="mb-6">
       <ol className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
         <li>
           <Link to="/" className="transition-colors hover:text-primary">
@@ -122,11 +122,11 @@ export function PageHero({
 }) {
   return (
     <div className="border-b border-border bg-secondary/40">
-      <div className="mx-auto max-w-7xl px-5 pt-10 pb-16 sm:pb-20 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 pt-8 pb-10 sm:pb-12 lg:px-8">
         <Breadcrumbs items={breadcrumbs} />
         <p className="eyebrow text-terracotta">{eyebrow}</p>
-        <div className="mt-4 grid gap-6 lg:grid-cols-12 lg:items-end">
-          <h1 className="text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:col-span-7">
+        <div className="mt-3 grid gap-5 lg:grid-cols-12 lg:items-end">
+          <h1 className="h1-page font-extrabold lg:col-span-7">
             {title}
           </h1>
           <div className="lg:col-span-5">
@@ -135,7 +135,7 @@ export function PageHero({
                 <StatusBadge status={status} />
               </div>
             ) : null}
-            <p className="text-lg leading-relaxed text-muted-foreground">{lead}</p>
+            <p className="body-copy text-muted-foreground">{lead}</p>
           </div>
         </div>
       </div>
@@ -161,7 +161,7 @@ export function Card({
 
 export function Prose({ paragraphs }: { paragraphs: string[] }) {
   return (
-    <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
+    <div className="max-w-[68ch] space-y-4 body-copy text-muted-foreground">
       {paragraphs.map((p) => (
         <p key={p.slice(0, 32)}>{p}</p>
       ))}

@@ -74,12 +74,12 @@ function FieldNote() {
               </span>
               <span className="text-xs text-muted-foreground">{note.readingTime}</span>
             </div>
-            <h1 className="mt-5 text-3xl font-extrabold leading-[1.1] sm:text-4xl">{note.title}</h1>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{note.excerpt}</p>
+            <h1 className="mt-5 h2-section font-extrabold">{note.title}</h1>
+            <p className="mt-5 body-copy text-muted-foreground">{note.excerpt}</p>
           </div>
         </div>
 
-        <div className="mx-auto max-w-3xl px-5 py-16 lg:px-8">
+        <div className="mx-auto max-w-3xl px-5 py-12 lg:px-8">
           <div className="space-y-5 text-lg leading-relaxed text-foreground">
             {note.body.map((p) => (
               <p key={p.slice(0, 32)}>{p}</p>
