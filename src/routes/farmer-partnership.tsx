@@ -129,7 +129,7 @@ function FarmerPartnership() {
             </div>
             <figcaption className="mt-3 max-w-xl text-xs leading-relaxed text-muted-foreground">
               <span className="font-semibold uppercase tracking-wide text-terracotta">Documentary photo</span>
-              {" — not an Afrifama farm, farmer or flock. "}{photos.chickWater.credit}
+              {" — "}{farmerPartnership.captions.chickCare}{" "}{photos.chickWater.credit}
             </figcaption>
           </figure>
           <div className="lg:col-span-5 lg:pl-8">
@@ -257,7 +257,7 @@ function FarmerPartnership() {
             </div>
             <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
               <span className="font-semibold uppercase tracking-wide text-terracotta">Documentary photo</span>
-              {" — not an Afrifama event or farm. "}{photos.fieldDemo.credit}
+              {" — "}{farmerPartnership.captions.fieldDemo}{" "}{photos.fieldDemo.credit}
             </figcaption>
           </figure>
         </div>
