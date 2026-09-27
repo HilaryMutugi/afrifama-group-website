@@ -178,7 +178,7 @@ function FarmerPartnership() {
             <TabsContent value="readiness" className="mt-8">
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {farmerPartnership.readinessGates.map((gate, index) => {
-                  const Icon = readinessIcons[index % readinessIcons.length];
+                  const Icon = readinessIcons[index % readinessIcons.length] ?? Check;
                   return (
                     <article key={gate.title} className="border-t border-border py-5">
                       <Icon className="size-5 text-terracotta" aria-hidden="true" />
