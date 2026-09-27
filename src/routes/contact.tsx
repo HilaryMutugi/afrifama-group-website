@@ -44,7 +44,7 @@ function Contact() {
       />
 
       <Section>
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <h2 className="font-display text-xl font-bold">Enquiry routes</h2>
             <p className="mt-2 text-muted-foreground">

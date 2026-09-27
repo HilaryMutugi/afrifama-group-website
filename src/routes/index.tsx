@@ -41,7 +41,7 @@ function Hero() {
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-14">
         <div className="lg:col-span-6">
           <p className="eyebrow text-terracotta">Kenyan agribusiness · Kilifi County</p>
-          <h1 className="mt-4 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
+          <h1 className="mt-4 h1-page font-extrabold">
             Building a stronger poultry system from feed to flock.
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
@@ -142,7 +142,7 @@ function Home() {
       </Section>
 
       <Section tone="muted" compact>
-        <div className="grid gap-10 lg:grid-cols-12">
+        <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <SectionHeading
               eyebrow="Why Afrifama exists"

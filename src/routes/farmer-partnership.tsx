@@ -81,7 +81,7 @@ function FarmerPartnership() {
               <span className="size-1.5 rounded-full bg-gold-foreground" aria-hidden="true" />
               {farmerPartnership.hero.label}
             </span>
-            <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-5 h1-hero font-extrabold">
               Building capable poultry farmers, one flock at a time.
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/85 sm:text-xl">
@@ -97,7 +97,7 @@ function FarmerPartnership() {
         </div>
       </header>
 
-      <section className="bg-background py-20 sm:py-28">
+      <section className="bg-background section-pad">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-12 lg:items-center lg:px-8">
           <div className="lg:col-span-4">
             <p className="eyebrow text-terracotta">01 / The proposition</p>
@@ -105,13 +105,13 @@ function FarmerPartnership() {
               Afrifama connects farm readiness with birds, stage-specific feeds, practical training and scheduled monitoring.
             </p>
           </div>
-          <blockquote className="border-l-2 border-gold pl-7 font-display text-3xl font-bold leading-tight text-primary sm:text-5xl lg:col-span-8">
+          <blockquote className="border-l-2 border-gold pl-7 font-display h2-section font-bold text-primary lg:col-span-8">
             “A commercial partnership with responsibilities on both sides.”
           </blockquote>
         </div>
       </section>
 
-      <section id="how-it-works" className="scroll-mt-20 bg-secondary/60 py-20 sm:py-28">
+      <section id="how-it-works" className="scroll-mt-20 bg-secondary/60 section-pad">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-12 lg:items-center lg:px-8">
           <figure className="group relative lg:col-span-7">
             <div className="overflow-hidden rounded-lg">
@@ -134,7 +134,7 @@ function FarmerPartnership() {
           </figure>
           <div className="lg:col-span-5 lg:pl-8">
             <p className="eyebrow text-terracotta">02 / Shared discipline</p>
-            <h2 className="mt-4 text-3xl font-extrabold sm:text-5xl">The flock succeeds through daily decisions.</h2>
+            <h2 className="mt-4 h2-section font-extrabold">The flock succeeds through daily decisions.</h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               Support is defined by the individual agreement. The farmer remains responsible for housing, water, equipment, care, biosecurity and records.
             </p>
@@ -155,7 +155,7 @@ function FarmerPartnership() {
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-5">
               <p className="eyebrow text-gold">03 / The partnership journey</p>
-              <h2 className="mt-4 text-3xl font-extrabold sm:text-5xl">From a ready farm to a managed production cycle.</h2>
+              <h2 className="mt-4 h2-section font-extrabold">From a ready farm to a managed production cycle.</h2>
             </div>
             <p className="max-w-xl text-lg leading-relaxed text-primary-foreground/75 lg:col-span-6 lg:col-start-7">
               Each step creates the evidence needed for the next decision. Application alone does not guarantee selection.
@@ -167,11 +167,11 @@ function FarmerPartnership() {
         </div>
       </section>
 
-      <section className="bg-background py-20 sm:py-28">
+      <section className="bg-background section-pad">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="max-w-2xl">
             <p className="eyebrow text-terracotta">04 / What matters</p>
-            <h2 className="mt-4 text-3xl font-extrabold sm:text-5xl">The essentials, without the fine-print overload.</h2>
+            <h2 className="mt-4 h2-section font-extrabold">The essentials, without the fine-print overload.</h2>
           </div>
           <Tabs defaultValue="readiness" className="mt-10">
             <TabsList className="grid h-auto w-full grid-cols-3 rounded-lg bg-secondary p-1 lg:w-fit">
@@ -222,11 +222,11 @@ function FarmerPartnership() {
         </div>
       </section>
 
-      <section className="bg-secondary/60 py-20 sm:py-28">
+      <section className="bg-secondary/60 section-pad">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-12 lg:items-center lg:px-8">
           <div className="lg:col-span-5">
             <p className="eyebrow text-terracotta">05 / In practice</p>
-            <h2 className="mt-4 text-3xl font-extrabold sm:text-5xl">Monitoring turns observations into action.</h2>
+            <h2 className="mt-4 h2-section font-extrabold">Monitoring turns observations into action.</h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               Scheduled visits connect flock condition, feed and water management, biosecurity and farm records with practical corrective steps.
             </p>
@@ -263,11 +263,11 @@ function FarmerPartnership() {
         </div>
       </section>
 
-      <section className="bg-background py-20 sm:py-24">
+      <section className="bg-background section-pad">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-12 lg:px-8">
           <div className="lg:col-span-4">
             <p className="eyebrow text-terracotta">06 / Before you apply</p>
-            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">Clear answers, carefully stated.</h2>
+            <h2 className="mt-4 h2-section font-extrabold">Clear answers, carefully stated.</h2>
             <p className="mt-5 text-muted-foreground">Online applications are not yet open. No information is being accepted or stored on this page.</p>
             <Button asChild variant="outline" className="mt-7"><Link to="/faqs">Read all farmer FAQs</Link></Button>
           </div>
@@ -291,7 +291,7 @@ function FarmerPartnership() {
         <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-12 lg:items-end lg:px-8">
           <div className="lg:col-span-8">
             <p className="eyebrow text-gold">Next step</p>
-            <h2 className="mt-4 text-4xl font-extrabold sm:text-6xl">Tell us about your farm.</h2>
+            <h2 className="mt-4 h2-section font-extrabold">Tell us about your farm.</h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/75">
               Online applications are opening soon. For now, contact Afrifama with your location, housing status and production goals.
             </p>

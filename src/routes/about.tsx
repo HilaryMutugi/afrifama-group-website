@@ -51,7 +51,7 @@ function About() {
           </div>
           <div className="mt-auto max-w-4xl">
             <p className="eyebrow text-gold">Our company story · Mariakani, Kenya</p>
-            <h1 className="mt-5 max-w-4xl text-4xl font-extrabold leading-[1.02] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-5 max-w-4xl h1-hero font-extrabold">
               {aboutStory.hero.title}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/85 sm:text-xl">
@@ -67,11 +67,11 @@ function About() {
         </div>
       </header>
 
-      <section id="our-story" className="scroll-mt-20 bg-background py-18 sm:py-24">
+      <section id="our-story" className="scroll-mt-20 bg-background section-pad">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-12 lg:items-start lg:px-8">
           <div className="lg:col-span-5 lg:sticky lg:top-28">
             <p className="eyebrow text-terracotta">01 / Where it began</p>
-            <h2 className="mt-4 text-3xl font-extrabold sm:text-5xl">The flock revealed the system.</h2>
+            <h2 className="mt-4 h2-section font-extrabold">The flock revealed the system.</h2>
             <figure className="group mt-8">
               <div className="overflow-hidden rounded-lg">
                 <img src={photos.chickWater.src} srcSet={photos.chickWater.srcSet} sizes="(min-width: 1024px) 38vw, 100vw" data-image-slot={imageSlots.about[1]} alt="A young chick drinking water in Kenya" width={photos.chickWater.width} height={photos.chickWater.height} loading="lazy" className="aspect-[5/4] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
@@ -90,12 +90,12 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-secondary/60 py-18 sm:py-24">
+      <section className="bg-secondary/60 section-pad">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-6">
               <p className="eyebrow text-terracotta">02 / The journey</p>
-              <h2 className="mt-4 text-3xl font-extrabold sm:text-5xl">One lesson led to the next move.</h2>
+              <h2 className="mt-4 h2-section font-extrabold">One lesson led to the next move.</h2>
             </div>
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground lg:col-span-5 lg:col-start-8">A simple poultry operation became a wider ambition because each constraint was connected to another.</p>
           </div>
@@ -132,14 +132,14 @@ function About() {
       <section className="bg-primary-deep py-18 text-primary-foreground sm:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-6"><p className="eyebrow text-gold">03 / One growing system</p><h2 className="mt-4 text-3xl font-extrabold sm:text-5xl">The businesses belong together.</h2></div>
+            <div className="lg:col-span-6"><p className="eyebrow text-gold">03 / One growing system</p><h2 className="mt-4 h2-section font-extrabold">The businesses belong together.</h2></div>
             <p className="max-w-xl text-lg leading-relaxed text-primary-foreground/70 lg:col-span-5 lg:col-start-8">Nutrition supports birds. Capable farmers turn good inputs into disciplined production. Markets give that production commercial purpose.</p>
           </div>
         </div>
         <div className="mt-10 sm:mt-14"><AboutSystemMural /></div>
       </section>
 
-      <section className="bg-background py-16 sm:py-20">
+      <section className="bg-background section-pad">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-12">
             <div className="lg:col-span-3"><p className="eyebrow text-terracotta">04 / Early proof</p><h2 className="mt-4 text-3xl font-extrabold">Different measures. Clear context.</h2></div>
@@ -151,16 +151,16 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-secondary/60 py-18 sm:py-24">
+      <section className="bg-secondary/60 section-pad">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-5"><p className="eyebrow text-terracotta">05 / What we are building</p><h2 className="mt-4 text-3xl font-extrabold sm:text-5xl">Local roots. Regional direction.</h2></div>
+          <div className="grid gap-8 lg:grid-cols-12">
+            <div className="lg:col-span-5"><p className="eyebrow text-terracotta">05 / What we are building</p><h2 className="mt-4 h2-section font-extrabold">Local roots. Regional direction.</h2></div>
             <div className="space-y-8 lg:col-span-6 lg:col-start-7">
               <div className="border-l-2 border-gold pl-6"><p className="eyebrow text-primary">Mission</p><p className="mt-3 text-xl leading-relaxed">{aboutStory.mission}</p></div>
               <div className="border-l-2 border-terracotta pl-6"><p className="eyebrow text-primary">Direction</p><p className="mt-3 text-xl leading-relaxed">{aboutStory.direction}</p></div>
             </div>
           </div>
-          <div className="mt-16 divide-y divide-border border-y border-border">
+          <div className="mt-10 divide-y divide-border border-y border-border">
             {aboutStory.principles.map((principle, index) => <div key={principle.title} className="grid gap-2 py-6 sm:grid-cols-[4rem_1fr_2fr] sm:items-baseline"><span className="font-display text-sm font-bold text-terracotta">0{index + 1}</span><h3 className="text-lg font-bold">{principle.title}</h3><p className="max-w-2xl leading-relaxed text-muted-foreground">{principle.body}</p></div>)}
           </div>
         </div>
@@ -169,7 +169,7 @@ function About() {
       <section className="bg-primary-deep py-20 text-primary-foreground sm:py-28">
         <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
           <p className="eyebrow text-gold">The idea that carries forward</p>
-          <blockquote className="mt-6 font-display text-3xl font-bold leading-tight sm:text-5xl">“{aboutStory.closing}”</blockquote>
+          <blockquote className="mt-6 font-display h2-section font-bold">“{aboutStory.closing}”</blockquote>
           <Button asChild size="lg" variant="secondary" className="mt-9"><Link to="/businesses">Explore Our Businesses <ArrowRight aria-hidden="true" /></Link></Button>
         </div>
       </section>

@@ -57,7 +57,7 @@ function Impact() {
           <div className="grid overflow-hidden border-x border-t border-primary-foreground/15 lg:grid-cols-[1.02fr_0.98fr]">
             <div className="flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-14 lg:py-20">
               <p className="eyebrow text-gold">Impact</p>
-              <h1 className="mt-5 max-w-2xl text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-[3.25rem]">
+              <h1 className="mt-5 max-w-2xl h1-page font-extrabold">
                 {impactFramework.coreMessage}
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
@@ -85,7 +85,7 @@ function Impact() {
       </section>
 
       <Section>
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <SectionHeading
               eyebrow="How impact happens"
@@ -156,7 +156,7 @@ function Impact() {
       </Section>
 
       <Section tone="forest">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-5">
             <SectionHeading
               eyebrow="Farmer journey"
@@ -187,7 +187,7 @@ function Impact() {
       </Section>
 
       <Section compact>
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6">
             <SectionHeading
               eyebrow="Where we work"
@@ -200,7 +200,7 @@ function Impact() {
       </Section>
 
       <Section tone="muted">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="relative min-h-80 overflow-hidden lg:col-span-5 lg:min-h-[470px]">
             <img
               src={photos.chickWater.src}
@@ -216,7 +216,7 @@ function Impact() {
           </div>
           <div className="lg:col-span-7 lg:pl-8">
             <p className="eyebrow text-terracotta">Stories from the field</p>
-            <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Evidence before testimony</h2>
+            <h2 className="mt-3 h2-section font-extrabold">Evidence before testimony</h2>
             <p className="mt-5 text-xl font-semibold leading-relaxed text-primary">
               Stories will be published as the first partner flocks progress through the production cycle.
             </p>
@@ -245,7 +245,7 @@ function Impact() {
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <p className="eyebrow text-gold">Partnership</p>
-            <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Help build measurable farmer impact</h2>
+            <h2 className="mt-3 h2-section font-extrabold">Help build measurable farmer impact</h2>
             <p className="mt-5 leading-relaxed text-primary-foreground/75">Connect with Afrifama around farmer capability, technical evidence, markets or commercially disciplined growth.</p>
           </div>
           <Button asChild variant="secondary" size="lg"><Link to="/contact">Start a conversation <ArrowRight className="size-4" /></Link></Button>

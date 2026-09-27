@@ -74,7 +74,7 @@ function FieldNote() {
               </span>
               <span className="text-xs text-muted-foreground">{note.readingTime}</span>
             </div>
-            <h1 className="mt-5 text-3xl font-extrabold leading-[1.1] sm:text-4xl">{note.title}</h1>
+            <h1 className="mt-5 h2-section font-extrabold">{note.title}</h1>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{note.excerpt}</p>
           </div>
         </div>

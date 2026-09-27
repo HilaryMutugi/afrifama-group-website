@@ -88,7 +88,7 @@ function Feeds() {
                 <p className="eyebrow text-terracotta">Afrifama Feeds</p>
                 <StatusBadge status="Operational" />
               </div>
-              <h1 className="mt-5 max-w-xl text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
+              <h1 className="mt-5 max-w-xl h1-page font-extrabold">
                 Nutrition built for every stage of the flock.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
@@ -119,7 +119,7 @@ function Feeds() {
       </section>
 
       <Section compact>
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-4">
             <SectionHeading eyebrow="Product journey" title="Follow the nutritional objective" lead="Move through the flock journey to see how the focus changes from early development to production." />
           </div>
@@ -142,7 +142,7 @@ function Feeds() {
                 </Button>
               ))}
             </div>
-            <div role="tabpanel" className="border-x border-b border-border bg-secondary/50 p-6 sm:p-8">
+            <div role="tabpanel" className="border-x border-b border-border bg-secondary/50 p-6 sm:p-7">
               <p className="eyebrow text-terracotta">{selectedStage.name}</p>
               <h3 className="mt-2 font-display text-2xl font-bold">{selectedStage.objective}</h3>
               <p className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">{selectedStage.detail}</p>
@@ -173,7 +173,7 @@ function Feeds() {
       </Section>
 
       <Section tone="forest">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-4">
             <SectionHeading eyebrow="Nutrition connected to production" title="Feed decisions should begin with the bird." lead="A formulation cannot be judged apart from the flock, its environment and the discipline of daily management." inverted />
           </div>
@@ -197,7 +197,7 @@ function Feeds() {
       </Section>
 
       <Section>
-        <div className="grid gap-10 lg:grid-cols-12">
+        <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <SectionHeading eyebrow="How Afrifama develops feed" title="A process designed to keep learning" lead={feedsPage.processCopy} />
           </div>
@@ -214,7 +214,7 @@ function Feeds() {
       </Section>
 
       <Section tone="muted">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
           <figure className="lg:col-span-5">
             <div className="grid grid-cols-2 gap-2">
               <img src={photos.maizeMilling.src} srcSet={photos.maizeMilling.srcSet} sizes="(min-width: 1024px) 40vw, 100vw" data-image-slot={imageSlots.feeds[1]} alt="A mill worker checking a large pile of maize grain ready for milling" loading="lazy" width={photos.maizeMilling.width} height={photos.maizeMilling.height} className="col-span-2 aspect-[3/2] w-full object-cover" />
@@ -238,7 +238,7 @@ function Feeds() {
       </Section>
 
       <Section>
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <SectionHeading eyebrow="Farmer support" title="Good feed performs best with good management." lead="Product choice is only one decision. Afrifama connects feed conversations with practical flock and farm-management support." />
             <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
@@ -246,7 +246,7 @@ function Feeds() {
             </ul>
           </div>
           <div className="lg:col-span-7">
-            <div className="border border-border bg-secondary/50 p-6 sm:p-8">
+            <div className="border border-border bg-secondary/50 p-6 sm:p-7">
               <p className="eyebrow text-terracotta">Common questions</p>
               <h3 className="mt-4 font-display text-2xl font-bold">Choose feed around the flock stage</h3>
               {feedFaqs ? (
@@ -263,7 +263,7 @@ function Feeds() {
 
       <Section tone="forest">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-          <div><p className="eyebrow text-gold">Farmers, farms and distributors</p><h2 className="mt-3 max-w-3xl text-3xl font-extrabold sm:text-4xl">Find the right feed for your flock</h2><p className="mt-5 max-w-3xl text-lg leading-relaxed text-primary-foreground/80">Poultry farmers, partner farms, commercial farms, distributors, technical partners and raw-material suppliers can start with one focused enquiry.</p></div>
+          <div><p className="eyebrow text-gold">Farmers, farms and distributors</p><h2 className="mt-3 max-w-3xl h2-section font-extrabold">Find the right feed for your flock</h2><p className="mt-5 max-w-3xl text-lg leading-relaxed text-primary-foreground/80">Poultry farmers, partner farms, commercial farms, distributors, technical partners and raw-material suppliers can start with one focused enquiry.</p></div>
           <div className="flex flex-wrap gap-3"><Button asChild size="lg" variant="secondary"><Link to="/contact">Discuss Your Flock</Link></Button><Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><Link to="/contact">Become a Distributor</Link></Button></div>
         </div>
       </Section>

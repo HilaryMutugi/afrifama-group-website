@@ -40,7 +40,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`${compact ? "py-14 sm:py-16" : "py-20 sm:py-24"} ${tones[tone]} ${className}`}
+      className={`${compact ? "py-10 sm:py-12" : "section-pad"} ${tones[tone]} ${className}`}
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">{children}</div>
     </section>
@@ -65,7 +65,7 @@ export function SectionHeading({
       {eyebrow ? (
         <p className={`eyebrow ${inverted ? "text-gold" : "text-terracotta"}`}>{eyebrow}</p>
       ) : null}
-      <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">{title}</h2>
+      <h2 className="mt-3 h2-section font-extrabold">{title}</h2>
       {lead ? (
         <p
           className={`mt-4 text-lg leading-relaxed ${
@@ -126,7 +126,7 @@ export function PageHero({
         <Breadcrumbs items={breadcrumbs} />
         <p className="eyebrow text-terracotta">{eyebrow}</p>
         <div className="mt-4 grid gap-6 lg:grid-cols-12 lg:items-end">
-          <h1 className="text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:col-span-7">
+          <h1 className="h1-page font-extrabold lg:col-span-7">
             {title}
           </h1>
           <div className="lg:col-span-5">

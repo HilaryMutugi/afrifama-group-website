@@ -63,7 +63,7 @@ function Poultry() {
                 <p className="eyebrow text-terracotta">Afrifama Poultry</p>
                 <StatusBadge status="Operational" />
               </div>
-              <h1 className="mt-5 max-w-xl text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-[3.25rem]">
+              <h1 className="mt-5 max-w-xl h1-page font-extrabold">
                 A stronger flock starts with a stronger operating system.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
@@ -107,7 +107,7 @@ function Poultry() {
       </section>
 
       <Section>
-        <div className="grid gap-10 lg:grid-cols-12">
+        <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <SectionHeading
               eyebrow="One connected system"
@@ -146,7 +146,7 @@ function Poultry() {
       </Section>
 
       <Section tone="forest">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-5">
             <SectionHeading
               eyebrow="Facilities, welfare and biosecurity"
