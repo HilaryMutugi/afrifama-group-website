@@ -17,6 +17,7 @@ export const company = {
 
 /** Stable names for photography that will be supplied in a later phase. */
 export const imageSlots = {
+  about: ["about-hero", "about-origin", "about-feeds", "about-operations"],
   poultry: ["poultry-hero", "poultry-brooding", "poultry-rearing", "poultry-laying"],
   feeds: ["feeds-hero", "feeds-raw-materials", "feeds-production"],
   genetics: ["genetics-hero", "genetics-parent-stock"],
@@ -778,33 +779,42 @@ export const partnerPathways = [
   },
 ];
 
-export const operatingPrinciples = [
-  {
-    title: "Commercial discipline",
-    body: "Every activity has to make sense on a balance sheet. Sustainable support for farmers depends on a business that works.",
+export const aboutStory = {
+  hero: {
+    title: "We started with poultry. The system taught us what had to come next.",
+    lead: "From feed production and flock management to farmer partnerships and stronger genetics, Afrifama is building the connected parts poultry farmers need to grow commercially.",
   },
-  {
-    title: "Farmer-centred design",
-    body: "Systems are designed around what a smallholder farm can actually operate day to day, not around ideal conditions.",
+  origin: [
+    "Afrifama grew from firsthand experience of poultry production in coastal Kenya. The business encountered the same constraints that affect many farmers: expensive and inconsistent feed, unreliable bird supply, disease and climate pressure, limited technical support and weak market coordination.",
+    "Those experiences changed the ambition. Poultry production led into local feed manufacturing. Feed and production experience led into commercial layers, farmer training and structured smallholder partnerships. The need for dependable birds also created the longer-term genetics and hatchery direction.",
+    "Afrifama is therefore being built as a connected system—not a collection of unrelated projects.",
+  ],
+  timeline: [
+    { marker: "Roots", title: "Production came first", body: "Practical poultry production experience in Mariakani and Kilifi County exposed the everyday constraints around feed, birds, flock care and markets." },
+    { marker: "2024", title: "The risks became clearer", body: "Commercial poultry operations strengthened Afrifama’s understanding of production risk, nutrition, flock management and markets." },
+    { marker: "2025", title: "Nutrition moved closer to home", body: "Afrifama Feeds began local feed production to improve control over nutrition, quality and production costs." },
+    { marker: "2026", title: "Experience moved onto partner farms", body: "The business deepened its focus on commercial layers and launched the structured Smallholder Egg Partnership." },
+    { marker: "Next", title: "Build the foundations carefully", body: "Strengthen farmer production, nutrition, poultry genetics and the foundations for future hatchery capacity. Genetics and hatchery work remains in development." },
+  ],
+  proof: [
+    { value: "150+", label: "Farmers reached", note: "Through wider Afrifama activities" },
+    { value: "7", label: "Kilifi County wards", note: "Represented in the wider network" },
+    { value: "205+", label: "Applications received", note: "For the current farmer partnership" },
+    { value: "Underway", label: "First rollout", note: "Layer-partnership rollout in progress" },
+  ],
+  proofNote: "These figures describe different parts of Afrifama’s work. Applications are expressions of interest and do not represent participating farmers. Public figures current as of September 2026.",
+  mission: "To build a commercially sound poultry system that gives farmers reliable access to nutrition, birds, practical support and markets.",
+  direction: "To grow from a locally rooted coastal Kenya business into a respected East African poultry platform.",
+  principles: [
+    { title: "Commercial discipline", body: "Build activities that can work sustainably and stand up to commercial scrutiny." },
+    { title: "Farmer capability", body: "Strengthen the practical knowledge, routines and records behind a capable poultry enterprise." },
+    { title: "Evidence before expansion", body: "Learn from production and verified records before claiming progress or adding the next layer." },
+  ],
+  closing: "Afrifama is being built from the ground up—learning from every flock, every feed batch and every farmer partnership. The goal is not simply to sell inputs, but to build poultry enterprises that can work, grow and last.",
+  captions: {
+    hero: "Documentary photograph — not an Afrifama farm or flock.",
+    origin: "Documentary photograph from Kenya — not an Afrifama farm or flock.",
+    feeds: "Documentary photograph — not an Afrifama feed facility or employee.",
+    operations: "Documentary photograph — not an Afrifama flock.",
   },
-  {
-    title: "Evidence over claims",
-    body: "Formulations, production decisions and published figures rest on analysis and records rather than assertion.",
-  },
-  {
-    title: "Build in sequence",
-    body: "We complete one layer of the system before announcing the next. Work in development is labelled as such.",
-  },
-];
-
-export const mission =
-  "To build an integrated, commercially sound poultry system that gives Kenyan farmers reliable access to quality nutrition, dependable birds and practical technical support.";
-
-export const vision =
-  "A regionally respected East African poultry platform where feed, genetics, production and farmer partnerships reinforce one another.";
-
-export const storyParagraphs = [
-  "Afrifama began with a practical observation in Kilifi County: poultry farming fails far more often for system reasons than for lack of effort. Birds arrive late or of unknown origin, feed quality shifts between batches, input costs swallow the margin, and technical advice comes from sources with no stake in the outcome.",
-  "Rather than solving one piece, Afrifama is building the connected parts — feed production and nutrition, commercial layer production, structured farmer partnerships, field support, and the foundations for reliable poultry genetics.",
-  "We are an early-growth business. Some parts of the system are operational today, others are in development, and we label them honestly so farmers, customers and partners can plan around what actually exists.",
-];
+} as const;
