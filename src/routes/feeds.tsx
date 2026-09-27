@@ -7,15 +7,10 @@ import {
   Check,
   ClipboardList,
   Droplets,
-  Factory,
   FlaskConical,
   Gauge,
-  Handshake,
-  Leaf,
-  PackageCheck,
   Scale,
   Sprout,
-  Users,
   Warehouse,
   Wheat,
 } from "lucide-react";
@@ -76,7 +71,6 @@ export const Route = createFileRoute("/feeds")({
 
 const productIcons = [Sprout, Wheat, Scale, Gauge, FlaskConical, Bird] as const;
 const factorIcons = [Bird, ClipboardList, Scale, Gauge, Droplets, Warehouse, Beaker, Wheat, Check] as const;
-const pathwayIcons = [Bird, Users, PackageCheck, Factory, Handshake, Leaf] as const;
 
 function Feeds() {
   const [activeStage, setActiveStage] = useState(0);
@@ -263,7 +257,7 @@ function Feeds() {
 
       <Section tone="forest">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-          <div><p className="eyebrow text-gold">Farmers, farms and distributors</p><h2 className="mt-3 max-w-3xl text-3xl font-extrabold sm:text-4xl">Find the right feed for your flock</h2><p className="mt-5 max-w-3xl text-lg leading-relaxed text-primary-foreground/80">Tell us about your birds, production stage and farm objectives, or discuss local distribution and supply.</p></div>
+          <div><p className="eyebrow text-gold">Farmers, farms and distributors</p><h2 className="mt-3 max-w-3xl text-3xl font-extrabold sm:text-4xl">Find the right feed for your flock</h2><p className="mt-5 max-w-3xl text-lg leading-relaxed text-primary-foreground/80">Poultry farmers, partner farms, commercial farms, distributors, technical partners and raw-material suppliers can start with one focused enquiry.</p></div>
           <div className="flex flex-wrap gap-3"><Button asChild size="lg" variant="secondary"><Link to="/contact">Discuss Your Flock</Link></Button><Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><Link to="/contact">Become a Distributor</Link></Button></div>
         </div>
       </Section>

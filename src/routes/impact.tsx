@@ -222,24 +222,13 @@ function Impact() {
       </Section>
 
       <Section tone="forest">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-4">
+        <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
             <p className="eyebrow text-gold">Partnership</p>
             <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Help build measurable farmer impact</h2>
             <p className="mt-5 leading-relaxed text-primary-foreground/75">Connect with Afrifama around farmer capability, technical evidence, markets or commercially disciplined growth.</p>
           </div>
-          <div className="border-t border-primary-foreground/20 lg:col-span-8">
-            {impactFramework.partnerPathways.map((pathway, index) => (
-              <div key={pathway.title} className="grid gap-3 border-b border-primary-foreground/20 py-5 sm:grid-cols-[2.5rem_1fr_1.5fr_auto] sm:items-center">
-                <span className="font-display text-sm font-bold text-gold">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="font-display font-bold">{pathway.title}</h3>
-                <p className="text-sm leading-relaxed text-primary-foreground/70">{pathway.body}</p>
-                <Button asChild variant="secondary" size="icon">
-                  <Link to={pathway.to} aria-label={`Explore the ${pathway.title} pathway`}><ArrowRight /></Link>
-                </Button>
-              </div>
-            ))}
-          </div>
+          <Button asChild variant="secondary" size="lg"><Link to="/contact">Start a conversation <ArrowRight className="size-4" /></Link></Button>
         </div>
       </Section>
     </>
