@@ -83,7 +83,7 @@ function ValueChainStrip() {
     <div className="border-b border-border bg-background">
       <ol className="mx-auto grid max-w-7xl gap-6 px-5 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:px-8">
         {valueChain.map((step, i) => {
-          const Icon = chainIcons[i];
+          const Icon = chainIcons[i] ?? Wheat;
           return (
             <li key={step.title} className="flex items-start gap-3 lg:px-5 lg:first:pl-0">
               <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
