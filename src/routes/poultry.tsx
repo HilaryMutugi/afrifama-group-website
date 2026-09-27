@@ -9,7 +9,7 @@ import {
 } from "@/components/site/primitives";
 import { CtaBand } from "@/components/site/CtaBand";
 import { company } from "@/content/site";
-import heroImage from "@/assets/hero-farmer.jpg";
+import heroImage from "@/assets/poultry-layers.jpg";
 
 export const Route = createFileRoute("/poultry")({
   head: () => ({

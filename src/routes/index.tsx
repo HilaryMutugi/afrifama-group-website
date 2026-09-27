@@ -85,7 +85,7 @@ function Hero() {
           <div className="overflow-hidden rounded-3xl border border-border shadow-lift">
             <img
               src={heroImage}
-              alt="Kenyan poultry farmer holding a healthy hen inside a well-managed layer house"
+              alt="Collage of the poultry value chain: feed ingredients, feed production, healthy hens, eggs and a Kenyan farmer"
               width={1600}
               height={1104}
               className="h-full w-full object-cover"
@@ -291,7 +291,7 @@ function Home() {
           <div className="lg:col-span-6">
             <img
               src={chicksImage}
-              alt="Healthy day-old chicks under a brooder lamp in a clean rearing environment"
+              alt="Illustration of future poultry genetics: an egg with a DNA pattern, a chick and concept sketches of a planned hatchery"
               loading="lazy"
               width={1408}
               height={1008}
