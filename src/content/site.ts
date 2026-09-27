@@ -310,6 +310,114 @@ export const earlyProgress = [
   { value: "4", label: "Core feed products", note: "Stage-based mash range" },
 ];
 
+export const impactFramework = {
+  coreMessage: "Impact begins with a poultry system that farmers can operate, measure and grow.",
+  supportingCopy:
+    "Afrifama is building practical connections between poultry production, nutrition, farmer capability and markets. Our impact approach measures more than participation—it follows what changes on the farm and whether those changes contribute to stronger livelihoods.",
+  pathway: [
+    {
+      number: "01",
+      title: "Inputs",
+      body: "Chicks, stage-specific feeds, training, technical support and production tools.",
+    },
+    {
+      number: "02",
+      title: "Farmer capability",
+      body: "Housing preparation, biosecurity, flock management, record-keeping and business discipline.",
+    },
+    {
+      number: "03",
+      title: "Production outcomes",
+      body: "Better flock survival, growth uniformity, feed management and production consistency.",
+    },
+    {
+      number: "04",
+      title: "Market participation",
+      body: "Stronger connections to inputs, technical services and reliable egg markets.",
+    },
+    {
+      number: "05",
+      title: "Livelihood resilience",
+      body: "More dependable farm income, stronger household enterprises and capacity to withstand production shocks.",
+    },
+  ],
+  metrics: [
+    {
+      label: "Applications received",
+      definition: "Expressions of interest submitted for review; not farmers selected or impacted.",
+      source: "Application register",
+    },
+    {
+      label: "Farmers assessed",
+      definition: "Applicants who have completed a documented farm-readiness assessment.",
+      source: "Farm-assessment records",
+    },
+    {
+      label: "Farmers selected",
+      definition: "Assessed farmers formally approved for the current partnership cohort.",
+      source: "Selection and agreement records",
+    },
+    {
+      label: "Farmers trained",
+      definition: "Selected farmers who have completed the required practical training modules.",
+      source: "Attendance and training records",
+    },
+    {
+      label: "Birds placed",
+      definition: "Birds physically placed with active partner farms under signed agreements.",
+      source: "Placement and flock records",
+    },
+    {
+      label: "Active partner farms",
+      definition: "Selected farms currently managing an Afrifama-supported production cycle.",
+      source: "Programme and monitoring records",
+    },
+    {
+      label: "Women and youth participating",
+      definition: "Verified participants reported by age and gender without double-counting.",
+      source: "Consented participant records",
+    },
+  ],
+  measurementPillars: [
+    {
+      title: "Farmer capability",
+      body: "Training completion, adoption of recommended practices and quality of farm records.",
+    },
+    {
+      title: "Flock performance",
+      body: "Mortality, body-weight development, feed use, production consistency and bird welfare.",
+    },
+    {
+      title: "Farm economics",
+      body: "Production costs, egg sales, farmer earnings, repayment performance and business continuity.",
+    },
+    {
+      title: "Household and community outcomes",
+      body: "Income stability, confidence, decision-making, women’s participation, youth employment and resilience.",
+    },
+  ],
+  farmerJourney: [
+    "Application",
+    "Assessment",
+    "Selection",
+    "Training",
+    "Bird placement",
+    "Monitoring",
+    "Production",
+    "Market linkage",
+  ],
+  reportingCopy:
+    "Afrifama separates participation, operational progress and livelihood outcomes. We publish figures only after they have been checked against programme, flock and farmer records. As the pilot develops, this page will be updated with reporting dates, definitions and supporting field evidence.",
+  lastUpdated: "27 September 2026",
+  partnerPathways: [
+    { title: "Farmers", body: "Explore the requirements and stages of Afrifama’s structured production partnership.", to: "/farmer-partnership" },
+    { title: "Technical partners", body: "Contribute practical expertise across nutrition, flock health, genetics and monitoring.", to: "/contact" },
+    { title: "Market partners", body: "Discuss reliable routes to market as verified egg volumes develop.", to: "/contact" },
+    { title: "Researchers", body: "Explore rigorous, responsible learning around poultry production and farmer outcomes.", to: "/contact" },
+    { title: "Investors and development partners", body: "Support commercially disciplined infrastructure and evidence-led growth.", to: "/contact" },
+  ],
+} as const;
+
 export type FieldNote = {
   slug: string;
   title: string;
