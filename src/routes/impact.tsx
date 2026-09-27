@@ -138,7 +138,7 @@ function Impact() {
         />
         <div className="mt-10 grid border-t border-border md:grid-cols-2">
           {impactFramework.measurementPillars.map((pillar, index) => {
-            const Icon = measurementIcons[index];
+            const Icon = measurementIcons[index] ?? ClipboardCheck;
             return (
               <article key={pillar.title} className={`border-b border-border py-8 md:px-8 ${index % 2 === 1 ? "md:border-l" : ""}`}>
                 <Icon className="size-6 text-terracotta" aria-hidden="true" />
