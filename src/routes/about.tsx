@@ -46,7 +46,9 @@ function About() {
         />
         <div className="absolute inset-0 bg-primary-deep/70" aria-hidden="true" />
         <div className="relative mx-auto flex min-h-[min(760px,calc(100svh-72px))] max-w-7xl flex-col px-5 pt-8 pb-10 lg:px-8 lg:pb-14">
-          <Breadcrumbs items={[{ label: "About Afrifama" }]} />
+          <div className="[&_nav]:text-primary-foreground/75 [&_nav_a]:text-primary-foreground/75 [&_nav_span]:text-primary-foreground">
+            <Breadcrumbs items={[{ label: "About Afrifama" }]} />
+          </div>
           <div className="mt-auto max-w-4xl">
             <p className="eyebrow text-gold">Our company story · Mariakani, Kenya</p>
             <h1 className="mt-5 max-w-4xl text-4xl font-extrabold leading-[1.02] sm:text-6xl lg:text-7xl">
