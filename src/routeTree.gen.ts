@@ -12,11 +12,14 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BusinessesRouteImport } from './routes/businesses'
+import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as FarmerPartnershipRouteImport } from './routes/farmer-partnership'
 import { Route as FeedsRouteImport } from './routes/feeds'
 import { Route as GeneticsHatcheryRouteImport } from './routes/genetics-hatchery'
 import { Route as ImpactRouteImport } from './routes/impact'
 import { Route as PoultryRouteImport } from './routes/poultry'
+import { Route as FieldNotesIndexRouteImport } from './routes/field-notes.index'
+import { Route as FieldNotesSlugRouteImport } from './routes/field-notes.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -31,6 +34,11 @@ const AboutRoute = AboutRouteImport.update({
 const BusinessesRoute = BusinessesRouteImport.update({
   id: '/businesses',
   path: '/businesses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqsRoute = FaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FarmerPartnershipRoute = FarmerPartnershipRouteImport.update({
@@ -58,37 +66,56 @@ const PoultryRoute = PoultryRouteImport.update({
   path: '/poultry',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FieldNotesIndexRoute = FieldNotesIndexRouteImport.update({
+  id: '/field-notes/',
+  path: '/field-notes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FieldNotesSlugRoute = FieldNotesSlugRouteImport.update({
+  id: '/field-notes/$slug',
+  path: '/field-notes/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/businesses': typeof BusinessesRoute
+  '/faqs': typeof FaqsRoute
   '/farmer-partnership': typeof FarmerPartnershipRoute
   '/feeds': typeof FeedsRoute
   '/genetics-hatchery': typeof GeneticsHatcheryRoute
   '/impact': typeof ImpactRoute
   '/poultry': typeof PoultryRoute
+  '/field-notes/$slug': typeof FieldNotesSlugRoute
+  '/field-notes/': typeof FieldNotesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/businesses': typeof BusinessesRoute
+  '/faqs': typeof FaqsRoute
   '/farmer-partnership': typeof FarmerPartnershipRoute
   '/feeds': typeof FeedsRoute
   '/genetics-hatchery': typeof GeneticsHatcheryRoute
   '/impact': typeof ImpactRoute
   '/poultry': typeof PoultryRoute
+  '/field-notes/$slug': typeof FieldNotesSlugRoute
+  '/field-notes': typeof FieldNotesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/businesses': typeof BusinessesRoute
+  '/faqs': typeof FaqsRoute
   '/farmer-partnership': typeof FarmerPartnershipRoute
   '/feeds': typeof FeedsRoute
   '/genetics-hatchery': typeof GeneticsHatcheryRoute
   '/impact': typeof ImpactRoute
   '/poultry': typeof PoultryRoute
+  '/field-notes/$slug': typeof FieldNotesSlugRoute
+  '/field-notes/': typeof FieldNotesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -96,42 +123,54 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/businesses'
+    | '/faqs'
     | '/farmer-partnership'
     | '/feeds'
     | '/genetics-hatchery'
     | '/impact'
     | '/poultry'
+    | '/field-notes/$slug'
+    | '/field-notes/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/businesses'
+    | '/faqs'
     | '/farmer-partnership'
     | '/feeds'
     | '/genetics-hatchery'
     | '/impact'
     | '/poultry'
+    | '/field-notes/$slug'
+    | '/field-notes'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/businesses'
+    | '/faqs'
     | '/farmer-partnership'
     | '/feeds'
     | '/genetics-hatchery'
     | '/impact'
     | '/poultry'
+    | '/field-notes/$slug'
+    | '/field-notes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BusinessesRoute: typeof BusinessesRoute
+  FaqsRoute: typeof FaqsRoute
   FarmerPartnershipRoute: typeof FarmerPartnershipRoute
   FeedsRoute: typeof FeedsRoute
   GeneticsHatcheryRoute: typeof GeneticsHatcheryRoute
   ImpactRoute: typeof ImpactRoute
   PoultryRoute: typeof PoultryRoute
+  FieldNotesSlugRoute: typeof FieldNotesSlugRoute
+  FieldNotesIndexRoute: typeof FieldNotesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -155,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/businesses'
       fullPath: '/businesses'
       preLoaderRoute: typeof BusinessesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faqs': {
+      id: '/faqs'
+      path: '/faqs'
+      fullPath: '/faqs'
+      preLoaderRoute: typeof FaqsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/farmer-partnership': {
@@ -192,6 +238,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PoultryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/field-notes/': {
+      id: '/field-notes/'
+      path: '/field-notes'
+      fullPath: '/field-notes/'
+      preLoaderRoute: typeof FieldNotesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/field-notes/$slug': {
+      id: '/field-notes/$slug'
+      path: '/field-notes/$slug'
+      fullPath: '/field-notes/$slug'
+      preLoaderRoute: typeof FieldNotesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -199,11 +259,14 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BusinessesRoute: BusinessesRoute,
+  FaqsRoute: FaqsRoute,
   FarmerPartnershipRoute: FarmerPartnershipRoute,
   FeedsRoute: FeedsRoute,
   GeneticsHatcheryRoute: GeneticsHatcheryRoute,
   ImpactRoute: ImpactRoute,
   PoultryRoute: PoultryRoute,
+  FieldNotesSlugRoute: FieldNotesSlugRoute,
+  FieldNotesIndexRoute: FieldNotesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
