@@ -12,10 +12,16 @@ export const company = {
     "Locally rooted. Commercially disciplined. Farmer-centred. Built for regional scale.",
   location: "Kilifi County, Kenya",
   reach: "Serving Kenya with ambitions for wider East African growth",
-  // PLACEHOLDER — replace with Afrifama's published contact details.
-  phonePlaceholder: "+254 000 000 000 (placeholder)",
-  emailPlaceholder: "hello@afrifama.example (placeholder)",
   siteUrl: "https://afrifama.co.ke",
+} as const;
+
+/** Stable names for photography that will be supplied in a later phase. */
+export const imageSlots = {
+  poultry: ["poultry-hero", "poultry-brooding", "poultry-rearing", "poultry-laying"],
+  feeds: ["feeds-hero", "feeds-raw-materials", "feeds-production"],
+  genetics: ["genetics-hero", "genetics-parent-stock"],
+  impact: ["impact-hero", "impact-field-assessment", "impact-farmer-story"],
+  partnership: ["partnership-hero", "partnership-training", "partnership-farm-assessment"],
 } as const;
 
 export type NavItem = { label: string; to: string };
@@ -146,6 +152,12 @@ export const poultryPathways = [
   { audience: "Commercial farmers", title: "Build a more consistent production routine", body: "Explore Afrifama's structured farmer partnership and the operating standards expected on participating farms.", label: "Understand the partnership", to: "/farmer-partnership" },
   { audience: "Feed customers", title: "Match nutrition to the production stage", body: "Review the Chick, Growers, Layers and Kienyeji mash range developed for practical local production.", label: "Explore Afrifama Feeds", to: "/feeds" },
   { audience: "Strategic partners", title: "Strengthen the system around the flock", body: "Discuss technical, supply, equipment or investment partnerships that support disciplined growth.", label: "Start a conversation", to: "/contact" },
+] as const;
+
+export const poultryProductionStages = [
+  { title: "Brooding", body: "Early nutrition, temperature, water, vaccination and close observation." },
+  { title: "Rearing", body: "Body-weight development, flock uniformity and preparation for production." },
+  { title: "Laying", body: "Lighting, nutrition, health monitoring and disciplined production records." },
 ] as const;
 
 export const geneticsCapability = {
@@ -309,7 +321,6 @@ export const feedsPage = {
     "Flock-performance review",
     "Practical farmer training",
   ],
-  futureResources: ["Feeding guides", "Record sheets", "Technical notes", "Frequently asked questions"],
   customerPathways: [
     { title: "Poultry farmers", body: "Discuss the flock type, production stage and product option that fits your current objective.", to: "/contact" },
     { title: "Partner farmers", body: "Connect feed decisions with Afrifama’s structured production partnership and field support.", to: "/farmer-partnership" },
@@ -381,14 +392,10 @@ export const farmerPartnership = {
     { number: "08", title: "Market coordination and review", body: "Production performance, farmer obligations and market pathways are reviewed as the flock moves into lay." },
   ],
   support: [
-    { title: "Biosecurity and flock health", body: "Practical routines that reduce avoidable disease exposure and help farmers spot concerns early." },
-    { title: "Feeding and water management", body: "Guidance on consistent access, stage transitions and day-to-day observation." },
-    { title: "Vaccination follow-up", body: "Scheduled review against the agreed health programme and farmer records." },
-    { title: "Body weight and flock uniformity", body: "Periodic checks that help identify uneven development and management gaps." },
-    { title: "Production records", body: "Simple, consistent records for feed, mortality, body weight and egg production." },
-    { title: "Farm economics", body: "Tracking costs, production and sales so operating decisions remain commercially grounded." },
-    { title: "Scheduled field visits", body: "Planned farm reviews based on the production stage and partnership arrangement." },
-    { title: "Corrective technical support", body: "Practical guidance when monitoring identifies a management or production concern." },
+    { title: "Flock health and biosecurity", body: "Practical prevention routines, health-programme follow-up and early identification of concerns." },
+    { title: "Feeding, water and body-weight management", body: "Guidance on access, stage transitions, development and flock uniformity." },
+    { title: "Records and farm economics", body: "Consistent production and cost records that keep decisions commercially grounded." },
+    { title: "Field monitoring and corrective support", body: "Scheduled reviews and practical guidance when records or flock observations identify a concern." },
   ],
   recoverableSupport: {
     body: "Depending on the agreed partnership, Afrifama may advance birds, feed or selected production inputs. These inputs are not donations. The value and method of recovery are defined in the individual farmer agreement before placement.",

@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs, Section, SectionHeading } from "@/components/site/primitives";
-import { company, impactFramework } from "@/content/site";
+import { company, impactFramework, imageSlots } from "@/content/site";
 import fieldImage from "@/assets/farmer-training.jpg";
 import flockImage from "@/assets/poultry-layers.jpg";
 
@@ -56,7 +56,7 @@ function Impact() {
           <div className="grid overflow-hidden border-x border-t border-primary-foreground/15 lg:grid-cols-[1.02fr_0.98fr]">
             <div className="flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-14 lg:py-20">
               <p className="eyebrow text-gold">Impact</p>
-              <h1 className="mt-5 max-w-2xl text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
+              <h1 className="mt-5 max-w-2xl text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-[3.25rem]">
                 {impactFramework.coreMessage}
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
@@ -66,6 +66,7 @@ function Impact() {
             <div className="relative min-h-80 lg:min-h-[620px]">
               <img
                 src={fieldImage}
+                data-image-slot={imageSlots.impact[0]}
                 alt="Poultry farmers and a field team reviewing farm information together"
                 width={1600}
                 height={1067}
@@ -162,6 +163,7 @@ function Impact() {
             <div className="mt-8 aspect-[4/3] overflow-hidden border border-primary-foreground/20">
               <img
                 src={fieldImage}
+                data-image-slot={imageSlots.impact[1]}
                 alt="A field assessment discussion beside a commercial poultry house"
                 width={1600}
                 height={1067}
@@ -185,6 +187,7 @@ function Impact() {
           <div className="relative min-h-80 overflow-hidden lg:col-span-5 lg:min-h-[470px]">
             <img
               src={flockImage}
+              data-image-slot={imageSlots.impact[2]}
               alt="Healthy commercial layer flock in a well-ventilated poultry house"
               width={1600}
               height={1104}
@@ -222,8 +225,8 @@ function Impact() {
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="eyebrow text-gold">Partnership</p>
-            <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Help us build impact that can be measured on the farm.</h2>
-            <p className="mt-5 leading-relaxed text-primary-foreground/75">Choose the pathway that best matches your role in a stronger poultry system.</p>
+            <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Help build measurable farmer impact</h2>
+            <p className="mt-5 leading-relaxed text-primary-foreground/75">Connect with Afrifama around farmer capability, technical evidence, markets or commercially disciplined growth.</p>
           </div>
           <div className="border-t border-primary-foreground/20 lg:col-span-8">
             {impactFramework.partnerPathways.map((pathway, index) => (

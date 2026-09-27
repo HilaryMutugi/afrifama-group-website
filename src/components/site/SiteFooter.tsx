@@ -1,12 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { company, primaryNav } from "@/content/site";
 
-const socialPlaceholders = ["LinkedIn", "Facebook", "Instagram", "X"];
-
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border bg-primary-deep text-primary-foreground">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-3 lg:px-8">
         <div className="lg:col-span-2">
           <p className="font-display text-2xl font-extrabold tracking-tight">AFRIFAMA</p>
           <p className="mt-3 max-w-sm text-sm text-primary-foreground/75">
@@ -21,18 +19,8 @@ export function SiteFooter() {
               <dt className="sr-only">Market</dt>
               <dd>{company.reach}</dd>
             </div>
-            <div className="pt-3">
-              <dt className="inline">Telephone: </dt>
-              <dd className="inline">{company.phonePlaceholder}</dd>
-            </div>
-            <div>
-              <dt className="inline">Email: </dt>
-              <dd className="inline">{company.emailPlaceholder}</dd>
-            </div>
+            <div className="pt-3"><dt className="sr-only">Contact</dt><dd><Link to="/contact" className="font-semibold text-primary-foreground hover:text-gold">Contact Afrifama</Link></dd></div>
           </dl>
-          <p className="mt-2 text-xs text-gold">
-            Contact details are placeholders — replace before publishing.
-          </p>
         </div>
 
         <div>
@@ -52,15 +40,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h2 className="eyebrow text-gold">Follow</h2>
-          <ul className="mt-4 space-y-2 text-sm">
-            {socialPlaceholders.map((name) => (
-              <li key={name} className="text-primary-foreground/60">
-                {name} — link placeholder
-              </li>
-            ))}
-          </ul>
-          <h2 className="eyebrow mt-8 text-gold">Legal</h2>
+          <h2 className="eyebrow text-gold">Legal</h2>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
               <Link
