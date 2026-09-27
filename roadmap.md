@@ -13,3 +13,5 @@
 - [x] Refine Poultry, Feeds, Genetics & Hatchery, Impact and Farmer Partnership without changing the homepage.
 - [x] Remove public contact and social placeholders, and make the unconnected farmer form unavailable.
 - [x] Verify all five refined pages across desktop, tablet and mobile.
+- [x] Recompose the Farmer Partnership page as a concise editorial experience with a custom mural and progressive disclosure.
+- [x] Verify the redesigned Farmer Partnership page on desktop and mobile.

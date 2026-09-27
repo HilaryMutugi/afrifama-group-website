@@ -15,3 +15,4 @@
 - Shared site chrome (header, footer, skip link) lives in `src/routes/__root.tsx`; reusable page primitives live in `src/components/site/` — keeps every page visually consistent.
 - Future/unreleased surfaces (e.g. `/egg-supply-interest`) stay gated behind `futureSurfaces` flags in `src/content/site.ts`, noindex and out of nav/sitemap — so architecture can exist before the offering does.
 - Future photography positions use centrally named `imageSlots` from `src/content/site.ts` — so later asset replacement is unambiguous without adding empty public placeholders.
+- Page-specific editorial illustrations live as reusable components in `src/components/site/` and use global semantic colour tokens — keeping responsive artwork accessible and on-brand.
