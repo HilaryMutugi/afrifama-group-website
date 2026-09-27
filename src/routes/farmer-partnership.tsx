@@ -131,7 +131,7 @@ function FarmerPartnership() {
         </div>
       </header>
 
-      <Section id="partnership-model" compact>
+      <Section id="partnership-model" className="scroll-mt-20" compact>
         <SectionHeading
           eyebrow="The partnership model"
           title={farmerPartnership.model.title}
@@ -264,7 +264,7 @@ function FarmerPartnership() {
         </p>
       </Section>
 
-      <Section id="farmer-faqs" compact>
+      <Section id="farmer-faqs" className="scroll-mt-20" compact>
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <SectionHeading
@@ -296,7 +296,7 @@ function FarmerPartnership() {
         </div>
       </Section>
 
-      <Section id="express-interest" tone="muted" compact>
+      <Section id="express-interest" className="scroll-mt-20" tone="muted" compact>
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <SectionHeading
