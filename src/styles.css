@@ -236,3 +236,22 @@
   animation: mural-draw 3.4s ease-out both;
 }
 
+.about-mural-path {
+  stroke-dasharray: 1100;
+  animation: mural-draw 3.8s ease-out both;
+}
+
+@keyframes timeline-reveal {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.about-timeline > li {
+  animation: timeline-reveal 0.65s ease-out both;
+}
+
+.about-timeline > li:nth-child(2) { animation-delay: 80ms; }
+.about-timeline > li:nth-child(3) { animation-delay: 160ms; }
+.about-timeline > li:nth-child(4) { animation-delay: 240ms; }
+.about-timeline > li:nth-child(5) { animation-delay: 320ms; }
+
