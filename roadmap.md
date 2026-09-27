@@ -5,5 +5,5 @@
 - [x] Verify both pages on desktop and mobile and confirm a clean preview build.
 - [x] Redesign only the Impact page around the five-step pathway and verified reporting framework.
 - [x] Verify the Impact page on desktop and mobile and confirm a clean preview build.
-- [ ] Redesign only the Feeds page around stage-specific products, production-linked nutrition, quality discipline, support and customer pathways.
-- [ ] Verify the Feeds page on desktop and mobile and confirm a clean preview build.
+- [x] Redesign only the Feeds page around stage-specific products, production-linked nutrition, quality discipline, support and customer pathways.
+- [x] Verify the Feeds page on desktop and mobile and confirm a clean preview build.
