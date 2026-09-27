@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
-import { primaryNav, navCta, company } from "@/content/site";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { primaryNav, navCta, company, desktopNav, businessNav } from "@/content/site";
 import { Button } from "@/components/ui/button";
 
 function Wordmark() {
@@ -28,6 +28,7 @@ function Wordmark() {
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [bizOpen, setBizOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
@@ -104,7 +105,7 @@ export function SiteHeader() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="inline-flex size-10 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:bg-secondary xl:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:bg-secondary lg:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -115,7 +116,7 @@ export function SiteHeader() {
         <nav
           id="mobile-nav"
           aria-label="Mobile"
-          className="border-t border-border bg-background xl:hidden"
+          className="border-t border-border bg-background lg:hidden"
         >
           <ul className="mx-auto max-w-7xl px-5 py-3 lg:px-8">
             {primaryNav.map((item) => {
