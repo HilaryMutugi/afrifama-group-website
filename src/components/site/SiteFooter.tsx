@@ -5,7 +5,7 @@ import { company, primaryNav } from "@/content/site";
 export function SiteFooter() {
   return (
     <footer className="mt-12 border-t border-border bg-primary-deep text-primary-foreground sm:mt-16">
-      <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-8 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 lg:grid-cols-[1.25fr_1.35fr_0.9fr] lg:gap-8 lg:px-8">
         <div>
           <p className="font-display text-xl font-extrabold tracking-tight">AFRIFAMA</p>
           <p className="mt-2 max-w-[38ch] text-sm leading-relaxed text-primary-foreground/75">
@@ -25,7 +25,7 @@ export function SiteFooter() {
 
         <div>
           <h2 className="eyebrow text-gold">Website</h2>
-          <ul className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1.5 text-sm lg:grid-cols-1 lg:gap-y-1.5">
+          <ul className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1.5 text-sm lg:grid-cols-2 lg:gap-x-8">
             {primaryNav.map((item) => (
               <li key={item.to}>
                 <Link
