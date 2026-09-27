@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BusinessesRouteImport } from './routes/businesses'
+import { Route as FarmerPartnershipRouteImport } from './routes/farmer-partnership'
+import { Route as FeedsRouteImport } from './routes/feeds'
+import { Route as GeneticsHatcheryRouteImport } from './routes/genetics-hatchery'
+import { Route as ImpactRouteImport } from './routes/impact'
+import { Route as PoultryRouteImport } from './routes/poultry'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessesRoute = BusinessesRouteImport.update({
+  id: '/businesses',
+  path: '/businesses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FarmerPartnershipRoute = FarmerPartnershipRouteImport.update({
+  id: '/farmer-partnership',
+  path: '/farmer-partnership',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeedsRoute = FeedsRouteImport.update({
+  id: '/feeds',
+  path: '/feeds',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GeneticsHatcheryRoute = GeneticsHatcheryRouteImport.update({
+  id: '/genetics-hatchery',
+  path: '/genetics-hatchery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpactRoute = ImpactRouteImport.update({
+  id: '/impact',
+  path: '/impact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoultryRoute = PoultryRouteImport.update({
+  id: '/poultry',
+  path: '/poultry',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/businesses': typeof BusinessesRoute
+  '/farmer-partnership': typeof FarmerPartnershipRoute
+  '/feeds': typeof FeedsRoute
+  '/genetics-hatchery': typeof GeneticsHatcheryRoute
+  '/impact': typeof ImpactRoute
+  '/poultry': typeof PoultryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/businesses': typeof BusinessesRoute
+  '/farmer-partnership': typeof FarmerPartnershipRoute
+  '/feeds': typeof FeedsRoute
+  '/genetics-hatchery': typeof GeneticsHatcheryRoute
+  '/impact': typeof ImpactRoute
+  '/poultry': typeof PoultryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/businesses': typeof BusinessesRoute
+  '/farmer-partnership': typeof FarmerPartnershipRoute
+  '/feeds': typeof FeedsRoute
+  '/genetics-hatchery': typeof GeneticsHatcheryRoute
+  '/impact': typeof ImpactRoute
+  '/poultry': typeof PoultryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/businesses'
+    | '/farmer-partnership'
+    | '/feeds'
+    | '/genetics-hatchery'
+    | '/impact'
+    | '/poultry'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/businesses'
+    | '/farmer-partnership'
+    | '/feeds'
+    | '/genetics-hatchery'
+    | '/impact'
+    | '/poultry'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/businesses'
+    | '/farmer-partnership'
+    | '/feeds'
+    | '/genetics-hatchery'
+    | '/impact'
+    | '/poultry'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BusinessesRoute: typeof BusinessesRoute
+  FarmerPartnershipRoute: typeof FarmerPartnershipRoute
+  FeedsRoute: typeof FeedsRoute
+  GeneticsHatcheryRoute: typeof GeneticsHatcheryRoute
+  ImpactRoute: typeof ImpactRoute
+  PoultryRoute: typeof PoultryRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/businesses': {
+      id: '/businesses'
+      path: '/businesses'
+      fullPath: '/businesses'
+      preLoaderRoute: typeof BusinessesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/farmer-partnership': {
+      id: '/farmer-partnership'
+      path: '/farmer-partnership'
+      fullPath: '/farmer-partnership'
+      preLoaderRoute: typeof FarmerPartnershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feeds': {
+      id: '/feeds'
+      path: '/feeds'
+      fullPath: '/feeds'
+      preLoaderRoute: typeof FeedsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/genetics-hatchery': {
+      id: '/genetics-hatchery'
+      path: '/genetics-hatchery'
+      fullPath: '/genetics-hatchery'
+      preLoaderRoute: typeof GeneticsHatcheryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impact': {
+      id: '/impact'
+      path: '/impact'
+      fullPath: '/impact'
+      preLoaderRoute: typeof ImpactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/poultry': {
+      id: '/poultry'
+      path: '/poultry'
+      fullPath: '/poultry'
+      preLoaderRoute: typeof PoultryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BusinessesRoute: BusinessesRoute,
+  FarmerPartnershipRoute: FarmerPartnershipRoute,
+  FeedsRoute: FeedsRoute,
+  GeneticsHatcheryRoute: GeneticsHatcheryRoute,
+  ImpactRoute: ImpactRoute,
+  PoultryRoute: PoultryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
