@@ -4,7 +4,7 @@ import { company, primaryNav } from "@/content/site";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-12 border-t border-border bg-primary-deep text-primary-foreground sm:mt-16">
+    <footer className="border-t border-border bg-primary-deep text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 lg:grid-cols-[1.25fr_1.35fr_0.9fr] lg:gap-8 lg:px-8">
         <div>
           <p className="font-display text-xl font-extrabold tracking-tight">AFRIFAMA</p>

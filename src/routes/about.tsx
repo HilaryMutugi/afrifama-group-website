@@ -169,7 +169,7 @@ function About() {
       <section className="bg-primary-deep section-pad text-primary-foreground">
         <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
           <p className="eyebrow text-gold">The idea that carries forward</p>
-          <blockquote className="mt-6 font-display h2-section font-bold">“{aboutStory.closing}”</blockquote>
+          <blockquote className="mt-6 font-display text-[1.5rem] leading-snug sm:text-[1.875rem] font-bold">“{aboutStory.closing}”</blockquote>
           <Button asChild size="lg" variant="secondary" className="mt-9"><Link to="/businesses">Explore Our Businesses <ArrowRight aria-hidden="true" /></Link></Button>
         </div>
       </section>
