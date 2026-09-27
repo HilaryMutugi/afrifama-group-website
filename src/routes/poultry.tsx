@@ -66,7 +66,7 @@ function Poultry() {
               <h1 className="mt-5 max-w-xl h1-page font-extrabold">
                 A stronger flock starts with a stronger operating system.
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-6 max-w-xl body-copy text-muted-foreground">
                 Commercial layer production connected to stage-based nutrition, disciplined facilities,
                 daily records and practical farmer support.
               </p>

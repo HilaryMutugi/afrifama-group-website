@@ -83,7 +83,7 @@ function About() {
             <p className="border-l-2 border-gold pl-6 font-display text-2xl font-bold leading-snug text-primary sm:text-3xl">
               Poultry production exposed the nutrition and input problem. Solving that problem revealed the next one.
             </p>
-            <div className="mt-10 space-y-6 text-lg leading-relaxed text-muted-foreground">
+            <div className="mt-10 space-y-6 body-copy text-muted-foreground">
               {aboutStory.origin.map((paragraph) => <p key={paragraph.slice(0, 42)}>{paragraph}</p>)}
             </div>
           </div>
@@ -97,7 +97,7 @@ function About() {
               <p className="eyebrow text-terracotta">02 / The journey</p>
               <h2 className="mt-4 h2-section font-extrabold">One lesson led to the next move.</h2>
             </div>
-            <p className="max-w-xl text-lg leading-relaxed text-muted-foreground lg:col-span-5 lg:col-start-8">A simple poultry operation became a wider ambition because each constraint was connected to another.</p>
+            <p className="max-w-xl body-copy text-muted-foreground lg:col-span-5 lg:col-start-8">A simple poultry operation became a wider ambition because each constraint was connected to another.</p>
           </div>
 
           <ol className="about-timeline relative mt-10">

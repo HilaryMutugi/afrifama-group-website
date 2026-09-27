@@ -232,7 +232,7 @@ function Impact() {
           <div>
             <p className="eyebrow text-terracotta">Evidence and transparency</p>
             <h2 className="mt-3 text-3xl font-extrabold">How we report impact</h2>
-            <p className="mt-4 max-w-4xl text-lg leading-relaxed text-muted-foreground">{impactFramework.reportingCopy}</p>
+            <p className="mt-4 max-w-4xl body-copy text-muted-foreground">{impactFramework.reportingCopy}</p>
           </div>
           <div className="min-w-52 border-t border-border pt-4 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-7">
             <p className="flex items-center gap-2 text-sm font-semibold"><CalendarDays className="size-4 text-primary" /> Last updated</p>

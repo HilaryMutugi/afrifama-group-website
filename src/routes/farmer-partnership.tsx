@@ -135,7 +135,7 @@ function FarmerPartnership() {
           <div className="lg:col-span-5 lg:pl-8">
             <p className="eyebrow text-terracotta">02 / Shared discipline</p>
             <h2 className="mt-4 h2-section font-extrabold">The flock succeeds through daily decisions.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-5 body-copy text-muted-foreground">
               Support is defined by the individual agreement. The farmer remains responsible for housing, water, equipment, care, biosecurity and records.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border">
@@ -210,7 +210,7 @@ function FarmerPartnership() {
               </div>
             </TabsContent>
             <TabsContent value="support" className="mt-8">
-              <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">
+              <p className="max-w-3xl body-copy text-muted-foreground">
                 {farmerPartnership.recoverableSupport.body}
               </p>
               <div className="mt-8 grid gap-8 md:grid-cols-2">
@@ -227,7 +227,7 @@ function FarmerPartnership() {
           <div className="lg:col-span-5">
             <p className="eyebrow text-terracotta">05 / In practice</p>
             <h2 className="mt-4 h2-section font-extrabold">Monitoring turns observations into action.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-5 body-copy text-muted-foreground">
               Scheduled visits connect flock condition, feed and water management, biosecurity and farm records with practical corrective steps.
             </p>
             <div className="mt-8 space-y-4">

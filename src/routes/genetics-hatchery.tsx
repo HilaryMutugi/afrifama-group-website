@@ -205,7 +205,7 @@ function Genetics() {
           <div>
             <p className="eyebrow text-terracotta">Partner with Afrifama</p>
             <h2 className="mt-3 max-w-3xl h2-section font-extrabold">Discuss a technical partnership</h2>
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-4 max-w-2xl body-copy text-muted-foreground">
               We are looking for technical partners who value responsible development, clear evidence and practical farmer outcomes.
             </p>
           </div>

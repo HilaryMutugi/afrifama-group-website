@@ -44,7 +44,7 @@ function Hero() {
           <h1 className="mt-4 h1-page font-extrabold">
             Building a stronger poultry system from feed to flock.
           </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-5 max-w-xl body-copy text-muted-foreground">
             Afrifama is a Kenyan agribusiness building an integrated poultry system around quality
             nutrition, reliable production, structured farmer partnerships and the foundations for
             stronger poultry genetics.

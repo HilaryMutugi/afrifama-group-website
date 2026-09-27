@@ -91,7 +91,7 @@ function Feeds() {
               <h1 className="mt-5 max-w-xl h1-page font-extrabold">
                 Nutrition built for every stage of the flock.
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-6 max-w-xl body-copy text-muted-foreground">
                 Afrifama produces stage-specific poultry mash for commercial layers, improved kienyeji birds and growing flocks. Our approach connects formulation, raw-material quality, practical farm management and technical support.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">

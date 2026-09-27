@@ -161,7 +161,7 @@ export function Card({
 
 export function Prose({ paragraphs }: { paragraphs: string[] }) {
   return (
-    <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
+    <div className="max-w-[68ch] space-y-4 body-copy text-muted-foreground">
       {paragraphs.map((p) => (
         <p key={p.slice(0, 32)}>{p}</p>
       ))}
