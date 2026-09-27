@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, Dna, FileText, Handshake, Sprout } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs, CheckList, Section, SectionHeading, StatusBadge } from "@/components/site/primitives";
-import { company, geneticsCapability } from "@/content/site";
+import { company, geneticsCapability, imageSlots } from "@/content/site";
 import chicksImage from "@/assets/chicks.jpg";
 
 export const Route = createFileRoute("/genetics-hatchery")({
@@ -81,6 +81,7 @@ function Genetics() {
           <figure className="lg:col-span-7">
             <img
               src={chicksImage}
+              data-image-slot={imageSlots.genetics[1]}
               alt="Conceptual visual representing poultry genetics, a chick and planned hatchery development"
               width={1408}
               height={1008}
@@ -162,7 +163,6 @@ function Genetics() {
               title="Local relevance requires the right expertise around the table"
               lead="Afrifama welcomes conversations with responsible genetics, parent-stock, veterinary, biosecurity and hatchery specialists."
             />
-            <Button asChild className="mt-8"><Link to="/contact">Open a technical conversation <ArrowRight className="size-4" /></Link></Button>
           </div>
           <div className="lg:col-span-7">
             <div className="grid gap-4 sm:grid-cols-2">
@@ -201,12 +201,12 @@ function Genetics() {
         <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
           <div>
             <p className="eyebrow text-terracotta">Partner with Afrifama</p>
-            <h2 className="mt-3 max-w-3xl text-3xl font-extrabold sm:text-4xl">Help build a credible genetics pathway for East African farmers.</h2>
+            <h2 className="mt-3 max-w-3xl text-3xl font-extrabold sm:text-4xl">Discuss a technical partnership</h2>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               We are looking for technical partners who value responsible development, clear evidence and practical farmer outcomes.
             </p>
           </div>
-          <Button asChild size="lg"><Link to="/contact">Request information <ArrowRight className="size-4" /></Link></Button>
+          <Button asChild size="lg"><Link to="/contact">Talk to Afrifama <ArrowRight className="size-4" /></Link></Button>
         </div>
       </section>
     </>

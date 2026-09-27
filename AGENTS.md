@@ -14,3 +14,4 @@
 - All Afrifama claims, statistics, product copy, navigation and FAQ content live in `src/content/site.ts` — one editable source so figures and wording can be updated without touching layout.
 - Shared site chrome (header, footer, skip link) lives in `src/routes/__root.tsx`; reusable page primitives live in `src/components/site/` — keeps every page visually consistent.
 - Future/unreleased surfaces (e.g. `/egg-supply-interest`) stay gated behind `futureSurfaces` flags in `src/content/site.ts`, noindex and out of nav/sitemap — so architecture can exist before the offering does.
+- Future photography positions use centrally named `imageSlots` from `src/content/site.ts` — so later asset replacement is unambiguous without adding empty public placeholders.

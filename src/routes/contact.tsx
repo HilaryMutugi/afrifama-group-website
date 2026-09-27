@@ -77,19 +77,7 @@ function Contact() {
               <h3 className="font-display text-base font-bold">Afrifama</h3>
               <p className="mt-2 text-sm text-muted-foreground">{company.location}</p>
               <p className="text-sm text-muted-foreground">{company.reach}</p>
-              <dl className="mt-4 space-y-1 text-sm">
-                <div>
-                  <dt className="inline font-semibold">Telephone: </dt>
-                  <dd className="inline">{company.phonePlaceholder}</dd>
-                </div>
-                <div>
-                  <dt className="inline font-semibold">Email: </dt>
-                  <dd className="inline">{company.emailPlaceholder}</dd>
-                </div>
-              </dl>
-              <p className="mt-3 text-xs text-terracotta">
-                Placeholder contact details — to be replaced by Afrifama.
-              </p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Verified direct contact details will be published here when available.</p>
             </Card>
           </div>
 

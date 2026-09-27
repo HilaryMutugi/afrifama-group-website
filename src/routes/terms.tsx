@@ -45,7 +45,7 @@ const sections = [
   },
   {
     h: "Contact",
-    p: `Questions about these terms can be sent to the contact details published on this website (${company.emailPlaceholder}).`,
+    p: "Questions about these terms can be sent through the Contact page.",
   },
 ];
 

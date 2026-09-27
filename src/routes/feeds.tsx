@@ -4,19 +4,13 @@ import {
   ArrowRight,
   Beaker,
   Bird,
-  BookOpen,
   Check,
   ClipboardList,
   Droplets,
-  Factory,
   FlaskConical,
   Gauge,
-  Handshake,
-  Leaf,
-  PackageCheck,
   Scale,
   Sprout,
-  Users,
   Warehouse,
   Wheat,
 } from "lucide-react";
@@ -33,7 +27,7 @@ import {
   SectionHeading,
   StatusBadge,
 } from "@/components/site/primitives";
-import { company, feedProducts, feedsPage, faqGroups } from "@/content/site";
+import { company, feedProducts, feedsPage, faqGroups, imageSlots } from "@/content/site";
 import feedImage from "@/assets/feeds-production.jpg";
 
 const feedFaqs = faqGroups.find((group) => group.group === "Feed Products");
@@ -77,7 +71,6 @@ export const Route = createFileRoute("/feeds")({
 
 const productIcons = [Sprout, Wheat, Scale, Gauge, FlaskConical, Bird] as const;
 const factorIcons = [Bird, ClipboardList, Scale, Gauge, Droplets, Warehouse, Beaker, Wheat, Check] as const;
-const pathwayIcons = [Bird, Users, PackageCheck, Factory, Handshake, Leaf] as const;
 
 function Feeds() {
   const [activeStage, setActiveStage] = useState(0);
@@ -108,6 +101,7 @@ function Feeds() {
             <div className="relative min-h-80 overflow-hidden lg:min-h-[610px]">
               <img
                 src={feedImage}
+                data-image-slot={imageSlots.feeds[0]}
                 alt="Clean poultry-feed raw materials prepared for evaluation and mixing"
                 width={1408}
                 height={1008}
@@ -221,7 +215,7 @@ function Feeds() {
       <Section tone="muted">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="relative min-h-80 overflow-hidden lg:col-span-5 lg:min-h-[520px]">
-            <img src={feedImage} alt="Maize and other poultry-feed ingredients ready for quality review" loading="lazy" width={1408} height={1008} className="absolute inset-0 size-full object-cover" />
+            <img src={feedImage} data-image-slot={imageSlots.feeds[1]} alt="Maize and other poultry-feed ingredients ready for quality review" loading="lazy" width={1408} height={1008} className="absolute inset-0 size-full object-cover" />
           </div>
           <div className="lg:col-span-7 lg:pl-8">
             <SectionHeading eyebrow="Raw materials and quality discipline" title="Consistency starts before ingredients enter the mixer" lead="Quality is a sequence of checks and records. Laboratory testing is used where applicable; no certification or laboratory approval is implied." />
@@ -247,15 +241,11 @@ function Feeds() {
           </div>
           <div className="lg:col-span-7">
             <div className="border border-border bg-secondary/50 p-6 sm:p-8">
-              <div className="flex items-center gap-3"><BookOpen className="size-6 text-terracotta" /><p className="eyebrow text-terracotta">Future resources</p></div>
-              <h3 className="mt-4 font-display text-2xl font-bold">Practical materials, published when ready</h3>
-              <p className="mt-3 leading-relaxed text-muted-foreground">These resources are planned but are not yet available to download.</p>
-              <div className="mt-7 grid border-t border-l border-border sm:grid-cols-2">
-                {feedsPage.futureResources.map((resource) => <div key={resource} className="flex min-h-24 items-center justify-between gap-4 border-r border-b border-border bg-card p-4"><span className="font-semibold">{resource}</span><StatusBadge status="Future" /></div>)}
-              </div>
+              <p className="eyebrow text-terracotta">Common questions</p>
+              <h3 className="mt-4 font-display text-2xl font-bold">Choose feed around the flock stage</h3>
               {feedFaqs ? (
                 <Accordion type="single" collapsible className="mt-8 w-full">
-                  {feedFaqs.items.map((item, index) => (
+                  {feedFaqs.items.slice(0, 3).map((item, index) => (
                     <AccordionItem key={item.q} value={`feed-${index}`}><AccordionTrigger className="text-left font-display text-base font-bold">{item.q}</AccordionTrigger><AccordionContent className="text-base leading-relaxed text-muted-foreground">{item.a}</AccordionContent></AccordionItem>
                   ))}
                 </Accordion>
@@ -265,24 +255,9 @@ function Feeds() {
         </div>
       </Section>
 
-      <Section tone="muted">
-        <SectionHeading eyebrow="Customer pathways" title="Choose the conversation that fits your role" lead="Afrifama separates product, partnership, distribution, technical and supply conversations so each enquiry reaches the right next step." />
-        <div className="mt-10 grid border-t border-l border-border md:grid-cols-2 lg:grid-cols-3">
-          {feedsPage.customerPathways.map((pathway, index) => {
-            const Icon = pathwayIcons[index] ?? Handshake;
-            return (
-              <article key={pathway.title} className="flex min-h-64 flex-col border-r border-b border-border bg-card p-6">
-                <Icon className="size-6 text-terracotta" aria-hidden="true" /><h3 className="mt-5 font-display text-xl font-bold">{pathway.title}</h3><p className="mt-3 flex-1 leading-relaxed text-muted-foreground">{pathway.body}</p>
-                <Button asChild variant="link" className="mt-5 h-auto justify-start p-0"><Link to={pathway.to}>Start this conversation <ArrowRight className="size-4" /></Link></Button>
-              </article>
-            );
-          })}
-        </div>
-      </Section>
-
       <Section tone="forest">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-          <div><p className="eyebrow text-gold">Complete production system</p><h2 className="mt-3 max-w-3xl text-3xl font-extrabold sm:text-4xl">The right feed is part of a complete production system.</h2><p className="mt-5 max-w-3xl text-lg leading-relaxed text-primary-foreground/80">Tell us about your birds, production stage and farm objectives. Our team will help identify the most suitable next step.</p></div>
+          <div><p className="eyebrow text-gold">Farmers, farms and distributors</p><h2 className="mt-3 max-w-3xl text-3xl font-extrabold sm:text-4xl">Find the right feed for your flock</h2><p className="mt-5 max-w-3xl text-lg leading-relaxed text-primary-foreground/80">Poultry farmers, partner farms, commercial farms, distributors, technical partners and raw-material suppliers can start with one focused enquiry.</p></div>
           <div className="flex flex-wrap gap-3"><Button asChild size="lg" variant="secondary"><Link to="/contact">Discuss Your Flock</Link></Button><Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><Link to="/contact">Become a Distributor</Link></Button></div>
         </div>
       </Section>

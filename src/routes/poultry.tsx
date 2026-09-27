@@ -2,8 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, Building2, ShieldCheck, Wheat } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs, CheckList, Section, SectionHeading, StatusBadge } from "@/components/site/primitives";
-import { CtaBand } from "@/components/site/CtaBand";
-import { company, poultryOperatingSystem, poultryPathways } from "@/content/site";
+import { company, imageSlots, poultryOperatingSystem, poultryProductionStages } from "@/content/site";
 import heroImage from "@/assets/poultry-layers.jpg";
 
 export const Route = createFileRoute("/poultry")({
@@ -57,7 +56,7 @@ function Poultry() {
                 <p className="eyebrow text-terracotta">Afrifama Poultry</p>
                 <StatusBadge status="Operational" />
               </div>
-              <h1 className="mt-5 max-w-xl text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
+              <h1 className="mt-5 max-w-xl text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-[3.25rem]">
                 A stronger flock starts with a stronger operating system.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
@@ -76,6 +75,7 @@ function Poultry() {
             <div className="relative min-h-80 overflow-hidden lg:min-h-[590px]">
               <img
                 src={heroImage}
+                data-image-slot={imageSlots.poultry[0]}
                 alt="Healthy layer birds in a clean, well-ventilated poultry house"
                 width={1600}
                 height={1104}
@@ -121,6 +121,14 @@ function Poultry() {
             ))}
           </ol>
         </div>
+        <ol className="mt-10 grid border-y border-border sm:grid-cols-3" aria-label="Poultry production stages">
+          {poultryProductionStages.map((stage, index) => (
+            <li key={stage.title} className={`py-5 sm:px-6 ${index > 0 ? "border-t border-border sm:border-t-0 sm:border-l" : ""}`}>
+              <div className="flex items-center gap-3"><span className="font-display text-xs font-bold text-terracotta">0{index + 1}</span><h3 className="font-display text-lg font-bold">{stage.title}</h3></div>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{stage.body}</p>
+            </li>
+          ))}
+        </ol>
       </Section>
 
       <Section tone="forest">
@@ -139,26 +147,6 @@ function Poultry() {
         </div>
       </Section>
 
-      <Section tone="muted">
-        <SectionHeading
-          eyebrow="Clear pathways"
-          title="Choose the conversation that fits your role"
-          lead="Afrifama works with farmers, feed customers and partners through distinct, practical entry points."
-        />
-        <div className="mt-10 grid border-t border-border lg:grid-cols-3">
-          {poultryPathways.map((pathway, index) => (
-            <article key={pathway.audience} className={`py-7 lg:px-7 ${index > 0 ? "border-t border-border lg:border-t-0 lg:border-l" : ""}`}>
-              <p className="eyebrow text-terracotta">{pathway.audience}</p>
-              <h3 className="mt-4 font-display text-xl font-bold">{pathway.title}</h3>
-              <p className="mt-3 leading-relaxed text-muted-foreground">{pathway.body}</p>
-              <Button asChild variant="link" className="mt-5 h-auto p-0">
-                <Link to={pathway.to}>{pathway.label} <ArrowRight className="size-4" /></Link>
-              </Button>
-            </article>
-          ))}
-        </div>
-      </Section>
-
       <Section compact>
         <div className="grid gap-8 border-l-4 border-gold pl-6 lg:grid-cols-[1fr_auto] lg:items-center lg:pl-10">
           <div>
@@ -172,7 +160,12 @@ function Poultry() {
         </div>
       </Section>
 
-      <CtaBand />
+      <Section tone="forest" compact>
+        <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div><p className="eyebrow text-gold">Next step</p><h2 className="mt-3 text-3xl font-extrabold">Build a more disciplined production system</h2><p className="mt-4 max-w-2xl text-primary-foreground/75">Connect flock management, stage-specific nutrition and reliable records around your production goals.</p></div>
+          <Button asChild size="lg" variant="secondary"><Link to="/contact">Talk to Afrifama <ArrowRight className="size-4" /></Link></Button>
+        </div>
+      </Section>
     </>
   );
 }
