@@ -18,7 +18,8 @@ import { Button } from "@/components/ui/button";
 import { Breadcrumbs, Section, SectionHeading } from "@/components/site/primitives";
 import { company, impactFramework, imageSlots } from "@/content/site";
 import fieldImage from "@/assets/farmer-training.jpg";
-import flockImage from "@/assets/poultry-layers.jpg";
+import { photos } from "@/content/photos";
+import { KenyaMap } from "@/components/site/KenyaMap";
 
 export const Route = createFileRoute("/impact")({
   head: () => ({
@@ -65,11 +66,14 @@ function Impact() {
             </div>
             <div className="relative min-h-80 lg:min-h-[620px]">
               <img
-                src={fieldImage}
+                src={photos.fieldDemo.src}
+                srcSet={photos.fieldDemo.srcSet}
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 data-image-slot={imageSlots.impact[0]}
-                alt="Poultry farmers and a field team reviewing farm information together"
-                width={1600}
-                height={1067}
+                alt="Farmers and poultry specialists discussing a bird during an on-farm demonstration in East Africa"
+                width={photos.fieldDemo.width}
+                height={photos.fieldDemo.height}
+                fetchPriority="high"
                 className="absolute inset-0 size-full object-cover object-center"
               />
               <div className="absolute inset-x-0 bottom-0 border-t border-primary-foreground/20 bg-primary/90 px-6 py-4 backdrop-blur-sm">
@@ -182,15 +186,31 @@ function Impact() {
         </div>
       </Section>
 
+      <Section compact>
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-6">
+            <SectionHeading
+              eyebrow="Where we work"
+              title="Starting in Kilifi County"
+              lead="Afrifama's current work is based around Mariakani in Kilifi County, coastal Kenya. We will add locations to this map only when operations begin there."
+            />
+          </div>
+          <KenyaMap className="mx-auto w-full max-w-md lg:col-span-6" />
+        </div>
+      </Section>
+
       <Section tone="muted">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
           <div className="relative min-h-80 overflow-hidden lg:col-span-5 lg:min-h-[470px]">
             <img
-              src={flockImage}
+              src={photos.chickWater.src}
+              srcSet={photos.chickWater.srcSet}
+              sizes="(min-width: 1024px) 40vw, 100vw"
               data-image-slot={imageSlots.impact[2]}
-              alt="Healthy commercial layer flock in a well-ventilated poultry house"
-              width={1600}
-              height={1104}
+              alt="A week-old chick beside a water container on a Kenyan smallholding"
+              width={photos.chickWater.width}
+              height={photos.chickWater.height}
+              loading="lazy"
               className="absolute inset-0 size-full object-cover"
             />
           </div>

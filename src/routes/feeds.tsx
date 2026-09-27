@@ -29,6 +29,7 @@ import {
 } from "@/components/site/primitives";
 import { company, feedProducts, feedsPage, faqGroups, imageSlots } from "@/content/site";
 import feedImage from "@/assets/feeds-production.jpg";
+import { photos } from "@/content/photos";
 
 const feedFaqs = faqGroups.find((group) => group.group === "Feed Products");
 
@@ -214,9 +215,14 @@ function Feeds() {
 
       <Section tone="muted">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-          <div className="relative min-h-80 overflow-hidden lg:col-span-5 lg:min-h-[520px]">
-            <img src={feedImage} data-image-slot={imageSlots.feeds[1]} alt="Maize and other poultry-feed ingredients ready for quality review" loading="lazy" width={1408} height={1008} className="absolute inset-0 size-full object-cover" />
-          </div>
+          <figure className="lg:col-span-5">
+            <div className="grid grid-cols-2 gap-2">
+              <img src={photos.maizeMilling.src} srcSet={photos.maizeMilling.srcSet} sizes="(min-width: 1024px) 40vw, 100vw" data-image-slot={imageSlots.feeds[1]} alt="A mill worker checking a large pile of maize grain ready for milling" loading="lazy" width={photos.maizeMilling.width} height={photos.maizeMilling.height} className="col-span-2 aspect-[3/2] w-full object-cover" />
+              <img src={photos.maize.src} srcSet={photos.maize.srcSet} sizes="20vw" alt="Close-up of dried maize grains" loading="lazy" width={photos.maize.width} height={photos.maize.height} className="aspect-square w-full object-cover" />
+              <img src={photos.sunflower.src} srcSet={photos.sunflower.srcSet} sizes="20vw" alt="Close-up of sunflower seeds" loading="lazy" width={photos.sunflower.width} height={photos.sunflower.height} className="aspect-square w-full object-cover" />
+            </div>
+            <figcaption className="mt-2 text-xs text-muted-foreground">Illustrative ingredient photography, not Afrifama facilities. Credits: Emmanuel Ssekaggo, Gaurav Dhwaj Khadka, Mx. Granger via Wikimedia Commons.</figcaption>
+          </figure>
           <div className="lg:col-span-7 lg:pl-8">
             <SectionHeading eyebrow="Raw materials and quality discipline" title="Consistency starts before ingredients enter the mixer" lead="Quality is a sequence of checks and records. Laboratory testing is used where applicable; no certification or laboratory approval is implied." />
             <div className="mt-8 grid border-t border-l border-border sm:grid-cols-2">
