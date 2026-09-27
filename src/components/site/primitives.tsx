@@ -24,11 +24,13 @@ export function Section({
   className = "",
   tone = "default",
   id,
+  compact = false,
 }: {
   children: ReactNode;
   className?: string;
   tone?: "default" | "muted" | "forest";
   id?: string;
+  compact?: boolean;
 }) {
   const tones = {
     default: "",
@@ -36,7 +38,10 @@ export function Section({
     forest: "bg-forest text-primary-foreground",
   } as const;
   return (
-    <section id={id} className={`py-20 sm:py-24 ${tones[tone]} ${className}`}>
+    <section
+      id={id}
+      className={`${compact ? "py-14 sm:py-16" : "py-20 sm:py-24"} ${tones[tone]} ${className}`}
+    >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">{children}</div>
     </section>
   );

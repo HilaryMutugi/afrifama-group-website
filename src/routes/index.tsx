@@ -1,31 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Wheat, Egg, Users, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Section,
-  SectionHeading,
-  StatusBadge,
-  Card,
-  CheckList,
-} from "@/components/site/primitives";
-import { EcosystemDiagram } from "@/components/site/EcosystemDiagram";
-import { StageProgression } from "@/components/site/StageProgression";
+import { Section, SectionHeading, StatusBadge } from "@/components/site/primitives";
 import { EarlyProgressSection } from "@/components/site/EarlyProgress";
 import { CtaBand } from "@/components/site/CtaBand";
-import {
-  company,
-  pillars,
-  problems,
-  feedProducts,
-  formulationProcess,
-  partnershipAfrifamaProvides,
-  partnershipFarmerProvides,
-  fieldNotes,
-} from "@/content/site";
-import heroImage from "@/assets/hero-farmer.jpg";
-import feedImage from "@/assets/feed-materials.jpg";
-import trainingImage from "@/assets/farmer-training.jpg";
-import chicksImage from "@/assets/chicks.jpg";
+import { company, pillars, problems, fieldNotes, valueChain } from "@/content/site";
+import heroImage from "@/assets/hero-value-chain.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,27 +25,31 @@ export const Route = createFileRoute("/")({
         content:
           "Quality nutrition, reliable production, structured farmer partnerships and the foundations for stronger poultry genetics in Kenya.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/` }],
   }),
   component: Home,
 });
 
+const chainIcons = [Wheat, Egg, Users, Store];
+
 function Hero() {
   return (
-    <div className="relative overflow-hidden border-b border-border bg-secondary/40">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 pt-16 pb-20 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:pt-24">
+    <div className="border-b border-border bg-secondary/40">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-14">
         <div className="lg:col-span-6">
           <p className="eyebrow text-terracotta">Kenyan agribusiness · Kilifi County</p>
-          <h1 className="mt-5 text-4xl font-extrabold leading-[1.03] sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
             Building a stronger poultry system from feed to flock.
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
             Afrifama is a Kenyan agribusiness building an integrated poultry system around quality
             nutrition, reliable production, structured farmer partnerships and the foundations for
             stronger poultry genetics.
           </p>
-          <div className="mt-9 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg">
               <Link to="/businesses">
                 Explore Our Work
@@ -76,29 +60,48 @@ function Hero() {
               <Link to="/contact">Partner With Afrifama</Link>
             </Button>
           </div>
-          <p className="mt-10 border-l-2 border-gold pl-4 font-display text-sm font-semibold text-muted-foreground">
+          <p className="mt-8 border-l-2 border-gold pl-4 font-display text-sm font-semibold text-muted-foreground">
             {company.positioning}
           </p>
         </div>
-
         <div className="lg:col-span-6">
-          <div className="overflow-hidden rounded-3xl border border-border shadow-lift">
-            <img
-              src={heroImage}
-              alt="Collage of the poultry value chain: feed ingredients, feed production, healthy hens, eggs and a Kenyan farmer"
-              width={1600}
-              height={1104}
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div className="mt-6 rounded-3xl border border-border bg-card p-6 shadow-card">
-            <p className="eyebrow text-terracotta">One connected system</p>
-            <div className="mt-4 text-primary">
-              <EcosystemDiagram />
-            </div>
-          </div>
+          <img
+            src={heroImage}
+            alt="A brown layer hen beside bowls of maize, poultry mash and soybean, with a basket of brown eggs on a Kenyan smallholding"
+            width={1408}
+            height={1152}
+            className="aspect-[4/3] w-full rounded-2xl border border-border object-cover object-[35%_center] shadow-card lg:aspect-[11/10] lg:max-h-[30rem]"
+          />
         </div>
       </div>
+    </div>
+  );
+}
+
+function ValueChainStrip() {
+  return (
+    <div className="border-b border-border bg-background">
+      <ol className="mx-auto grid max-w-7xl gap-6 px-5 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:px-8">
+        {valueChain.map((step, i) => {
+          const Icon = chainIcons[i] ?? Wheat;
+          return (
+            <li key={step.title} className="flex items-start gap-3 lg:px-5 lg:first:pl-0">
+              <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <Icon className="size-5" aria-hidden="true" />
+              </span>
+              <div className="min-w-0">
+                <p className="flex items-center gap-2 font-display text-base font-bold">
+                  {step.title}
+                  {i < valueChain.length - 1 ? (
+                    <ArrowRight className="hidden size-4 text-gold lg:inline" aria-hidden="true" />
+                  ) : null}
+                </p>
+                <p className="mt-1 text-sm leading-snug text-muted-foreground">{step.body}</p>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
     </div>
   );
 }
@@ -107,38 +110,39 @@ function Home() {
   return (
     <>
       <Hero />
+      <ValueChainStrip />
 
-      <Section>
+      <Section compact>
         <SectionHeading
-          eyebrow="The Afrifama ecosystem"
-          title="A connected poultry platform, not a collection of separate projects."
-          lead="Each part of Afrifama exists because the others need it. Nutrition supports bird performance, birds support farmer income, field support protects both, and volume makes market linkages realistic."
+          eyebrow="Our businesses"
+          title="Four connected areas of work."
+          lead="Each part of Afrifama exists because the others need it."
         />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((pillar) => (
-            <Card key={pillar.title} className="flex flex-col">
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="font-display text-xl font-bold">{pillar.title}</h3>
-                <StatusBadge status={pillar.status} />
-              </div>
-              <p className="mt-3 leading-relaxed text-muted-foreground">{pillar.summary}</p>
-              <div className="mt-5 flex-1">
-                <CheckList items={pillar.points} />
-              </div>
+            <div
+              key={pillar.title}
+              className="flex flex-col rounded-2xl border border-border bg-card p-5"
+            >
+              <StatusBadge status={pillar.status} />
+              <h3 className="mt-4 font-display text-lg font-bold">{pillar.title}</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {pillar.summary}
+              </p>
               <Link
                 to={pillar.to}
-                className="mt-6 inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary hover:gap-2.5"
+                className="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary hover:gap-2.5"
               >
                 Learn more
                 <ArrowRight className="size-4" />
               </Link>
-            </Card>
+            </div>
           ))}
         </div>
       </Section>
 
-      <Section tone="muted">
-        <div className="grid gap-12 lg:grid-cols-12">
+      <Section tone="muted" compact>
+        <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <SectionHeading
               eyebrow="Why Afrifama exists"
@@ -146,170 +150,22 @@ function Home() {
               lead="Afrifama is responding by building practical, connected solutions around the production system — commercially, not as charity."
             />
           </div>
-          <ul className="grid gap-4 lg:col-span-7 sm:grid-cols-2">
+          <ul className="grid gap-x-8 gap-y-6 lg:col-span-7 sm:grid-cols-2">
             {problems.map((p) => (
-              <li
-                key={p.title}
-                className="rounded-2xl border border-border bg-card p-5 shadow-card"
-              >
+              <li key={p.title} className="border-t border-border pt-4">
                 <h3 className="font-display text-base font-bold">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
               </li>
             ))}
           </ul>
         </div>
       </Section>
 
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-6">
-            <SectionHeading
-              eyebrow="Afrifama Feeds"
-              title="Different nutrition for different stages. One Afrifama quality standard."
-              lead="Formulations are developed using professional feed-formulation software, laboratory analysis, practical production data and technical input from qualified nutrition specialists within East Africa and Europe."
-            />
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {formulationProcess.map((step) => (
-                <div key={step.title} className="rounded-xl border border-border bg-card p-4">
-                  <h3 className="font-display text-sm font-bold">{step.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                    {step.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <Button asChild className="mt-8">
-              <Link to="/feeds">
-                See the feed range
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-          </div>
-          <div className="lg:col-span-6">
-            <img
-              src={feedImage}
-              alt="Maize, soybean meal and mineral premix raw materials used in Afrifama poultry feed"
-              loading="lazy"
-              width={1408}
-              height={1008}
-              className="w-full rounded-3xl border border-border object-cover shadow-lift"
-            />
-          </div>
-        </div>
+      <EarlyProgressSection tone="default" compact />
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {feedProducts.map((product) => (
-            <Card key={product.name} className="flex flex-col">
-              <span className="eyebrow text-terracotta">{product.stage}</span>
-              <h3 className="mt-2 font-display text-lg font-bold">{product.name}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {product.summary}
-              </p>
-              <p className="mt-4 border-t border-border pt-4 text-sm text-foreground">
-                {product.useFor}
-              </p>
-            </Card>
-          ))}
-        </div>
-
-        <div className="mt-12">
-          <h3 className="eyebrow text-terracotta">Stage progression</h3>
-          <div className="mt-5">
-            <StageProgression />
-          </div>
-        </div>
-      </Section>
-
-      <Section tone="muted">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
-          <div className="lg:col-span-5">
-            <img
-              src={trainingImage}
-              alt="Afrifama field officer training smallholder poultry farmers beside a farm poultry house"
-              loading="lazy"
-              width={1408}
-              height={1008}
-              className="w-full rounded-3xl border border-border object-cover shadow-lift"
-            />
-          </div>
-          <div className="lg:col-span-7">
-            <SectionHeading
-              eyebrow="Smallholder farmer partnership"
-              title="A structured commercial partnership with selected farmers."
-              lead="Afrifama works with farmers whose farms are ready to carry a production cycle. Responsibilities are agreed in writing on both sides before any birds are placed."
-            />
-            <div className="mt-8 grid gap-5 sm:grid-cols-2">
-              <Card>
-                <h3 className="font-display text-base font-bold">Afrifama may provide</h3>
-                <div className="mt-4">
-                  <CheckList items={partnershipAfrifamaProvides} />
-                </div>
-              </Card>
-              <Card>
-                <h3 className="font-display text-base font-bold">Farmers provide</h3>
-                <div className="mt-4">
-                  <CheckList items={partnershipFarmerProvides} />
-                </div>
-              </Card>
-            </div>
-            <p className="mt-6 rounded-xl border border-gold/40 bg-gold/15 p-4 text-sm leading-relaxed text-foreground">
-              Input support is <strong>recoverable production support</strong> provided under an
-              agreed partnership. It is not a donation, a conventional bank loan, or an open public
-              credit facility.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button asChild>
-                <Link to="/farmer-partnership">Understand the Partnership</Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link to="/faqs">Read Farmer FAQs</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-6">
-            <div className="mb-4">
-              <StatusBadge status="In Development" />
-            </div>
-            <SectionHeading
-              eyebrow="Genetics & hatchery development"
-              title="Farmers struggle to get the right birds, at the right time, in practical quantities."
-              lead="Afrifama is developing partnerships and technical foundations for improved access to reliable poultry genetics and future local hatchery capacity."
-            />
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              This work is in development. Afrifama does not operate a completed hatchery, and
-              commercial chick supply is not yet available.
-            </p>
-            <Button asChild variant="outline" className="mt-8">
-              <Link to="/genetics-hatchery">Read the development plan</Link>
-            </Button>
-          </div>
-          <div className="lg:col-span-6">
-            <img
-              src={chicksImage}
-              alt="Illustration of future poultry genetics: an egg with a DNA pattern, a chick and concept sketches of a planned hatchery"
-              loading="lazy"
-              width={1408}
-              height={1008}
-              className="w-full rounded-3xl border border-border object-cover shadow-lift"
-            />
-          </div>
-        </div>
-      </Section>
-
-      <EarlyProgressSection />
-
-      <Section>
+      <Section tone="muted" compact>
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading
-            eyebrow="Afrifama Field Notes"
-            title="What we are building now"
-            lead="Afrifama documents the practical work of building its poultry system — from feed formulation and farmer training to field learning, production and future hatchery development."
-          />
+          <SectionHeading eyebrow="Afrifama Field Notes" title="Latest field notes" />
           <Button asChild variant="outline">
             <Link to="/field-notes">
               View All Field Notes
@@ -317,9 +173,12 @@ function Home() {
             </Link>
           </Button>
         </div>
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 lg:grid-cols-3">
           {fieldNotes.map((note) => (
-            <Card key={note.slug} className="flex flex-col">
+            <div
+              key={note.slug}
+              className="flex flex-col rounded-2xl border border-border bg-card p-5"
+            >
               <div className="flex items-center gap-2">
                 <span className="rounded-md bg-secondary px-2 py-1 text-xs font-semibold text-secondary-foreground">
                   {note.category}
@@ -329,7 +188,7 @@ function Home() {
                 </span>
               </div>
               <h3 className="mt-4 font-display text-lg font-bold">{note.title}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
                 {note.excerpt}
               </p>
               <Link
@@ -340,7 +199,7 @@ function Home() {
                 Read note
                 <ArrowRight className="size-4" />
               </Link>
-            </Card>
+            </div>
           ))}
         </div>
       </Section>
