@@ -112,7 +112,7 @@ function FarmerPartnership() {
       </section>
 
       <section id="how-it-works" className="scroll-mt-20 bg-secondary/60 section-pad">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-12 lg:items-center lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-12 lg:items-center lg:px-8">
           <figure className="group relative lg:col-span-7">
             <div className="overflow-hidden rounded-lg">
               <img
@@ -223,7 +223,7 @@ function FarmerPartnership() {
       </section>
 
       <section className="bg-secondary/60 section-pad">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-12 lg:items-center lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-12 lg:items-center lg:px-8">
           <div className="lg:col-span-5">
             <p className="eyebrow text-terracotta">05 / In practice</p>
             <h2 className="mt-4 h2-section font-extrabold">Monitoring turns observations into action.</h2>
@@ -264,7 +264,7 @@ function FarmerPartnership() {
       </section>
 
       <section className="bg-background section-pad">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-12 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-12 lg:px-8">
           <div className="lg:col-span-4">
             <p className="eyebrow text-terracotta">06 / Before you apply</p>
             <h2 className="mt-4 h2-section font-extrabold">Clear answers, carefully stated.</h2>

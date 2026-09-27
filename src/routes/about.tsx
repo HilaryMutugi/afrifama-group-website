@@ -32,7 +32,7 @@ export const Route = createFileRoute("/about")({
 function About() {
   return (
     <>
-      <header className="relative isolate min-h-[min(760px,calc(100svh-72px))] overflow-hidden bg-primary-deep text-primary-foreground">
+      <header className="relative isolate min-h-[min(660px,calc(100svh-72px))] overflow-hidden bg-primary-deep text-primary-foreground">
         <img
           src={photos.rearing.src}
           srcSet={photos.rearing.srcSet}
@@ -45,7 +45,7 @@ function About() {
           className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 motion-safe:hover:scale-[1.025]"
         />
         <div className="absolute inset-0 bg-primary-deep/70" aria-hidden="true" />
-        <div className="relative mx-auto flex min-h-[min(760px,calc(100svh-72px))] max-w-7xl flex-col px-5 pt-8 pb-10 lg:px-8 lg:pb-14">
+        <div className="relative mx-auto flex min-h-[min(660px,calc(100svh-72px))] max-w-7xl flex-col px-5 pt-8 pb-10 lg:px-8 lg:pb-14">
           <div className="[&_nav]:text-primary-foreground/75 [&_nav_a]:text-primary-foreground/75 [&_nav_span]:text-primary-foreground">
             <Breadcrumbs items={[{ label: "About Afrifama" }]} />
           </div>
@@ -68,7 +68,7 @@ function About() {
       </header>
 
       <section id="our-story" className="scroll-mt-20 bg-background section-pad">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-12 lg:items-start lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-12 lg:items-start lg:px-8">
           <div className="lg:col-span-5 lg:sticky lg:top-28">
             <p className="eyebrow text-terracotta">01 / Where it began</p>
             <h2 className="mt-4 h2-section font-extrabold">The flock revealed the system.</h2>
@@ -100,9 +100,9 @@ function About() {
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground lg:col-span-5 lg:col-start-8">A simple poultry operation became a wider ambition because each constraint was connected to another.</p>
           </div>
 
-          <ol className="about-timeline relative mt-14">
+          <ol className="about-timeline relative mt-10">
             {aboutStory.timeline.map((item, index) => (
-              <li key={item.marker} className={`relative grid gap-6 border-t border-border py-10 lg:grid-cols-12 lg:items-center ${index % 2 ? "" : "lg:text-left"}`}>
+              <li key={item.marker} className={`relative grid gap-6 border-t border-border py-7 lg:grid-cols-12 lg:items-center ${index % 2 ? "" : "lg:text-left"}`}>
                 <div className="lg:col-span-2">
                   <span className="font-display text-4xl font-extrabold text-primary sm:text-5xl">{item.marker}</span>
                 </div>
@@ -136,7 +136,7 @@ function About() {
             <p className="max-w-xl text-lg leading-relaxed text-primary-foreground/70 lg:col-span-5 lg:col-start-8">Nutrition supports birds. Capable farmers turn good inputs into disciplined production. Markets give that production commercial purpose.</p>
           </div>
         </div>
-        <div className="mt-10 sm:mt-14"><AboutSystemMural /></div>
+        <div className="mt-8 sm:mt-10"><AboutSystemMural /></div>
       </section>
 
       <section className="bg-background section-pad">
