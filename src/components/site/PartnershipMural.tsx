@@ -10,11 +10,29 @@ const muralSteps = [
 export function PartnershipMural() {
   return (
     <div className="partnership-mural overflow-hidden border-y border-primary-foreground/15 bg-primary-deep text-primary-foreground">
+      <div className="relative mx-auto max-w-sm px-5 py-8 sm:hidden">
+        <div className="absolute top-16 bottom-16 left-[3.2rem] w-px bg-gold/50" aria-hidden="true" />
+        <div className="absolute top-24 right-3 h-40 w-28 rounded-[50%] border border-primary-foreground/10" aria-hidden="true" />
+        <div className="absolute bottom-10 left-28 h-32 w-48 rounded-[50%] border border-primary-foreground/10" aria-hidden="true" />
+        <ol className="relative space-y-7">
+          {muralSteps.map((step, index) => (
+            <li key={step.label} className="grid grid-cols-[4rem_minmax(0,1fr)] items-center gap-4">
+              <span className="z-10 grid size-10 place-items-center rounded-full border-2 border-gold bg-primary-deep font-display text-sm font-bold text-gold">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className={index % 2 === 0 ? "translate-x-1" : "translate-x-4"}>
+                <p className="font-display text-lg font-bold">{step.label}</p>
+                <p className="mt-1 text-sm text-primary-foreground/65">{step.detail}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
       <svg
         viewBox="0 0 760 620"
         role="img"
         aria-labelledby="partnership-mural-title partnership-mural-description"
-        className="mx-auto block h-auto w-full max-w-6xl"
+        className="mx-auto hidden h-auto w-full max-w-6xl sm:block"
       >
         <title id="partnership-mural-title">The Afrifama farmer partnership journey</title>
         <desc id="partnership-mural-description">

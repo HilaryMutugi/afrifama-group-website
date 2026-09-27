@@ -236,10 +236,3 @@
   animation: mural-draw 3.4s ease-out both;
 }
 
-@media (max-width: 639px) {
-  .partnership-mural svg {
-    width: 640px;
-    max-width: none;
-    transform: translateX(-125px);
-  }
-}
