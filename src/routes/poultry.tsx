@@ -1,155 +1,174 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, BookOpen, Building2, ShieldCheck, Wheat } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  PageHero,
-  Section,
-  SectionHeading,
-  Card,
-  CheckList,
-} from "@/components/site/primitives";
+import { Breadcrumbs, CheckList, Section, SectionHeading, StatusBadge } from "@/components/site/primitives";
 import { CtaBand } from "@/components/site/CtaBand";
-import { company } from "@/content/site";
+import { company, poultryOperatingSystem, poultryPathways } from "@/content/site";
 import heroImage from "@/assets/poultry-layers.jpg";
 
 export const Route = createFileRoute("/poultry")({
   head: () => ({
     meta: [
-      { title: "Afrifama Poultry — Commercial layer production in Kilifi, Kenya" },
+      { title: "Afrifama Poultry — Commercial Layer Production in Kenya" },
       {
         name: "description",
         content:
-          "Afrifama's commercial layer production: management approach, bird welfare and biosecurity, and how production is linked to partner farms in Kilifi County.",
+          "See how Afrifama connects commercial layer production, stage-based feeds, biosecurity, records and farmer support in Kilifi County, Kenya.",
       },
-      { property: "og:title", content: "Afrifama Poultry — Commercial layer production" },
+      { property: "og:title", content: "Afrifama Poultry — A Connected Production System" },
       {
         property: "og:description",
         content:
-          "Stage-based nutrition, consistent management routines and farmer-linked layer production in Kilifi County, Kenya.",
+          "Commercial layer production built around consistent management, practical nutrition, daily records and farmer-linked growth.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/poultry` }],
   }),
   component: Poultry,
 });
 
-const approach = [
-  {
-    title: "Stage-based management",
-    body: "Brooding, rearing and lay are managed as distinct stages, each with its own nutrition, lighting, space and health routine.",
-  },
-  {
-    title: "Records before opinions",
-    body: "Feed issued, water, mortality, body weight and egg numbers are recorded daily so decisions rest on trend data.",
-  },
-  {
-    title: "Nutrition owned in-house",
-    body: "Because we formulate our own feed, production problems and formulation decisions sit with the same team.",
-  },
-  {
-    title: "Repeatable routines",
-    body: "The routines we run on our own flock are the routines we train partner farmers to run on theirs.",
-  },
-];
-
 const welfare = [
   "Stocking density appropriate to house design",
-  "Ventilation and litter management",
+  "Ventilation and litter managed as daily routines",
   "Continuous access to clean water",
   "Stage-appropriate nutrition",
-  "Planned vaccination schedules",
+  "Planned vaccination and flock-health schedules",
   "Controlled visitor and equipment movement",
-  "Prompt separation and treatment of sick birds",
+];
+
+const operatingMarkers = [
+  { icon: Building2, label: "Facilities", value: "Fit for the flock stage" },
+  { icon: Wheat, label: "Nutrition", value: "Matched to production needs" },
+  { icon: BookOpen, label: "Records", value: "Reviewed every day" },
+  { icon: ShieldCheck, label: "Biosecurity", value: "Built into routine" },
 ];
 
 function Poultry() {
   return (
     <>
-      <PageHero
-        eyebrow="Poultry"
-        title="Commercial layer production, run to a repeatable standard."
-        lead="Our current focus is commercial layer production. The first production cycle is underway, and we publish no sales or output figures that have not been verified."
-        status="Operational"
-        breadcrumbs={[{ label: "Our Businesses", to: "/businesses" }, { label: "Poultry" }]}
-      />
-
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-6">
-            <SectionHeading
-              eyebrow="Production approach"
-              title="How we run the flock"
-              lead="Layer production rewards consistency. Most of our approach is about removing variation rather than chasing peaks."
-            />
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {approach.map((a) => (
-                <Card key={a.title}>
-                  <h3 className="font-display text-base font-bold">{a.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{a.body}</p>
-                </Card>
-              ))}
+      <section className="border-b border-border bg-background">
+        <div className="mx-auto max-w-7xl px-5 pt-10 lg:px-8">
+          <Breadcrumbs items={[{ label: "Our Businesses", to: "/businesses" }, { label: "Poultry" }]} />
+          <div className="grid items-stretch overflow-hidden border border-border bg-card lg:grid-cols-[0.88fr_1.12fr]">
+            <div className="flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-14 lg:py-16">
+              <div className="flex items-center gap-3">
+                <p className="eyebrow text-terracotta">Afrifama Poultry</p>
+                <StatusBadge status="Operational" />
+              </div>
+              <h1 className="mt-5 max-w-xl text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
+                A stronger flock starts with a stronger operating system.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                Commercial layer production connected to stage-based nutrition, disciplined facilities,
+                daily records and practical farmer support.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button asChild size="lg">
+                  <Link to="/farmer-partnership">Work with Afrifama <ArrowRight className="size-4" /></Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <Link to="/feeds">Explore our feeds</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="relative min-h-80 overflow-hidden lg:min-h-[590px]">
+              <img
+                src={heroImage}
+                alt="Healthy layer birds in a clean, well-ventilated poultry house"
+                width={1600}
+                height={1104}
+                className="absolute inset-0 size-full object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 border-t border-primary-foreground/20 bg-primary/90 backdrop-blur-sm sm:grid-cols-4">
+                {operatingMarkers.map(({ icon: Icon, label, value }) => (
+                  <div key={label} className="border-primary-foreground/15 p-4 text-primary-foreground sm:border-r last:border-r-0">
+                    <Icon className="size-4 text-gold" aria-hidden="true" />
+                    <p className="mt-2 text-xs font-bold uppercase">{label}</p>
+                    <p className="mt-1 text-xs text-primary-foreground/70">{value}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="lg:col-span-6">
-            <img
-              src={heroImage}
-              alt="Healthy layer birds in a clean, well-ventilated poultry house managed by an Afrifama farmer"
-              loading="lazy"
-              width={1600}
-              height={1104}
-              className="w-full rounded-3xl border border-border object-cover shadow-lift"
+          <p className="max-w-3xl py-5 text-sm leading-relaxed text-muted-foreground">
+            Our current focus is commercial layer production. The first production cycle is underway,
+            and we publish no sales or output figures that have not been verified.
+          </p>
+        </div>
+      </section>
+
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <SectionHeading
+              eyebrow="One connected system"
+              title="Every part of production affects the next"
+              lead="We separate the operating disciplines clearly, then manage them as one commercial system."
             />
+          </div>
+          <ol className="border-t border-border lg:col-span-8">
+            {poultryOperatingSystem.map((item) => (
+              <li key={item.number} className="grid gap-3 border-b border-border py-6 sm:grid-cols-[3rem_1fr_1.45fr_auto] sm:items-center">
+                <span className="font-display text-sm font-bold text-terracotta">{item.number}</span>
+                <h3 className="font-display text-lg font-bold">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                <Link to={item.to} aria-label={`Learn more about ${item.title}`} className="text-primary transition-transform hover:translate-x-1">
+                  <ArrowRight className="size-5" />
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Section>
+
+      <Section tone="forest">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-5">
+            <SectionHeading
+              eyebrow="Facilities, welfare and biosecurity"
+              title="Healthy birds are a management outcome"
+              lead="The poultry house is not simply shelter. It is the environment in which nutrition, health and daily care either work together or break down."
+              inverted
+            />
+          </div>
+          <div className="border-y border-primary-foreground/20 py-7 lg:col-span-7 lg:px-8">
+            <CheckList items={welfare} inverted />
           </div>
         </div>
       </Section>
 
       <Section tone="muted">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <SectionHeading
-              eyebrow="Welfare and biosecurity"
-              title="Healthy birds are a management outcome"
-              lead="Bird welfare and biosecurity are treated as daily operating routines, not one-off interventions."
-            />
-          </div>
-          <div className="lg:col-span-7">
-            <Card>
-              <CheckList items={welfare} />
-            </Card>
-          </div>
+        <SectionHeading
+          eyebrow="Clear pathways"
+          title="Choose the conversation that fits your role"
+          lead="Afrifama works with farmers, feed customers and partners through distinct, practical entry points."
+        />
+        <div className="mt-10 grid border-t border-border lg:grid-cols-3">
+          {poultryPathways.map((pathway, index) => (
+            <article key={pathway.audience} className={`py-7 lg:px-7 ${index > 0 ? "border-t border-border lg:border-t-0 lg:border-l" : ""}`}>
+              <p className="eyebrow text-terracotta">{pathway.audience}</p>
+              <h3 className="mt-4 font-display text-xl font-bold">{pathway.title}</h3>
+              <p className="mt-3 leading-relaxed text-muted-foreground">{pathway.body}</p>
+              <Button asChild variant="link" className="mt-5 h-auto p-0">
+                <Link to={pathway.to}>{pathway.label} <ArrowRight className="size-4" /></Link>
+              </Button>
+            </article>
+          ))}
         </div>
       </Section>
 
-      <Section>
-        <div className="grid gap-10 lg:grid-cols-2">
+      <Section compact>
+        <div className="grid gap-8 border-l-4 border-gold pl-6 lg:grid-cols-[1fr_auto] lg:items-center lg:pl-10">
           <div>
-            <SectionHeading
-              eyebrow="Farmer-linked production"
-              title="Production that extends onto partner farms"
-              lead="Our own flock is where routines are tested. Partner farms are where they scale, with the same nutrition, health planning and record-keeping expectations."
-            />
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild>
-                <Link to="/farmer-partnership">Understand the Partnership</Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link to="/feeds">See stage-based nutrition</Link>
-              </Button>
-            </div>
-          </div>
-          <Card className="bg-secondary/60">
-            <h3 className="font-display text-base font-bold">What we do not publish</h3>
-            <p className="mt-3 leading-relaxed text-muted-foreground">
-              We do not publish unverified sales, egg output or profitability figures, and we do not
-              publish individual farmer or flock data. Verified progress figures appear on the
-              Impact page.
+            <p className="eyebrow text-terracotta">Evidence before claims</p>
+            <h2 className="mt-3 text-2xl font-extrabold">We publish progress only when it can be verified.</h2>
+            <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+              We do not publish unverified sales, egg output or profitability figures, and individual farmer and flock records remain private.
             </p>
-            <Link
-              to="/impact"
-              className="mt-5 inline-flex font-display text-sm font-bold text-primary"
-            >
-              View early progress
-            </Link>
-          </Card>
+          </div>
+          <Button asChild variant="outline"><Link to="/impact">View early progress</Link></Button>
         </div>
       </Section>
 
