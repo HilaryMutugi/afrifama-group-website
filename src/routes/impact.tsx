@@ -55,7 +55,7 @@ function Impact() {
             <Breadcrumbs items={[{ label: "Impact" }]} />
           </div>
           <div className="grid overflow-hidden border-x border-t border-primary-foreground/15 lg:grid-cols-[1.02fr_0.98fr]">
-            <div className="flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-14 lg:py-20">
+            <div className="flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-12 lg:py-14">
               <p className="eyebrow text-gold">Impact</p>
               <h1 className="mt-5 max-w-2xl h1-page font-extrabold">
                 {impactFramework.coreMessage}

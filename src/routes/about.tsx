@@ -129,7 +129,7 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-primary-deep py-18 text-primary-foreground sm:py-24">
+      <section className="bg-primary-deep section-pad text-primary-foreground">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-6"><p className="eyebrow text-gold">03 / One growing system</p><h2 className="mt-4 h2-section font-extrabold">The businesses belong together.</h2></div>
@@ -166,7 +166,7 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-primary-deep py-20 text-primary-foreground sm:py-28">
+      <section className="bg-primary-deep section-pad text-primary-foreground">
         <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
           <p className="eyebrow text-gold">The idea that carries forward</p>
           <blockquote className="mt-6 font-display h2-section font-bold">“{aboutStory.closing}”</blockquote>

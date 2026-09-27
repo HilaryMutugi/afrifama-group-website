@@ -79,7 +79,7 @@ function FieldNote() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-3xl px-5 py-16 lg:px-8">
+        <div className="mx-auto max-w-3xl px-5 py-12 lg:px-8">
           <div className="space-y-5 text-lg leading-relaxed text-foreground">
             {note.body.map((p) => (
               <p key={p.slice(0, 32)}>{p}</p>

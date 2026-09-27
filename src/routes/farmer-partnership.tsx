@@ -150,7 +150,7 @@ function FarmerPartnership() {
         </div>
       </section>
 
-      <section className="bg-primary-deep py-20 text-primary-foreground sm:py-24">
+      <section className="bg-primary-deep section-pad text-primary-foreground">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-5">
@@ -287,7 +287,7 @@ function FarmerPartnership() {
         </div>
       </section>
 
-      <section id="express-interest" className="scroll-mt-20 bg-primary-deep py-20 text-primary-foreground sm:py-24">
+      <section id="express-interest" className="scroll-mt-20 bg-primary-deep section-pad text-primary-foreground">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-12 lg:items-end lg:px-8">
           <div className="lg:col-span-8">
             <p className="eyebrow text-gold">Next step</p>
