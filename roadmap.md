@@ -7,3 +7,6 @@
 - [x] Verify the Impact page on desktop and mobile and confirm a clean preview build.
 - [x] Redesign only the Feeds page around stage-specific products, production-linked nutrition, quality discipline, support and customer pathways.
 - [x] Verify the Feeds page on desktop and mobile and confirm a clean preview build.
+- [x] Refine only the Farmer Partnership page around readiness, shared responsibilities and the eight-stage farmer journey.
+- [x] Add and verify the dedicated farmer expression-of-interest form and expanded FAQs.
+- [x] Verify the Farmer Partnership page on desktop and mobile and confirm a clean preview build.

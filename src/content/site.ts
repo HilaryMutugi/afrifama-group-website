@@ -320,43 +320,82 @@ export const feedsPage = {
   ],
 } as const;
 
-export const partnershipAfrifamaProvides = [
-  "Quality birds",
-  "Feed and input support",
-  "Training",
-  "Vaccination and production guidance",
-  "Scheduled monitoring",
-  "Record-keeping support",
-  "Future market coordination as volumes develop",
-];
-
-export const partnershipFarmerProvides = [
-  "Suitable housing",
-  "Water",
-  "Labour and daily care",
-  "Biosecurity",
-  "Commitment to the agreed production system",
-  "Accurate records and communication",
-];
-
-export const partnershipSteps = [
-  {
-    title: "Expression of interest",
-    body: "A farmer shares their location, housing, experience and the flock size they want to manage.",
+export const farmerPartnership = {
+  hero: {
+    label: "Pilot underway",
+    title: "Building commercially capable poultry farmers, one flock at a time.",
+    body: "The Afrifama Smallholder Egg Partnership works with selected farmers who have the housing, water, labour and commitment required to manage a commercial layer flock. Afrifama connects farmer capability with birds, stage-specific feeds, training, technical monitoring and future market coordination.",
   },
-  {
-    title: "Farm-readiness review",
-    body: "We look at housing, water, biosecurity and daily labour to judge whether the farm can carry a production cycle.",
+  model: {
+    title: "A commercial partnership with responsibilities on both sides",
+    body: "The partnership is designed to help capable farmers enter or expand commercial egg production through a structured production system. Support, responsibilities, records and recovery arrangements are agreed in writing before birds are placed.",
+    afrifamaRole: [
+      "Farmer assessment and selection",
+      "Quality birds for the agreed flock",
+      "Stage-specific feed and input support",
+      "Farmer training",
+      "Vaccination and health-programme guidance",
+      "Scheduled monitoring",
+      "Production and record-keeping support",
+      "Market coordination as volumes develop",
+    ],
+    farmerRole: [
+      "Suitable and secure poultry housing",
+      "Reliable clean water",
+      "Daily labour and responsible flock care",
+      "Required equipment",
+      "Strong biosecurity",
+      "Accurate production records",
+      "Timely communication",
+      "Compliance with the agreed production system",
+      "Responsibility for the obligations contained in the signed agreement",
+    ],
   },
-  {
-    title: "Agreement and placement",
-    body: "Where a farm is selected, the partnership terms, input support and repayment expectations are agreed in writing before placement.",
+  readinessCriteria: [
+    "Have completed or nearly completed suitable housing",
+    "Have reliable access to clean water",
+    "Can provide consistent daily care",
+    "Are willing to follow biosecurity requirements",
+    "Can maintain accurate flock and financial records",
+    "Are prepared to attend training",
+    "Accept scheduled farm visits and monitoring",
+    "Understand that poultry production involves commercial risk",
+    "Are willing to enter a written partnership agreement",
+  ],
+  readinessGates: [
+    { title: "Housing readiness", body: "The structure must provide appropriate space, security, ventilation and protection." },
+    { title: "Water reliability", body: "Birds must have dependable access to clean water throughout the production cycle." },
+    { title: "Biosecurity readiness", body: "The farm must be capable of controlling visitors, equipment movement, contamination and disease risk." },
+    { title: "Daily management capacity", body: "A responsible caretaker must be available for feeding, watering, observation and record-keeping." },
+    { title: "Equipment and preparation", body: "Required feeders, drinkers, storage and basic farm equipment must be ready before placement." },
+    { title: "Monitoring and route practicality", body: "The farm must be accessible for scheduled monitoring, technical support and production coordination." },
+  ],
+  journey: [
+    { number: "01", title: "Expression of interest", body: "The farmer shares their location, housing status, experience and desired flock size." },
+    { number: "02", title: "Initial screening", body: "Afrifama reviews the application against current programme requirements and available capacity." },
+    { number: "03", title: "Farm assessment", body: "The team visits shortlisted farms to assess housing, water, biosecurity, equipment and management readiness." },
+    { number: "04", title: "Final selection", body: "Eligible farms are compared using consistent readiness criteria. Application does not guarantee selection." },
+    { number: "05", title: "Agreement and training", body: "Responsibilities, support and recovery arrangements are reviewed and agreed in writing. Selected farmers complete practical training." },
+    { number: "06", title: "Farm preparation and placement", body: "Final readiness checks are completed before birds are transferred to the farm." },
+    { number: "07", title: "Production and monitoring", body: "Afrifama conducts scheduled visits, reviews records and supports the farmer through the production cycle." },
+    { number: "08", title: "Market coordination and review", body: "Production performance, farmer obligations and market pathways are reviewed as the flock moves into lay." },
+  ],
+  support: [
+    { title: "Biosecurity and flock health", body: "Practical routines that reduce avoidable disease exposure and help farmers spot concerns early." },
+    { title: "Feeding and water management", body: "Guidance on consistent access, stage transitions and day-to-day observation." },
+    { title: "Vaccination follow-up", body: "Scheduled review against the agreed health programme and farmer records." },
+    { title: "Body weight and flock uniformity", body: "Periodic checks that help identify uneven development and management gaps." },
+    { title: "Production records", body: "Simple, consistent records for feed, mortality, body weight and egg production." },
+    { title: "Farm economics", body: "Tracking costs, production and sales so operating decisions remain commercially grounded." },
+    { title: "Scheduled field visits", body: "Planned farm reviews based on the production stage and partnership arrangement." },
+    { title: "Corrective technical support", body: "Practical guidance when monitoring identifies a management or production concern." },
+  ],
+  recoverableSupport: {
+    body: "Depending on the agreed partnership, Afrifama may advance birds, feed or selected production inputs. These inputs are not donations. The value and method of recovery are defined in the individual farmer agreement before placement.",
+    is: ["Structured production support", "Agreed individually and in writing", "Connected to an approved flock", "Monitored through production records", "Recoverable under the partnership agreement"],
+    isNot: ["A grant or donation", "A conventional public loan", "An unrestricted cash facility", "An automatic entitlement", "A guarantee of profit", "Available to every applicant"],
   },
-  {
-    title: "Production and monitoring",
-    body: "Scheduled visits, training and record reviews continue through the cycle, with technical support when performance drifts.",
-  },
-];
+} as const;
 
 /** Early-stage progress figures. Update these values as verified data changes. */
 export const earlyProgress = [
@@ -587,20 +626,52 @@ export const faqGroups: FaqGroup[] = [
     group: "Farmer Partnership",
     items: [
       {
-        q: "What is the farmer partnership?",
-        a: "A structured commercial arrangement with selected farmers. Afrifama may provide birds, feed and input support, training, vaccination and production guidance, scheduled monitoring and record-keeping support. The farmer provides housing, water, labour, biosecurity and accurate records.",
+        q: "What is the Afrifama Smallholder Egg Partnership?",
+        a: "It is a structured commercial arrangement with selected farmers. Afrifama may provide agreed production inputs, training and monitoring, while the farmer provides the farm readiness, daily management, records and discipline required for the flock.",
       },
       {
-        q: "Is input support a loan?",
-        a: "It is recoverable production support provided under an agreed partnership. It is not a donation, a conventional bank loan, or an open public credit facility.",
+        q: "Who can apply?",
+        a: "Farmers with suitable or nearly completed housing, reliable clean water, daily management capacity and willingness to follow the agreed production system may express interest. Applications are considered against current requirements and assessment capacity.",
       },
       {
-        q: "Does applying guarantee acceptance?",
+        q: "Does applying guarantee selection?",
         a: "No. Expressions of interest are reviewed against farm readiness and the capacity we have available in a given period. Acceptance is not automatic.",
       },
       {
+        q: "Must my poultry house already be complete?",
+        a: "A completed or nearly completed suitable poultry house is expected at application. Every critical readiness gate, including final housing and equipment preparation, must be passed before selection and placement.",
+      },
+      {
+        q: "What does Afrifama provide?",
+        a: "Depending on the individual agreement, Afrifama may provide quality birds for the agreed flock, stage-specific feed or selected inputs, training, health-programme guidance, scheduled monitoring, record support and future market coordination as volumes develop.",
+      },
+      {
+        q: "What must the farmer provide?",
+        a: "The farmer provides suitable housing, reliable clean water, equipment, daily labour and flock care, biosecurity, accurate records, timely communication and compliance with the signed agreement.",
+      },
+      {
+        q: "Is the input support a loan?",
+        a: "It is recoverable production support provided under an agreed partnership. It is not a donation, a conventional public loan or an unrestricted cash facility. The value and recovery method are agreed in writing before placement.",
+      },
+      {
+        q: "How are farmers selected?",
+        a: "Afrifama screens expressions of interest, assesses shortlisted farms and compares eligible farms using consistent readiness criteria. Programme capacity and route practicality also form part of final selection.",
+      },
+      {
         q: "What happens during monitoring visits?",
-        a: "We review flock condition, feed use, water, biosecurity and records, and work through any performance issues with the farmer. Individual farmer records are kept private.",
+        a: "Scheduled visits review flock condition, feed and water management, biosecurity, body-weight or production progress and farm records. The team discusses practical corrective steps where needed; this does not imply continuous emergency veterinary coverage.",
+      },
+      {
+        q: "Is egg purchase by Afrifama guaranteed?",
+        a: "Market and egg-purchase arrangements are defined in the individual agreement applicable to each production cycle.",
+      },
+      {
+        q: "Can I sell eggs independently?",
+        a: "Market and egg-purchase arrangements are defined in the individual agreement applicable to each production cycle.",
+      },
+      {
+        q: "How will my farm and production data be handled?",
+        a: "Individual farmer records, farm assessments, flock data, balances and photographs are treated responsibly. Personal information or identifiable farmer stories will not be published without permission.",
       },
     ],
   },
