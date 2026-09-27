@@ -64,7 +64,7 @@ function Impact() {
                 {impactFramework.supportingCopy}
               </p>
             </div>
-            <div className="relative min-h-80 lg:min-h-[620px]">
+            <div className="relative min-h-80 lg:min-h-[520px]">
               <img
                 src={photos.fieldDemo.src}
                 srcSet={photos.fieldDemo.srcSet}
@@ -201,7 +201,7 @@ function Impact() {
 
       <Section tone="muted">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
-          <div className="relative min-h-80 overflow-hidden lg:col-span-5 lg:min-h-[470px]">
+          <div className="relative min-h-80 overflow-hidden lg:col-span-5 lg:min-h-[420px]">
             <img
               src={photos.chickWater.src}
               srcSet={photos.chickWater.srcSet}

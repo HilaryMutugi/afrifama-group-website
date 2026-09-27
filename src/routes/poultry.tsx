@@ -79,7 +79,7 @@ function Poultry() {
                 </Button>
               </div>
             </div>
-            <div className="relative min-h-80 overflow-hidden lg:min-h-[590px]">
+            <div className="relative min-h-80 overflow-hidden lg:min-h-[520px]">
               <img
                 src={heroImage}
                 data-image-slot={imageSlots.poultry[0]}

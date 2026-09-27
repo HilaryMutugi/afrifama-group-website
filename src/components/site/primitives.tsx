@@ -65,10 +65,10 @@ export function SectionHeading({
       {eyebrow ? (
         <p className={`eyebrow ${inverted ? "text-gold" : "text-terracotta"}`}>{eyebrow}</p>
       ) : null}
-      <h2 className="mt-3 h2-section font-extrabold">{title}</h2>
+      <h2 className="mt-2 h2-section font-extrabold">{title}</h2>
       {lead ? (
         <p
-          className={`mt-4 text-lg leading-relaxed ${
+          className={`mt-3 body-copy ${
             inverted ? "text-primary-foreground/80" : "text-muted-foreground"
           }`}
         >

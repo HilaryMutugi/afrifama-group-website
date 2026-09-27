@@ -99,7 +99,7 @@ function Feeds() {
                 <Button asChild size="lg" variant="outline"><Link to="/contact">Talk to Our Team</Link></Button>
               </div>
             </div>
-            <div className="relative min-h-80 overflow-hidden lg:min-h-[610px]">
+            <div className="relative min-h-80 overflow-hidden lg:min-h-[520px]">
               <img
                 src={feedImage}
                 data-image-slot={imageSlots.feeds[0]}
@@ -157,7 +157,7 @@ function Feeds() {
           {feedProducts.map((product, index) => {
             const Icon = productIcons[index] ?? Wheat;
             return (
-              <article key={product.name} className="flex min-h-[390px] flex-col border-r border-b border-border bg-card p-6 sm:p-7">
+              <article key={product.name} className="flex min-h-[350px] flex-col border-r border-b border-border bg-card p-6 sm:p-7">
                 <div className="flex items-start justify-between gap-4"><Icon className="size-6 text-terracotta" aria-hidden="true" /><StatusBadge status={product.status} /></div>
                 <p className="mt-6 eyebrow text-terracotta">{product.journeyStage} · {product.stage}</p>
                 <h3 className="mt-3 font-display text-2xl font-bold">{product.name}</h3>

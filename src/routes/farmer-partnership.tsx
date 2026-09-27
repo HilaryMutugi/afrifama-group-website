@@ -60,7 +60,7 @@ const readinessIcons = [Home, Droplets, ShieldCheck, ClipboardCheck];
 function FarmerPartnership() {
   return (
     <>
-      <header className="relative isolate min-h-[min(780px,calc(100svh-72px))] overflow-hidden bg-primary-deep text-primary-foreground">
+      <header className="relative isolate min-h-[min(660px,calc(100svh-72px))] overflow-hidden bg-primary-deep text-primary-foreground">
         <img
           src={trainingImage}
           data-image-slot={imageSlots.partnership[0]}
@@ -72,7 +72,7 @@ function FarmerPartnership() {
         />
         <div className="absolute inset-0 bg-primary-deep/45" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-4/5 bg-gradient-to-t from-primary-deep via-primary-deep/65 to-transparent" aria-hidden="true" />
-        <div className="relative mx-auto flex min-h-[min(780px,calc(100svh-72px))] max-w-7xl flex-col px-5 pt-8 pb-12 lg:px-8">
+        <div className="relative mx-auto flex min-h-[min(660px,calc(100svh-72px))] max-w-7xl flex-col px-5 pt-8 pb-12 lg:px-8">
           <Breadcrumbs
             items={[{ label: "Our Businesses", to: "/businesses" }, { label: "Farmer Partnership" }]}
           />
