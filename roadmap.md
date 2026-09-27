@@ -14,4 +14,6 @@
 - [x] Remove public contact and social placeholders, and make the unconnected farmer form unavailable.
 - [x] Verify all five refined pages across desktop, tablet and mobile.
 - [x] Recompose the Farmer Partnership page as a concise editorial experience with a custom mural and progressive disclosure.
-- [x] Verify the redesigned Farmer Partnership page on desktop and mobile.
+- [x] Verify the redesigned Farmer Partnership page on desktop and mobile.- [ ] Redesign only the About page around Afrifama’s verified company journey.
+- [ ] Add and verify the About timeline, system mural, proof strip and final story statement.
+- [ ] Show complete desktop and mobile About previews without publishing.
