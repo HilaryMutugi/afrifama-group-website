@@ -34,7 +34,7 @@ import {
   StatusBadge,
 } from "@/components/site/primitives";
 import { company, feedProducts, feedsPage, faqGroups } from "@/content/site";
-import feedImage from "@/assets/feed-materials.jpg";
+import feedImage from "@/assets/feeds-production.jpg";
 
 const feedFaqs = faqGroups.find((group) => group.group === "Feed Products");
 
