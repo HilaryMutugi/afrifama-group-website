@@ -29,7 +29,6 @@ function Wordmark() {
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [bizOpen, setBizOpen] = useState(false);
-  const [bizOpen, setBizOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
