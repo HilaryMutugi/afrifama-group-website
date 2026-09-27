@@ -134,6 +134,50 @@ export const pillars: Pillar[] = [
   },
 ];
 
+export const poultryOperatingSystem = [
+  { number: "01", title: "Flock production", body: "Commercial layer production managed through distinct brooding, rearing and laying stages.", to: "/poultry" },
+  { number: "02", title: "Stage-based nutrition", body: "Afrifama feed matched to the bird's stage, with production feedback informing formulation decisions.", to: "/feeds" },
+  { number: "03", title: "Facilities and biosecurity", body: "Housing, ventilation, water, litter and controlled movement managed as daily operating disciplines.", to: "/poultry" },
+  { number: "04", title: "Records and decisions", body: "Daily flock records used to identify trends early and guide practical management changes.", to: "/impact" },
+  { number: "05", title: "Farmer support", body: "The same routines extended to selected partner farms through training, monitoring and record review.", to: "/farmer-partnership" },
+] as const;
+
+export const poultryPathways = [
+  { audience: "Commercial farmers", title: "Build a more consistent production routine", body: "Explore Afrifama's structured farmer partnership and the operating standards expected on participating farms.", label: "Understand the partnership", to: "/farmer-partnership" },
+  { audience: "Feed customers", title: "Match nutrition to the production stage", body: "Review the Chick, Growers, Layers and Kienyeji mash range developed for practical local production.", label: "Explore Afrifama Feeds", to: "/feeds" },
+  { audience: "Strategic partners", title: "Strengthen the system around the flock", body: "Discuss technical, supply, equipment or investment partnerships that support disciplined growth.", label: "Start a conversation", to: "/contact" },
+] as const;
+
+export const geneticsCapability = {
+  positioning: "A developing Afrifama capability focused on parent stock, reliable layer genetics, technical partnerships and the long-term development of locally relevant chick supply.",
+  productiveFlock: [
+    { title: "Known origin", body: "Clear provenance and breeder guidance are the starting point for making sound flock decisions." },
+    { title: "Flock robustness", body: "Bird health, welfare and practical suitability matter alongside any published performance potential." },
+    { title: "Management fit", body: "Genetics must be matched with housing, nutrition, health planning and the farmer's operating capacity." },
+  ],
+  parentStockDirection: [
+    "Evaluate technical partnerships for reliable layer genetics",
+    "Build parent-stock knowledge and operating capability in sequence",
+    "Plan future brooding and hatchery capacity around verified demand",
+    "Develop locally relevant support before any commercial chick offer",
+  ],
+  buildSequence: [
+    { status: "In Development" as const, title: "Technical partnerships", body: "Conversations and technical groundwork around genetics, parent stock, bird health and management support." },
+    { status: "Future" as const, title: "Parent-stock capability", body: "A carefully sequenced capability informed by suitable genetics, biosecurity requirements and verified local demand." },
+    { status: "Future" as const, title: "Locally relevant chick supply", body: "Long-term development of predictable chick supply in practical quantities, supported by clear management guidance." },
+  ],
+  connectedPerformance: [
+    { title: "Genetics", body: "The bird's inherited potential and the official breeder guidance attached to that specific breed." },
+    { title: "Nutrition", body: "Stage-appropriate feed that responds to age, development and production demands." },
+    { title: "Management", body: "Housing, water, health, biosecurity and daily routines that allow potential to be expressed responsibly." },
+  ],
+  futureResources: [
+    { title: "Breed profiles", body: "Future profiles will identify the breed, its intended production context and the official breeder source." },
+    { title: "Management guides", body: "Future guides will translate official breeder recommendations into clear, field-ready management references." },
+    { title: "Performance references", body: "Any future technical figures will be attributed to the named breed's official management guide, not presented as Afrifama results." },
+  ],
+} as const;
+
 export const problems = [
   {
     title: "Unreliable access to quality birds",
