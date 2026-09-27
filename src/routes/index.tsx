@@ -45,7 +45,6 @@ export const Route = createFileRoute("/")({
         content:
           "Quality nutrition, reliable production, structured farmer partnerships and the foundations for stronger poultry genetics in Kenya.",
       },
-      { rel: "canonical", href: `${company.siteUrl}/` },
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/` }],
   }),
