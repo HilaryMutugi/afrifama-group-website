@@ -36,6 +36,31 @@ export const primaryNav: NavItem[] = [
 
 export const navCta = { label: "Partner With Us", to: "/contact" } as const;
 
+/** Simplified desktop navigation; business pages sit inside the "Our Businesses" dropdown. */
+export const businessNav: NavItem[] = [
+  { label: "Overview", to: "/businesses" },
+  { label: "Poultry", to: "/poultry" },
+  { label: "Feeds", to: "/feeds" },
+  { label: "Farmer Partnership", to: "/farmer-partnership" },
+  { label: "Genetics & Hatchery", to: "/genetics-hatchery" },
+];
+
+export const desktopNav: NavItem[] = [
+  { label: "About", to: "/about" },
+  { label: "Our Businesses", to: "/businesses" },
+  { label: "Impact", to: "/impact" },
+  { label: "Field Notes", to: "/field-notes" },
+  { label: "Contact", to: "/contact" },
+];
+
+/** Compact homepage value-chain strip. */
+export const valueChain = [
+  { title: "Quality Nutrition", body: "Stage-based mash formulated and tested for local conditions." },
+  { title: "Healthy Birds", body: "Consistent management, biosecurity and health routines." },
+  { title: "Supported Farmers", body: "Structured partnerships with training and field follow-up." },
+  { title: "Reliable Markets", body: "Market linkages that grow as production volume grows." },
+] as const;
+
 /**
  * Future surfaces kept out of the published navigation.
  * Flip `enabled` to true when Afrifama is ready to collect egg-supply interest.
