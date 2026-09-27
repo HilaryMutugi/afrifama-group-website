@@ -4,6 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Breadcrumbs, CheckList, Section, SectionHeading, StatusBadge } from "@/components/site/primitives";
 import { company, imageSlots, poultryOperatingSystem, poultryProductionStages } from "@/content/site";
 import heroImage from "@/assets/poultry-layers.jpg";
+import { photos } from "@/content/photos";
+
+const stagePhotos = [
+  { img: photos.brooding, alt: "Day-old chicks feeding together in a brooding crate" },
+  { img: photos.rearing, alt: "Growing birds feeding together on open ground" },
+  { img: photos.eggs, alt: "A tray of clean brown eggs" },
+];
 
 export const Route = createFileRoute("/poultry")({
   head: () => ({
@@ -122,13 +129,20 @@ function Poultry() {
           </ol>
         </div>
         <ol className="mt-10 grid border-y border-border sm:grid-cols-3" aria-label="Poultry production stages">
-          {poultryProductionStages.map((stage, index) => (
-            <li key={stage.title} className={`py-5 sm:px-6 ${index > 0 ? "border-t border-border sm:border-t-0 sm:border-l" : ""}`}>
-              <div className="flex items-center gap-3"><span className="font-display text-xs font-bold text-terracotta">0{index + 1}</span><h3 className="font-display text-lg font-bold">{stage.title}</h3></div>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{stage.body}</p>
-            </li>
-          ))}
+          {poultryProductionStages.map((stage, index) => {
+            const photo = stagePhotos[index];
+            return (
+              <li key={stage.title} className={`py-5 sm:px-6 ${index > 0 ? "border-t border-border sm:border-t-0 sm:border-l" : ""}`}>
+                {photo ? (
+                  <img src={photo.img.src} srcSet={photo.img.srcSet} sizes="(min-width: 640px) 33vw, 100vw" data-image-slot={imageSlots.poultry[index + 1]} alt={photo.alt} loading="lazy" width={photo.img.width} height={photo.img.height} className="mb-4 aspect-[16/10] w-full object-cover" />
+                ) : null}
+                <div className="flex items-center gap-3"><span className="font-display text-xs font-bold text-terracotta">0{index + 1}</span><h3 className="font-display text-lg font-bold">{stage.title}</h3></div>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{stage.body}</p>
+              </li>
+            );
+          })}
         </ol>
+        <p className="mt-3 text-xs text-muted-foreground">Illustrative stage photography via Wikimedia Commons (LubGua987, MmaBaggio, EstherDje); not Afrifama flocks.</p>
       </Section>
 
       <Section tone="forest">
