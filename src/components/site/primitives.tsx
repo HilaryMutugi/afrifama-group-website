@@ -61,7 +61,7 @@ export function SectionHeading({
   inverted?: boolean;
 }) {
   return (
-    <div className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}>
+    <div className={`max-w-[62ch] ${align === "center" ? "mx-auto text-center" : ""}`}>
       {eyebrow ? (
         <p className={`eyebrow ${inverted ? "text-gold" : "text-terracotta"}`}>{eyebrow}</p>
       ) : null}
@@ -81,7 +81,7 @@ export function SectionHeading({
 
 export function Breadcrumbs({ items }: { items: { label: string; to?: string }[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-8">
+    <nav aria-label="Breadcrumb" className="mb-6">
       <ol className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
         <li>
           <Link to="/" className="transition-colors hover:text-primary">
@@ -122,10 +122,10 @@ export function PageHero({
 }) {
   return (
     <div className="border-b border-border bg-secondary/40">
-      <div className="mx-auto max-w-7xl px-5 pt-10 pb-16 sm:pb-20 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 pt-8 pb-10 sm:pb-12 lg:px-8">
         <Breadcrumbs items={breadcrumbs} />
         <p className="eyebrow text-terracotta">{eyebrow}</p>
-        <div className="mt-4 grid gap-6 lg:grid-cols-12 lg:items-end">
+        <div className="mt-3 grid gap-5 lg:grid-cols-12 lg:items-end">
           <h1 className="h1-page font-extrabold lg:col-span-7">
             {title}
           </h1>
@@ -135,7 +135,7 @@ export function PageHero({
                 <StatusBadge status={status} />
               </div>
             ) : null}
-            <p className="text-lg leading-relaxed text-muted-foreground">{lead}</p>
+            <p className="body-copy text-muted-foreground">{lead}</p>
           </div>
         </div>
       </div>
