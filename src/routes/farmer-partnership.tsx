@@ -90,6 +90,9 @@ function FarmerPartnership() {
             <Button asChild size="lg" variant="secondary" className="mt-7">
               <a href="#how-it-works">See how it works <ArrowRight aria-hidden="true" /></a>
             </Button>
+            <p className="mt-6 max-w-md text-xs leading-relaxed text-primary-foreground/60">
+              {farmerPartnership.captions.hero}
+            </p>
           </div>
         </div>
       </header>
@@ -125,7 +128,8 @@ function FarmerPartnership() {
               />
             </div>
             <figcaption className="mt-3 max-w-xl text-xs leading-relaxed text-muted-foreground">
-              Illustrative poultry-care photography, not an Afrifama farm. {photos.chickWater.credit}
+              <span className="font-semibold uppercase tracking-wide text-terracotta">Documentary photo</span>
+              {" — "}{farmerPartnership.captions.chickCare}{" "}{photos.chickWater.credit}
             </figcaption>
           </figure>
           <div className="lg:col-span-5 lg:pl-8">
@@ -252,7 +256,8 @@ function FarmerPartnership() {
               />
             </div>
             <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
-              Illustrative East African field demonstration, not an Afrifama event. {photos.fieldDemo.credit}
+              <span className="font-semibold uppercase tracking-wide text-terracotta">Documentary photo</span>
+              {" — "}{farmerPartnership.captions.fieldDemo}{" "}{photos.fieldDemo.credit}
             </figcaption>
           </figure>
         </div>

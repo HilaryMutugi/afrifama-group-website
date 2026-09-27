@@ -402,6 +402,12 @@ export const farmerPartnership = {
     is: ["Structured production support", "Agreed individually and in writing", "Connected to an approved flock", "Monitored through production records", "Recoverable under the partnership agreement"],
     isNot: ["A grant or donation", "A conventional public loan", "An unrestricted cash facility", "An automatic entitlement", "A guarantee of profit", "Available to every applicant"],
   },
+  /** Photo captions: distinguish illustrative imagery from documentary photography. Credits come from src/content/photos.ts. */
+  captions: {
+    hero: "Illustrative image — not an Afrifama farm. Afrifama field photography will replace this.",
+    chickCare: "not an Afrifama farm, farmer or flock.",
+    fieldDemo: "not an Afrifama event or farm.",
+  },
 } as const;
 
 /** Early-stage progress figures. Update these values as verified data changes. */
