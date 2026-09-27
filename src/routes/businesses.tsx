@@ -30,7 +30,7 @@ export const Route = createFileRoute("/businesses")({
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/businesses` }],
   }),
-  component: Businesses;
+  component: Businesses,
 });
 
 function Businesses() {
