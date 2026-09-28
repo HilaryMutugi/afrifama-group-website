@@ -16,8 +16,8 @@ export const Route = createFileRoute("/poultry")({
   head: () => ({
     meta: [
       { title: "Afrifama Poultry — Commercial Layer Production in Kenya" },
-      { property: "og:title", content: "Afrifama Poultry — Commercial Layer Production in Kenya" }
-      { property: "og:url", content: "/poultry" }
+      { property: "og:title", content: "Afrifama Poultry — Commercial Layer Production in Kenya" },
+      { property: "og:url", content: "/poultry" },
       {
         name: "description",
         content:
@@ -26,12 +26,6 @@ export const Route = createFileRoute("/poultry")({
       {
         property: "og:description",
         content: "See how Afrifama connects commercial layer production, stage-based feeds, biosecurity, records and farmer support in Kilifi County, Kenya.",
-      },
-      { property: "og:title", content: "Afrifama Poultry — A Connected Production System" },
-      {
-        property: "og:description",
-        content:
-          "Commercial layer production built around consistent management, practical nutrition, daily records and farmer-linked growth.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

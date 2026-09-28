@@ -6,8 +6,8 @@ export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
       { title: "Privacy Policy | Afrifama" },
-      { property: "og:title", content: "Privacy Policy | Afrifama" }
-      { property: "og:url", content: "/privacy" }
+      { property: "og:title", content: "Privacy Policy | Afrifama" },
+      { property: "og:url", content: "/privacy" },
       {
         name: "description",
         content:
@@ -16,11 +16,6 @@ export const Route = createFileRoute("/privacy")({
       {
         property: "og:description",
         content: "How Afrifama handles enquiry information and farmer data, and what this early version of the website does and does not collect.",
-      },
-      { property: "og:title", content: "Privacy Policy | Afrifama" },
-      {
-        property: "og:description",
-        content: "Afrifama's approach to enquiry information and farmer data privacy.",
       },
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/privacy` }],

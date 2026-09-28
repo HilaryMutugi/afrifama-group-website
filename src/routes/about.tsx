@@ -10,8 +10,8 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About Afrifama — An integrated Kenyan poultry agribusiness" },
-      { property: "og:title", content: "About Afrifama — An integrated Kenyan poultry agribusiness" }
-      { property: "og:url", content: "/about" }
+      { property: "og:title", content: "About Afrifama — An integrated Kenyan poultry agribusiness" },
+      { property: "og:url", content: "/about" },
       {
         name: "description",
         content:
@@ -20,12 +20,6 @@ export const Route = createFileRoute("/about")({
       {
         property: "og:description",
         content: "Afrifama's story, mission, vision and operating principles, and why an integrated poultry model matters for Kenyan farmers.",
-      },
-      { property: "og:title", content: "About Afrifama — An integrated Kenyan poultry agribusiness" },
-      {
-        property: "og:description",
-        content:
-          "Why Afrifama is building feed, poultry production, farmer partnerships and genetics development as one connected system.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
