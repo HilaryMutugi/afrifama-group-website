@@ -46,4 +46,8 @@ export const photos = {
   fieldDemo: p(field1600, field800, 1600, 1200, "Photo: ILRI, CC BY 2.0, via Wikimedia Commons"),
   geneticsChicks: p(gchicks1600, gchicks800, 1560, 1560, "Photo: ELTORO.VET, CC0, via Wikimedia Commons"),
   chickWater: p(chickWater1600, chickWater800, 1200, 844, "Photo: Yganyana, CC BY-SA 4.0, via Wikimedia Commons"),
+  soya: p({ url: soya1600 }, { url: soya800 }, 1061, 1600, "Photo: Scott Bauer, U.S. Department of Agriculture, Public domain, via Wikimedia Commons"),
+  riceBran: p({ url: riceBran1600 }, { url: riceBran800 }, 1397, 1600, "Photo: Palagiri, CC BY-SA 3.0, via Wikimedia Commons"),
+  limestone: p({ url: limestone1600 }, { url: limestone800 }, 1600, 1573, "Photo: Hardcoreraveman, Public domain, via Wikimedia Commons"),
+  millet: p({ url: millet1600 }, { url: millet800 }, 1200, 1600, "Photo: Achiri Bitamsimli, CC BY-SA 4.0, via Wikimedia Commons"),
 } satisfies Record<string, Photo>;
