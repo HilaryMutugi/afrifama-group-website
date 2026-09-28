@@ -3,8 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/site/primitives";
 import { AboutSystemMural } from "@/components/site/AboutSystemMural";
+import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { aboutStory, company, imageSlots } from "@/content/site";
-import { photos } from "@/content/photos";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -33,18 +33,7 @@ function About() {
   return (
     <>
       <header className="relative isolate min-h-[min(660px,calc(100svh-72px))] overflow-hidden bg-primary-deep text-primary-foreground">
-        <img
-          src={photos.rearing.src}
-          srcSet={photos.rearing.srcSet}
-          sizes="100vw"
-          data-image-slot={imageSlots.about[0]}
-          alt="Free-range poultry in an African farm landscape"
-          width={photos.rearing.width}
-          height={photos.rearing.height}
-          fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 motion-safe:hover:scale-[1.025]"
-        />
-        <div className="absolute inset-0 bg-primary-deep/70" aria-hidden="true" />
+        <ImagePlaceholder slot={imageSlots.about[0]} label="About Afrifama hero photography" className="absolute inset-0 size-full border-0" inverted showLabel={false} />
         <div className="relative mx-auto flex min-h-[min(660px,calc(100svh-72px))] max-w-7xl flex-col px-5 pt-8 pb-10 lg:px-8 lg:pb-14">
           <div className="[&_nav]:text-primary-foreground/75 [&_nav_a]:text-primary-foreground/75 [&_nav_span]:text-primary-foreground">
             <Breadcrumbs items={[{ label: "About Afrifama" }]} />
@@ -61,7 +50,7 @@ function About() {
               <a href="#our-story">Follow our journey <ArrowRight aria-hidden="true" /></a>
             </Button>
             <p className="mt-5 max-w-xl text-xs leading-relaxed text-primary-foreground/65">
-              {aboutStory.captions.hero} {photos.rearing.credit}
+              Reserved for verified Afrifama photography.
             </p>
           </div>
         </div>
@@ -74,9 +63,9 @@ function About() {
             <h2 className="mt-4 h2-section font-extrabold">The flock revealed the system.</h2>
             <figure className="group mt-8">
               <div className="overflow-hidden rounded-lg">
-                <img src={photos.chickWater.src} srcSet={photos.chickWater.srcSet} sizes="(min-width: 1024px) 38vw, 100vw" data-image-slot={imageSlots.about[1]} alt="A young chick drinking water in Kenya" width={photos.chickWater.width} height={photos.chickWater.height} loading="lazy" className="aspect-[5/4] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                <ImagePlaceholder slot={imageSlots.about[1]} label="Afrifama origin-story photography" className="aspect-[5/4] w-full" />
               </div>
-              <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">{aboutStory.captions.origin} {photos.chickWater.credit}</figcaption>
+              <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">Reserved for verified Afrifama origin-story photography.</figcaption>
             </figure>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
@@ -112,13 +101,13 @@ function About() {
                 </div>
                 {index === 2 ? (
                   <figure className="group lg:col-span-5 lg:col-start-8">
-                    <div className="overflow-hidden rounded-lg"><img src={photos.maizeMilling.src} srcSet={photos.maizeMilling.srcSet} sizes="(min-width: 1024px) 40vw, 100vw" data-image-slot={imageSlots.about[2]} alt="Maize grain prepared for milling in East Africa" width={photos.maizeMilling.width} height={photos.maizeMilling.height} loading="lazy" className="aspect-[16/9] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" /></div>
-                    <figcaption className="mt-2 text-xs leading-relaxed text-muted-foreground">{aboutStory.captions.feeds} {photos.maizeMilling.credit}</figcaption>
+                    <div className="overflow-hidden rounded-lg"><ImagePlaceholder slot={imageSlots.about[2]} label="Afrifama feed-production photography" className="aspect-[16/9] w-full" /></div>
+                    <figcaption className="mt-2 text-xs leading-relaxed text-muted-foreground">Reserved for verified Afrifama feed-production photography.</figcaption>
                   </figure>
                 ) : index === 3 ? (
                   <figure className="group lg:col-span-5 lg:col-start-8">
-                    <div className="overflow-hidden rounded-lg"><img src={photos.fieldDemo.src} srcSet={photos.fieldDemo.srcSet} sizes="(min-width: 1024px) 40vw, 100vw" data-image-slot={imageSlots.about[3]} alt="Farmers and technical staff at a practical East African field demonstration" width={photos.fieldDemo.width} height={photos.fieldDemo.height} loading="lazy" className="aspect-[16/9] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" /></div>
-                    <figcaption className="mt-2 text-xs leading-relaxed text-muted-foreground">{aboutStory.captions.operations} {photos.fieldDemo.credit}</figcaption>
+                    <div className="overflow-hidden rounded-lg"><ImagePlaceholder slot={imageSlots.about[3]} label="Afrifama field-operations photography" className="aspect-[16/9] w-full" /></div>
+                    <figcaption className="mt-2 text-xs leading-relaxed text-muted-foreground">Reserved for verified Afrifama field-operations photography.</figcaption>
                   </figure>
                 ) : (
                   <div className="hidden lg:col-span-5 lg:col-start-8 lg:block" aria-hidden="true"><span className="block h-px w-full bg-gold/55" /></div>

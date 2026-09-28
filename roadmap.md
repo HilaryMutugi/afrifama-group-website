@@ -24,3 +24,4 @@
 - [x] Complete the free stock-photo set: soya, rice bran, limestone and millet added to the Feeds raw-materials mosaic, with credits
 - [x] SEO cleanup: og:title/og:description/og:url on every page, sitemap verified
 - [x] QA pass: Feeds and Genetics & Hatchery verified at 1440/768/390 (no overflow, no broken images, no console errors)
+- [x] Remove all website photographs and preserve labelled, responsive placeholders for future Afrifama photography.

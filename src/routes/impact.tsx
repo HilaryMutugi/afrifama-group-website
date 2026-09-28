@@ -15,10 +15,9 @@ import {
   WalletCards,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { Breadcrumbs, Section, SectionHeading } from "@/components/site/primitives";
 import { company, impactFramework, imageSlots } from "@/content/site";
-import fieldImage from "@/assets/farmer-training.jpg";
-import { photos } from "@/content/photos";
 import { KenyaMap } from "@/components/site/KenyaMap";
 
 export const Route = createFileRoute("/impact")({
@@ -65,16 +64,11 @@ function Impact() {
               </p>
             </div>
             <div className="relative min-h-80 lg:min-h-[520px]">
-              <img
-                src={photos.fieldDemo.src}
-                srcSet={photos.fieldDemo.srcSet}
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                data-image-slot={imageSlots.impact[0]}
-                alt="Farmers and poultry specialists discussing a bird during an on-farm demonstration in East Africa"
-                width={photos.fieldDemo.width}
-                height={photos.fieldDemo.height}
-                fetchPriority="high"
-                className="absolute inset-0 size-full object-cover object-center"
+              <ImagePlaceholder
+                slot={imageSlots.impact[0]}
+                label="Impact hero photography"
+                className="absolute inset-0 size-full border-0"
+                inverted
               />
               <div className="absolute inset-x-0 bottom-0 border-t border-primary-foreground/20 bg-primary/90 px-6 py-4 backdrop-blur-sm">
                 <p className="text-sm font-semibold">Commercial progress, followed from farm records to market participation.</p>
@@ -165,14 +159,7 @@ function Impact() {
               inverted
             />
             <div className="mt-8 aspect-[4/3] overflow-hidden border border-primary-foreground/20">
-              <img
-                src={fieldImage}
-                data-image-slot={imageSlots.impact[1]}
-                alt="A field assessment discussion beside a commercial poultry house"
-                width={1600}
-                height={1067}
-                className="size-full object-cover"
-              />
+              <ImagePlaceholder slot={imageSlots.impact[1]} label="Field assessment photography" className="size-full border-0" inverted />
             </div>
           </div>
           <ol className="grid border-t border-l border-primary-foreground/20 sm:grid-cols-2 lg:col-span-7">
@@ -202,17 +189,7 @@ function Impact() {
       <Section tone="muted">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="relative min-h-80 overflow-hidden lg:col-span-5 lg:min-h-[420px]">
-            <img
-              src={photos.chickWater.src}
-              srcSet={photos.chickWater.srcSet}
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              data-image-slot={imageSlots.impact[2]}
-              alt="A week-old chick beside a water container on a Kenyan smallholding"
-              width={photos.chickWater.width}
-              height={photos.chickWater.height}
-              loading="lazy"
-              className="absolute inset-0 size-full object-cover"
-            />
+            <ImagePlaceholder slot={imageSlots.impact[2]} label="Farmer story photography" className="absolute inset-0 size-full" />
           </div>
           <div className="lg:col-span-7 lg:pl-8">
             <p className="eyebrow text-terracotta">Stories from the field</p>

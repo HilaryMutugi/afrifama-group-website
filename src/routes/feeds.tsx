@@ -15,6 +15,7 @@ import {
   Wheat,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import {
   Accordion,
   AccordionContent,
@@ -28,8 +29,6 @@ import {
   StatusBadge,
 } from "@/components/site/primitives";
 import { company, feedProducts, feedsPage, faqGroups, imageSlots } from "@/content/site";
-import feedImage from "@/assets/feeds-production.jpg";
-import { photos } from "@/content/photos";
 
 const feedFaqs = faqGroups.find((group) => group.group === "Feed Products");
 
@@ -100,13 +99,10 @@ function Feeds() {
               </div>
             </div>
             <div className="relative min-h-80 overflow-hidden lg:min-h-[520px]">
-              <img
-                src={feedImage}
-                data-image-slot={imageSlots.feeds[0]}
-                alt="Clean poultry-feed raw materials prepared for evaluation and mixing"
-                width={1408}
-                height={1008}
-                className="absolute inset-0 size-full object-cover"
+              <ImagePlaceholder
+                slot={imageSlots.feeds[0]}
+                label="Feed production photography"
+                className="absolute inset-0 size-full border-0"
               />
               <div className="absolute inset-x-0 bottom-0 border-t border-primary-foreground/20 bg-primary/90 px-6 py-5 text-primary-foreground backdrop-blur-sm">
                 <p className="eyebrow text-gold">Our approach</p>
@@ -217,15 +213,12 @@ function Feeds() {
         <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
           <figure className="lg:col-span-5">
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-              <img src={photos.maizeMilling.src} srcSet={photos.maizeMilling.srcSet} sizes="(min-width: 1024px) 40vw, 100vw" data-image-slot={imageSlots.feeds[1]} alt="A mill worker checking a large pile of maize grain ready for milling" loading="lazy" width={photos.maizeMilling.width} height={photos.maizeMilling.height} className="col-span-2 aspect-[3/2] w-full object-cover sm:col-span-3" />
-              <img src={photos.maize.src} srcSet={photos.maize.srcSet} sizes="(min-width: 640px) 15vw, 45vw" alt="Close-up of dried maize grains" loading="lazy" width={photos.maize.width} height={photos.maize.height} className="aspect-square w-full object-cover" />
-              <img src={photos.sunflower.src} srcSet={photos.sunflower.srcSet} sizes="(min-width: 640px) 15vw, 45vw" alt="Close-up of sunflower seeds" loading="lazy" width={photos.sunflower.width} height={photos.sunflower.height} className="aspect-square w-full object-cover" />
-              <img src={photos.soya.src} srcSet={photos.soya.srcSet} sizes="(min-width: 640px) 15vw, 45vw" alt="Close-up of raw soya beans" loading="lazy" width={photos.soya.width} height={photos.soya.height} className="aspect-square w-full object-cover" />
-              <img src={photos.riceBran.src} srcSet={photos.riceBran.srcSet} sizes="(min-width: 640px) 15vw, 45vw" alt="Close-up of rice bran, a finely milled pale-brown powder" loading="lazy" width={photos.riceBran.width} height={photos.riceBran.height} className="aspect-square w-full object-cover" />
-              <img src={photos.limestone.src} srcSet={photos.limestone.srcSet} sizes="(min-width: 640px) 15vw, 45vw" alt="Close-up of ground limestone, a white mineral powder" loading="lazy" width={photos.limestone.width} height={photos.limestone.height} className="aspect-square w-full object-cover" />
-              <img src={photos.millet.src} srcSet={photos.millet.srcSet} sizes="(min-width: 640px) 15vw, 45vw" alt="White millet grain spread out for drying beside a bowl" loading="lazy" width={photos.millet.width} height={photos.millet.height} className="aspect-square w-full object-cover" />
+              <ImagePlaceholder slot={imageSlots.feeds[1]} label="Raw-materials photography" className="col-span-2 aspect-[3/2] w-full sm:col-span-3" />
+              {["Maize", "Sunflower", "Soya", "Rice bran", "Limestone", "Millet"].map((ingredient) => (
+                <ImagePlaceholder key={ingredient} slot={`feeds-${ingredient.toLowerCase().replace(" ", "-")}`} label={`${ingredient} detail`} className="aspect-square w-full" />
+              ))}
             </div>
-            <figcaption className="mt-2 text-xs text-muted-foreground">Illustrative ingredient photography, not Afrifama facilities. Credits: Emmanuel Ssekaggo, Gaurav Dhwaj Khadka, Mx. Granger, Scott Bauer (USDA), Palagiri, Hardcoreraveman, Achiri Bitamsimli via Wikimedia Commons.</figcaption>
+            <figcaption className="mt-2 text-xs text-muted-foreground">Reserved for verified Afrifama raw-material and production photography.</figcaption>
           </figure>
           <div className="lg:col-span-7 lg:pl-8">
             <SectionHeading eyebrow="Raw materials and quality discipline" title="Consistency starts before ingredients enter the mixer" lead="Quality is a sequence of checks and records. Laboratory testing is used where applicable; no certification or laboratory approval is implied." />
