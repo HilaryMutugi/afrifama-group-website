@@ -17,6 +17,14 @@ import gchicks1600 from "@/assets/photos/genetics-chicks-1600.webp.asset.json";
 import gchicks800 from "@/assets/photos/genetics-chicks-800.webp.asset.json";
 import chickWater1600 from "@/assets/photos/kenya-chick-water-1600.webp.asset.json";
 import chickWater800 from "@/assets/photos/kenya-chick-water-800.webp.asset.json";
+import soya1600 from "@/assets/photos/feeds-soya-1600.webp";
+import soya800 from "@/assets/photos/feeds-soya-800.webp";
+import riceBran1600 from "@/assets/photos/feeds-rice-bran-1600.webp";
+import riceBran800 from "@/assets/photos/feeds-rice-bran-800.webp";
+import limestone1600 from "@/assets/photos/feeds-limestone-1600.webp";
+import limestone800 from "@/assets/photos/feeds-limestone-800.webp";
+import millet1600 from "@/assets/photos/feeds-millet-1600.webp";
+import millet800 from "@/assets/photos/feeds-millet-800.webp";
 
 export type Photo = { src: string; srcSet: string; width: number; height: number; credit: string };
 
