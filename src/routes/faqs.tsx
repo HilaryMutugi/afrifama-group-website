@@ -13,16 +13,16 @@ export const Route = createFileRoute("/faqs")({
   head: () => ({
     meta: [
       { title: "FAQs — Feeds, farmer partnership, poultry and genetics | Afrifama" },
+      { property: "og:title", content: "FAQs — Feeds, farmer partnership, poultry and genetics | Afrifama" },
+      { property: "og:url", content: "/faqs" },
       {
         name: "description",
         content:
           "Answers to common questions about Afrifama: the business, feed products, the farmer partnership, poultry production, genetics and hatchery development, and partnerships.",
       },
-      { property: "og:title", content: "Afrifama FAQs" },
       {
         property: "og:description",
-        content:
-          "Clear answers on feeds, the farmer partnership, poultry production, genetics development and partnership enquiries.",
+        content: "Answers to common questions about Afrifama: the business, feed products, the farmer partnership, poultry production, genetics and hatchery development, and partnerships.",
       },
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/faqs` }],

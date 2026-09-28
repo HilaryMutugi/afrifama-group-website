@@ -25,16 +25,16 @@ export const Route = createFileRoute("/impact")({
   head: () => ({
     meta: [
       { title: "Impact — Early progress in Kilifi County | Afrifama" },
+      { property: "og:title", content: "Impact — Early progress in Kilifi County | Afrifama" },
+      { property: "og:url", content: "/impact" },
       {
         name: "description",
         content:
           "See how Afrifama measures farmer capability, flock performance, farm economics and livelihood resilience through a commercially sustainable poultry system.",
       },
-      { property: "og:title", content: "Measured Poultry Impact | Afrifama" },
       {
         property: "og:description",
-        content:
-          "Impact begins with a poultry system that farmers can operate, measure and grow.",
+        content: "See how Afrifama measures farmer capability, flock performance, farm economics and livelihood resilience through a commercially sustainable poultry system.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

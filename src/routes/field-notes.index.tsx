@@ -9,16 +9,16 @@ export const Route = createFileRoute("/field-notes/")({
   head: () => ({
     meta: [
       { title: "Afrifama Field Notes — Practical notes from building a poultry system" },
+      { property: "og:title", content: "Afrifama Field Notes — Practical notes from building a poultry system" },
+      { property: "og:url", content: "/field-notes" },
       {
         name: "description",
         content:
           "Field Notes from Afrifama: feed formulation, farmer training, poultry production, genetics and company building, documented from the field in Kilifi County, Kenya.",
       },
-      { property: "og:title", content: "Afrifama Field Notes" },
       {
         property: "og:description",
-        content:
-          "Notes on feed formulation, farmer training, poultry production and hatchery development as Afrifama builds its system.",
+        content: "Field Notes from Afrifama: feed formulation, farmer training, poultry production, genetics and company building, documented from the field in Kilifi County, Kenya.",
       },
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/field-notes` }],

@@ -11,19 +11,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Afrifama — Building a stronger poultry system from feed to flock" },
+      { property: "og:title", content: "Afrifama — Building a stronger poultry system from feed to flock" },
+      { property: "og:url", content: "/" },
       {
         name: "description",
         content:
           "Afrifama is a Kenyan agribusiness building an integrated poultry system: quality feed, commercial layer production, structured smallholder farmer partnerships and poultry genetics development.",
       },
       {
-        property: "og:title",
-        content: "Afrifama — Building a stronger poultry system from feed to flock",
-      },
-      {
         property: "og:description",
-        content:
-          "Quality nutrition, reliable production, structured farmer partnerships and the foundations for stronger poultry genetics in Kenya.",
+        content: "Afrifama is a Kenyan agribusiness building an integrated poultry system: quality feed, commercial layer production, structured smallholder farmer partnerships and poultry genetics development.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

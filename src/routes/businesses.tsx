@@ -16,16 +16,16 @@ export const Route = createFileRoute("/businesses")({
   head: () => ({
     meta: [
       { title: "Our Businesses — Poultry, Feeds, Farmer Partnership, Genetics | Afrifama" },
+      { property: "og:title", content: "Our Businesses — Poultry, Feeds, Farmer Partnership, Genetics | Afrifama" },
+      { property: "og:url", content: "/businesses" },
       {
         name: "description",
         content:
           "Afrifama's four business areas with clear operational status: poultry production, Afrifama Feeds, the smallholder farmer partnership, and genetics and hatchery development.",
       },
-      { property: "og:title", content: "Our Businesses | Afrifama" },
       {
         property: "og:description",
-        content:
-          "Four connected business areas, each labelled Operational, In Development or Future so partners know exactly what exists today.",
+        content: "Afrifama's four business areas with clear operational status: poultry production, Afrifama Feeds, the smallholder farmer partnership, and genetics and hatchery development.",
       },
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/businesses` }],

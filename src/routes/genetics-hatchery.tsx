@@ -9,16 +9,16 @@ export const Route = createFileRoute("/genetics-hatchery")({
   head: () => ({
     meta: [
       { title: "Genetics & Hatchery Development | Afrifama" },
+      { property: "og:title", content: "Genetics & Hatchery Development | Afrifama" },
+      { property: "og:url", content: "/genetics-hatchery" },
       {
         name: "description",
         content:
           "Afrifama is developing parent-stock capability, genetics partnerships and the technical foundations for future locally relevant chick supply in Kenya.",
       },
-      { property: "og:title", content: "Genetics & Hatchery Development | Afrifama" },
       {
         property: "og:description",
-        content:
-          "A developing capability focused on reliable layer genetics, parent stock, technical partnership and responsible long-term chick supply.",
+        content: "Afrifama is developing parent-stock capability, genetics partnerships and the technical foundations for future locally relevant chick supply in Kenya.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
