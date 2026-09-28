@@ -90,6 +90,97 @@ export type Pillar = {
   to: string;
 };
 
+export const homepageStory = {
+  placeholderStatus: "Photography to be updated",
+  photoSlots: {
+    hero: "The people and production behind Afrifama",
+    origin: "Our poultry beginnings",
+    model: ["Poultry production", "Animal feeds", "Farmer partnerships", "Genetics development"],
+    farmerMain: "Working alongside farmers",
+    farmerDetail: "Inside a partner poultry house",
+    operations: ["People behind the work", "Feed production", "Flock care and records"],
+  },
+  hero: {
+    eyebrow: "A Kenyan agribusiness startup · Mariakani, Kilifi",
+    titleLines: ["Building a", "poultry system", "that works better", "for farmers."],
+    body: "Afrifama is connecting feed, poultry production, farmer support, access to better genetics and routes to market—because farmers cannot build reliable businesses from disconnected parts.",
+    primary: "See how the model works",
+    secondary: "Partner with Afrifama",
+    chain: "Feed · Flocks · Farmers · Genetics · Markets",
+  },
+  origin: {
+    eyebrow: "Where it began",
+    title: "We started by raising our own birds.",
+    body: "The daily work showed us where poultry businesses struggle. Feed quality and cost can shift. Dependable birds are not always easy to access. Technical support is fragmented, while the market does not always move in step with the flock.",
+    secondBody: "The problem was not one missing product. It was a chain of disconnected decisions—and the farmer carried most of the risk.",
+    link: "Read our story",
+  },
+  challenge: {
+    eyebrow: "The challenge",
+    title: "A flock depends on more than feed.",
+    body: "Bird quality, nutrition, farm management and the route to market affect one another. When one part fails, the whole poultry business feels it.",
+    gaps: [
+      { title: "Unreliable inputs", body: "Feed quality, prices and availability can change when farmers need consistency most." },
+      { title: "Limited access to dependable birds", body: "Suitable chicks and layer genetics are not always readily available to small-scale farmers." },
+      { title: "Fragmented production support", body: "Training, flock monitoring, health support and records are often provided separately—or too late." },
+      { title: "Uncertain routes to market", body: "Farmers may produce without a clear plan for aggregation, buyers, pricing or timely payment." },
+    ],
+  },
+  model: {
+    eyebrow: "Our response",
+    title: "We are connecting the parts.",
+    body: "Afrifama is building around the full poultry-production journey—from what birds eat and how farmers manage them to the quality of the flock and the market waiting at the end.",
+    areas: [
+      { number: "01", title: "Poultry", status: "Operational", body: "Our layer operations keep us close to the realities of flock health, feeding, performance and recordkeeping.", to: "/poultry" },
+      { number: "02", title: "Animal feeds", status: "Operational", body: "We produce poultry feeds shaped by bird stage, raw-material quality and what we observe through production.", to: "/feeds" },
+      { number: "03", title: "Farmer partnerships", status: "Operational", body: "We work with selected farmers through preparation, training, agreed input support, flock monitoring and market linkages.", to: "/farmer-partnership" },
+      { number: "04", title: "Genetics and hatchery development", status: "In development", body: "We are developing the partnerships and technical capacity needed for more reliable layer genetics and future local hatchery operations.", to: "/genetics-hatchery" },
+    ],
+  },
+  farmers: {
+    eyebrow: "From our farm to partner farms",
+    title: "The work continues beyond our own farm.",
+    body: "The Afrifama Smallholder Egg Partnership brings selected farmers into a structured commercial model. Farmers provide housing, water, labour and daily flock management. Afrifama supports preparation, training, agreed inputs, monitoring and routes to market.",
+    secondBody: "Responsibility is shared because the results depend on both sides. The purpose is to build poultry businesses that can produce consistently and grow responsibly.",
+    link: "See how the partnership works",
+    imageLabel: "On the ground with farmers",
+  },
+  impact: {
+    eyebrow: "Why it matters",
+    title: "The goal is stronger poultry businesses.",
+    body: "The aim is not simply to place more birds. It is to help build poultry businesses that can produce consistently, support farmer incomes, create local work and contribute more eggs to coastal markets.",
+    outcomes: [
+      { title: "More reliable production", body: "Better preparation, nutrition, monitoring and flock records can reduce avoidable production failures." },
+      { title: "Stronger farmer businesses", body: "Clear responsibilities, practical support and market planning give farmers a stronger basis for making poultry commercially viable." },
+      { title: "A stronger local poultry sector", body: "Local feed production, better genetics and coordinated markets can keep more value, skills and opportunity within coastal Kenya." },
+    ],
+  },
+  operations: {
+    eyebrow: "Building in practice",
+    title: "The work behind the model.",
+    body: "Feed production, flock records, farmer visits, training and day-to-day operational decisions are how Afrifama’s wider poultry system is being built.",
+    feature: { label: "People behind the work", detail: "The team handling Afrifama’s day-to-day production and field operations." },
+    images: [
+      { label: "Feed production", detail: "Preparing, mixing and handling feed at the production site." },
+      { label: "Flock care and records", detail: "Observing bird performance and recording the details that guide decisions." },
+    ],
+  },
+  recognition: {
+    eyebrow: "Recognition",
+    title: "Recognition for the work so far.",
+    items: [
+      { name: "Givaudan Start-Up Competition", year: "2024", detail: "Winner" },
+      { name: "WIDU / GIZ", year: "2023", detail: "First runner-up · Coastal Region" },
+    ],
+  },
+  contact: {
+    eyebrow: "Partnerships",
+    title: "Work with Afrifama.",
+    body: "Talk to us about farmer partnerships, poultry feeds, layer production, genetics, technical collaboration or strategic investment.",
+    link: "Talk to us",
+  },
+} as const;
+
 export const pillars: Pillar[] = [
   {
     title: "Poultry Production",

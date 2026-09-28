@@ -1,30 +1,15 @@
+import { useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Wheat, Egg, Users, Store } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Section, SectionHeading, StatusBadge } from "@/components/site/primitives";
-import { EarlyProgressSection } from "@/components/site/EarlyProgress";
-import { CtaBand } from "@/components/site/CtaBand";
-import { company, pillars, problems, fieldNotes, valueChain } from "@/content/site";
-import heroImage from "@/assets/hero-value-chain.jpg";
+import { ArrowDownRight, ArrowRight, MoveUpRight } from "lucide-react";
+import { company, homepageStory as story } from "@/content/site";
+import "@/styles/homepage.css";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Afrifama — Building a stronger poultry system from feed to flock" },
-      {
-        name: "description",
-        content:
-          "Afrifama is a Kenyan agribusiness building an integrated poultry system: quality feed, commercial layer production, structured smallholder farmer partnerships and poultry genetics development.",
-      },
-      {
-        property: "og:title",
-        content: "Afrifama — Building a stronger poultry system from feed to flock",
-      },
-      {
-        property: "og:description",
-        content:
-          "Quality nutrition, reliable production, structured farmer partnerships and the foundations for stronger poultry genetics in Kenya.",
-      },
+      { title: "Afrifama — Building a stronger poultry system" },
+      { name: "description", content: "Afrifama connects poultry production, animal feeds, structured farmer partnerships and the foundations for stronger poultry genetics in Kenya." },
+      { property: "og:title", content: "Afrifama — Building a stronger poultry system" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -33,178 +18,146 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const chainIcons = [Wheat, Egg, Users, Store];
-
-function Hero() {
+function PhotoPlaceholder({ index, label, className = "" }: { index: string; label: string; className?: string }) {
   return (
-    <div className="border-b border-border bg-secondary/40">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-14">
-        <div className="lg:col-span-6">
-          <p className="eyebrow text-terracotta">Kenyan agribusiness · Kilifi County</p>
-          <h1 className="mt-4 h1-page font-extrabold">
-            Building a stronger poultry system from feed to flock.
-          </h1>
-          <p className="mt-5 max-w-xl body-copy text-muted-foreground">
-            Afrifama is a Kenyan agribusiness building an integrated poultry system around quality
-            nutrition, reliable production, structured farmer partnerships and the foundations for
-            stronger poultry genetics.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg">
-              <Link to="/businesses">
-                Explore Our Work
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link to="/contact">Partner With Afrifama</Link>
-            </Button>
-          </div>
-          <p className="mt-8 border-l-2 border-gold pl-4 font-display text-sm font-semibold text-muted-foreground">
-            {company.positioning}
-          </p>
-        </div>
-        <div className="lg:col-span-6">
-          <img
-            src={heroImage}
-            alt="A brown layer hen beside bowls of maize, poultry mash and soybean, with a basket of brown eggs on a Kenyan smallholding"
-            width={1408}
-            height={1152}
-            className="aspect-[4/3] w-full rounded-2xl border border-border object-cover object-[35%_center] shadow-card lg:aspect-[11/10] lg:max-h-[30rem]"
-          />
-        </div>
+    <div className={`home-placeholder ${className}`} role="img" aria-label={`${label}: ${story.placeholderStatus}`}>
+      <span className="home-placeholder-monogram" aria-hidden="true">A.</span>
+      <div className="home-placeholder-copy" aria-hidden="true">
+        <span>{index} / AFRIFAMA</span>
+        <strong>{label}</strong>
+        <small>{story.placeholderStatus}</small>
       </div>
     </div>
   );
 }
 
-function ValueChainStrip() {
-  return (
-    <div className="border-b border-border bg-background">
-      <ol className="mx-auto grid max-w-7xl gap-6 px-5 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:px-8">
-        {valueChain.map((step, i) => {
-          const Icon = chainIcons[i] ?? Wheat;
-          return (
-            <li key={step.title} className="flex items-start gap-3 lg:px-5 lg:first:pl-0">
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <Icon className="size-5" aria-hidden="true" />
-              </span>
-              <div className="min-w-0">
-                <p className="flex items-center gap-2 font-display text-base font-bold">
-                  {step.title}
-                  {i < valueChain.length - 1 ? (
-                    <ArrowRight className="hidden size-4 text-gold lg:inline" aria-hidden="true" />
-                  ) : null}
-                </p>
-                <p className="mt-1 text-sm leading-snug text-muted-foreground">{step.body}</p>
-              </div>
-            </li>
-          );
-        })}
-      </ol>
-    </div>
-  );
-}
-
 function Home() {
+  useEffect(() => {
+    if (!("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".home-reveal").forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <>
-      <Hero />
-      <ValueChainStrip />
-
-      <Section compact>
-        <SectionHeading
-          eyebrow="Our businesses"
-          title="Four connected areas of work."
-          lead="Each part of Afrifama exists because the others need it."
-        />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {pillars.map((pillar) => (
-            <div
-              key={pillar.title}
-              className="flex flex-col rounded-2xl border border-border bg-card p-5"
-            >
-              <StatusBadge status={pillar.status} />
-              <h3 className="mt-4 font-display text-lg font-bold">{pillar.title}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {pillar.summary}
-              </p>
-              <Link
-                to={pillar.to}
-                className="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary hover:gap-2.5"
-              >
-                Learn more
-                <ArrowRight className="size-4" />
-              </Link>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section tone="muted" compact>
-        <div className="grid gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <SectionHeading
-              eyebrow="Why Afrifama exists"
-              title="Poultry farming in Kenya fails for system reasons more often than for lack of effort."
-              lead="Afrifama is responding by building practical, connected solutions around the production system — commercially, not as charity."
-            />
+    <div className="homepage-rebuild">
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="home-hero-copy"><div className="home-hero-inner">
+          <p className="home-kicker home-kicker-light"><span />{story.hero.eyebrow}</p>
+          <h1 id="home-title" className="home-display">{story.hero.titleLines.map((line, index) => <span key={line}>{line}{index < story.hero.titleLines.length - 1 ? " " : ""}</span>)}</h1>
+          <p className="home-hero-lead">{story.hero.body}</p>
+          <div className="home-actions">
+            <a href="#our-model" className="home-button home-button-gold">{story.hero.primary}<ArrowRight size={18} aria-hidden="true" /></a>
+            <Link to="/contact" className="home-text-link home-text-link-light">{story.hero.secondary}<ArrowRight size={17} aria-hidden="true" /></Link>
           </div>
-          <ul className="grid gap-x-8 gap-y-6 lg:col-span-7 sm:grid-cols-2">
-            {problems.map((p) => (
-              <li key={p.title} className="border-t border-border pt-4">
-                <h3 className="font-display text-base font-bold">{p.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-              </li>
-            ))}
-          </ul>
+          <div className="home-hero-bottom"><span className="home-rule" />{story.hero.chain}</div>
+        </div></div>
+        <div className="home-hero-photo">
+          <PhotoPlaceholder index="01" label={story.photoSlots.hero} className="home-placeholder-hero" />
         </div>
-      </Section>
+      </section>
 
-      <EarlyProgressSection tone="default" compact />
-
-      <Section tone="muted" compact>
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading eyebrow="Afrifama Field Notes" title="Latest field notes" />
-          <Button asChild variant="outline">
-            <Link to="/field-notes">
-              View All Field Notes
-              <ArrowRight className="size-4" />
-            </Link>
-          </Button>
+      <section className="home-origin home-section" aria-labelledby="origin-title"><div className="home-container home-origin-grid">
+        <div className="home-origin-photo home-reveal">
+          <PhotoPlaceholder index="02" label={story.photoSlots.origin} />
         </div>
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
-          {fieldNotes.map((note) => (
-            <div
-              key={note.slug}
-              className="flex flex-col rounded-2xl border border-border bg-card p-5"
-            >
-              <div className="flex items-center gap-2">
-                <span className="rounded-md bg-secondary px-2 py-1 text-xs font-semibold text-secondary-foreground">
-                  {note.category}
-                </span>
-                <span className="rounded-md bg-gold/25 px-2 py-1 text-xs font-semibold text-gold-foreground">
-                  Sample content
-                </span>
-              </div>
-              <h3 className="mt-4 font-display text-lg font-bold">{note.title}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {note.excerpt}
-              </p>
-              <Link
-                to="/field-notes/$slug"
-                params={{ slug: note.slug }}
-                className="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary hover:gap-2.5"
-              >
-                Read note
-                <ArrowRight className="size-4" />
-              </Link>
+        <div className="home-origin-copy home-reveal">
+          <p className="home-kicker"><span />{story.origin.eyebrow}</p>
+          <h2 id="origin-title" className="home-heading home-heading-editorial">{story.origin.title}</h2>
+          <p className="home-body">{story.origin.body}</p>
+          <p className="home-body home-body-followup">{story.origin.secondBody}</p>
+          <Link to="/about" className="home-text-link home-text-link-dark">{story.origin.link}<ArrowRight size={18} aria-hidden="true" /></Link>
+        </div>
+      </div></section>
+
+      <section className="home-challenge home-section" aria-labelledby="challenge-title"><div className="home-container">
+        <div className="home-section-head home-reveal"><div>
+          <p className="home-kicker"><span />{story.challenge.eyebrow}</p>
+          <h2 id="challenge-title" className="home-heading">{story.challenge.title}</h2>
+        </div><p className="home-body">{story.challenge.body}</p></div>
+        <ol className="home-challenge-grid">{story.challenge.gaps.map((gap, index) => (
+          <li key={gap.title} className="home-challenge-item home-reveal">
+            <span className="home-item-number">0{index + 1}</span>
+            <h3>{gap.title}</h3><p>{gap.body}</p>
+          </li>
+        ))}</ol>
+      </div></section>
+
+      <section id="our-model" className="home-model home-section" aria-labelledby="model-title"><div className="home-container">
+        <div className="home-section-head home-reveal"><div>
+          <p className="home-kicker"><span />{story.model.eyebrow}</p>
+          <h2 id="model-title" className="home-heading">{story.model.title}</h2>
+        </div><p className="home-body">{story.model.body}</p></div>
+        <div className="home-model-grid">{story.model.areas.map((area, index) => (
+          <Link to={area.to} key={area.number} className="home-model-card home-reveal">
+            <div className="home-model-image"><PhotoPlaceholder index={area.number} label={story.photoSlots.model[index] ?? area.title} /></div>
+            <div className="home-model-content">
+              <div className="home-model-meta"><span>{area.number} / {area.status}</span><MoveUpRight size={18} aria-hidden="true" /></div>
+              <h3>{area.title}</h3><p>{area.body}</p>
             </div>
-          ))}
-        </div>
-      </Section>
+          </Link>
+        ))}</div>
+        <div className="home-model-rail" aria-hidden="true"><span /><span /><span /><span /></div>
+      </div></section>
 
-      <CtaBand />
-    </>
+      <section className="home-farmers home-section" aria-labelledby="farmers-title"><div className="home-container home-farmers-grid">
+        <div className="home-farmers-copy home-reveal">
+          <p className="home-kicker home-kicker-light"><span />{story.farmers.eyebrow}</p>
+          <h2 id="farmers-title" className="home-heading home-heading-editorial">{story.farmers.title}</h2>
+          <p className="home-body">{story.farmers.body}</p>
+          <p className="home-body home-body-followup">{story.farmers.secondBody}</p>
+          <Link to="/farmer-partnership" className="home-button home-button-outline">{story.farmers.link}<ArrowRight size={18} aria-hidden="true" /></Link>
+        </div>
+        <div className="home-farmers-images home-reveal">
+          <PhotoPlaceholder index="07" label={story.photoSlots.farmerMain} className="home-farmers-main" />
+          <PhotoPlaceholder index="08" label={story.photoSlots.farmerDetail} className="home-farmers-small home-placeholder-small" />
+          <span className="home-farmers-stamp">{story.farmers.imageLabel}<ArrowDownRight size={24} aria-hidden="true" /></span>
+        </div>
+      </div></section>
+
+      <section className="home-impact home-section" aria-labelledby="impact-title"><div className="home-container">
+        <div className="home-section-head home-reveal"><div>
+          <p className="home-kicker"><span />{story.impact.eyebrow}</p>
+          <h2 id="impact-title" className="home-heading">{story.impact.title}</h2>
+        </div><p className="home-body">{story.impact.body}</p></div>
+        <ol className="home-impact-grid">{story.impact.outcomes.map((outcome, index) => (
+          <li key={outcome.title} className="home-impact-item home-reveal">
+            <span className="home-item-number">0{index + 1}</span>
+            <h3>{outcome.title}</h3><p>{outcome.body}</p>
+          </li>
+        ))}</ol>
+      </div></section>
+
+      <section className="home-operations home-section" aria-labelledby="operations-title"><div className="home-container">
+        <div className="home-section-head home-reveal"><div>
+          <p className="home-kicker"><span />{story.operations.eyebrow}</p>
+          <h2 id="operations-title" className="home-heading">{story.operations.title}</h2>
+        </div><p className="home-body">{story.operations.body}</p></div>
+        <div className="home-story-grid">
+          <figure className="home-story-feature home-reveal"><div className="home-story-image"><PhotoPlaceholder index="09" label={story.photoSlots.operations[0]} /></div><figcaption><span>01 / {story.operations.feature.label}</span><strong>{story.operations.feature.detail}</strong></figcaption></figure>
+          <figure className="home-story-tile home-reveal"><div className="home-story-image"><PhotoPlaceholder index="10" label={story.photoSlots.operations[1]} /></div><figcaption><span>02 / {story.operations.images[0].label}</span><strong>{story.operations.images[0].detail}</strong></figcaption></figure>
+          <figure className="home-story-tile home-reveal"><div className="home-story-image"><PhotoPlaceholder index="11" label={story.photoSlots.operations[2]} /></div><figcaption><span>03 / {story.operations.images[1].label}</span><strong>{story.operations.images[1].detail}</strong></figcaption></figure>
+        </div>
+      </div></section>
+
+      <section className="home-recognition" aria-labelledby="recognition-title"><div className="home-container home-recognition-grid">
+        <div className="home-reveal"><p className="home-kicker"><span />{story.recognition.eyebrow}</p><h2 id="recognition-title">{story.recognition.title}</h2></div>
+        <div className="home-recognition-items">{story.recognition.items.map((item) => (
+          <div className="home-recognition-item home-reveal" key={item.name}><span>{item.year}</span><strong>{item.name}</strong><small>{item.detail}</small></div>
+        ))}</div>
+      </div></section>
+
+      <section className="home-contact" aria-labelledby="contact-title"><div className="home-container home-contact-grid home-reveal">
+        <div><p className="home-kicker home-kicker-light"><span />{story.contact.eyebrow}</p><h2 id="contact-title" className="home-heading home-heading-editorial">{story.contact.title}</h2><p className="home-body">{story.contact.body}</p></div>
+        <Link to="/contact" className="home-button home-button-gold">{story.contact.link}<ArrowRight size={19} aria-hidden="true" /></Link>
+      </div></section>
+    </div>
   );
 }

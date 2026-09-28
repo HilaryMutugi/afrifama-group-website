@@ -1,8 +1,36 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { company, primaryNav } from "@/content/site";
 
 export function SiteFooter() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+
+  if (pathname === "/") {
+    return (
+      <footer className="border-t border-primary-foreground/15 bg-primary-deep text-primary-foreground">
+        <div className="mx-auto flex max-w-7xl flex-col gap-7 px-5 py-8 md:flex-row md:items-start md:justify-between lg:px-8">
+          <div>
+            <p className="font-display text-lg font-extrabold tracking-tight">AFRIFAMA</p>
+            <p className="mt-1 text-sm text-primary-foreground/70">{company.location}</p>
+          </div>
+          <nav aria-label="Footer" className="flex max-w-2xl flex-wrap gap-x-6 gap-y-3 text-sm">
+            <Link to="/about" className="hover:text-gold">About</Link>
+            <Link to="/businesses" className="hover:text-gold">Our businesses</Link>
+            <Link to="/farmer-partnership" className="hover:text-gold">Farmer partnership</Link>
+            <Link to="/impact" className="hover:text-gold">Impact</Link>
+            <Link to="/contact" className="hover:text-gold">Contact</Link>
+          </nav>
+        </div>
+        <div className="border-t border-primary-foreground/15">
+          <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-3 px-5 py-4 text-xs text-primary-foreground/60 lg:px-8">
+            <p>© {new Date().getFullYear()} {company.name}</p>
+            <div className="flex gap-5"><Link to="/privacy" className="hover:text-gold">Privacy</Link><Link to="/terms" className="hover:text-gold">Terms</Link></div>
+          </div>
+        </div>
+      </footer>
+    );
+  }
+
   return (
     <footer className="border-t border-border bg-primary-deep text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 lg:grid-cols-[1.25fr_1.35fr_0.9fr] lg:gap-8 lg:px-8">
