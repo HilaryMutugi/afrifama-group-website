@@ -60,7 +60,7 @@ function FarmerPartnership() {
   return (
     <>
       <header className="relative isolate min-h-[min(660px,calc(100svh-72px))] overflow-hidden bg-primary-deep text-primary-foreground">
-        <ImagePlaceholder slot={imageSlots.partnership[0]} label="Farmer Partnership hero photography" className="absolute inset-0 size-full border-0" inverted />
+        <ImagePlaceholder slot={imageSlots.partnership[0]} label="Farmer Partnership hero photography" className="absolute inset-0 size-full border-0" inverted showLabel={false} />
         <div className="relative mx-auto flex min-h-[min(660px,calc(100svh-72px))] max-w-7xl flex-col px-5 pt-8 pb-12 lg:px-8">
           <Breadcrumbs
             items={[{ label: "Our Businesses", to: "/businesses" }, { label: "Farmer Partnership" }]}

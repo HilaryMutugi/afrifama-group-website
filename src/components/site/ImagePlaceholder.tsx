@@ -5,11 +5,13 @@ export function ImagePlaceholder({
   label = "Afrifama photography",
   className = "",
   inverted = false,
+  showLabel = true,
 }: {
   slot: string;
   label?: string;
   className?: string;
   inverted?: boolean;
+  showLabel?: boolean;
 }) {
   return (
     <div
@@ -22,11 +24,13 @@ export function ImagePlaceholder({
           : "border-border bg-secondary/65 text-muted-foreground"
       } ${className}`}
     >
-      <div className="flex max-w-56 flex-col items-center px-5 text-center">
-        <ImageIcon className="size-7 text-gold" aria-hidden="true" />
-        <p className="mt-3 font-display text-sm font-bold">{label}</p>
-        <p className="mt-1 text-xs opacity-75">Photo placeholder</p>
-      </div>
+      {showLabel ? (
+        <div className="flex max-w-56 flex-col items-center px-5 text-center">
+          <ImageIcon className="size-7 text-gold" aria-hidden="true" />
+          <p className="mt-3 font-display text-sm font-bold">{label}</p>
+          <p className="mt-1 text-xs opacity-75">Photo placeholder</p>
+        </div>
+      ) : null}
     </div>
   );
 }
