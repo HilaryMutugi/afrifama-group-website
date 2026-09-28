@@ -37,10 +37,16 @@ export const Route = createFileRoute("/feeds")({
   head: () => ({
     meta: [
       { title: "Afrifama Feeds — Chick, Growers, Layers and Kienyeji Mash" },
+      { property: "og:title", content: "Afrifama Feeds — Chick, Growers, Layers and Kienyeji Mash" }
+      { property: "og:url", content: "/feeds" }
       {
         name: "description",
         content:
           "Explore Afrifama's stage-specific poultry mash range, production-linked nutrition approach, quality disciplines and practical support for Kenyan farmers.",
+      },
+      {
+        property: "og:description",
+        content: "Explore Afrifama's stage-specific poultry mash range, production-linked nutrition approach, quality disciplines and practical support for Kenyan farmers.",
       },
       { property: "og:title", content: "Afrifama Feeds — Nutrition for Every Flock Stage" },
       {

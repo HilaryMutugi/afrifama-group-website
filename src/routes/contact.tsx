@@ -13,10 +13,16 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact Afrifama — Feed, farmer, supplier and partnership enquiries" },
+      { property: "og:title", content: "Contact Afrifama — Feed, farmer, supplier and partnership enquiries" }
+      { property: "og:url", content: "/contact" }
       {
         name: "description",
         content:
           "Contact Afrifama in Kilifi County, Kenya. Separate enquiry routes for feed customers, farmers, suppliers, technical and genetics partners, and investors.",
+      },
+      {
+        property: "og:description",
+        content: "Contact Afrifama in Kilifi County, Kenya. Separate enquiry routes for feed customers, farmers, suppliers, technical and genetics partners, and investors.",
       },
       { property: "og:title", content: "Contact Afrifama" },
       {

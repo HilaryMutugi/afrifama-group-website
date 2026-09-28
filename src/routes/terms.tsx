@@ -6,10 +6,16 @@ export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
       { title: "Terms of Use | Afrifama" },
+      { property: "og:title", content: "Terms of Use | Afrifama" }
+      { property: "og:url", content: "/terms" }
       {
         name: "description",
         content:
           "Terms governing use of the Afrifama website, including the status of information published about operational and in-development activities.",
+      },
+      {
+        property: "og:description",
+        content: "Terms governing use of the Afrifama website, including the status of information published about operational and in-development activities.",
       },
       { property: "og:title", content: "Terms of Use | Afrifama" },
       {

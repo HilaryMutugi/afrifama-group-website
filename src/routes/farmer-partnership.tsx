@@ -20,10 +20,16 @@ export const Route = createFileRoute("/farmer-partnership")({
   head: () => ({
     meta: [
       { title: "Smallholder Egg Partnership — Farmer readiness | Afrifama" },
+      { property: "og:title", content: "Smallholder Egg Partnership — Farmer readiness | Afrifama" }
+      { property: "og:url", content: "/farmer-partnership" }
       {
         name: "description",
         content:
           "Understand Afrifama's structured commercial egg partnership, farm-readiness criteria, shared responsibilities and farmer journey.",
+      },
+      {
+        property: "og:description",
+        content: "Understand Afrifama's structured commercial egg partnership, farm-readiness criteria, shared responsibilities and farmer journey.",
       },
       { property: "og:title", content: "Afrifama Smallholder Egg Partnership" },
       {

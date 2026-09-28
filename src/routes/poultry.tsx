@@ -16,10 +16,16 @@ export const Route = createFileRoute("/poultry")({
   head: () => ({
     meta: [
       { title: "Afrifama Poultry — Commercial Layer Production in Kenya" },
+      { property: "og:title", content: "Afrifama Poultry — Commercial Layer Production in Kenya" }
+      { property: "og:url", content: "/poultry" }
       {
         name: "description",
         content:
           "See how Afrifama connects commercial layer production, stage-based feeds, biosecurity, records and farmer support in Kilifi County, Kenya.",
+      },
+      {
+        property: "og:description",
+        content: "See how Afrifama connects commercial layer production, stage-based feeds, biosecurity, records and farmer support in Kilifi County, Kenya.",
       },
       { property: "og:title", content: "Afrifama Poultry — A Connected Production System" },
       {
