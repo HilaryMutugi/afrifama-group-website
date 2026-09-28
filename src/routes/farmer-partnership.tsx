@@ -8,11 +8,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { Breadcrumbs, CheckList } from "@/components/site/primitives";
 import { PartnershipMural } from "@/components/site/PartnershipMural";
 import { company, farmerPartnership, faqGroups, imageSlots } from "@/content/site";
-import { photos } from "@/content/photos";
-import trainingImage from "@/assets/farmer-training.jpg";
 
 const farmerFaqs = faqGroups.find((group) => group.group === "Farmer Partnership");
 
@@ -61,17 +60,7 @@ function FarmerPartnership() {
   return (
     <>
       <header className="relative isolate min-h-[min(660px,calc(100svh-72px))] overflow-hidden bg-primary-deep text-primary-foreground">
-        <img
-          src={trainingImage}
-          data-image-slot={imageSlots.partnership[0]}
-          alt="Poultry farmers reviewing farm records during a field discussion"
-          width={1408}
-          height={1008}
-          fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 motion-safe:hover:scale-[1.025]"
-        />
-        <div className="absolute inset-0 bg-primary-deep/45" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-4/5 bg-gradient-to-t from-primary-deep via-primary-deep/65 to-transparent" aria-hidden="true" />
+        <ImagePlaceholder slot={imageSlots.partnership[0]} label="Farmer Partnership hero photography" className="absolute inset-0 size-full border-0" inverted />
         <div className="relative mx-auto flex min-h-[min(660px,calc(100svh-72px))] max-w-7xl flex-col px-5 pt-8 pb-12 lg:px-8">
           <Breadcrumbs
             items={[{ label: "Our Businesses", to: "/businesses" }, { label: "Farmer Partnership" }]}
@@ -115,21 +104,10 @@ function FarmerPartnership() {
         <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-12 lg:items-center lg:px-8">
           <figure className="group relative lg:col-span-7">
             <div className="overflow-hidden rounded-lg">
-              <img
-                src={photos.chickWater.src}
-                srcSet={photos.chickWater.srcSet}
-                sizes="(min-width: 1024px) 58vw, 100vw"
-                data-image-slot={imageSlots.partnership[1]}
-                alt="A poultry worker carefully giving water to a chick"
-                width={photos.chickWater.width}
-                height={photos.chickWater.height}
-                loading="lazy"
-                className="aspect-[7/5] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-              />
+              <ImagePlaceholder slot={imageSlots.partnership[1]} label="Chick-care photography" className="aspect-[7/5] w-full" />
             </div>
             <figcaption className="mt-3 max-w-xl text-xs leading-relaxed text-muted-foreground">
-              <span className="font-semibold uppercase tracking-wide text-terracotta">Documentary photo</span>
-              {" — "}{farmerPartnership.captions.chickCare}{" "}{photos.chickWater.credit}
+              Reserved for verified Afrifama chick-care photography.
             </figcaption>
           </figure>
           <div className="lg:col-span-5 lg:pl-8">
@@ -243,21 +221,10 @@ function FarmerPartnership() {
           </div>
           <figure className="group relative lg:col-span-7 lg:pl-8">
             <div className="overflow-hidden rounded-lg">
-              <img
-                src={photos.fieldDemo.src}
-                srcSet={photos.fieldDemo.srcSet}
-                sizes="(min-width: 1024px) 55vw, 100vw"
-                data-image-slot={imageSlots.partnership[2]}
-                alt="Farmers gathered for a practical field demonstration in East Africa"
-                width={photos.fieldDemo.width}
-                height={photos.fieldDemo.height}
-                loading="lazy"
-                className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-              />
+              <ImagePlaceholder slot={imageSlots.partnership[2]} label="Farm monitoring photography" className="aspect-[4/3] w-full" />
             </div>
             <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
-              <span className="font-semibold uppercase tracking-wide text-terracotta">Documentary photo</span>
-              {" — "}{farmerPartnership.captions.fieldDemo}{" "}{photos.fieldDemo.credit}
+              Reserved for verified Afrifama farm-monitoring photography.
             </figcaption>
           </figure>
         </div>

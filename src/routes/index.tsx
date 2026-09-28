@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, StatusBadge } from "@/components/site/primitives";
 import { EarlyProgressSection } from "@/components/site/EarlyProgress";
 import { CtaBand } from "@/components/site/CtaBand";
+import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { company, pillars, problems, fieldNotes, valueChain } from "@/content/site";
-import heroImage from "@/assets/hero-value-chain.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -62,12 +62,10 @@ function Hero() {
           </p>
         </div>
         <div className="lg:col-span-6">
-          <img
-            src={heroImage}
-            alt="A brown layer hen beside bowls of maize, poultry mash and soybean, with a basket of brown eggs on a Kenyan smallholding"
-            width={1408}
-            height={1152}
-            className="aspect-[4/3] w-full rounded-2xl border border-border object-cover object-[35%_center] shadow-card lg:aspect-[11/10] lg:max-h-[30rem]"
+          <ImagePlaceholder
+            slot="home-hero"
+            label="Homepage hero photography"
+            className="aspect-[4/3] w-full rounded-2xl shadow-card lg:aspect-[11/10] lg:max-h-[30rem]"
           />
         </div>
       </div>

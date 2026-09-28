@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, Dna, FileText, Handshake, Sprout } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { Breadcrumbs, CheckList, Section, SectionHeading, StatusBadge } from "@/components/site/primitives";
 import { company, geneticsCapability, imageSlots } from "@/content/site";
-import { photos } from "@/content/photos";
 
 export const Route = createFileRoute("/genetics-hatchery")({
   head: () => ({
@@ -79,19 +79,13 @@ function Genetics() {
             </div>
           </div>
           <figure className="lg:col-span-7">
-            <img
-              src={photos.geneticsChicks.src}
-              srcSet={photos.geneticsChicks.srcSet}
-              sizes="(min-width: 1024px) 55vw, 100vw"
-              data-image-slot={imageSlots.genetics[1]}
-              alt="Close-up of healthy yellow day-old chicks in a clean brooder"
-              width={photos.geneticsChicks.width}
-              height={photos.geneticsChicks.height}
-              loading="lazy"
-              className="aspect-[7/5] w-full border border-border object-cover shadow-lift"
+            <ImagePlaceholder
+              slot={imageSlots.genetics[1]}
+              label="Genetics and chick-care photography"
+              className="aspect-[7/5] w-full shadow-lift"
             />
             <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
-              Illustrative photograph (ELTORO.VET, CC0, via Wikimedia Commons). It does not depict an operating Afrifama hatchery or a commercial chick offer.
+              Reserved for future verified photography. Afrifama does not currently operate a completed hatchery or offer commercial chicks.
             </figcaption>
           </figure>
         </div>
