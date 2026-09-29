@@ -189,8 +189,16 @@ function Home() {
               <li key={p.title} className="border-t border-border pt-4">
                 <h3 className="font-display text-base font-bold">{p.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-                <p className="mt-2 text-[0.8125rem] font-semibold leading-snug text-terracotta">
-                  {homeWhy.responseLabel} {p.response}
+                <p className="mt-3 flex items-start gap-2 text-sm leading-snug text-foreground/80">
+                  <ArrowRight className="mt-0.5 size-3.5 shrink-0 text-terracotta" aria-hidden="true" />
+                  <span>
+                    {p.response}
+                    {p.status ? (
+                      <span className="ml-2 inline-block rounded-full border border-border px-2 py-0.5 align-middle text-[0.6875rem] font-medium uppercase tracking-wide text-muted-foreground">
+                        {p.status}
+                      </span>
+                    ) : null}
+                  </span>
                 </p>
               </li>
             ))}

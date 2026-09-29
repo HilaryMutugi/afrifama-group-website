@@ -82,7 +82,6 @@ export const homeWhy = {
   eyebrow: "Why Afrifama exists",
   title: "Farmers wake up early and work hard. Too often, the system lets them down.",
   lead: "Afrifama exists to change that. We are building the missing system, as a business and not as charity, so a farmer's effort finally leads to a better livelihood.",
-  responseLabel: "Our response:",
 } as const;
 
 /** Compact homepage value-chain strip. */
@@ -237,29 +236,30 @@ export const problems = [
   {
     title: "Unreliable access to quality birds",
     body: "Farmers often cannot source the right birds, at the right time, in the quantities their houses can actually carry.",
-    response: "strong birds, raised closer to home. In development.",
+    response: "Strong birds, raised closer to home.",
+    status: "In development",
   },
   {
     title: "Inconsistent feed quality",
     body: "Feed quality varies between batches and suppliers, which shows up directly in growth, laying performance and margins.",
-    response: "feed milled with care and screened before every batch.",
+    response: "Feed milled with care and screened before every batch.",
   },
   {
     title: "High input costs",
     body: "Feed and inputs absorb most of a small flock's revenue, leaving very little room for management mistakes.",
-    response: "the right feed at the right stage, so nothing is wasted.",
+    response: "The right feed at the right stage, so nothing is wasted.",
   },
   {
     title: "Limited affordable financing",
     body: "Farmers who are ready to expand rarely have access to input finance that fits a production cycle.",
-    response: "recoverable input support, so farmers can grow without carrying the risk alone.",
+    response: "Recoverable input support, so farmers can grow without carrying the risk alone.",
   },
   {
     title: "Fragmented technical support",
     body: "Advice arrives late, in pieces, and often from sources with no responsibility for the result on that farm.",
-    response: "one accountable partner who shows up on the farm.",
+    response: "One accountable partner who shows up on the farm.",
   },
-];
+] as { title: string; body: string; response: string; status?: string }[];
 
 export type FeedProduct = {
   name: string;
