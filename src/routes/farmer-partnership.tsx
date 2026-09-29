@@ -79,9 +79,6 @@ function FarmerPartnership() {
             <Button asChild size="lg" variant="secondary" className="mt-7">
               <a href="#how-it-works">See how it works <ArrowRight aria-hidden="true" /></a>
             </Button>
-            <p className="mt-6 max-w-md text-xs leading-relaxed text-primary-foreground/60">
-              {farmerPartnership.captions.hero}
-            </p>
           </div>
         </div>
       </header>
@@ -106,9 +103,6 @@ function FarmerPartnership() {
             <div className="overflow-hidden rounded-lg">
               <ImagePlaceholder slot={imageSlots.partnership[1]} label="Chick-care photography" className="aspect-[7/5] w-full" />
             </div>
-            <figcaption className="mt-3 max-w-xl text-xs leading-relaxed text-muted-foreground">
-              Reserved for verified Afrifama chick-care photography.
-            </figcaption>
           </figure>
           <div className="lg:col-span-5 lg:pl-8">
             <p className="eyebrow text-terracotta">02 / Shared discipline</p>
@@ -223,9 +217,6 @@ function FarmerPartnership() {
             <div className="overflow-hidden rounded-lg">
               <ImagePlaceholder slot={imageSlots.partnership[2]} label="Farm monitoring photography" className="aspect-[4/3] w-full" />
             </div>
-            <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
-              Reserved for verified Afrifama farm-monitoring photography.
-            </figcaption>
           </figure>
         </div>
       </section>

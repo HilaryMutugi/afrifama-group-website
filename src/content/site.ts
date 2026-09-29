@@ -163,6 +163,8 @@ export const poultryProductionStages = [
 
 export const geneticsCapability = {
   positioning: "A developing Afrifama capability focused on parent stock, reliable layer genetics, technical partnerships and the long-term development of locally relevant chick supply.",
+  /** Caption under the genetics photo placeholder. States the honest stage of the hatchery. */
+  photoCaption: "Reserved for future verified photography. Afrifama does not currently operate a completed hatchery or offer commercial chicks.",
   productiveFlock: [
     { title: "Known origin", body: "Clear provenance and breeder guidance are the starting point for making sound flock decisions." },
     { title: "Flock robustness", body: "Bird health, welfare and practical suitability matter alongside any published performance potential." },
@@ -402,12 +404,6 @@ export const farmerPartnership = {
     body: "Depending on the agreed partnership, Afrifama may advance birds, feed or selected production inputs. These inputs are not donations. The value and method of recovery are defined in the individual farmer agreement before placement.",
     is: ["Structured production support", "Agreed individually and in writing", "Connected to an approved flock", "Monitored through production records", "Recoverable under the partnership agreement"],
     isNot: ["A grant or donation", "A conventional public loan", "An unrestricted cash facility", "An automatic entitlement", "A guarantee of profit", "Available to every applicant"],
-  },
-  /** Photo captions: distinguish illustrative imagery from documentary photography. Credits come from src/content/photos.ts. */
-  captions: {
-    hero: "Illustrative image — not an Afrifama farm. Afrifama field photography will replace this.",
-    chickCare: "not an Afrifama farm, farmer or flock.",
-    fieldDemo: "not an Afrifama event or farm.",
   },
 } as const;
 
@@ -811,10 +807,4 @@ export const aboutStory = {
     { title: "Evidence before expansion", body: "Learn from production and verified records before claiming progress or adding the next layer." },
   ],
   closing: "Afrifama is being built from the ground up—learning from every flock, every feed batch and every farmer partnership. The goal is not simply to sell inputs, but to build poultry enterprises that can work, grow and last.",
-  captions: {
-    hero: "Documentary photograph — not an Afrifama farm or flock.",
-    origin: "Documentary photograph from Kenya — not an Afrifama farm or flock.",
-    feeds: "Documentary photograph — not an Afrifama feed facility or employee.",
-    operations: "Documentary photograph — not an Afrifama flock.",
-  },
 } as const;

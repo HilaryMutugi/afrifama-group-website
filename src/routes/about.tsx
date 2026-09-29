@@ -49,9 +49,6 @@ function About() {
             <Button asChild size="lg" variant="secondary" className="mt-7">
               <a href="#our-story">Follow our journey <ArrowRight aria-hidden="true" /></a>
             </Button>
-            <p className="mt-5 max-w-xl text-xs leading-relaxed text-primary-foreground/65">
-              Reserved for verified Afrifama photography.
-            </p>
           </div>
         </div>
       </header>
@@ -65,7 +62,6 @@ function About() {
               <div className="overflow-hidden rounded-lg">
                 <ImagePlaceholder slot={imageSlots.about[1]} label="Afrifama origin-story photography" className="aspect-[5/4] w-full" />
               </div>
-              <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">Reserved for verified Afrifama origin-story photography.</figcaption>
             </figure>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
@@ -102,12 +98,10 @@ function About() {
                 {index === 2 ? (
                   <figure className="group lg:col-span-5 lg:col-start-8">
                     <div className="overflow-hidden rounded-lg"><ImagePlaceholder slot={imageSlots.about[2]} label="Afrifama feed-production photography" className="aspect-[16/9] w-full" /></div>
-                    <figcaption className="mt-2 text-xs leading-relaxed text-muted-foreground">Reserved for verified Afrifama feed-production photography.</figcaption>
                   </figure>
                 ) : index === 3 ? (
                   <figure className="group lg:col-span-5 lg:col-start-8">
                     <div className="overflow-hidden rounded-lg"><ImagePlaceholder slot={imageSlots.about[3]} label="Afrifama field-operations photography" className="aspect-[16/9] w-full" /></div>
-                    <figcaption className="mt-2 text-xs leading-relaxed text-muted-foreground">Reserved for verified Afrifama field-operations photography.</figcaption>
                   </figure>
                 ) : (
                   <div className="hidden lg:col-span-5 lg:col-start-8 lg:block" aria-hidden="true"><span className="block h-px w-full bg-gold/55" /></div>

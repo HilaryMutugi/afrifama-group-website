@@ -218,7 +218,6 @@ function Feeds() {
                 <ImagePlaceholder key={ingredient} slot={`feeds-${ingredient.toLowerCase().replace(" ", "-")}`} label={`${ingredient} detail`} className="aspect-square w-full" />
               ))}
             </div>
-            <figcaption className="mt-2 text-xs text-muted-foreground">Reserved for verified Afrifama raw-material and production photography.</figcaption>
           </figure>
           <div className="lg:col-span-7 lg:pl-8">
             <SectionHeading eyebrow="Raw materials and quality discipline" title="Consistency starts before ingredients enter the mixer" lead="Quality is a sequence of checks and records. Laboratory testing is used where applicable; no certification or laboratory approval is implied." />
