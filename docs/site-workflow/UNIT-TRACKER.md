@@ -18,7 +18,7 @@ Status values: Not started, Diagnosing, Awaiting my choice, Building, Verifying,
 
 | # | Unit | Files | Status | Date | Notes |
 |---|------|-------|--------|------|-------|
-| 1 | About Afrifama | src/routes/about.tsx, aboutStory in site.ts | Not started | | Origin story, timeline, founder voice. |
+| 1 | About Afrifama | src/routes/about.tsx, aboutStory in site.ts | Verifying | 2026-09-29 | Rewritten to Hilary's approved emotional copy (opening line, illustrative farmer scene, four sections, partnership cards, Partner With Us to /contact). Old timeline, figures, mission and mural removed from the page. All four image slots kept. Short About blurb added to homepage and footer with a "Read our story" link. Build passes; checked at 1440, 768 and 390 with no overflow. Branch unit/about-afrifama, not pushed. |
 | 2 | Our Businesses (hub) | src/routes/businesses.tsx, pillars in site.ts | Not started | | Must explain how the units connect as one system. |
 
 ## Phase 2: Business units
@@ -53,9 +53,12 @@ Status values: Not started, Diagnosing, Awaiting my choice, Building, Verifying,
 Problems found while working on another unit. Do not fix them out of order.
 
 - **Future unit: lint and line endings.** `npm run lint` reports about 9,460 errors, nearly all Prettier. Best guess at the cause: this Windows checkout has `core.autocrlf=true`, so files arrive with Windows (CRLF) line endings while Prettier expects LF, and some files were also never formatted. Smallest safe fix: add a `.gitattributes` with `* text=auto eol=lf`, then in a separate commit run Prettier once on the whole repo, reviewed on its own so no content change hides in it. Do not mix it with page work. (Found in 0a.)
-- **Em dashes in copy.** Site title in `src/routes/__root.tsx` ("Afrifama — …", fix in unit 13, global SEO). `aboutStory.closing` in site.ts ("from the ground up—learning", fix in unit 1, About). `impactFramework.supportingCopy` in site.ts ("participation—it follows", fix in unit 7, Impact). (Found in 0a.)
+- **Em dashes in copy.** Site title in `src/routes/__root.tsx` ("Afrifama — …", fix in unit 13, global SEO). `aboutStory.closing` in site.ts (fixed in unit 1, copy replaced). `impactFramework.supportingCopy` in site.ts ("participation—it follows", fix in unit 7, Impact). (Found in 0a.)
 - **Home hero slot not in imageSlots.** `src/routes/index.tsx` uses a hard-coded `slot="home-hero"` instead of a named slot in `imageSlots`. Fix in unit 12, Homepage. (Found in 0a.)
 - **codex/homepage-rebuild branch.** Has a local commit (b778bd8, not pushed) whose pages import the 12 untracked photos in `src/assets/afrifama/`. It will not build anywhere else. Decide later whether any of its layout or copy work is worth reusing, unit by unit, without the photos. (Found in 0a.)
+
+- **Homepage wording that sounds established or "integrated poultry".** The hero, homepage title and meta description were fixed on 2026-09-29 (hero copy now in `homeHero` in site.ts). Still open, listed for Hilary and not changed: site-wide default title and description in `__root.tsx` (em dash, "integrated poultry system"); the Organization schema description and slogan in `__root.tsx`; `company.positioning` "Built for regional scale" under the hero; the investor pathway "being built for regional scale" in `partnerPathways`; the "Why Afrifama exists" lead in index.tsx (em dash); the FAQ answer "an integrated poultry system" in site.ts. Fix in unit 12 or 13. (Found in 1.)
+- **Unused About mural.** `src/components/site/AboutSystemMural.tsx` is no longer used after the About rewrite. Delete it or reuse it in a later unit. (Found in 1.)
 
 - **Low-contrast breadcrumb.** On /farmer-partnership the current-page breadcrumb ("Farmer Partnership") is dark text on the dark green hero and nearly unreadable. Check the shared breadcrumb in unit 0c or 0d. (Found in 0a.)
 
