@@ -68,6 +68,11 @@ function responsiveStorySources(src: string) {
   return `${stem}-640.webp 640w, ${stem}-960.webp 960w, ${src} 1448w`;
 }
 
+function responsiveHeroSources(src: string) {
+  const stem = src.slice(0, -5);
+  return `${stem}-960.webp 960w, ${stem}-1400.webp 1400w, ${src} 1672w`;
+}
+
 function Hero() {
   return (
     <div className="border-b border-border bg-secondary/40">
@@ -213,7 +218,7 @@ function Home() {
         <figure className="mt-9 overflow-hidden rounded-2xl border border-border bg-primary-deep sm:mt-11 lg:rounded-3xl">
           <img
             src={whyAfrifama.image.src}
-            srcSet="/images/storytelling/why-afrifama-hero-960.webp 960w, /images/storytelling/why-afrifama-hero-1400.webp 1400w, /images/storytelling/why-afrifama-hero.webp 1672w"
+            srcSet={responsiveHeroSources(whyAfrifama.image.src)}
             sizes="(min-width: 1280px) 1216px, calc(100vw - 2.5rem)"
             alt={whyAfrifama.image.alt}
             width="1672"

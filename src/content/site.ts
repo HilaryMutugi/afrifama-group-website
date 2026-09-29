@@ -98,6 +98,8 @@ export const futureSurfaces = {
 
 export type Status = "Operational" | "In Development" | "Future";
 
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 export type Pillar = {
   title: string;
   status: Status;
@@ -313,7 +315,7 @@ export const whyAfrifama = {
   title: "Strong farms need more than effort.",
   lead: "Quality birds, dependable feed, affordable inputs, technical support, finance and usable farm data must work together. Afrifama is connecting these parts into one commercial poultry system built around the farmer.",
   image: {
-    src: "/images/storytelling/why-afrifama-hero.webp",
+    src: publicAsset("images/storytelling/why-afrifama-hero.webp"),
     alt: "Poultry farmer walking beside hens and chicks with his poultry house in the background",
   },
 } as const;
@@ -323,42 +325,42 @@ export const problems = [
     number: "01",
     title: "Unreliable access to quality birds",
     body: "The right birds are not always available at the right time or scale.",
-    image: "/images/storytelling/problem-quality-birds.webp",
+    image: publicAsset("images/storytelling/problem-quality-birds.webp"),
     alt: "Poultry farmer inspecting a healthy chick beside a hen and a crate of chicks",
   },
   {
     number: "02",
     title: "Inconsistent feed quality",
     body: "Variable nutrition affects growth, egg production and farm margins.",
-    image: "/images/storytelling/problem-feed-quality.webp",
+    image: publicAsset("images/storytelling/problem-feed-quality.webp"),
     alt: "Poultry farmer checking grain beside feed sacks while hens feed nearby",
   },
   {
     number: "03",
     title: "High input costs",
     body: "Feed and essential inputs consume most of a small flock’s revenue.",
-    image: "/images/storytelling/problem-input-costs.webp",
+    image: publicAsset("images/storytelling/problem-input-costs.webp"),
     alt: "Poultry farmer reviewing farm costs beside feed, eggs and stacked coins",
   },
   {
     number: "04",
     title: "Limited production finance",
     body: "Farmers ready to grow struggle to finance a complete production cycle.",
-    image: "/images/storytelling/problem-finance.webp",
+    image: publicAsset("images/storytelling/problem-finance.webp"),
     alt: "Poultry farmer carrying farm records while approaching a finance office",
   },
   {
     number: "05",
     title: "Fragmented technical support",
     body: "Practical guidance works best when it continues throughout the production cycle.",
-    image: "/images/storytelling/problem-support-data.webp",
+    image: publicAsset("images/storytelling/problem-support-data.webp"),
     alt: "Farmer and poultry adviser reviewing flock information together on a farm",
   },
   {
     number: "06",
     title: "Disconnected farm data",
     body: "Scattered records make it difficult to track performance and act early.",
-    image: "/images/storytelling/problem-support-data.webp",
+    image: publicAsset("images/storytelling/problem-support-data.webp"),
     alt: "Farmer and poultry adviser reviewing a farm-performance dashboard on a tablet",
   },
 ] as const;
