@@ -12,6 +12,7 @@ Status values: Not started, Diagnosing, Awaiting my choice, Building, Verifying,
 | 0b | Story Bible completed and approved | STORY-BIBLE.md | Not started | | I answer the open questions, Claude tightens the wording. |
 | 0c | Design system audit: type scale, colour tokens, spacing, buttons, cards, section rhythm, placeholder styling | src/styles.css, src/components/site, src/components/ui | Not started | | Agree the rules once so each unit stays consistent. |
 | 0d | Global chrome: header, footer, nav labels, skip link, error pages | src/routes/__root.tsx, SiteHeader, SiteFooter | Not started | | Nav has 11 items. Check whether that is too many. |
+| 0f | Preview deploys from main | .github/workflows/pages-preview.yml, vite.config.ts, src/router.tsx, src/routes/__root.tsx | Verifying | 2026-09-29 | GitHub Pages concept preview now builds from main instead of codex/homepage-rebuild. Banner, noindex and robots.txt block kept. Normal Lovable build unchanged. Done once the first deployment from main succeeds. |
 
 ## Phase 1: Narrative anchors
 
@@ -43,7 +44,7 @@ Status values: Not started, Diagnosing, Awaiting my choice, Building, Verifying,
 
 | # | Unit | Files | Status | Date | Notes |
 |---|------|-------|--------|------|-------|
-| 12 | Homepage | src/routes/index.tsx | Not started | | Written last, so it can tell the whole story in one scroll. |
+| 12 | Homepage | src/routes/index.tsx | Not started | | Written last, so it can tell the whole story in one scroll. The Codex homepage redesign (index.tsx, homepage.css, homepageStory in site.ts, homepage-only footer) is kept on origin/codex/homepage-rebuild for review here. Its award claims (Givaudan Start-Up Competition 2024 winner; WIDU / GIZ 2023 first runner-up, Coastal Region) must be confirmed by Hilary before use. Its copy has em dashes that need fixing. |
 | 13 | SEO, sitemap, social previews, performance and accessibility sweep | public/sitemap.xml, robots.txt, route head data | Not started | | |
 | 14 | Final QA at 1440, 768 and 390 pixels, then handover notes | whole site | Not started | | |
 
