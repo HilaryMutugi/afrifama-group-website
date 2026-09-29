@@ -12,7 +12,7 @@ Status values: Not started, Diagnosing, Awaiting my choice, Building, Verifying,
 | 0b | Story Bible completed and approved | STORY-BIBLE.md | Not started | | I answer the open questions, Claude tightens the wording. |
 | 0c | Design system audit: type scale, colour tokens, spacing, buttons, cards, section rhythm, placeholder styling | src/styles.css, src/components/site, src/components/ui | Not started | | Agree the rules once so each unit stays consistent. |
 | 0d | Global chrome: header, footer, nav labels, skip link, error pages | src/routes/__root.tsx, SiteHeader, SiteFooter | Not started | | Nav has 11 items. Check whether that is too many. |
-| 0f | Preview deploys from main | .github/workflows/pages-preview.yml, vite.config.ts, src/router.tsx, src/routes/__root.tsx | Verifying | 2026-09-29 | GitHub Pages concept preview now builds from main instead of codex/homepage-rebuild. Banner, noindex and robots.txt block kept. Normal Lovable build unchanged. Done once the first deployment from main succeeds. |
+| 0f | Preview deploys from main | .github/workflows/pages-preview.yml, vite.config.ts, src/router.tsx, src/routes/__root.tsx | Done | 2026-09-29 | GitHub Pages concept preview now builds from main instead of codex/homepage-rebuild. Banner, noindex and robots.txt block kept. Normal Lovable build unchanged. First deployment from main (run 36555568315, merge 8cdc134) succeeded; live preview checked and placeholder-only. |
 
 ## Phase 1: Narrative anchors
 
