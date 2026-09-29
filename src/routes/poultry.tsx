@@ -129,7 +129,6 @@ function Poultry() {
             );
           })}
         </ol>
-        <p className="mt-3 text-xs text-muted-foreground">Reserved for verified Afrifama production photography.</p>
       </Section>
 
       <Section tone="forest">

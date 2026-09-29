@@ -85,7 +85,7 @@ function Genetics() {
               className="aspect-[7/5] w-full shadow-lift"
             />
             <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
-              Reserved for future verified photography. Afrifama does not currently operate a completed hatchery or offer commercial chicks.
+              {geneticsCapability.photoCaption}
             </figcaption>
           </figure>
         </div>
