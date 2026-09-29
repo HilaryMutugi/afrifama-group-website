@@ -100,6 +100,13 @@ export type Pillar = {
   to: string;
 };
 
+export const homeBusinesses = {
+  eyebrow: "Our businesses",
+  title: "One poultry system. Built around the farmer.",
+  lead:
+    "Poultry production, better feed, farmer partnerships and stronger genetics—connected to build productive farms, stronger livelihoods and shared growth.",
+} as const;
+
 export const pillars: Pillar[] = [
   {
     title: "Poultry Production",

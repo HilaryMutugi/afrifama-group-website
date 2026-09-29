@@ -5,7 +5,16 @@ import { Section, SectionHeading, StatusBadge } from "@/components/site/primitiv
 import { EarlyProgressSection } from "@/components/site/EarlyProgress";
 import { CtaBand } from "@/components/site/CtaBand";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
-import { aboutStory, company, homeHero, pillars, problems, fieldNotes, valueChain } from "@/content/site";
+import {
+  aboutStory,
+  company,
+  homeBusinesses,
+  homeHero,
+  pillars,
+  problems,
+  fieldNotes,
+  valueChain,
+} from "@/content/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -120,9 +129,9 @@ function Home() {
 
       <Section compact>
         <SectionHeading
-          eyebrow="Our businesses"
-          title="Four connected areas of work."
-          lead="Each part of Afrifama exists because the others need it."
+          eyebrow={homeBusinesses.eyebrow}
+          title={homeBusinesses.title}
+          lead={homeBusinesses.lead}
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((pillar) => (
@@ -130,7 +139,9 @@ function Home() {
               key={pillar.title}
               className="flex flex-col rounded-2xl border border-border bg-card p-5"
             >
-              <StatusBadge status={pillar.status} />
+              {pillar.status === "In Development" ? (
+                <StatusBadge status={pillar.status} />
+              ) : null}
               <h3 className="mt-4 font-display text-lg font-bold">{pillar.title}</h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
                 {pillar.summary}
