@@ -72,9 +72,15 @@ export const homeHero = {
 
 /** Compact homepage value-chain strip. */
 export const valueChain = [
-  { title: "Quality Nutrition", body: "Stage-based mash formulated and tested for local conditions." },
+  {
+    title: "Quality Nutrition",
+    body: "Stage-based mash formulated and tested for local conditions.",
+  },
   { title: "Healthy Birds", body: "Consistent management, biosecurity and health routines." },
-  { title: "Supported Farmers", body: "Structured partnerships with training and field follow-up." },
+  {
+    title: "Supported Farmers",
+    body: "Structured partnerships with training and field follow-up.",
+  },
   { title: "Reliable Markets", body: "Market linkages that grow as production volume grows." },
 ] as const;
 
@@ -103,8 +109,7 @@ export type Pillar = {
 export const homeBusinesses = {
   eyebrow: "Our businesses",
   title: "One poultry system. Built around the farmer.",
-  lead:
-    "Poultry production, better feed, farmer partnerships and stronger genetics—connected to build productive farms, stronger livelihoods and shared growth.",
+  lead: "Poultry production, better feed, farmer partnerships and stronger genetics—connected to build productive farms, stronger livelihoods and shared growth.",
 } as const;
 
 export const pillars: Pillar[] = [
@@ -159,33 +164,96 @@ export const pillars: Pillar[] = [
 ];
 
 export const poultryOperatingSystem = [
-  { number: "01", title: "Flock production", body: "Commercial layer production managed through distinct brooding, rearing and laying stages.", to: "/poultry" },
-  { number: "02", title: "Stage-based nutrition", body: "Afrifama feed matched to the bird's stage, with production feedback informing formulation decisions.", to: "/feeds" },
-  { number: "03", title: "Facilities and biosecurity", body: "Housing, ventilation, water, litter and controlled movement managed as daily operating disciplines.", to: "/poultry" },
-  { number: "04", title: "Records and decisions", body: "Daily flock records used to identify trends early and guide practical management changes.", to: "/impact" },
-  { number: "05", title: "Farmer support", body: "The same routines extended to selected partner farms through training, monitoring and record review.", to: "/farmer-partnership" },
+  {
+    number: "01",
+    title: "Flock production",
+    body: "Commercial layer production managed through distinct brooding, rearing and laying stages.",
+    to: "/poultry",
+  },
+  {
+    number: "02",
+    title: "Stage-based nutrition",
+    body: "Afrifama feed matched to the bird's stage, with production feedback informing formulation decisions.",
+    to: "/feeds",
+  },
+  {
+    number: "03",
+    title: "Facilities and biosecurity",
+    body: "Housing, ventilation, water, litter and controlled movement managed as daily operating disciplines.",
+    to: "/poultry",
+  },
+  {
+    number: "04",
+    title: "Records and decisions",
+    body: "Daily flock records used to identify trends early and guide practical management changes.",
+    to: "/impact",
+  },
+  {
+    number: "05",
+    title: "Farmer support",
+    body: "The same routines extended to selected partner farms through training, monitoring and record review.",
+    to: "/farmer-partnership",
+  },
 ] as const;
 
 export const poultryPathways = [
-  { audience: "Commercial farmers", title: "Build a more consistent production routine", body: "Explore Afrifama's structured farmer partnership and the operating standards expected on participating farms.", label: "Understand the partnership", to: "/farmer-partnership" },
-  { audience: "Feed customers", title: "Match nutrition to the production stage", body: "Review the Chick, Growers, Layers and Kienyeji mash range developed for practical local production.", label: "Explore Afrifama Feeds", to: "/feeds" },
-  { audience: "Strategic partners", title: "Strengthen the system around the flock", body: "Discuss technical, supply, equipment or investment partnerships that support disciplined growth.", label: "Start a conversation", to: "/contact" },
+  {
+    audience: "Commercial farmers",
+    title: "Build a more consistent production routine",
+    body: "Explore Afrifama's structured farmer partnership and the operating standards expected on participating farms.",
+    label: "Understand the partnership",
+    to: "/farmer-partnership",
+  },
+  {
+    audience: "Feed customers",
+    title: "Match nutrition to the production stage",
+    body: "Review the Chick, Growers, Layers and Kienyeji mash range developed for practical local production.",
+    label: "Explore Afrifama Feeds",
+    to: "/feeds",
+  },
+  {
+    audience: "Strategic partners",
+    title: "Strengthen the system around the flock",
+    body: "Discuss technical, supply, equipment or investment partnerships that support disciplined growth.",
+    label: "Start a conversation",
+    to: "/contact",
+  },
 ] as const;
 
 export const poultryProductionStages = [
-  { title: "Brooding", body: "Early nutrition, temperature, water, vaccination and close observation." },
-  { title: "Rearing", body: "Body-weight development, flock uniformity and preparation for production." },
-  { title: "Laying", body: "Lighting, nutrition, health monitoring and disciplined production records." },
+  {
+    title: "Brooding",
+    body: "Early nutrition, temperature, water, vaccination and close observation.",
+  },
+  {
+    title: "Rearing",
+    body: "Body-weight development, flock uniformity and preparation for production.",
+  },
+  {
+    title: "Laying",
+    body: "Lighting, nutrition, health monitoring and disciplined production records.",
+  },
 ] as const;
 
 export const geneticsCapability = {
-  positioning: "A developing Afrifama capability focused on parent stock, reliable layer genetics, technical partnerships and the long-term development of locally relevant chick supply.",
+  positioning:
+    "A developing Afrifama capability focused on parent stock, reliable layer genetics, technical partnerships and the long-term development of locally relevant chick supply.",
   /** Caption under the genetics photo placeholder. States the honest stage of the hatchery. */
-  photoCaption: "Reserved for future verified photography. Afrifama does not currently operate a completed hatchery or offer commercial chicks.",
+  photoCaption:
+    "Reserved for future verified photography. Afrifama does not currently operate a completed hatchery or offer commercial chicks.",
   productiveFlock: [
-    { title: "Known origin", body: "Clear provenance and breeder guidance are the starting point for making sound flock decisions." },
-    { title: "Flock robustness", body: "Bird health, welfare and practical suitability matter alongside any published performance potential." },
-    { title: "Management fit", body: "Genetics must be matched with housing, nutrition, health planning and the farmer's operating capacity." },
+    {
+      title: "Known origin",
+      body: "Clear provenance and breeder guidance are the starting point for making sound flock decisions.",
+    },
+    {
+      title: "Flock robustness",
+      body: "Bird health, welfare and practical suitability matter alongside any published performance potential.",
+    },
+    {
+      title: "Management fit",
+      body: "Genetics must be matched with housing, nutrition, health planning and the farmer's operating capacity.",
+    },
   ],
   parentStockDirection: [
     "Evaluate technical partnerships for reliable layer genetics",
@@ -194,44 +262,106 @@ export const geneticsCapability = {
     "Develop locally relevant support before any commercial chick offer",
   ],
   buildSequence: [
-    { status: "In Development" as const, title: "Technical partnerships", body: "Conversations and technical groundwork around genetics, parent stock, bird health and management support." },
-    { status: "Future" as const, title: "Parent-stock capability", body: "A carefully sequenced capability informed by suitable genetics, biosecurity requirements and verified local demand." },
-    { status: "Future" as const, title: "Locally relevant chick supply", body: "Long-term development of predictable chick supply in practical quantities, supported by clear management guidance." },
+    {
+      status: "In Development" as const,
+      title: "Technical partnerships",
+      body: "Conversations and technical groundwork around genetics, parent stock, bird health and management support.",
+    },
+    {
+      status: "Future" as const,
+      title: "Parent-stock capability",
+      body: "A carefully sequenced capability informed by suitable genetics, biosecurity requirements and verified local demand.",
+    },
+    {
+      status: "Future" as const,
+      title: "Locally relevant chick supply",
+      body: "Long-term development of predictable chick supply in practical quantities, supported by clear management guidance.",
+    },
   ],
   connectedPerformance: [
-    { title: "Genetics", body: "The bird's inherited potential and the official breeder guidance attached to that specific breed." },
-    { title: "Nutrition", body: "Stage-appropriate feed that responds to age, development and production demands." },
-    { title: "Management", body: "Housing, water, health, biosecurity and daily routines that allow potential to be expressed responsibly." },
+    {
+      title: "Genetics",
+      body: "The bird's inherited potential and the official breeder guidance attached to that specific breed.",
+    },
+    {
+      title: "Nutrition",
+      body: "Stage-appropriate feed that responds to age, development and production demands.",
+    },
+    {
+      title: "Management",
+      body: "Housing, water, health, biosecurity and daily routines that allow potential to be expressed responsibly.",
+    },
   ],
   futureResources: [
-    { title: "Breed profiles", body: "Future profiles will identify the breed, its intended production context and the official breeder source." },
-    { title: "Management guides", body: "Future guides will translate official breeder recommendations into clear, field-ready management references." },
-    { title: "Performance references", body: "Any future technical figures will be attributed to the named breed's official management guide, not presented as Afrifama results." },
+    {
+      title: "Breed profiles",
+      body: "Future profiles will identify the breed, its intended production context and the official breeder source.",
+    },
+    {
+      title: "Management guides",
+      body: "Future guides will translate official breeder recommendations into clear, field-ready management references.",
+    },
+    {
+      title: "Performance references",
+      body: "Any future technical figures will be attributed to the named breed's official management guide, not presented as Afrifama results.",
+    },
   ],
+} as const;
+
+export const whyAfrifama = {
+  label: "WHY AFRIFAMA EXISTS",
+  title: "Strong farms need more than effort.",
+  lead: "Quality birds, dependable feed, affordable inputs, technical support, finance and usable farm data must work together. Afrifama is connecting these parts into one commercial poultry system built around the farmer.",
+  image: {
+    src: "/images/storytelling/why-afrifama-hero.webp",
+    alt: "Poultry farmer walking beside hens and chicks with his poultry house in the background",
+  },
 } as const;
 
 export const problems = [
   {
+    number: "01",
     title: "Unreliable access to quality birds",
-    body: "Farmers often cannot source the right birds, at the right time, in the quantities their houses can actually carry.",
+    body: "The right birds are not always available at the right time or scale.",
+    image: "/images/storytelling/problem-quality-birds.webp",
+    alt: "Poultry farmer inspecting a healthy chick beside a hen and a crate of chicks",
   },
   {
+    number: "02",
     title: "Inconsistent feed quality",
-    body: "Feed quality varies between batches and suppliers, which shows up directly in growth, laying performance and margins.",
+    body: "Variable nutrition affects growth, egg production and farm margins.",
+    image: "/images/storytelling/problem-feed-quality.webp",
+    alt: "Poultry farmer checking grain beside feed sacks while hens feed nearby",
   },
   {
+    number: "03",
     title: "High input costs",
-    body: "Feed and inputs absorb most of a small flock's revenue, leaving very little room for management mistakes.",
+    body: "Feed and essential inputs consume most of a small flock’s revenue.",
+    image: "/images/storytelling/problem-input-costs.webp",
+    alt: "Poultry farmer reviewing farm costs beside feed, eggs and stacked coins",
   },
   {
-    title: "Limited affordable financing",
-    body: "Farmers who are ready to expand rarely have access to input finance that fits a production cycle.",
+    number: "04",
+    title: "Limited production finance",
+    body: "Farmers ready to grow struggle to finance a complete production cycle.",
+    image: "/images/storytelling/problem-finance.webp",
+    alt: "Poultry farmer carrying farm records while approaching a finance office",
   },
   {
+    number: "05",
     title: "Fragmented technical support",
-    body: "Advice arrives late, in pieces, and often from sources with no responsibility for the result on that farm.",
+    body: "Practical guidance works best when it continues throughout the production cycle.",
+    image: "/images/storytelling/problem-support-data.webp",
+    alt: "Farmer and poultry adviser reviewing flock information together on a farm",
   },
-];
+  {
+    number: "06",
+    title: "Disconnected farm data",
+    body: "Scattered records make it difficult to track performance and act early.",
+    image: "/images/storytelling/problem-support-data.webp",
+    alt: "Farmer and poultry adviser reviewing a farm-performance dashboard on a tablet",
+  },
+] as const;
 
 export type FeedProduct = {
   name: string;
@@ -254,7 +384,8 @@ export const feedProducts: FeedProduct[] = [
   {
     name: "Growers Mash",
     stage: "Frame and body-weight development",
-    purpose: "Balanced nutrition supporting controlled growth, frame development and flock uniformity.",
+    purpose:
+      "Balanced nutrition supporting controlled growth, frame development and flock uniformity.",
     flockType: "Growing pullets and improved kienyeji birds.",
     journeyStage: "Grow",
     status: "Operational",
@@ -278,7 +409,8 @@ export const feedProducts: FeedProduct[] = [
   {
     name: "Layers Premium 1.2",
     stage: "Targeted laying programme",
-    purpose: "A higher-specification option for producers requiring a more targeted nutritional programme.",
+    purpose:
+      "A higher-specification option for producers requiring a more targeted nutritional programme.",
     flockType: "Commercial layer flocks with defined production requirements.",
     journeyStage: "Produce",
     status: "Operational",
@@ -298,10 +430,26 @@ export const feedsPage = {
   supportingCopy:
     "We formulate poultry feeds around the changing nutritional needs of the bird—from the first days of growth through development and laying. Our production experience, farmer feedback, raw-material evaluation and qualified technical input help keep nutrition connected to practical flock performance.",
   stages: [
-    { name: "Start", objective: "Early development", detail: "Build the nutritional foundation for growth and skeletal development." },
-    { name: "Grow", objective: "Frame and body-weight development", detail: "Support controlled development and flock uniformity." },
-    { name: "Prepare", objective: "Preparation for production", detail: "Align nutrition with the transition toward productive maturity." },
-    { name: "Produce", objective: "Egg production and persistence", detail: "Match the nutritional programme to the demands of the laying stage." },
+    {
+      name: "Start",
+      objective: "Early development",
+      detail: "Build the nutritional foundation for growth and skeletal development.",
+    },
+    {
+      name: "Grow",
+      objective: "Frame and body-weight development",
+      detail: "Support controlled development and flock uniformity.",
+    },
+    {
+      name: "Prepare",
+      objective: "Preparation for production",
+      detail: "Align nutrition with the transition toward productive maturity.",
+    },
+    {
+      name: "Produce",
+      objective: "Egg production and persistence",
+      detail: "Match the nutritional programme to the demands of the laying stage.",
+    },
   ],
   productionFactors: [
     "Genetics",
@@ -315,11 +463,26 @@ export const feedsPage = {
     "Farm-management discipline",
   ],
   developmentProcess: [
-    { title: "Understand the production objective", body: "Begin with the bird, flock type, production stage and practical farm objective." },
-    { title: "Evaluate available raw materials", body: "Review ingredient condition, consistency, suitability, availability and cost." },
-    { title: "Develop the formulation", body: "Build the stage-specific formulation with qualified technical input." },
-    { title: "Mix and monitor production", body: "Control the formulation version, mixing process and associated batch records." },
-    { title: "Review flock response and farmer feedback", body: "Use practical observations and production evidence to inform future review." },
+    {
+      title: "Understand the production objective",
+      body: "Begin with the bird, flock type, production stage and practical farm objective.",
+    },
+    {
+      title: "Evaluate available raw materials",
+      body: "Review ingredient condition, consistency, suitability, availability and cost.",
+    },
+    {
+      title: "Develop the formulation",
+      body: "Build the stage-specific formulation with qualified technical input.",
+    },
+    {
+      title: "Mix and monitor production",
+      body: "Control the formulation version, mixing process and associated batch records.",
+    },
+    {
+      title: "Review flock response and farmer feedback",
+      body: "Use practical observations and production evidence to inform future review.",
+    },
   ],
   processCopy:
     "Feed formulation is not a one-time exercise. Ingredient quality, availability, cost and flock requirements change. Afrifama’s approach is to review these factors carefully and improve formulations through production evidence and qualified technical guidance.",
@@ -342,12 +505,36 @@ export const feedsPage = {
     "Practical farmer training",
   ],
   customerPathways: [
-    { title: "Poultry farmers", body: "Discuss the flock type, production stage and product option that fits your current objective.", to: "/contact" },
-    { title: "Partner farmers", body: "Connect feed decisions with Afrifama’s structured production partnership and field support.", to: "/farmer-partnership" },
-    { title: "Dealers and distributors", body: "Start a conversation about local demand, product access and distribution requirements.", to: "/contact" },
-    { title: "Commercial farms", body: "Discuss a stage-specific nutritional programme around your operating context.", to: "/contact" },
-    { title: "Technical and nutrition partners", body: "Contribute qualified expertise to formulation review, quality discipline and farmer guidance.", to: "/contact" },
-    { title: "Raw-material suppliers", body: "Share ingredient specifications, consistency controls and delivery capability.", to: "/contact" },
+    {
+      title: "Poultry farmers",
+      body: "Discuss the flock type, production stage and product option that fits your current objective.",
+      to: "/contact",
+    },
+    {
+      title: "Partner farmers",
+      body: "Connect feed decisions with Afrifama’s structured production partnership and field support.",
+      to: "/farmer-partnership",
+    },
+    {
+      title: "Dealers and distributors",
+      body: "Start a conversation about local demand, product access and distribution requirements.",
+      to: "/contact",
+    },
+    {
+      title: "Commercial farms",
+      body: "Discuss a stage-specific nutritional programme around your operating context.",
+      to: "/contact",
+    },
+    {
+      title: "Technical and nutrition partners",
+      body: "Contribute qualified expertise to formulation review, quality discipline and farmer guidance.",
+      to: "/contact",
+    },
+    {
+      title: "Raw-material suppliers",
+      body: "Share ingredient specifications, consistency controls and delivery capability.",
+      to: "/contact",
+    },
   ],
 } as const;
 
@@ -394,42 +581,129 @@ export const farmerPartnership = {
     "Are willing to enter a written partnership agreement",
   ],
   readinessGates: [
-    { title: "Housing readiness", body: "The structure must provide appropriate space, security, ventilation and protection." },
-    { title: "Water reliability", body: "Birds must have dependable access to clean water throughout the production cycle." },
-    { title: "Biosecurity readiness", body: "The farm must be capable of controlling visitors, equipment movement, contamination and disease risk." },
-    { title: "Daily management capacity", body: "A responsible caretaker must be available for feeding, watering, observation and record-keeping." },
-    { title: "Equipment and preparation", body: "Required feeders, drinkers, storage and basic farm equipment must be ready before placement." },
-    { title: "Monitoring and route practicality", body: "The farm must be accessible for scheduled monitoring, technical support and production coordination." },
+    {
+      title: "Housing readiness",
+      body: "The structure must provide appropriate space, security, ventilation and protection.",
+    },
+    {
+      title: "Water reliability",
+      body: "Birds must have dependable access to clean water throughout the production cycle.",
+    },
+    {
+      title: "Biosecurity readiness",
+      body: "The farm must be capable of controlling visitors, equipment movement, contamination and disease risk.",
+    },
+    {
+      title: "Daily management capacity",
+      body: "A responsible caretaker must be available for feeding, watering, observation and record-keeping.",
+    },
+    {
+      title: "Equipment and preparation",
+      body: "Required feeders, drinkers, storage and basic farm equipment must be ready before placement.",
+    },
+    {
+      title: "Monitoring and route practicality",
+      body: "The farm must be accessible for scheduled monitoring, technical support and production coordination.",
+    },
   ],
   journey: [
-    { number: "01", title: "Expression of interest", body: "The farmer shares their location, housing status, experience and desired flock size." },
-    { number: "02", title: "Initial screening", body: "Afrifama reviews the application against current programme requirements and available capacity." },
-    { number: "03", title: "Farm assessment", body: "The team visits shortlisted farms to assess housing, water, biosecurity, equipment and management readiness." },
-    { number: "04", title: "Final selection", body: "Eligible farms are compared using consistent readiness criteria. Application does not guarantee selection." },
-    { number: "05", title: "Agreement and training", body: "Responsibilities, support and recovery arrangements are reviewed and agreed in writing. Selected farmers complete practical training." },
-    { number: "06", title: "Farm preparation and placement", body: "Final readiness checks are completed before birds are transferred to the farm." },
-    { number: "07", title: "Production and monitoring", body: "Afrifama conducts scheduled visits, reviews records and supports the farmer through the production cycle." },
-    { number: "08", title: "Market coordination and review", body: "Production performance, farmer obligations and market pathways are reviewed as the flock moves into lay." },
+    {
+      number: "01",
+      title: "Expression of interest",
+      body: "The farmer shares their location, housing status, experience and desired flock size.",
+    },
+    {
+      number: "02",
+      title: "Initial screening",
+      body: "Afrifama reviews the application against current programme requirements and available capacity.",
+    },
+    {
+      number: "03",
+      title: "Farm assessment",
+      body: "The team visits shortlisted farms to assess housing, water, biosecurity, equipment and management readiness.",
+    },
+    {
+      number: "04",
+      title: "Final selection",
+      body: "Eligible farms are compared using consistent readiness criteria. Application does not guarantee selection.",
+    },
+    {
+      number: "05",
+      title: "Agreement and training",
+      body: "Responsibilities, support and recovery arrangements are reviewed and agreed in writing. Selected farmers complete practical training.",
+    },
+    {
+      number: "06",
+      title: "Farm preparation and placement",
+      body: "Final readiness checks are completed before birds are transferred to the farm.",
+    },
+    {
+      number: "07",
+      title: "Production and monitoring",
+      body: "Afrifama conducts scheduled visits, reviews records and supports the farmer through the production cycle.",
+    },
+    {
+      number: "08",
+      title: "Market coordination and review",
+      body: "Production performance, farmer obligations and market pathways are reviewed as the flock moves into lay.",
+    },
   ],
   support: [
-    { title: "Flock health and biosecurity", body: "Practical prevention routines, health-programme follow-up and early identification of concerns." },
-    { title: "Feeding, water and body-weight management", body: "Guidance on access, stage transitions, development and flock uniformity." },
-    { title: "Records and farm economics", body: "Consistent production and cost records that keep decisions commercially grounded." },
-    { title: "Field monitoring and corrective support", body: "Scheduled reviews and practical guidance when records or flock observations identify a concern." },
+    {
+      title: "Flock health and biosecurity",
+      body: "Practical prevention routines, health-programme follow-up and early identification of concerns.",
+    },
+    {
+      title: "Feeding, water and body-weight management",
+      body: "Guidance on access, stage transitions, development and flock uniformity.",
+    },
+    {
+      title: "Records and farm economics",
+      body: "Consistent production and cost records that keep decisions commercially grounded.",
+    },
+    {
+      title: "Field monitoring and corrective support",
+      body: "Scheduled reviews and practical guidance when records or flock observations identify a concern.",
+    },
   ],
   recoverableSupport: {
     body: "Depending on the agreed partnership, Afrifama may advance birds, feed or selected production inputs. These inputs are not donations. The value and method of recovery are defined in the individual farmer agreement before placement.",
-    is: ["Structured production support", "Agreed individually and in writing", "Connected to an approved flock", "Monitored through production records", "Recoverable under the partnership agreement"],
-    isNot: ["A grant or donation", "A conventional public loan", "An unrestricted cash facility", "An automatic entitlement", "A guarantee of profit", "Available to every applicant"],
+    is: [
+      "Structured production support",
+      "Agreed individually and in writing",
+      "Connected to an approved flock",
+      "Monitored through production records",
+      "Recoverable under the partnership agreement",
+    ],
+    isNot: [
+      "A grant or donation",
+      "A conventional public loan",
+      "An unrestricted cash facility",
+      "An automatic entitlement",
+      "A guarantee of profit",
+      "Available to every applicant",
+    ],
   },
 } as const;
 
 /** Early-stage progress figures. Update these values as verified data changes. */
 export const earlyProgress = [
-  { value: "150+", label: "Farmers reached", note: "Through field visits, training and farmer meetings" },
-  { value: "205+", label: "Farmer applications received", note: "Expressions of interest under review" },
+  {
+    value: "150+",
+    label: "Farmers reached",
+    note: "Through field visits, training and farmer meetings",
+  },
+  {
+    value: "205+",
+    label: "Farmer applications received",
+    note: "Expressions of interest under review",
+  },
   { value: "7", label: "Kilifi wards represented", note: "Across the current working area" },
-  { value: "500+", label: "Birds in first layer cycle", note: "First commercial layer-production cycle" },
+  {
+    value: "500+",
+    label: "Birds in first layer cycle",
+    note: "First commercial layer-production cycle",
+  },
   { value: "4", label: "Core feed products", note: "Stage-based mash range" },
 ];
 
@@ -533,11 +807,31 @@ export const impactFramework = {
     "Afrifama separates participation, operational progress and livelihood outcomes. We publish figures only after they have been checked against programme, flock and farmer records. As the pilot develops, this page will be updated with reporting dates, definitions and supporting field evidence.",
   lastUpdated: "27 September 2026",
   partnerPathways: [
-    { title: "Farmers", body: "Explore the requirements and stages of Afrifama’s structured production partnership.", to: "/farmer-partnership" },
-    { title: "Technical partners", body: "Contribute practical expertise across nutrition, flock health, genetics and monitoring.", to: "/contact" },
-    { title: "Market partners", body: "Discuss reliable routes to market as verified egg volumes develop.", to: "/contact" },
-    { title: "Researchers", body: "Explore rigorous, responsible learning around poultry production and farmer outcomes.", to: "/contact" },
-    { title: "Investors and development partners", body: "Support commercially disciplined infrastructure and evidence-led growth.", to: "/contact" },
+    {
+      title: "Farmers",
+      body: "Explore the requirements and stages of Afrifama’s structured production partnership.",
+      to: "/farmer-partnership",
+    },
+    {
+      title: "Technical partners",
+      body: "Contribute practical expertise across nutrition, flock health, genetics and monitoring.",
+      to: "/contact",
+    },
+    {
+      title: "Market partners",
+      body: "Discuss reliable routes to market as verified egg volumes develop.",
+      to: "/contact",
+    },
+    {
+      title: "Researchers",
+      body: "Explore rigorous, responsible learning around poultry production and farmer outcomes.",
+      to: "/contact",
+    },
+    {
+      title: "Investors and development partners",
+      body: "Support commercially disciplined infrastructure and evidence-led growth.",
+      to: "/contact",
+    },
   ],
 } as const;
 
