@@ -5,23 +5,16 @@ import { Section, SectionHeading, StatusBadge } from "@/components/site/primitiv
 import { EarlyProgressSection } from "@/components/site/EarlyProgress";
 import { CtaBand } from "@/components/site/CtaBand";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
-import { aboutStory, company, pillars, problems, fieldNotes, valueChain } from "@/content/site";
+import { aboutStory, company, homeHero, pillars, problems, fieldNotes, valueChain } from "@/content/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Afrifama — Building a stronger poultry system from feed to flock" },
-      { property: "og:title", content: "Afrifama — Building a stronger poultry system from feed to flock" },
+      { title: homeHero.metaTitle },
+      { property: "og:title", content: homeHero.metaTitle },
       { property: "og:url", content: "/" },
-      {
-        name: "description",
-        content:
-          "Afrifama is a Kenyan agribusiness building an integrated poultry system: quality feed, commercial layer production, structured smallholder farmer partnerships and poultry genetics development.",
-      },
-      {
-        property: "og:description",
-        content: "Afrifama is a Kenyan agribusiness building an integrated poultry system: quality feed, commercial layer production, structured smallholder farmer partnerships and poultry genetics development.",
-      },
+      { name: "description", content: homeHero.metaDescription },
+      { property: "og:description", content: homeHero.metaDescription },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -35,18 +28,13 @@ const chainIcons = [Wheat, Egg, Users, Store];
 function Hero() {
   return (
     <div className="border-b border-border bg-secondary/40">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-14">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 pt-8 pb-12 sm:pt-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-12">
         <div className="lg:col-span-6">
-          <p className="eyebrow text-terracotta">Kenyan agribusiness · Kilifi County</p>
-          <h1 className="mt-4 h1-page font-extrabold">
-            Building a stronger poultry system from feed to flock.
-          </h1>
-          <p className="mt-5 max-w-xl body-copy text-muted-foreground">
-            Afrifama is a Kenyan agribusiness building an integrated poultry system around quality
-            nutrition, reliable production, structured farmer partnerships and the foundations for
-            stronger poultry genetics.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <p className="eyebrow text-terracotta">{homeHero.eyebrow}</p>
+          {/* Slightly smaller than h1-page so both hero buttons stay above the fold. */}
+          <h1 className="mt-4 text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] font-extrabold">{homeHero.title}</h1>
+          <p className="mt-4 max-w-xl body-copy text-muted-foreground sm:mt-5">{homeHero.lead}</p>
+          <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
             <Button asChild size="lg">
               <Link to="/businesses">
                 Explore Our Work
@@ -65,7 +53,7 @@ function Hero() {
           <ImagePlaceholder
             slot="home-hero"
             label="Homepage hero photography"
-            className="aspect-[4/3] w-full rounded-2xl shadow-card lg:aspect-[11/10] lg:max-h-[30rem]"
+            className="aspect-[4/3] w-full rounded-2xl shadow-card lg:aspect-[11/10] lg:max-h-[26rem]"
           />
         </div>
       </div>

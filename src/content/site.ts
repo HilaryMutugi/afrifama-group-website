@@ -60,6 +60,16 @@ export const desktopNav: NavItem[] = [
   { label: "Contact", to: "/contact" },
 ];
 
+/** Homepage hero copy and search metadata. */
+export const homeHero = {
+  eyebrow: "Kenyan agribusiness startup · Kilifi County",
+  title: "Building a better future for smallholder farmers on Kenya's coast.",
+  lead: "Afrifama is an early-growth agribusiness startup in Kilifi County. We are building a system that connects farmers to financing, feed, technology, and markets, so farming becomes a dependable livelihood, starting with poultry.",
+  metaTitle: "Afrifama | Building a Better Future for Smallholder Farmers on Kenya's Coast",
+  metaDescription:
+    "Afrifama is an early-growth agribusiness startup in Kilifi County, connecting farmers to financing, feed, technology and markets, starting with poultry.",
+} as const;
+
 /** Compact homepage value-chain strip. */
 export const valueChain = [
   { title: "Quality Nutrition", body: "Stage-based mash formulated and tested for local conditions." },
