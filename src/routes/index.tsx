@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Wheat, Egg, Users, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Section, SectionHeading } from "@/components/site/primitives";
+import { Section, SectionHeading, StatusBadge } from "@/components/site/primitives";
 import { EarlyProgressSection } from "@/components/site/EarlyProgress";
 import { CtaBand } from "@/components/site/CtaBand";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
-import { aboutStory, company, homeEcosystem, homeHero, homeWhy, pillars, problems, fieldNotes, valueChain } from "@/content/site";
+import { aboutStory, company, homeHero, pillars, problems, fieldNotes, valueChain } from "@/content/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -89,61 +89,6 @@ function ValueChainStrip() {
   );
 }
 
-function EcosystemSection() {
-  return (
-    <section className="py-7 sm:py-9">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <p className="eyebrow text-terracotta">{homeEcosystem.eyebrow}</p>
-        <h2 className="mt-1.5 max-w-5xl text-balance h2-section font-extrabold">{homeEcosystem.title}</h2>
-        <p className="mt-2 max-w-3xl body-copy text-muted-foreground">{homeEcosystem.lead}</p>
-
-        {/* One chain from 01 to 04: stacked with vertical connectors, a single row from xl. */}
-        <ol className="mt-5 grid auto-rows-fr gap-7 xl:grid-cols-4">
-          {pillars.map((pillar, i) => {
-            const inDevelopment = i === pillars.length - 1;
-            return (
-              <li key={pillar.title} className="relative">
-                <div
-                  className={`flex h-full flex-col rounded-2xl border bg-card p-5 sm:grid sm:grid-cols-[18rem_1fr] sm:gap-x-8 xl:flex xl:px-4 ${
-                    inDevelopment ? "border-dashed border-muted-foreground/60" : "border-border"
-                  }`}
-                >
-                  <div>
-                    <p className="font-display text-sm font-bold text-terracotta">
-                      {String(i + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="mt-2 font-display text-lg font-bold sm:whitespace-nowrap xl:text-[0.9375rem]">
-                      {pillar.homeTitle}
-                    </h3>
-                  </div>
-                  <div className="mt-2 flex flex-1 flex-col sm:mt-0 xl:mt-2">
-                    <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{pillar.homeSummary}</p>
-                    <Link
-                      to={pillar.to}
-                      className="mt-5 inline-flex items-center gap-1.5 self-start font-display text-sm font-bold text-primary hover:gap-2.5"
-                    >
-                      Learn more
-                      <ArrowRight className="size-4" />
-                    </Link>
-                  </div>
-                </div>
-                {i < pillars.length - 1 ? (
-                  <span
-                    aria-hidden="true"
-                    className={`absolute top-full left-9 h-7 border-l-2 border-gold/70 xl:top-1/2 xl:left-full xl:h-0 xl:w-7 xl:border-t-2 xl:border-l-0 ${
-                      i === pillars.length - 2 ? "border-dashed" : ""
-                    }`}
-                  />
-                ) : null}
-              </li>
-            );
-          })}
-        </ol>
-      </div>
-    </section>
-  );
-}
-
 function Home() {
   return (
     <>
@@ -173,15 +118,42 @@ function Home() {
         </div>
       </Section>
 
-      <EcosystemSection />
+      <Section compact>
+        <SectionHeading
+          eyebrow="Our businesses"
+          title="Four connected areas of work."
+          lead="Each part of Afrifama exists because the others need it."
+        />
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((pillar) => (
+            <div
+              key={pillar.title}
+              className="flex flex-col rounded-2xl border border-border bg-card p-5"
+            >
+              <StatusBadge status={pillar.status} />
+              <h3 className="mt-4 font-display text-lg font-bold">{pillar.title}</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {pillar.summary}
+              </p>
+              <Link
+                to={pillar.to}
+                className="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary hover:gap-2.5"
+              >
+                Learn more
+                <ArrowRight className="size-4" />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       <Section tone="muted" compact>
         <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <SectionHeading
-              eyebrow={homeWhy.eyebrow}
-              title={homeWhy.title}
-              lead={homeWhy.lead}
+              eyebrow="Why Afrifama exists"
+              title="Poultry farming in Kenya fails for system reasons more often than for lack of effort."
+              lead="Afrifama is responding by building practical, connected solutions around the production system — commercially, not as charity."
             />
           </div>
           <ul className="grid gap-x-8 gap-y-6 lg:col-span-7 sm:grid-cols-2">
@@ -189,9 +161,6 @@ function Home() {
               <li key={p.title} className="border-t border-border pt-4">
                 <h3 className="font-display text-base font-bold">{p.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-                <p className="mt-2 text-[0.8125rem] font-semibold leading-snug text-terracotta">
-                  {homeWhy.responseLabel} {p.response}
-                </p>
               </li>
             ))}
           </ul>
