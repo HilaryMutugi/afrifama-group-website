@@ -70,6 +70,21 @@ export const homeHero = {
     "Afrifama is an early-growth agribusiness startup in Kilifi County, connecting farmers to financing, feed, technology and markets, starting with poultry.",
 } as const;
 
+/** Homepage ecosystem section heading. Card copy lives in pillars (homeTitle, homeSummary). */
+export const homeEcosystem = {
+  eyebrow: "The Afrifama ecosystem",
+  title: "Because no farmer should have to build alone.",
+  lead: "Each part of Afrifama exists because the others need it. Together we are building an ecosystem that stands beside smallholder farmers, from the first chick to the first sale.",
+} as const;
+
+/** Homepage "Why Afrifama exists" heading. Problem items and responses live in problems. */
+export const homeWhy = {
+  eyebrow: "Why Afrifama exists",
+  title: "Farmers wake up early and work hard. Too often, the system lets them down.",
+  lead: "Afrifama exists to change that. We are building the missing system, as a business and not as charity, so a farmer's effort finally leads to a better livelihood.",
+  responseLabel: "Our response:",
+} as const;
+
 /** Compact homepage value-chain strip. */
 export const valueChain = [
   { title: "Quality Nutrition", body: "Stage-based mash formulated and tested for local conditions." },
@@ -96,6 +111,9 @@ export type Pillar = {
   title: string;
   status: Status;
   summary: string;
+  /** Homepage ecosystem card title and summary; /businesses keeps title and summary. */
+  homeTitle: string;
+  homeSummary: string;
   points: string[];
   to: string;
 };
@@ -103,6 +121,9 @@ export type Pillar = {
 export const pillars: Pillar[] = [
   {
     title: "Poultry Production",
+    homeTitle: "Poultry Production",
+    homeSummary:
+      "It starts on our own farm. We raise our own flock, learn from every success and every mistake, and share what works with the farmers who trust us.",
     status: "Operational",
     summary:
       "Commercial layer production run to a consistent management standard, with birds, nutrition and records treated as one system.",
@@ -115,6 +136,9 @@ export const pillars: Pillar[] = [
   },
   {
     title: "Afrifama Feeds",
+    homeTitle: "Animal Feed Milling",
+    homeSummary:
+      "A hen can only give what she is fed. We mill stage-based feed with care, so a farmer's hard work is never wasted on poor nutrition.",
     status: "Operational",
     summary:
       "Four stage-specific mashes formulated with professional software, laboratory analysis and practical production feedback.",
@@ -127,6 +151,9 @@ export const pillars: Pillar[] = [
   },
   {
     title: "Farmer Partnerships",
+    homeTitle: "Smallholder Farmer Partnerships",
+    homeSummary:
+      "We walk with farmers, not just sell to them. Training, field visits and recoverable input support, so no one carries the risk alone.",
     status: "Operational",
     summary:
       "Structured commercial partnerships with selected farmers, including recoverable production support and scheduled field monitoring.",
@@ -139,6 +166,9 @@ export const pillars: Pillar[] = [
   },
   {
     title: "Genetics & Hatchery Development",
+    homeTitle: "Genetics & Hatchery",
+    homeSummary:
+      "Our dream for tomorrow is strong birds raised closer to home. We are laying the foundations and building partnerships now. This work is still in development and no chick supply is available yet.",
     status: "In Development",
     summary:
       "Technical foundations and partnerships for more reliable access to poultry genetics and future local hatchery capacity.",
@@ -207,22 +237,27 @@ export const problems = [
   {
     title: "Unreliable access to quality birds",
     body: "Farmers often cannot source the right birds, at the right time, in the quantities their houses can actually carry.",
+    response: "strong birds, raised closer to home. In development.",
   },
   {
     title: "Inconsistent feed quality",
     body: "Feed quality varies between batches and suppliers, which shows up directly in growth, laying performance and margins.",
+    response: "feed milled with care and screened before every batch.",
   },
   {
     title: "High input costs",
     body: "Feed and inputs absorb most of a small flock's revenue, leaving very little room for management mistakes.",
+    response: "the right feed at the right stage, so nothing is wasted.",
   },
   {
     title: "Limited affordable financing",
     body: "Farmers who are ready to expand rarely have access to input finance that fits a production cycle.",
+    response: "recoverable input support, so farmers can grow without carrying the risk alone.",
   },
   {
     title: "Fragmented technical support",
     body: "Advice arrives late, in pieces, and often from sources with no responsibility for the result on that farm.",
+    response: "one accountable partner who shows up on the farm.",
   },
 ];
 
