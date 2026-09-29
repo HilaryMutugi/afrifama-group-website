@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { company, primaryNav } from "@/content/site";
+import { aboutStory, company, primaryNav } from "@/content/site";
 
 export function SiteFooter() {
   return (
@@ -8,9 +8,19 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 lg:grid-cols-[1.25fr_1.35fr_0.9fr] lg:gap-8 lg:px-8">
         <div>
           <p className="font-display text-xl font-extrabold tracking-tight">AFRIFAMA</p>
-          <p className="mt-2 max-w-[38ch] text-sm leading-relaxed text-primary-foreground/75">
-            {company.tagline}
+          <p className="mt-3 max-w-[38ch] font-display text-base font-bold text-primary-foreground">
+            {aboutStory.opening}
           </p>
+          <p className="mt-2 max-w-[42ch] text-sm leading-relaxed text-primary-foreground/75">
+            {aboutStory.scene}
+          </p>
+          <Link
+            to="/about"
+            className="mt-3 inline-flex items-center gap-2 border-b border-gold/70 pb-1 font-display text-sm font-bold text-primary-foreground transition-colors hover:text-gold"
+          >
+            {aboutStory.readMore}
+            <ArrowRight className="size-4 text-gold" aria-hidden="true" />
+          </Link>
           <dl className="mt-4 space-y-1 text-sm text-primary-foreground/75">
             <div>
               <dt className="sr-only">Location</dt>

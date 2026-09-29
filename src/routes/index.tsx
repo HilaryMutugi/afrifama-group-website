@@ -5,7 +5,7 @@ import { Section, SectionHeading, StatusBadge } from "@/components/site/primitiv
 import { EarlyProgressSection } from "@/components/site/EarlyProgress";
 import { CtaBand } from "@/components/site/CtaBand";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
-import { company, pillars, problems, fieldNotes, valueChain } from "@/content/site";
+import { aboutStory, company, pillars, problems, fieldNotes, valueChain } from "@/content/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -106,6 +106,29 @@ function Home() {
     <>
       <Hero />
       <ValueChainStrip />
+
+      <Section tone="muted" compact>
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-5">
+            <p className="eyebrow text-terracotta">{aboutStory.title}</p>
+            <h2 className="mt-3 font-display text-2xl font-extrabold leading-tight sm:text-3xl">
+              {aboutStory.opening}
+            </h2>
+          </div>
+          <div className="lg:col-span-7">
+            <p className="border-l-2 border-gold pl-5 body-copy text-muted-foreground">
+              {aboutStory.scene}
+            </p>
+            <Link
+              to="/about"
+              className="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary hover:gap-2.5"
+            >
+              {aboutStory.readMore}
+              <ArrowRight className="size-4" />
+            </Link>
+          </div>
+        </div>
+      </Section>
 
       <Section compact>
         <SectionHeading
