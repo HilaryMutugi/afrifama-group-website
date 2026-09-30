@@ -95,3 +95,10 @@ OPEN: Add or change any.
 - Anything about the parent stock supply chain that is not signed and confirmed.
 
 OPEN: Add anything else.
+
+## 11. Photography and image direction
+
+- Keep the recurring farmer as an adult smallholder farmer in his early-to-mid thirties. Afrifama serves farmers across age groups and must not appear youth-exclusive.
+- Dress the farmer in practical, unbranded farm clothing and boots. Reserve Afrifama-branded clothing for staff, such as a technical-support officer.
+- Keep farms recognisably coastal Kenyan, with practical poultry housing, believable flock sizes and natural vegetation.
+- Prefer neutral daylight or restrained warm light. Avoid heavily saturated sunsets, theatrical skies and overly polished farm environments.

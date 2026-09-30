@@ -32,7 +32,7 @@ export function PartnershipMural() {
         viewBox="0 0 760 620"
         role="img"
         aria-labelledby="partnership-mural-title partnership-mural-description"
-        className="mx-auto hidden h-auto w-full max-w-6xl sm:block"
+        className="mx-auto hidden h-auto w-full max-w-2xl sm:block"
       >
         <title id="partnership-mural-title">The Afrifama farmer partnership journey</title>
         <desc id="partnership-mural-description">

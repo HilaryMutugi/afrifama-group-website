@@ -1,20 +1,28 @@
 import { earlyProgress } from "@/content/site";
 import { Section, SectionHeading } from "./primitives";
+import { ImagePlaceholder } from "./ImagePlaceholder";
 
 export function EarlyProgressSection({
   tone = "muted",
   compact = false,
+  photoSlot,
 }: {
   tone?: "default" | "muted";
   compact?: boolean;
+  photoSlot?: string;
 }) {
   return (
     <Section tone={tone} compact={compact}>
-      <SectionHeading
-        eyebrow="Early Progress"
-        title="Where we are today, stated plainly."
-        lead="These are early-stage figures from a business still building. They are not mature impact claims, and we update them as verified data changes."
-      />
+      <div className={photoSlot ? "grid items-center gap-7 lg:grid-cols-[1.2fr_1fr]" : ""}>
+        <SectionHeading
+          eyebrow="Early Progress"
+          title="Where we are today, stated plainly."
+          lead="These are early-stage figures from a business still building. They are not mature impact claims, and we update them as verified data changes."
+        />
+        {photoSlot ? (
+          <ImagePlaceholder slot={photoSlot} className="aspect-[16/9] w-full rounded-xl" />
+        ) : null}
+      </div>
       <dl className={`${compact ? "mt-10" : "mt-12"} grid gap-4 sm:grid-cols-2 lg:grid-cols-5`}>
         {earlyProgress.map((item) => (
           <div

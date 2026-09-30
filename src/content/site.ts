@@ -17,6 +17,12 @@ export const company = {
 
 /** Stable names for photography that will be supplied in a later phase. */
 export const imageSlots = {
+  home: {
+    hero: ["home-slide-farmers", "home-slide-feed", "home-slide-care", "home-slide-eggs"],
+    story: "home-story",
+    businesses: ["home-business-poultry", "home-business-feeds", "home-business-partnership", "home-business-genetics"],
+    progress: "home-progress",
+  },
   about: ["about-hero", "about-origin", "about-feeds", "about-operations"],
   poultry: ["poultry-hero", "poultry-brooding", "poultry-rearing", "poultry-laying"],
   feeds: ["feeds-hero", "feeds-raw-materials", "feeds-production"],
@@ -316,7 +322,7 @@ export const whyAfrifama = {
   lead: "Quality birds, dependable feed, affordable inputs, technical support, finance and usable farm data must work together. Afrifama is connecting these parts into one commercial poultry system built around the farmer.",
   image: {
     src: publicAsset("images/storytelling/why-afrifama-hero.webp"),
-    alt: "Poultry farmer walking beside hens and chicks with his poultry house in the background",
+    alt: "Adult smallholder poultry farmer in his early-to-mid thirties walking beside hens and chicks on his coastal Kenyan farm",
   },
 } as const;
 
@@ -326,42 +332,42 @@ export const problems = [
     title: "Unreliable access to quality birds",
     body: "The right birds are not always available at the right time or scale.",
     image: publicAsset("images/storytelling/problem-quality-birds.webp"),
-    alt: "Poultry farmer inspecting a healthy chick beside a hen and a crate of chicks",
+    alt: "Adult smallholder farmer in his early-to-mid thirties inspecting a chick on his coastal Kenyan poultry farm",
   },
   {
     number: "02",
     title: "Inconsistent feed quality",
     body: "Variable nutrition affects growth, egg production and farm margins.",
     image: publicAsset("images/storytelling/problem-feed-quality.webp"),
-    alt: "Poultry farmer checking grain beside feed sacks while hens feed nearby",
+    alt: "Adult smallholder farmer in his early-to-mid thirties checking poultry feed beside his flock",
   },
   {
     number: "03",
     title: "High input costs",
     body: "Feed and essential inputs consume most of a small flock’s revenue.",
     image: publicAsset("images/storytelling/problem-input-costs.webp"),
-    alt: "Poultry farmer reviewing farm costs beside feed, eggs and stacked coins",
+    alt: "Adult smallholder farmer in his early-to-mid thirties reviewing the costs of feed and egg production",
   },
   {
     number: "04",
     title: "Limited production finance",
     body: "Farmers ready to grow struggle to finance a complete production cycle.",
     image: publicAsset("images/storytelling/problem-finance.webp"),
-    alt: "Poultry farmer carrying farm records while approaching a finance office",
+    alt: "Adult smallholder farmer in his early-to-mid thirties carrying farm records to discuss production finance",
   },
   {
     number: "05",
     title: "Fragmented technical support",
     body: "Practical guidance works best when it continues throughout the production cycle.",
-    image: publicAsset("images/storytelling/problem-support-data.webp"),
-    alt: "Farmer and poultry adviser reviewing flock information together on a farm",
+    image: publicAsset("images/storytelling/problem-technical-support.webp"),
+    alt: "Technical-support officer demonstrating a poultry health check to an adult smallholder farmer",
   },
   {
     number: "06",
     title: "Disconnected farm data",
     body: "Scattered records make it difficult to track performance and act early.",
     image: publicAsset("images/storytelling/problem-support-data.webp"),
-    alt: "Farmer and poultry adviser reviewing a farm-performance dashboard on a tablet",
+    alt: "Adult smallholder farmer and an Afrifama technical-support officer reviewing farm data together",
   },
 ] as const;
 
@@ -712,7 +718,14 @@ export const earlyProgress = [
 export const impactFramework = {
   coreMessage: "Impact begins with a poultry system that farmers can operate, measure and grow.",
   supportingCopy:
-    "Afrifama is building practical connections between poultry production, nutrition, farmer capability and markets. Our impact approach measures more than participation—it follows what changes on the farm and whether those changes contribute to stronger livelihoods.",
+    "Afrifama is building practical connections between poultry production, nutrition, farmer capability and markets. Our impact approach measures more than participation. It follows what changes on the farm and whether those changes contribute to stronger livelihoods.",
+  pilotSnapshot: [
+    { value: "3", label: "Initial farmers" },
+    { value: "150", label: "Birds minimum per farmer" },
+    { value: "Training, feed, monitoring", label: "Support in the pilot" },
+    { value: "Outcomes measured before claims", label: "Evidence standard" },
+  ],
+  measurementHeading: "What We Are Learning From the Pilot",
   pathway: [
     {
       number: "01",
@@ -1128,7 +1141,7 @@ export const aboutStory = {
 } as const;
 
 export const eggJourney = {
-  mural: publicAsset("images/genetics/egg-journey-mural.png"),
+  mural: publicAsset("images/selected/businesses-genetics-1600.webp"),
   title: "A stronger flock begins here.",
   alt: "Concept mural showing a breeding hen, an illuminated egg, an embryo cutaway, a hatching chick and a newly emerged chick.",
   caption: "Concept illustration · Hover or tap a stage",
@@ -1140,6 +1153,7 @@ export const eggJourney = {
     { label: "First start", title: "A new beginning", copy: "The journey continues with chick care, brooding and support on the farm." },
   ],
 } as const;
+
 
 export const geneticsPage = {
   title: "A stronger flock begins here.",
@@ -1166,4 +1180,9 @@ export const geneticsPage = {
     body: "We welcome conversations with genetics, parent-stock, veterinary, biosecurity and hatchery specialists who value responsible development and practical outcomes for farmers.",
     cta: "Discuss a technical partnership",
   },
+} as const;
+
+export const homePhotoStory = {
+  slideLabels: ["Farmer partnership", "Feed production", "Poultry care", "Feed to flock"],
+  illustrationCaption: "Concept illustration · genetics and hatchery in development",
 } as const;

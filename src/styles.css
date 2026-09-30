@@ -287,3 +287,7 @@
 .about-timeline > li:nth-child(4) { animation-delay: 240ms; }
 .about-timeline > li:nth-child(5) { animation-delay: 320ms; }
 
+
+/* Focal positions are centrally selected per photograph. */
+.site-image img { object-position: var(--image-position, center); }
+@media (max-width: 639px) { .site-image img { object-position: var(--image-mobile-position, center); } }

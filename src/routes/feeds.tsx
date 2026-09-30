@@ -98,13 +98,13 @@ function Feeds() {
                 <Button asChild size="lg" variant="outline"><Link to="/contact">Talk to Our Team</Link></Button>
               </div>
             </div>
-            <div className="relative min-h-80 overflow-hidden lg:min-h-[520px]">
+            <div className="flex flex-col justify-center overflow-hidden bg-secondary/60">
               <ImagePlaceholder
                 slot={imageSlots.feeds[0]}
                 label="Feed production photography"
-                className="absolute inset-0 size-full border-0"
+                className="aspect-[16/10] w-full border-0"
               />
-              <div className="absolute inset-x-0 bottom-0 border-t border-primary-foreground/20 bg-primary/90 px-6 py-5 text-primary-foreground backdrop-blur-sm">
+              <div className="border-t border-primary-foreground/20 bg-primary/90 px-6 py-5 text-primary-foreground backdrop-blur-sm">
                 <p className="eyebrow text-gold">Our approach</p>
                 <p className="mt-2 max-w-xl text-sm leading-relaxed text-primary-foreground/80">{feedsPage.positioning}</p>
               </div>
@@ -149,12 +149,14 @@ function Feeds() {
 
       <Section id="feed-range" tone="muted">
         <SectionHeading eyebrow="Product range" title="Six feeds. Clear production roles." lead="Each product is organised around production stage, nutritional purpose and flock type. Verified specifications can be added as they become available." />
+        <ImagePlaceholder slot="feeds-range" label="Afrifama feed range" className="mt-8 aspect-[20/9] w-full rounded-xl" />
         <div className="mt-10 grid border-t border-l border-border md:grid-cols-2 lg:grid-cols-3">
           {feedProducts.map((product, index) => {
             const Icon = productIcons[index] ?? Wheat;
             return (
               <article key={product.name} className="flex min-h-[350px] flex-col border-r border-b border-border bg-card p-6 sm:p-7">
                 <div className="flex items-start justify-between gap-4"><Icon className="size-6 text-terracotta" aria-hidden="true" /><StatusBadge status={product.status} /></div>
+                {["Growers Mash", "Kienyeji Mash"].includes(product.name) ? <ImagePlaceholder slot={product.name === "Growers Mash" ? "feeds-growers" : "feeds-kienyeji"} className="mt-5 h-64 w-full" /> : null}
                 <p className="mt-6 eyebrow text-terracotta">{product.journeyStage} · {product.stage}</p>
                 <h3 className="mt-3 font-display text-2xl font-bold">{product.name}</h3>
                 <dl className="mt-6 space-y-4 text-sm">

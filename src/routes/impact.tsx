@@ -49,34 +49,80 @@ function Impact() {
   return (
     <>
       <section className="border-b border-border bg-primary-deep text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-5 pt-8 lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 pt-4 pb-8 sm:pt-5 sm:pb-10 lg:px-8 lg:pb-12 [&_nav]:mb-4">
           <div className="[&_a]:text-primary-foreground/70 [&_span]:text-primary-foreground">
             <Breadcrumbs items={[{ label: "Impact" }]} />
           </div>
-          <div className="grid overflow-hidden border-x border-t border-primary-foreground/15 lg:grid-cols-[1.02fr_0.98fr]">
-            <div className="flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-12 lg:py-14">
+          <div className="grid gap-7 lg:grid-cols-12 lg:items-stretch lg:gap-10">
+            <div className="flex flex-col justify-center lg:col-span-7 lg:py-5">
               <p className="eyebrow text-gold">Impact</p>
-              <h1 className="mt-5 max-w-2xl h1-page font-extrabold">
+              <h1 className="mt-3 max-w-3xl h1-page font-extrabold">
                 {impactFramework.coreMessage}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
+              <p className="mt-4 max-w-3xl text-lg leading-relaxed text-primary-foreground/80">
                 {impactFramework.supportingCopy}
               </p>
             </div>
-            <div className="relative min-h-80 lg:min-h-[520px]">
-              <ImagePlaceholder
-                slot={imageSlots.impact[0]}
-                label="Impact hero photography"
-                className="absolute inset-0 size-full border-0"
-                inverted
-              />
-              <div className="absolute inset-x-0 bottom-0 border-t border-primary-foreground/20 bg-primary/90 px-6 py-4 backdrop-blur-sm">
-                <p className="text-sm font-semibold">Commercial progress, followed from farm records to market participation.</p>
+            <aside
+              aria-labelledby="pilot-snapshot-title"
+              className="border border-primary-foreground/20 bg-primary-foreground/[0.06] p-5 lg:col-span-5"
+            >
+              <div className="flex items-center justify-between gap-4 border-b border-primary-foreground/20 pb-3">
+                <div>
+                  <p className="eyebrow text-gold">Current pilot</p>
+                  <h2 id="pilot-snapshot-title" className="mt-2 font-display text-2xl font-extrabold">
+                    Pilot snapshot
+                  </h2>
+                </div>
+                <ShieldCheck className="size-7 shrink-0 text-gold" aria-hidden="true" />
               </div>
-            </div>
+              <dl className="grid sm:grid-cols-2">
+                {impactFramework.pilotSnapshot.map((item, index) => (
+                  <div
+                    key={item.label}
+                    className={`p-3.5 ${index < 3 ? "border-b border-primary-foreground/15" : ""} ${index >= 2 ? "sm:border-b-0" : ""} ${index % 2 === 1 ? "sm:border-l sm:border-primary-foreground/15" : ""}`}
+                  >
+                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-primary-foreground/60">
+                      {item.label}
+                    </dt>
+                    <dd className="mt-1.5 font-display text-xl font-extrabold leading-snug text-primary-foreground">
+                      {item.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="border-t border-primary-foreground/20 pt-3 text-sm leading-relaxed text-primary-foreground/70">
+                This is an early measurement baseline, not evidence of proven impact yet.
+              </p>
+            </aside>
           </div>
         </div>
       </section>
+
+      <Section compact>
+        <div className="max-w-5xl">
+          <p className="eyebrow text-terracotta">What we measure</p>
+          <h2 className="mt-2 h2-section font-extrabold">{impactFramework.measurementHeading}</h2>
+          <p className="mt-3 max-w-4xl body-copy text-muted-foreground">
+            These are the questions Afrifama is setting up to measure. They are a framework for the pilot, not claims that outcomes have already been achieved.
+          </p>
+        </div>
+        <div className="mt-6 grid border-t border-border md:grid-cols-2">
+          {impactFramework.measurementPillars.map((pillar, index) => {
+            const Icon = measurementIcons[index] ?? ClipboardCheck;
+            return (
+              <article
+                key={pillar.title}
+                className={`border-b border-border py-6 md:px-7 ${index % 2 === 1 ? "md:border-l" : ""}`}
+              >
+                <Icon className="size-6 text-terracotta" aria-hidden="true" />
+                <h3 className="mt-4 font-display text-xl font-bold">{pillar.title}</h3>
+                <p className="mt-2 max-w-xl leading-relaxed text-muted-foreground">{pillar.body}</p>
+              </article>
+            );
+          })}
+        </div>
+      </Section>
 
       <Section>
         <div className="grid gap-8 lg:grid-cols-12">
@@ -127,26 +173,6 @@ function Impact() {
             </div>
           ))}
         </dl>
-      </Section>
-
-      <Section>
-        <SectionHeading
-          eyebrow="What we measure"
-          title="Four lenses on the pilot"
-          lead="These are the questions Afrifama is setting up to measure. They are a framework for the pilot, not claims that outcomes have already been achieved."
-        />
-        <div className="mt-10 grid border-t border-border md:grid-cols-2">
-          {impactFramework.measurementPillars.map((pillar, index) => {
-            const Icon = measurementIcons[index] ?? ClipboardCheck;
-            return (
-              <article key={pillar.title} className={`border-b border-border py-8 md:px-8 ${index % 2 === 1 ? "md:border-l" : ""}`}>
-                <Icon className="size-6 text-terracotta" aria-hidden="true" />
-                <h3 className="mt-5 font-display text-xl font-bold">{pillar.title}</h3>
-                <p className="mt-3 max-w-xl leading-relaxed text-muted-foreground">{pillar.body}</p>
-              </article>
-            );
-          })}
-        </div>
       </Section>
 
       <Section tone="forest">

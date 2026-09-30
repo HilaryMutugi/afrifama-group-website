@@ -59,13 +59,15 @@ const readinessIcons = [Home, Droplets, ShieldCheck, ClipboardCheck];
 function FarmerPartnership() {
   return (
     <>
-      <header className="relative isolate min-h-[min(660px,calc(100svh-72px))] overflow-hidden bg-primary-deep text-primary-foreground">
-        <ImagePlaceholder slot={imageSlots.partnership[0]} label="Farmer Partnership hero photography" className="absolute inset-0 size-full border-0" inverted showLabel={false} />
-        <div className="relative mx-auto flex min-h-[min(660px,calc(100svh-72px))] max-w-7xl flex-col px-5 pt-8 pb-12 lg:px-8">
+      <header className="relative isolate grid lg:grid-cols-2 overflow-hidden bg-primary-deep text-primary-foreground">
+        <ImagePlaceholder slot={imageSlots.partnership[0]} label="Farmer Partnership hero photography" className="order-2 aspect-[4/3] w-full border-0 lg:aspect-auto lg:min-h-[420px]" inverted showLabel={false} />
+        <div className="relative mx-auto flex min-h-[360px] max-w-7xl flex-col px-5 pt-8 pb-12 lg:px-8">
+          <div className="[&_nav]:text-primary-foreground/75 [&_nav_a]:text-primary-foreground/75 [&_nav_span]:text-primary-foreground">
           <Breadcrumbs
             items={[{ label: "Our Businesses", to: "/businesses" }, { label: "Farmer Partnership" }]}
           />
-          <div className="mt-auto max-w-3xl animate-fade-in">
+          </div>
+          <div className="mt-6 max-w-3xl animate-fade-in">
             <span className="inline-flex items-center gap-2 rounded-full bg-gold px-3 py-1 text-xs font-bold uppercase text-gold-foreground">
               <span className="size-1.5 rounded-full bg-gold-foreground" aria-hidden="true" />
               {farmerPartnership.hero.label}

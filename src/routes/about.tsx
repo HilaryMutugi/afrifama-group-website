@@ -30,13 +30,13 @@ function About() {
 
   return (
     <>
-      <header className="relative isolate min-h-[min(660px,calc(100svh-72px))] overflow-hidden bg-primary-deep text-primary-foreground">
-        <ImagePlaceholder slot={imageSlots.about[0]} label="About Afrifama hero photography" className="absolute inset-0 size-full border-0" inverted showLabel={false} />
-        <div className="relative mx-auto flex min-h-[min(660px,calc(100svh-72px))] max-w-7xl flex-col px-5 pt-8 pb-10 lg:px-8 lg:pb-14">
+      <header className="relative isolate grid lg:grid-cols-2 overflow-hidden bg-primary-deep text-primary-foreground">
+        <ImagePlaceholder slot={imageSlots.about[0]} label="About Afrifama hero photography" className="order-2 aspect-[4/3] w-full border-0 lg:aspect-auto lg:min-h-[420px]" inverted showLabel={false} />
+        <div className="relative mx-auto flex min-h-[360px] max-w-7xl flex-col px-5 pt-8 pb-10 lg:px-8 lg:pb-14">
           <div className="[&_nav]:text-primary-foreground/75 [&_nav_a]:text-primary-foreground/75 [&_nav_span]:text-primary-foreground">
             <Breadcrumbs items={[{ label: aboutStory.title }]} />
           </div>
-          <div className="mt-auto max-w-4xl">
+          <div className="mt-6 max-w-4xl">
             <p className="eyebrow text-gold">{aboutStory.title}</p>
             <h1 className="mt-5 max-w-4xl h1-hero font-extrabold">{aboutStory.opening}</h1>
           </div>
@@ -100,6 +100,10 @@ function About() {
             <h2 className="mt-4 h2-section font-extrabold">{howWeWalk.title}</h2>
             <p className="mt-6 body-copy text-muted-foreground">{howWeWalk.body}</p>
           </div>
+          <figure className="mt-8">
+            <ImagePlaceholder slot="about-support-illustration" className="mx-auto aspect-[4/3] w-full max-w-xl rounded-xl" />
+            <figcaption className="mt-3 text-center text-xs text-muted-foreground">Generated illustration · practical support and record review</figcaption>
+          </figure>
           <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {howWeWalk.pillars.map((pillar, index) => {
               const Icon = pillarIcons[index] ?? Sprout;

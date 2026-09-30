@@ -9,6 +9,7 @@ import {
   Card,
   CheckList,
 } from "@/components/site/primitives";
+import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { CtaBand } from "@/components/site/CtaBand";
 import { company, pillars } from "@/content/site";
 
@@ -54,6 +55,8 @@ function Businesses() {
             <Card key={pillar.title}>
               <div className="grid gap-6 lg:grid-cols-12">
                 <div className="lg:col-span-4">
+                  <ImagePlaceholder slot={["businesses-poultry", "businesses-feeds", "businesses-partnership", "businesses-genetics"][index] ?? "businesses-unavailable"} className="mb-5 aspect-[16/10] w-full rounded-lg" />
+                  {pillar.to === "/genetics-hatchery" ? <p className="mb-3 text-xs text-muted-foreground">Illustrated egg journey · development direction</p> : null}
                   <span className="eyebrow text-terracotta">
                     0{index + 1} · Afrifama {pillar.title.split(" ")[0]}
                   </span>

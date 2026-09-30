@@ -72,13 +72,13 @@ function Poultry() {
                 </Button>
               </div>
             </div>
-            <div className="relative min-h-80 overflow-hidden lg:min-h-[520px]">
+            <div className="flex flex-col justify-center overflow-hidden bg-secondary/60">
               <ImagePlaceholder
                 slot={imageSlots.poultry[0]}
                 label="Poultry hero photography"
-                className="absolute inset-0 size-full border-0"
+                className="aspect-[16/10] w-full border-0"
               />
-              <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 border-t border-primary-foreground/20 bg-primary/90 backdrop-blur-sm sm:grid-cols-4">
+              <div className="grid grid-cols-2 border-t border-primary-foreground/20 bg-primary/90 backdrop-blur-sm sm:grid-cols-4">
                 {operatingMarkers.map(({ icon: Icon, label, value }) => (
                   <div key={label} className="border-primary-foreground/15 p-4 text-primary-foreground sm:border-r last:border-r-0">
                     <Icon className="size-4 text-gold" aria-hidden="true" />
