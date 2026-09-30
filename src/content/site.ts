@@ -1141,3 +1141,29 @@ export const eggJourney = {
   ],
 } as const;
 
+export const geneticsPage = {
+  title: "A stronger flock begins here.",
+  intro: "Follow the journey from parent flock to first start, and Afrifama’s developing foundations for future chick supply.",
+  farmers: {
+    title: "Why a stronger beginning matters",
+    body: "For a smallholder farmer, every bird represents an investment in feed, time and care. Known origins, suitable genetics and a well-supported start help farmers plan their flock with greater confidence.",
+    support: "That beginning needs to carry through to the farm: practical brooding guidance, dependable nutrition and ongoing health and management support.",
+  },
+  careTitle: "Genetics, incubation and early care",
+  care: [
+    { title: "Genetics", body: "Start with known parent-stock origins and breeder guidance. Consider bird robustness, local conditions and the farmer’s capacity alongside production potential." },
+    { title: "Incubation", body: "Careful egg handling, biosecurity and controlled incubation conditions support development. Candling offers a glimpse inside the egg along the way." },
+    { title: "Early care", body: "The first start continues beyond the shell. Suitable brooding, water, nutrition and attentive health management connect chick care with performance on the farm." },
+  ],
+  direction: {
+    title: "Build capability in the right order",
+    body: "Afrifama’s direction is to develop technical partnerships and parent-stock knowledge first, then plan brooding and hatchery capability around verified local demand and practical farmer support.",
+    statusTitle: "Current status · In development",
+    status: "Afrifama does not operate a completed hatchery or currently supply commercial day-old chicks. Genetics partners and specific bird strains are not yet named publicly.",
+  },
+  partnership: {
+    title: "Help shape a stronger beginning",
+    body: "We welcome conversations with genetics, parent-stock, veterinary, biosecurity and hatchery specialists who value responsible development and practical outcomes for farmers.",
+    cta: "Discuss a technical partnership",
+  },
+} as const;

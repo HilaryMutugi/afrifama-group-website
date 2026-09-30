@@ -19,6 +19,7 @@ export function EggJourney() {
     const update = () => setReduced(query.matches);
     update();
     query.addEventListener("change", update);
+
     return () => query.removeEventListener("change", update);
   }, []);
 
@@ -54,6 +55,23 @@ export function EggJourney() {
     onClick: () => select(index),
   });
 
+  const artwork = (
+    <>
+      <img src={mural} width={2172} height={724} alt={eggJourney.alt} fetchPriority="high" />
+      {["hen-head", "embryo", "hatch", "chick"].map((layer) => (
+        <div
+          key={layer}
+          className={`motion-layer ${layer}`}
+          style={{ backgroundImage: `url("${mural}")` }}
+          aria-hidden="true"
+        />
+      ))}
+      <div className="warmth" aria-hidden="true" />
+      <div className="glow" aria-hidden="true" />
+      <div className="stage-light" aria-hidden="true" />
+    </>
+  );
+
   return (
     <section
       ref={root}
@@ -67,20 +85,11 @@ export function EggJourney() {
         }
       }}
     >
-      <h2 id={headingId}>{eggJourney.title}</h2>
+      <h2 id={headingId} className="sr-only">
+        Explore the egg journey
+      </h2>
       <div className="scene">
-        <img src={mural} width={2172} height={724} alt={eggJourney.alt} loading="lazy" />
-        {["hen-head", "embryo", "hatch", "chick"].map((layer) => (
-          <div
-            key={layer}
-            className={`motion-layer ${layer}`}
-            style={{ backgroundImage: `url("${mural}")` }}
-            aria-hidden="true"
-          />
-        ))}
-        <div className="warmth" aria-hidden="true" />
-        <div className="glow" aria-hidden="true" />
-        <div className="stage-light" aria-hidden="true" />
+        {artwork}
         {eggJourney.stages.map((entry, index) => (
           <button
             key={entry.label}
@@ -116,6 +125,16 @@ export function EggJourney() {
           </button>
         ))}
       </div>
+      <figure className="stage-closeup" aria-label={stage.label + " — enlarged view"}>
+        <div
+          className="scene closeup-scene"
+          aria-hidden="true"
+          style={{ transform: "translateX(-" + Math.min(83.33, positions[selected] ?? 36) + "%)" }}
+        >
+          {artwork}
+        </div>
+        <figcaption>{stage.label} · Selected stage</figcaption>
+      </figure>
       <div id={detailId} className="detail" aria-live="polite" aria-atomic="true">
         <div key={selected} className="refresh">
           <strong>{stage.title}</strong>

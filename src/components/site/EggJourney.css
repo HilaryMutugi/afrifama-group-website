@@ -415,3 +415,81 @@
     transition: none !important;
   }
 }
+
+/* The full mural leads the page; mobile adds detail without replacing the overview. */
+.egg-journey {
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+.egg-journey img {
+  object-fit: contain;
+}
+.egg-journey .detail {
+  min-height: 0;
+  padding: 10px 0;
+}
+.egg-journey .detail strong {
+  font-family: var(--font-display);
+}
+.egg-journey .stages {
+  margin: 10px 0;
+}
+.egg-journey .footer {
+  margin-top: 4px;
+}
+.egg-journey .stage-closeup {
+  display: none;
+}
+@media (max-width: 639px) {
+  .egg-journey .stage-closeup {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    margin: 12px 0 0;
+    border-radius: 10px;
+    background: var(--secondary);
+  }
+  .egg-journey .closeup-scene {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 300%;
+    border-radius: 0;
+  }
+  .egg-journey .stage-closeup figcaption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: var(--background);
+    color: var(--primary);
+    font-size: 12px;
+  }
+  .egg-journey .detail {
+    min-height: 90px;
+  }
+}
+
+@media (min-width: 640px) {
+  .egg-journey {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 24px;
+  }
+  .egg-journey > * {
+    grid-column: 1 / -1;
+  }
+  .egg-journey .detail {
+    grid-column: 1;
+  }
+  .egg-journey .footer {
+    grid-column: 2;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    margin-top: 10px;
+  }
+}
