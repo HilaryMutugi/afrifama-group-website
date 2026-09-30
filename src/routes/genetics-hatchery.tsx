@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, Dna, FileText, Handshake, Sprout } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { EggJourney } from "@/components/site/EggJourney";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { Breadcrumbs, CheckList, Section, SectionHeading, StatusBadge } from "@/components/site/primitives";
 import { company, geneticsCapability, imageSlots } from "@/content/site";
@@ -57,6 +58,10 @@ function Genetics() {
           </div>
         </div>
       </section>
+
+      <Section>
+        <EggJourney />
+      </Section>
 
       <Section>
         <div className="grid gap-8 lg:grid-cols-12 lg:items-center">

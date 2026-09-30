@@ -1126,3 +1126,18 @@ export const aboutStory = {
   cta: { label: "Partner With Us", to: "/contact" },
   readMore: "Read our story",
 } as const;
+
+export const eggJourney = {
+  mural: publicAsset("images/genetics/egg-journey-mural.png"),
+  title: "A stronger flock begins here.",
+  alt: "Concept mural showing a breeding hen, an illuminated egg, an embryo cutaway, a hatching chick and a newly emerged chick.",
+  caption: "Concept illustration · Hover or tap a stage",
+  stages: [
+    { label: "Parent flock", title: "The beginning of the journey", copy: "The parent flock is the starting point for the next generation of birds." },
+    { label: "Candling", title: "A glimpse inside the egg", copy: "Light reveals signs of development inside a hatching egg." },
+    { label: "Development", title: "Life taking shape", copy: "The cutaway illustrates the hidden development of a chick within its shell." },
+    { label: "Hatching", title: "Breaking through", copy: "The chick begins to emerge from the shell." },
+    { label: "First start", title: "A new beginning", copy: "The journey continues with chick care, brooding and support on the farm." },
+  ],
+} as const;
+

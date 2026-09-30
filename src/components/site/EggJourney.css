@@ -1,0 +1,417 @@
+.egg-journey {
+  font-family: inherit;
+  color: var(--primary);
+  background: var(--background);
+  padding: 20px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+.egg-journey * {
+  box-sizing: border-box;
+}
+.egg-journey h2 {
+  font-size: clamp(22px, 4vw, 32px);
+  margin: 0 0 16px;
+  font-weight: 600;
+}
+.egg-journey .scene {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 3/1;
+  isolation: isolate;
+}
+.egg-journey img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1.1) saturate(1.2);
+}
+.egg-journey .motion-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  filter: brightness(1.1) saturate(1.2);
+  will-change: transform;
+}
+.egg-journey .hen-head {
+  mask-image: radial-gradient(ellipse 6.3% 18% at 20.5% 18%, #000 68%, transparent 100%);
+  transform-origin: 19% 31%;
+  animation: af-hen 6s ease-in-out infinite;
+}
+.egg-journey .embryo {
+  mask-image: radial-gradient(ellipse 5.2% 23% at 52% 59%, #000 68%, transparent 100%);
+  transform-origin: 52% 65%;
+  animation: af-embryo 5.2s ease-in-out infinite;
+}
+.egg-journey .hatch {
+  mask-image: radial-gradient(ellipse 6.4% 19% at 70% 49%, #000 65%, transparent 100%);
+  transform-origin: 69% 64%;
+  animation: af-emerge 5s ease-in-out infinite;
+}
+.egg-journey .chick {
+  mask-image: radial-gradient(ellipse 6% 20% at 85% 42%, #000 67%, transparent 100%);
+  transform-origin: 85% 63%;
+  animation: af-chick 4.5s ease-in-out infinite;
+}
+.egg-journey[data-active="0"] .hen-head {
+  animation-duration: 2.7s;
+}
+.egg-journey[data-active="2"] .embryo {
+  animation-duration: 2.6s;
+}
+.egg-journey[data-active="3"] .hatch {
+  animation-duration: 2.8s;
+}
+.egg-journey[data-active="4"] .chick {
+  animation-duration: 2.4s;
+}
+.egg-journey[data-active="1"] .glow {
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 191, 65, 0.7),
+    rgba(255, 132, 35, 0.18) 42%,
+    transparent 70%
+  );
+  animation-duration: 2.8s;
+}
+.egg-journey .warmth {
+  position: absolute;
+  left: 29%;
+  top: 31%;
+  width: 13%;
+  height: 49%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255, 184, 58, 0.35), transparent 70%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: af-warm 4.5s ease-in-out infinite;
+}
+.egg-journey .motion-layer.replaying {
+  animation-duration: 1.7s;
+}
+.egg-journey .stage-light {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 14% 63% at var(--stage-x, 36%) 54%,
+    rgba(255, 242, 185, 0.26),
+    transparent 85%
+  );
+  mix-blend-mode: soft-light;
+  transition: opacity 0.6s;
+  opacity: 0.8;
+}
+.egg-journey .scene {
+  transition: box-shadow 0.6s;
+  box-shadow: 0 7px 24px rgba(44, 66, 38, 0.09);
+}
+.egg-journey .journey-track {
+  height: 3px;
+  background: var(--border);
+  position: relative;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.egg-journey .journey-mark {
+  position: absolute;
+  height: 100%;
+  width: 20%;
+  left: 20%;
+  background: var(--gold);
+  transition: left 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: 3px;
+}
+.egg-journey .detail {
+  transition: opacity 0.2s;
+}
+.egg-journey .detail .refresh {
+  animation: af-detail 0.35s ease-out;
+}
+@keyframes af-detail {
+  from {
+    opacity: 0.55;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .egg-journey .journey-mark,
+  .egg-journey .stage-light {
+    transition: none;
+  }
+  .egg-journey .detail .refresh {
+    animation: none;
+  }
+}
+@keyframes af-hen {
+  0%,
+  25%,
+  100% {
+    transform: rotate(0);
+  }
+  45%,
+  65% {
+    transform: rotate(-2deg);
+  }
+}
+@keyframes af-embryo {
+  0%,
+  100% {
+    transform: rotate(-0.6deg);
+  }
+  50% {
+    transform: rotate(0.8deg) scale(1.004);
+  }
+}
+@keyframes af-emerge {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  35% {
+    transform: translateY(-1px) rotate(-0.7deg);
+  }
+  60% {
+    transform: translateY(-3px) rotate(0.6deg);
+  }
+}
+@keyframes af-chick {
+  0%,
+  30%,
+  100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(1.8deg) translateY(-1px);
+  }
+  70% {
+    transform: rotate(-0.8deg);
+  }
+}
+@keyframes af-warm {
+  0%,
+  100% {
+    opacity: 0.15;
+    filter: brightness(0.9);
+  }
+  55% {
+    opacity: 0.95;
+    filter: brightness(1.5);
+  }
+}
+.egg-journey .glow {
+  position: absolute;
+  left: 35.8%;
+  top: 60%;
+  width: 13%;
+  height: 60%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(255, 178, 45, 0.4), transparent 68%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: af-pulse 3.8s ease-in-out infinite;
+}
+.egg-journey .hit {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 20%;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 9px;
+}
+.egg-journey .hit span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 4px rgba(250, 247, 239, 0.55);
+  transition:
+    transform 0.25s,
+    background 0.25s;
+}
+.egg-journey .hit[aria-pressed="true"] span {
+  background: var(--gold-foreground);
+  transform: scale(1.12);
+}
+.egg-journey button:focus-visible {
+  outline: 3px solid var(--terracotta);
+  outline-offset: 3px;
+}
+.egg-journey .stages {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 14px 0;
+}
+.egg-journey .stage {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--background);
+  color: var(--primary);
+  padding: 9px 13px;
+  font: inherit;
+  font-size: 13px;
+}
+.egg-journey .stage[aria-pressed="true"] {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+.egg-journey .detail {
+  min-height: 76px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+}
+.egg-journey .detail strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 17px;
+}
+.egg-journey .detail p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+.egg-journey .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.egg-journey .footer small {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.egg-journey .controls {
+  display: flex;
+  gap: 8px;
+}
+.egg-journey .controls button {
+  background: var(--secondary);
+  color: var(--primary);
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  min-height: 44px;
+  font: inherit;
+  font-size: 13px;
+}
+.egg-journey.paused .glow,
+.egg-journey.paused .motion-layer,
+.egg-journey.paused .warmth {
+  animation-play-state: paused;
+}
+@keyframes af-pulse {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: translate(-50%, -50%) scale(0.93);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.09);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .egg-journey .glow,
+  .egg-journey .motion-layer,
+  .egg-journey .warmth {
+    animation: none;
+    transform: none;
+  }
+  .egg-journey .glow {
+    opacity: 0.2;
+    transform: translate(-50%, -50%);
+  }
+  .egg-journey .hit span {
+    transition: none;
+  }
+}
+@media (max-width: 480px) {
+  .egg-journey {
+    padding: 12px;
+  }
+  .egg-journey .stage {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .egg-journey .detail {
+    min-height: 108px;
+  }
+}
+
+.egg-journey h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+.egg-journey button {
+  cursor: pointer;
+  min-height: 44px;
+}
+.egg-journey .hit:focus-visible {
+  outline-offset: -4px;
+}
+.egg-journey .stage[aria-pressed="true"] {
+  color: var(--primary-foreground);
+}
+.egg-journey .hit span {
+  color: var(--primary-foreground);
+}
+.egg-journey .hit[aria-pressed="true"] span {
+  background: var(--gold);
+  color: var(--gold-foreground);
+}
+.egg-journey.paused .journey-mark {
+  transition: none;
+}
+.egg-journey.paused .detail .refresh {
+  animation: none;
+}
+.egg-journey .controls button:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+@media (max-width: 480px) {
+  .egg-journey .hit span {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+    box-shadow: 0 0 0 2px rgba(250, 247, 239, 0.55);
+  }
+  .egg-journey .hit {
+    padding-bottom: 5px;
+  }
+  .egg-journey .stages {
+    gap: 6px;
+  }
+  .egg-journey .footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .egg-journey *,
+  .egg-journey *::before,
+  .egg-journey *::after {
+    transition: none !important;
+  }
+}
