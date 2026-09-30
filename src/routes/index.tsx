@@ -60,11 +60,10 @@ function responsiveHeroSources(src: string) {
 function Hero() {
   return (
     <div className="border-b border-border bg-secondary/40">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 pt-8 pb-12 sm:pt-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-12">
-        <div className="lg:col-span-6">
-          <p className="eyebrow text-terracotta">{homeHero.eyebrow}</p>
+      <div className="mx-auto grid max-w-7xl items-center gap-6 px-5 pt-5 pb-8 sm:gap-8 sm:pt-8 sm:pb-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-12">
+        <div className="order-2 lg:order-1 lg:col-span-6">
           {/* Slightly smaller than h1-page so both hero buttons stay above the fold. */}
-          <h1 className="mt-4 text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] font-extrabold">
+          <h1 className="text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] font-extrabold">
             {homeHero.title}
           </h1>
           <p className="mt-4 max-w-xl body-copy text-muted-foreground sm:mt-5">{homeHero.lead}</p>
@@ -83,7 +82,7 @@ function Hero() {
             {company.positioning}
           </p>
         </div>
-        <div className="lg:col-span-6">
+        <div className="order-1 lg:order-2 lg:col-span-6">
           <HomePhotoSlideshow />
         </div>
       </div>
