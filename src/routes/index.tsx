@@ -137,7 +137,7 @@ function Home() {
       <Hero />
       <ValueChainStrip />
 
-      <Section compact id="how-it-fits" className="scroll-mt-20">
+      <Section tone="muted" compact id="how-it-fits" className="scroll-mt-20">
         <SectionHeading
           eyebrow={homeBusinesses.eyebrow}
           title={homeBusinesses.title}

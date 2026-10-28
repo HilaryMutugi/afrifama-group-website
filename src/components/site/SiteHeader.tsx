@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { primaryNav, navCta, company, desktopNav, businessNav } from "@/content/site";
@@ -30,6 +30,24 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [bizOpen, setBizOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const bizPaths = new Set(businessNav.map((b) => b.to));
+  const mobileMain = primaryNav.filter((item) => !bizPaths.has(item.to));
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        setBizOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  useEffect(() => {
+    setOpen(false);
+    setBizOpen(false);
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur">
@@ -61,6 +79,9 @@ export function SiteHeader() {
                   className="relative"
                   onMouseEnter={() => setBizOpen(true)}
                   onMouseLeave={() => setBizOpen(false)}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setBizOpen(false);
+                  }}
                 >
                   <button
                     type="button"
@@ -116,16 +137,17 @@ export function SiteHeader() {
         <nav
           id="mobile-nav"
           aria-label="Mobile"
-          className="border-t border-border bg-background lg:hidden"
+          className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-background lg:hidden"
         >
           <ul className="mx-auto max-w-7xl px-5 py-3 lg:px-8">
-            {primaryNav.map((item) => {
+            {mobileMain.map((item, i) => {
               const active = pathname === item.to;
-              return (
+              const row = (
                 <li key={item.to}>
                   <Link
                     to={item.to}
                     onClick={() => setOpen(false)}
+                    aria-current={active ? "page" : undefined}
                     className={`block border-b border-border/60 py-3 text-base font-medium ${
                       active ? "text-primary" : "text-foreground"
                     }`}
@@ -134,6 +156,30 @@ export function SiteHeader() {
                   </Link>
                 </li>
               );
+              if (i !== 1) return row;
+              return [
+                row,
+                <li key="biz-group" className="border-b border-border/60 py-3">
+                  <p className="eyebrow text-terracotta">Our businesses</p>
+                  <ul className="mt-2 grid grid-cols-2 gap-x-4">
+                    {businessNav.map((b) => {
+                      const on = pathname === b.to;
+                      return (
+                        <li key={b.to}>
+                          <Link
+                            to={b.to}
+                            onClick={() => setOpen(false)}
+                            aria-current={on ? "page" : undefined}
+                            className={`block py-2 text-[0.9375rem] font-medium ${on ? "text-primary" : "text-foreground"}`}
+                          >
+                            {b.label}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>,
+              ];
             })}
             <li className="pt-4">
               <Button asChild className="w-full">
