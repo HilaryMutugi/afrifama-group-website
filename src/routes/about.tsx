@@ -46,7 +46,7 @@ function About() {
             </Button>
           </div>
           <div className="lg:col-span-6">
-            <ImagePlaceholder slot={imageSlots.about[0]} label="About Afrifama hero photography" className="aspect-[4/3] w-full rounded-xl" inverted />
+            <ImagePlaceholder slot={imageSlots.about[0]} label="About Afrifama hero photography" className="aspect-[16/10] w-full overflow-hidden rounded-xl" inverted />
           </div>
         </div>
       </header>
