@@ -60,29 +60,42 @@ function responsiveHeroSources(src: string) {
 function Hero() {
   return (
     <div className="border-b border-border bg-secondary/40">
-      <div className="mx-auto grid max-w-7xl items-center gap-6 px-5 pt-5 pb-8 sm:gap-8 sm:pt-8 sm:pb-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-12">
-        <div className="order-2 lg:order-1 lg:col-span-6">
-          {/* Slightly smaller than h1-page so both hero buttons stay above the fold. */}
-          <h1 className="text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] font-extrabold">
+      <div className="mx-auto grid max-w-7xl items-center gap-7 px-5 pt-7 pb-9 sm:gap-8 sm:pt-10 sm:pb-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-14">
+        <div className="min-w-0 lg:col-span-6">
+          <p className="eyebrow text-terracotta">{homeHero.eyebrow}</p>
+          <h1 className="mt-3 text-[clamp(2.125rem,4.2vw,3.5rem)] leading-[1.06] font-extrabold text-balance">
             {homeHero.title}
           </h1>
-          <p className="mt-4 max-w-xl body-copy text-muted-foreground sm:mt-5">{homeHero.lead}</p>
-          <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
+          <p className="mt-4 max-w-[58ch] body-copy text-muted-foreground sm:mt-5">{homeHero.lead}</p>
+          <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap">
             <Button asChild size="lg">
-              <Link to="/businesses">
-                Explore Our Work
+              <a href={homeHero.primaryCta.href}>
+                {homeHero.primaryCta.label}
                 <ArrowRight className="size-4" />
-              </Link>
+              </a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link to="/contact">Partner With Afrifama</Link>
+              <Link to={homeHero.secondaryCta.to}>{homeHero.secondaryCta.label}</Link>
             </Button>
           </div>
-          <p className="mt-8 border-l-2 border-gold pl-4 font-display text-sm font-semibold text-muted-foreground">
-            {company.positioning}
-          </p>
+          <dl className="mt-7 grid gap-3 border-t border-border pt-5 text-sm sm:grid-cols-2">
+            <div className="min-w-0">
+              <dt className="flex items-center gap-2 font-display font-bold text-foreground">
+                <span className="size-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                Operating today
+              </dt>
+              <dd className="mt-1 leading-snug text-muted-foreground">{homeHero.statusToday.join(" · ")}</dd>
+            </div>
+            <div className="min-w-0">
+              <dt className="flex items-center gap-2 font-display font-bold text-foreground">
+                <span className="size-2 shrink-0 rounded-full bg-terracotta" aria-hidden="true" />
+                In development
+              </dt>
+              <dd className="mt-1 leading-snug text-muted-foreground">{homeHero.statusDeveloping}</dd>
+            </div>
+          </dl>
         </div>
-        <div className="order-1 lg:order-2 lg:col-span-6">
+        <div className="min-w-0 lg:col-span-6">
           <HomePhotoSlideshow />
         </div>
       </div>
@@ -124,7 +137,52 @@ function Home() {
       <Hero />
       <ValueChainStrip />
 
-      <Section tone="muted" compact>
+      <Section tone="muted" compact id="how-it-fits" className="scroll-mt-20">
+        <SectionHeading
+          eyebrow={homeBusinesses.eyebrow}
+          title={homeBusinesses.title}
+          lead={homeBusinesses.lead}
+        />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((pillar, index) => (
+            <Link
+              key={pillar.title}
+              to={pillar.to}
+              className="group flex h-full flex-col rounded-2xl border border-border bg-secondary/55 p-6 transition-[transform,border-color,background-color] duration-200 ease-out focus-visible:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background md:hover:-translate-y-0.5 md:hover:border-primary/35 md:hover:bg-secondary/80 motion-reduce:transition-none motion-reduce:md:hover:translate-y-0"
+            >
+              <div className="relative mb-5 aspect-[4/3] w-full">
+                <ImagePlaceholder
+                  slot={imageSlots.home.businesses[index] ?? "home-business-unavailable"}
+                  className="size-full rounded-lg"
+                />
+                {index === 3 ? (
+                  <p className="absolute inset-x-2 bottom-2 text-[10px] leading-snug text-muted-foreground">
+                    {homePhotoStory.illustrationCaption}
+                  </p>
+                ) : null}
+              </div>
+              <h3 className="font-display text-lg font-extrabold leading-snug text-foreground">
+                {pillar.title}
+              </h3>
+              <div className="mt-2.5">
+                <StatusBadge status={pillar.status} />
+              </div>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {pillar.summary}
+              </p>
+              <span className="mt-6 inline-flex items-center gap-1.5 border-t border-border/80 pt-4 font-display text-sm font-bold text-primary">
+                Learn more
+                <ArrowRight
+                  className="size-4 opacity-70 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:opacity-100 motion-reduce:transition-none"
+                  aria-hidden="true"
+                />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
+      <Section compact>
         <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-5">
             <p className="eyebrow text-terracotta">{aboutStory.title}</p>
@@ -148,53 +206,6 @@ function Home() {
               <ArrowRight className="size-4" />
             </Link>
           </div>
-        </div>
-      </Section>
-
-      <Section compact>
-        <SectionHeading
-          eyebrow={homeBusinesses.eyebrow}
-          title={homeBusinesses.title}
-          lead={homeBusinesses.lead}
-        />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {pillars.map((pillar, index) => (
-            <Link
-              key={pillar.title}
-              to={pillar.to}
-              className="group flex h-full flex-col rounded-2xl border border-border bg-secondary/55 p-6 transition-[transform,border-color,background-color] duration-200 ease-out focus-visible:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background md:hover:-translate-y-0.5 md:hover:border-primary/35 md:hover:bg-secondary/80 motion-reduce:transition-none motion-reduce:md:hover:translate-y-0"
-            >
-              <div className="relative mb-5 aspect-[4/3] w-full">
-                <ImagePlaceholder
-                  slot={imageSlots.home.businesses[index] ?? "home-business-unavailable"}
-                  className="size-full rounded-lg"
-                />
-                {index === 3 ? (
-                  <p className="absolute inset-x-2 bottom-2 text-[10px] leading-snug text-muted-foreground">
-                    {homePhotoStory.illustrationCaption}
-                  </p>
-                ) : null}
-              </div>
-              <h3 className="font-display text-lg font-extrabold leading-snug text-foreground">
-                {pillar.title}
-              </h3>
-              {pillar.status === "In Development" ? (
-                <div className="mt-2.5">
-                  <StatusBadge status={pillar.status} />
-                </div>
-              ) : null}
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {pillar.summary}
-              </p>
-              <span className="mt-6 inline-flex items-center gap-1.5 border-t border-border/80 pt-4 font-display text-sm font-bold text-primary">
-                Learn more
-                <ArrowRight
-                  className="size-4 opacity-70 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:opacity-100 motion-reduce:transition-none"
-                  aria-hidden="true"
-                />
-              </span>
-            </Link>
-          ))}
         </div>
       </Section>
 
@@ -281,7 +292,7 @@ function Home() {
             </Link>
           </Button>
         </div>
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
           {fieldNotes.map((note) => (
             <div
               key={note.slug}

@@ -1,23 +1,23 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { partnerPathways } from "@/content/site";
+import { homeClosing, partnerPathways } from "@/content/site";
 import { Section, SectionHeading } from "./primitives";
 
-export function CtaBand() {
+export function CtaBand({ copy = homeClosing }: { copy?: typeof homeClosing } = {}) {
   return (
     <Section tone="forest">
       <div className="grid gap-8 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <SectionHeading
-            eyebrow="Partnership"
-            title="Building better poultry systems takes the right partners."
-            lead="Tell us where you fit and what you are trying to build. We will come back with a practical next step."
+            eyebrow={copy.eyebrow}
+            title={copy.title}
+            lead={copy.lead}
             inverted
           />
           <Button asChild variant="secondary" size="lg" className="mt-8">
-            <Link to="/contact">
-              Start a Conversation
+            <Link to={copy.action.to}>
+              {copy.action.label}
               <ArrowRight className="size-4" />
             </Link>
           </Button>

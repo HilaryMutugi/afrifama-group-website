@@ -69,11 +69,24 @@ export const desktopNav: NavItem[] = [
 /** Homepage hero copy and search metadata. */
 export const homeHero = {
   eyebrow: "Kenyan agribusiness startup · Kilifi County",
-  title: "Building a better future for smallholder farmers on Kenya's coast.",
-  lead: "Afrifama is an early-growth agribusiness startup in Kilifi County. We are building a system that connects farmers to financing, feed, technology, and markets, so farming becomes a dependable livelihood, starting with poultry.",
-  metaTitle: "Afrifama | Building a Better Future for Smallholder Farmers on Kenya's Coast",
+  title: "One connected poultry system, from feed to flock.",
+  lead: "Afrifama is an early-growth agribusiness in Kilifi County. We produce poultry, make stage-specific feed and work with farmers under structured partnerships—so each part strengthens the next.",
+  primaryCta: { label: "See How It Fits Together", href: "#how-it-fits" },
+  secondaryCta: { label: "Partner With Afrifama", to: "/contact" },
+  /** Plain status summary shown under the hero actions. */
+  statusToday: ["Poultry production", "Afrifama Feeds", "Farmer partnerships (pilot underway)"],
+  statusDeveloping: "Genetics & hatchery — in development; no commercial chick supply yet.",
+  metaTitle: "Afrifama | Connected Poultry System in Kilifi County, Kenya",
   metaDescription:
-    "Afrifama is an early-growth agribusiness startup in Kilifi County, connecting farmers to financing, feed, technology and markets, starting with poultry.",
+    "Afrifama is an early-growth Kenyan agribusiness in Kilifi County connecting poultry production, stage-specific feeds and farmer partnerships, with genetics in development.",
+} as const;
+
+/** Homepage closing section; the contact form is a prototype, so copy never promises a reply. */
+export const homeClosing = {
+  eyebrow: "Next step",
+  title: "Building better poultry systems takes the right partners.",
+  lead: "Explore where you fit below. Online enquiries are not yet being received, so please check the Contact page for current details.",
+  action: { label: "Go to Contact", to: "/contact" },
 } as const;
 
 /** Compact homepage value-chain strip. */
