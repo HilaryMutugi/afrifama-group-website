@@ -1122,7 +1122,10 @@ export const aboutStory = {
   title: "About Afrifama",
   description:
     "Afrifama is an early-growth poultry agribusiness in Kilifi County, Kenya, working alongside smallholder farmers to build a more dependable path from feed to flock to market.",
-  opening: "Farming on Kenya's coast should not feel like a gamble.",
+  opening: "Every farmer deserves more than a hope.",
+  scene:
+    "Picture a smallholder farmer on Kenya's coast. She wakes before sunrise, feeds her birds, and hopes the season is kind. She has the will and the work ethic. What she often does not have is financing for inputs, support when something goes wrong, or a reliable place to sell. So every flock is a gamble, and every loss lands on her family.",
+  heroTitle: "Farming on Kenya's coast should not feel like a gamble.",
   heroLead:
     "We are an early-growth agribusiness in Kilifi County, building practical poultry support alongside the farmers who use it.",
   readMore: "Read our story",
