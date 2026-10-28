@@ -1121,37 +1121,62 @@ export const partnerPathways = [
 export const aboutStory = {
   title: "About Afrifama",
   description:
-    "Afrifama is an early-growth agribusiness startup building an integrated value-chain feed system for smallholder farmers in Kenya's coastal region.",
-  opening: "Every farmer deserves more than a hope.",
-  scene:
-    "Picture a smallholder farmer on Kenya's coast. She wakes before sunrise, feeds her birds, and hopes the season is kind. She has the will and the work ethic. What she often does not have is financing for inputs, support when something goes wrong, or a reliable place to sell. So every flock is a gamble, and every loss lands on her family.",
-  gap: "That is the gap Afrifama exists to close.",
-  whoWeAre: {
-    title: "Who we are",
-    body: "Afrifama is an early-growth agribusiness startup building an integrated value-chain feed system for smallholder farmers in Kenya's coastal region. We are young, focused, and driven by a simple belief: farming should not feel like a gamble.",
-  },
-  whoWeServe: {
-    title: "Who we serve",
-    body: "Our focus is smallholder poultry farmers, especially in underserved ASAL communities, the farmers who are too often left to produce alone. We help them move from risky, unsupported production into more reliable agribusinesses.",
-  },
-  howWeWalk: {
-    title: "How we walk with them",
-    body: "Through our farmer partnership model, we combine input financing, technology, production support, and market access into one practical system. Not one piece of help, but the whole path, so no farmer has to carry it alone.",
-    pillars: [
-      { title: "Input financing", body: "Financing for inputs." },
-      { title: "Technology", body: "One practical system." },
-      { title: "Production support", body: "Support when something goes wrong." },
-      { title: "Market access", body: "A reliable place to sell." },
+    "Afrifama is an early-growth poultry agribusiness in Kilifi County, Kenya, working alongside smallholder farmers to build a more dependable path from feed to flock to market.",
+  opening: "Farming on Kenya's coast should not feel like a gamble.",
+  heroLead:
+    "We are an early-growth agribusiness in Kilifi County, building practical poultry support alongside the farmers who use it.",
+  readMore: "Read our story",
+  challenge: {
+    eyebrow: "The challenge",
+    title: "A farmer's morning in Kilifi",
+    scene:
+      "She wakes before sunrise, feeds her birds and hopes the season is kind. She has the will and the work ethic. What is often missing is everything around her effort.",
+    pressures: [
+      { title: "Inputs are hard to afford", body: "Quality feed and chicks cost money up front, long before the first egg is sold." },
+      { title: "Help is far away", body: "When birds fall sick or production drops, practical advice rarely arrives in time." },
+      { title: "Buyers are uncertain", body: "Without a dependable market, a good flock can still become a loss." },
     ],
   },
-  whyWeExist: {
-    title: "Why we exist",
-    body: "As a purpose-driven startup, our impact is built directly into our business model. When a farmer's poultry becomes a more stable source of income, it becomes more than a business. It becomes a pathway to better livelihoods for a family and a community.",
+  why: {
+    eyebrow: "Why Afrifama exists",
+    quote: "Farming should not feel like a gamble.",
+    body: "Afrifama exists to close the gap between a farmer's hard work and a reliable result. Our impact is built into how the business works: when a flock becomes a steadier source of income, it supports a family and a community.",
   },
-  closing: "If you believe rural farmers deserve a fair chance, come build with us.",
-  cta: { label: "Partner With Us", to: "/contact" },
-  readMore: "Read our story",
+  building: {
+    eyebrow: "What we are building",
+    title: "One connected path, from feed to flock to market",
+    steps: [
+      { title: "Afrifama Feeds", body: "Stage-based poultry mash for each phase of the flock." },
+      { title: "Farmer partnerships", body: "Structured, individually agreed layer partnerships." },
+      { title: "Production support", body: "Training, farm visits and record-keeping guidance." },
+      { title: "Market coordination", body: "Working towards dependable routes for eggs." },
+    ],
+    future: { title: "Genetics & Hatchery", status: "In development", body: "A future foundation for more reliable bird supply — not yet operating." },
+  },
+  howWeWork: {
+    eyebrow: "How we work with people",
+    title: "Farmers are business owners, and we treat them that way",
+    commitments: [
+      { title: "We explain clearly", body: "What we offer, what we expect and what we cannot promise." },
+      { title: "We agree support in writing", body: "Recoverable production support is set out in each individual agreement — never a loan or a donation." },
+      { title: "We keep farm records private", body: "Farmer and flock information is used to support the farm, not published." },
+      { title: "We respect the farmer's decisions", body: "Our role is to strengthen a farmer's enterprise, not to run it." },
+    ],
+  },
+  status: {
+    eyebrow: "Where we are today",
+    title: "An early-growth startup, honest about the stage we are at",
+    body: "Our first layer partnership is a pilot, and much of the wider system is still being built. We would rather grow carefully and learn from every flock than promise more than we can deliver.",
+    asOf: "As of September 2026 · figures describe different parts of our work",
+  },
+  closing: "If you believe coastal farmers deserve a fair chance, build with us.",
+  paths: [
+    { label: "I'm a farmer", to: "/farmer-partnership" },
+    { label: "Partner or invest", to: "/contact" },
+  ],
+  businessesLink: { label: "Explore our businesses", to: "/businesses" },
 } as const;
+
 
 export const eggJourney = {
   mural: publicAsset("images/selected/businesses-genetics-1600.webp"),
