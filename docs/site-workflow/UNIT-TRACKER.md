@@ -37,7 +37,7 @@ Status values: Not started, Diagnosing, Awaiting my choice, Building, Verifying,
 |---|------|-------|--------|------|-------|
 | 8 | Field Notes (index and article template) | src/routes/field-notes.* , fieldNotes | Not started | | Content engine for SEO and trust. |
 | 9 | FAQs | src/routes/faqs.tsx, faqGroups | Not started | | |
-| 10 | Contact and enquiry routes | src/routes/contact.tsx, enquiryRoutes, partnerPathways | Not started | | Check that no public contact placeholders leak. |
+| 10 | Contact and enquiry routes | src/routes/contact.tsx, contactPage and enquiryRoutes in site.ts | Done | 2026-10-29 | Removed inactive form, toast and submission state. Six audiences retained, four real information links, Supplier and General explicitly unavailable. Status and location visible. Seven routing tests, scoped lint and preview build pass. Desktop, tablet and 390px phone verified with no overflow or console errors. No backend or publishing changes. |
 | 11 | Privacy and Terms | src/routes/privacy.tsx, terms.tsx | Not started | | Light review only, then get a professional check. |
 
 ## Phase 4: Homepage and finish
@@ -52,6 +52,8 @@ Status values: Not started, Diagnosing, Awaiting my choice, Building, Verifying,
 
 Problems found while working on another unit. Do not fix them out of order.
 
+- **FAQ delivery claims.** Existing supplier, feed and genetics FAQ answers still suggest submitting or contacting through Contact. Left unchanged because this task is Contact-only. Review those answers in unit 9 to match the unavailable enquiry service. (Found in 10.)
+
 - **Future unit: lint and line endings.** `npm run lint` reports about 9,460 errors, nearly all Prettier. Best guess at the cause: this Windows checkout has `core.autocrlf=true`, so files arrive with Windows (CRLF) line endings while Prettier expects LF, and some files were also never formatted. Smallest safe fix: add a `.gitattributes` with `* text=auto eol=lf`, then in a separate commit run Prettier once on the whole repo, reviewed on its own so no content change hides in it. Do not mix it with page work. (Found in 0a.)
 - **Em dashes in copy.** Site title in `src/routes/__root.tsx` ("Afrifama — …", fix in unit 13, global SEO). `aboutStory.closing` in site.ts (fixed in unit 1, copy replaced). `impactFramework.supportingCopy` in site.ts ("participation—it follows", fix in unit 7, Impact). (Found in 0a.)
 - **Home hero slot not in imageSlots.** `src/routes/index.tsx` uses a hard-coded `slot="home-hero"` instead of a named slot in `imageSlots`. Fix in unit 12, Homepage. (Found in 0a.)
@@ -63,5 +65,7 @@ Problems found while working on another unit. Do not fix them out of order.
 - **Low-contrast breadcrumb.** On /farmer-partnership the current-page breadcrumb ("Farmer Partnership") is dark text on the dark green hero and nearly unreadable. Check the shared breadcrumb in unit 0c or 0d. (Found in 0a.)
 
 ## Open placeholders and facts I need to supply
+
+- Verified direct contact details for Contact. Online enquiry collection remains unavailable by design. (10)
 
 - Verified Afrifama photography for every slot listed in `IMAGE_CREDITS.md` under "Photography still needed". (0a)
