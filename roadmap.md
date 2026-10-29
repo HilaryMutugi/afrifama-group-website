@@ -1,6 +1,6 @@
 # Current work
 
-- [ ] Replace only Contact's inactive form with honest audience routing and verify desktop/mobile, links and metadata.
+- [x] Replace only Contact's inactive form with honest audience routing and verify desktop/mobile, links and metadata.
 
 - [x] Refresh the Poultry page with integrated-system storytelling and audience pathways.
 - [x] Refresh Genetics & Hatchery with honest in-development capability storytelling.
