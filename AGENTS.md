@@ -16,3 +16,4 @@
 - Future/unreleased surfaces (e.g. `/egg-supply-interest`) stay gated behind `futureSurfaces` flags in `src/content/site.ts`, noindex and out of nav/sitemap — so architecture can exist before the offering does.
 - All photography positions render through the shared `ImagePlaceholder` component and use centrally named `imageSlots` from `src/content/site.ts` — so photos can be added later without changing page structure.
 - Page-specific editorial illustrations live as reusable components in `src/components/site/` and use global semantic colour tokens — keeping responsive artwork accessible and on-brand.
+- Contact renders only the typed information destinations in the central enquiry data, with no submission handler or integration, so unavailable delivery cannot look functional.

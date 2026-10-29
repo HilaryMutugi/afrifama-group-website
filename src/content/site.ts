@@ -1066,25 +1066,54 @@ export const faqGroups: FaqGroup[] = [
 ];
 
 export const enquiryRoutes = [
-  { value: "feed", label: "Feed enquiry", help: "Feed volumes, pricing and distribution" },
+  {
+    value: "feed",
+    label: "Feed enquiry",
+    help: "Feed volumes, pricing and distribution",
+    nextStep: { to: "/feeds", label: "Explore our feeds" },
+  },
   {
     value: "farmer",
     label: "Farmer-partnership enquiry",
     help: "Expression of interest in the partnership model",
+    nextStep: { to: "/farmer-partnership", label: "Understand the partnership" },
   },
-  { value: "supplier", label: "Supplier enquiry", help: "Raw materials, equipment and services" },
+  {
+    value: "supplier",
+    label: "Supplier enquiry",
+    help: "Raw materials, equipment and services",
+    nextStep: null,
+  },
   {
     value: "technical",
     label: "Technical or genetics partnership",
     help: "Nutrition, genetics, veterinary and hatchery expertise",
+    nextStep: { to: "/genetics-hatchery", label: "See our development direction" },
   },
   {
     value: "investor",
     label: "Investor or strategic partnership",
     help: "Investment and long-term strategic collaboration",
+    nextStep: { to: "/impact", label: "Explore our impact approach" },
   },
-  { value: "general", label: "General enquiry", help: "Anything else" },
-];
+  { value: "general", label: "General enquiry", help: "Anything else", nextStep: null },
+] as const;
+
+/** Contact provides information routes only, not a message-delivery service. */
+export const contactPage = {
+  eyebrow: "Contact",
+  title: "Start with the right route",
+  lead: "See where your enquiry fits.",
+  locationLabel: "Based in coastal Kenya",
+  routesHeading: "What brings you here?",
+  routesLead: "Explore the relevant page before making an enquiry.",
+  statusLabel: "Enquiry status",
+  statusHeading: "Online enquiries are being prepared",
+  statusBody: "This page does not collect or send messages. Verified direct contact details will be added when available.",
+  unavailableLabel: "Enquiry route not yet available",
+  metaTitle: "Contact Afrifama | Find the right enquiry route",
+  metaDescription: "Find the relevant Afrifama page for feed, farmer and partnership enquiries. Based in Kilifi County, Kenya. Online enquiries are not yet available.",
+} as const;
 
 export const partnerPathways = [
   {
