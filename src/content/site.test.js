@@ -4,7 +4,12 @@ import { enquiryRoutes } from "./site";
 describe("Contact enquiry destinations", () => {
   test("preserves all six enquiry audiences", () => {
     expect(enquiryRoutes.map((route) => route.value)).toEqual([
-      "feed", "farmer", "supplier", "technical", "investor", "general",
+      "feed",
+      "farmer",
+      "supplier",
+      "technical",
+      "investor",
+      "general",
     ]);
   });
 

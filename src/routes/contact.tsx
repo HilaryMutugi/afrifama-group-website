@@ -29,7 +29,10 @@ function Contact() {
           </p>
           <div className="mt-5 grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-end lg:gap-16">
             <div>
-              <h1 id="contact-title" className="h1-page max-w-[18ch] font-extrabold tracking-normal">
+              <h1
+                id="contact-title"
+                className="h1-page max-w-[18ch] font-extrabold tracking-normal"
+              >
                 {contactPage.title}
               </h1>
               <p className="body-copy mt-4 text-primary-foreground/85">{contactPage.lead}</p>
@@ -50,12 +53,18 @@ function Contact() {
 
       <Section>
         <div className="grid items-start gap-8 lg:grid-cols-[0.8fr_2fr] lg:gap-12">
-          <aside aria-labelledby="enquiry-status" className="border-l-4 border-gold bg-secondary p-6">
+          <aside
+            aria-labelledby="enquiry-status"
+            className="border-l-4 border-gold bg-secondary p-6"
+          >
             <div className="flex items-center gap-2 text-sm font-semibold text-secondary-foreground">
               <Info className="size-4 shrink-0" aria-hidden="true" />
               <p>{contactPage.statusLabel}</p>
             </div>
-            <h2 id="enquiry-status" className="mt-4 font-display text-xl font-bold leading-snug tracking-normal">
+            <h2
+              id="enquiry-status"
+              className="mt-4 font-display text-xl font-bold leading-snug tracking-normal"
+            >
               {contactPage.statusHeading}
             </h2>
             <p className="mt-3 text-base leading-relaxed text-secondary-foreground">
@@ -74,17 +83,25 @@ function Contact() {
               {enquiryRoutes.map((route, index) => {
                 const contents = (
                   <>
-                    <span className="text-sm font-semibold text-muted-foreground" aria-hidden="true">
+                    <span
+                      className="text-sm font-semibold text-muted-foreground"
+                      aria-hidden="true"
+                    >
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <h3 className="mt-3 font-display text-lg font-bold leading-snug tracking-normal">
                       {route.label}
                     </h3>
-                    <p className="mt-2 text-base leading-relaxed text-muted-foreground">{route.help}</p>
+                    <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+                      {route.help}
+                    </p>
                     {route.nextStep ? (
                       <span className="mt-6 flex items-center justify-between gap-3 text-base font-semibold text-primary">
                         {route.nextStep.label}
-                        <ArrowUpRight className="size-5 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" aria-hidden="true" />
+                        <ArrowUpRight
+                          className="size-5 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none"
+                          aria-hidden="true"
+                        />
                       </span>
                     ) : (
                       <p className="mt-6 text-sm font-medium text-muted-foreground">
