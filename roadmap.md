@@ -1,6 +1,6 @@
 # Current work
 
-- [ ] Improve shared navigation focus, current-page state, menu behaviour and dark-hero breadcrumbs; verify desktop, tablet and mobile without changing content.
+- [x] Improve shared navigation focus, current-page state, menu behaviour and dark-hero breadcrumbs; verify desktop, tablet and mobile without changing content.
 
 - [x] Replace only Contact's inactive form with honest audience routing and verify desktop/mobile, links and metadata.
 

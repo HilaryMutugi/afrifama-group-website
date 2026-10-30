@@ -11,7 +11,7 @@ Status values: Not started, Diagnosing, Awaiting my choice, Building, Verifying,
 | 0a | Placeholder-only cleanup (remove leftover stock images, photos.ts, credits, stale captions) | src/content/photos.ts, src/assets, IMAGE_CREDITS.md, site.ts captions | Done | 2026-09-29 | Approved. Branch unit/placeholder-cleanup pushed with 3 commits, awaiting pull request and merge. Removed 33 unused image files and photos.ts, plus all stale captions; genetics caption moved to site.ts unchanged; IMAGE_CREDITS.md rewritten. Build passes. |
 | 0b | Story Bible completed and approved | STORY-BIBLE.md | Not started | | I answer the open questions, Claude tightens the wording. |
 | 0c | Design system audit: type scale, colour tokens, spacing, buttons, cards, section rhythm, placeholder styling | src/styles.css, src/components/site, src/components/ui | Not started | | Agree the rules once so each unit stays consistent. |
-| 0d | Global chrome: header, footer, nav labels, skip link, error pages | src/routes/__root.tsx, SiteHeader, SiteFooter | Not started | | Nav has 11 items. Check whether that is too many. |
+| 0d | Global chrome: header, footer, nav labels, skip link, error pages | src/routes/__root.tsx, SiteHeader, SiteFooter | Verifying | 2026-10-30 | Navigation-only pass complete: visible focus, exact current-page state, keyboard business disclosure, 44px mobile targets, existing Radix modal isolation and route-close focus, inverted dark-hero breadcrumbs, focused skip link. Desktop/tablet/390px checks and scoped tests pass. Footer, labels, content, metadata and deployment unchanged; remaining chrome work is outside this pass. |
 | 0f | Preview deploys from main | .github/workflows/pages-preview.yml, vite.config.ts, src/router.tsx, src/routes/__root.tsx | Done | 2026-09-29 | GitHub Pages concept preview now builds from main instead of codex/homepage-rebuild. Banner, noindex and robots.txt block kept. Normal Lovable build unchanged. First deployment from main (run 36555568315, merge 8cdc134) succeeded; live preview checked and placeholder-only. |
 
 ## Phase 1: Narrative anchors
@@ -62,7 +62,7 @@ Problems found while working on another unit. Do not fix them out of order.
 - **Homepage wording that sounds established or "integrated poultry".** The hero, homepage title and meta description were fixed on 2026-09-29 (hero copy now in `homeHero` in site.ts). Still open, listed for Hilary and not changed: site-wide default title and description in `__root.tsx` (em dash, "integrated poultry system"); the Organization schema description and slogan in `__root.tsx`; `company.positioning` "Built for regional scale" under the hero; the investor pathway "being built for regional scale" in `partnerPathways`; the "Why Afrifama exists" lead in index.tsx (em dash); the FAQ answer "an integrated poultry system" in site.ts. Fix in unit 12 or 13. (Found in 1.)
 - **Unused About mural.** `src/components/site/AboutSystemMural.tsx` is no longer used after the About rewrite. Delete it or reuse it in a later unit. (Found in 1.)
 
-- **Low-contrast breadcrumb.** On /farmer-partnership the current-page breadcrumb ("Farmer Partnership") is dark text on the dark green hero and nearly unreadable. Check the shared breadcrumb in unit 0c or 0d. (Found in 0a.)
+- **Low-contrast breadcrumb resolved, 2026-10-30.** Shared inverted breadcrumbs supply light text and gold focus on Farmer Partnership, About and Impact dark heroes. Light breadcrumbs retain their default colours. (Found in 0a, resolved in 0d.)
 
 ## Open placeholders and facts I need to supply
 
