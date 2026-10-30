@@ -6,7 +6,7 @@ import { primaryNav, navCta, company, desktopNav, businessNav } from "@/content/
 import { Button } from "@/components/ui/button";
 import { isCurrentPage, isActiveSection } from "./navigation";
 
-const navFocus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
+const navFocus = "focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 function Wordmark({ onNavigate }: { onNavigate?: () => void }) {
   return (
