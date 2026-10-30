@@ -79,12 +79,13 @@ export function SectionHeading({
   );
 }
 
-export function Breadcrumbs({ items }: { items: { label: string; to?: string }[] }) {
+export function Breadcrumbs({ items, inverted = false }: { items: { label: string; to?: string }[]; inverted?: boolean }) {
+  const linkClass = `rounded-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${inverted ? "hover:text-gold focus-visible:outline-gold" : "hover:text-primary focus-visible:outline-primary"}`;
   return (
     <nav aria-label="Breadcrumb" className="mb-6">
-      <ol className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
+      <ol className={`flex flex-wrap items-center gap-1 text-sm ${inverted ? "text-primary-foreground" : "text-muted-foreground"}`}>
         <li>
-          <Link to="/" className="transition-colors hover:text-primary">
+          <Link to="/" className={linkClass}>
             Home
           </Link>
         </li>
@@ -92,11 +93,11 @@ export function Breadcrumbs({ items }: { items: { label: string; to?: string }[]
           <li key={item.label} className="flex items-center gap-1">
             <ChevronRight className="size-3.5 opacity-50" aria-hidden="true" />
             {item.to ? (
-              <Link to={item.to} className="transition-colors hover:text-primary">
+              <Link to={item.to} className={linkClass}>
                 {item.label}
               </Link>
             ) : (
-              <span aria-current="page" className="font-medium text-foreground">
+              <span aria-current="page" className={`font-medium ${inverted ? "text-primary-foreground" : "text-foreground"}`}>
                 {item.label}
               </span>
             )}

@@ -50,9 +50,7 @@ function Impact() {
     <>
       <section className="border-b border-border bg-primary-deep text-primary-foreground">
         <div className="mx-auto max-w-7xl px-5 pt-4 pb-8 sm:pt-5 sm:pb-10 lg:px-8 lg:pb-12 [&_nav]:mb-4">
-          <div className="[&_a]:text-primary-foreground/70 [&_span]:text-primary-foreground">
-            <Breadcrumbs items={[{ label: "Impact" }]} />
-          </div>
+          <Breadcrumbs inverted items={[{ label: "Impact" }]} />
           <div className="grid gap-7 lg:grid-cols-12 lg:items-stretch lg:gap-10">
             <div className="flex flex-col justify-center lg:col-span-7 lg:py-5">
               <p className="eyebrow text-gold">Impact</p>
