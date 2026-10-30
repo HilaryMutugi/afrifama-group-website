@@ -8,9 +8,9 @@ import { isCurrentPage, isActiveSection } from "./navigation";
 
 const navFocus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 
-function Wordmark() {
+function Wordmark({ onNavigate }: { onNavigate?: () => void }) {
   return (
-    <Link to="/" className={`group flex min-h-11 items-center gap-2.5 rounded-md ${navFocus}`} aria-label={`${company.name} home`}>
+    <Link to="/" activeOptions={{ exact: true }} onClick={onNavigate} className={`group flex min-h-11 items-center gap-2.5 rounded-md ${navFocus}`} aria-label={`${company.name} home`}>
       <span className="flex size-9 items-center justify-center rounded-lg bg-forest text-primary-foreground">
         <svg viewBox="0 0 24 24" className="size-5" aria-hidden="true" fill="none">
           <path
@@ -90,7 +90,7 @@ export function SiteHeader() {
               if (!isBiz) {
                 return (
                   <li key={item.to}>
-                    <Link to={item.to} className={cls} aria-current={isCurrentPage(pathname, item.to) ? "page" : undefined}>
+                    <Link to={item.to} activeOptions={{ exact: true }} className={cls} aria-current={isCurrentPage(pathname, item.to) ? "page" : undefined}>
                       {item.label}
                     </Link>
                   </li>
@@ -127,6 +127,7 @@ export function SiteHeader() {
                           <li key={b.to}>
                             <Link
                               to={b.to}
+                              activeOptions={{ exact: true }}
                               onClick={() => setBizOpen(false)}
                               aria-current={isCurrentPage(pathname, b.to) ? "page" : undefined}
                               className={`block rounded-md px-3 py-2 text-sm hover:bg-secondary ${navFocus} ${isActiveSection(pathname, b.to) ? "text-primary" : "text-foreground"}`}
@@ -144,9 +145,9 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="mr-14 flex items-center gap-2 lg:mr-0">
           <Button asChild size="sm" className={`hidden sm:inline-flex ${navFocus}`}>
-            <Link to={navCta.to} aria-current={isCurrentPage(pathname, navCta.to) ? "page" : undefined}>{navCta.label}</Link>
+            <Link to={navCta.to} activeOptions={{ exact: true }} aria-current={isCurrentPage(pathname, navCta.to) ? "page" : undefined}>{navCta.label}</Link>
           </Button>
         </div>
       </div>
@@ -176,7 +177,7 @@ export function SiteHeader() {
             }}>
           <DialogPrimitive.Title className="sr-only">Mobile navigation</DialogPrimitive.Title>
           <div className="flex h-16 items-center justify-between border-b border-border px-5">
-            <div onClick={closeForNavigation}><Wordmark /></div>
+            <Wordmark onNavigate={closeForNavigation} />
             <DialogPrimitive.Close asChild>
               <Button variant="outline" size="icon" aria-label="Close menu" className={`min-h-11 min-w-11 ${navFocus}`}>
                 <X aria-hidden="true" />
@@ -193,6 +194,7 @@ export function SiteHeader() {
                 <li key={item.to}>
                   <Link
                     to={item.to}
+                    activeOptions={{ exact: true }}
                     onClick={closeForNavigation}
                     aria-current={active ? "page" : undefined}
                     className={`flex min-h-11 items-center rounded-sm border-b border-border/60 py-3 text-base font-medium ${navFocus} ${
@@ -215,6 +217,7 @@ export function SiteHeader() {
                         <li key={b.to}>
                           <Link
                             to={b.to}
+                            activeOptions={{ exact: true }}
                             onClick={closeForNavigation}
                             aria-current={on ? "page" : undefined}
                             className={`flex min-h-11 items-center rounded-sm py-2 text-[0.9375rem] font-medium ${navFocus} ${on ? "text-primary" : "text-foreground"}`}
@@ -230,7 +233,7 @@ export function SiteHeader() {
             })}
             <li className="pt-4">
               <Button asChild className={`min-h-11 w-full ${navFocus}`}>
-                <Link to={navCta.to} onClick={closeForNavigation} aria-current={isCurrentPage(pathname, navCta.to) ? "page" : undefined}>
+                <Link to={navCta.to} activeOptions={{ exact: true }} onClick={closeForNavigation} aria-current={isCurrentPage(pathname, navCta.to) ? "page" : undefined}>
                   {navCta.label}
                 </Link>
               </Button>
