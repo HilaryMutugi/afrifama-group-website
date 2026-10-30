@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { primaryNav, navCta, company, desktopNav, businessNav } from "@/content/site";
 import { Button } from "@/components/ui/button";
+import { isCurrentPage, isActiveSection } from "./navigation";
 
-function Wordmark() {
+const navFocus = "focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+
+function Wordmark({ onNavigate }: { onNavigate?: () => void }) {
   return (
-    <Link to="/" className="group flex items-center gap-2.5" aria-label={`${company.name} home`}>
+    <Link to="/" activeOptions={{ exact: true }} onClick={onNavigate} className={`group flex min-h-11 items-center gap-2.5 rounded-md ${navFocus}`} aria-label={`${company.name} home`}>
       <span className="flex size-9 items-center justify-center rounded-lg bg-forest text-primary-foreground">
         <svg viewBox="0 0 24 24" className="size-5" aria-hidden="true" fill="none">
           <path
@@ -29,25 +33,44 @@ function Wordmark() {
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [bizOpen, setBizOpen] = useState(false);
+  const businessTrigger = useRef<HTMLButtonElement>(null);
+  const mobileTrigger = useRef<HTMLButtonElement>(null);
+  const routeClosing = useRef(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const bizPaths = new Set(businessNav.map((b) => b.to));
   const mobileMain = primaryNav.filter((item) => !bizPaths.has(item.to));
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setOpen(false);
+      if (e.key === "Escape" && bizOpen) {
+        e.preventDefault();
         setBizOpen(false);
+        businessTrigger.current?.focus();
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [bizOpen]);
 
   useEffect(() => {
     setOpen(false);
     setBizOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const closeOnResize = () => {
+      setOpen(false);
+      setBizOpen(false);
+    };
+    desktop.addEventListener("change", closeOnResize);
+    return () => desktop.removeEventListener("change", closeOnResize);
+  }, []);
+
+  const closeForNavigation = () => {
+    routeClosing.current = true;
+    setOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur">
@@ -59,15 +82,15 @@ export function SiteHeader() {
             {desktopNav.map((item) => {
               const isBiz = item.to === "/businesses";
               const active = isBiz
-                ? businessNav.some((b) => pathname === b.to || pathname.startsWith(`${b.to}/`))
-                : pathname === item.to || pathname.startsWith(`${item.to}/`);
-              const cls = `inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-secondary hover:text-secondary-foreground ${
+                ? businessNav.some((b) => isActiveSection(pathname, b.to))
+                : isActiveSection(pathname, item.to);
+              const cls = `inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-secondary hover:text-secondary-foreground ${navFocus} ${
                 active ? "text-primary" : "text-muted-foreground"
               }`;
               if (!isBiz) {
                 return (
                   <li key={item.to}>
-                    <Link to={item.to} className={cls}>
+                    <Link to={item.to} activeOptions={{ exact: true }} className={cls} aria-current={isCurrentPage(pathname, item.to) ? "page" : undefined}>
                       {item.label}
                     </Link>
                   </li>
@@ -78,30 +101,36 @@ export function SiteHeader() {
                   key={item.to}
                   className="relative"
                   onMouseEnter={() => setBizOpen(true)}
-                  onMouseLeave={() => setBizOpen(false)}
+                  onMouseLeave={(e) => {
+                    if (!e.currentTarget.contains(document.activeElement)) setBizOpen(false);
+                  }}
                   onBlur={(e) => {
                     if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setBizOpen(false);
                   }}
                 >
-                  <button
+                  <Button
+                    ref={businessTrigger}
+                    variant="ghost"
                     type="button"
                     className={cls}
                     aria-expanded={bizOpen}
-                    aria-haspopup="true"
+                    aria-controls="business-nav"
                     onClick={() => setBizOpen((v) => !v)}
                   >
                     {item.label}
                     <ChevronDown className="size-4" aria-hidden="true" />
-                  </button>
+                  </Button>
                   {bizOpen ? (
                     <div className="absolute left-0 top-full pt-2">
-                      <ul className="w-56 rounded-xl border border-border bg-popover p-1.5 shadow-card">
+                      <ul id="business-nav" className="w-56 rounded-md border border-border bg-popover p-1.5 shadow-card">
                         {businessNav.map((b) => (
                           <li key={b.to}>
                             <Link
                               to={b.to}
+                              activeOptions={{ exact: true }}
                               onClick={() => setBizOpen(false)}
-                              className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-secondary"
+                              aria-current={isCurrentPage(pathname, b.to) ? "page" : undefined}
+                              className={`block rounded-md px-3 py-2 text-sm hover:bg-secondary ${navFocus} ${isActiveSection(pathname, b.to) ? "text-primary" : "text-foreground"}`}
                             >
                               {b.label}
                             </Link>
@@ -116,39 +145,59 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
-          <Button asChild size="sm" className="hidden sm:inline-flex">
-            <Link to={navCta.to}>{navCta.label}</Link>
+        <div className="mr-14 flex items-center gap-2 lg:mr-0">
+          <Button asChild size="sm" className={`hidden sm:inline-flex ${navFocus}`}>
+            <Link to={navCta.to} activeOptions={{ exact: true }} aria-current={isCurrentPage(pathname, navCta.to) ? "page" : undefined}>{navCta.label}</Link>
           </Button>
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? "Close menu" : "Open menu"}
-            className="inline-flex size-10 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:bg-secondary lg:hidden"
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
         </div>
       </div>
 
-      {open ? (
+      <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
+        <DialogPrimitive.Trigger asChild>
+          <Button ref={mobileTrigger} type="button" variant="outline" size="icon"
+            aria-expanded={open} aria-controls="mobile-nav" aria-label="Open menu"
+            className={`absolute right-5 top-2.5 min-h-11 min-w-11 lg:hidden ${navFocus}`}>
+            <Menu aria-hidden="true" />
+          </Button>
+        </DialogPrimitive.Trigger>
+        <DialogPrimitive.Portal>
+          <DialogPrimitive.Overlay className="fixed inset-0 z-[60] bg-background" />
+          <DialogPrimitive.Content id="mobile-nav" aria-describedby={undefined}
+            className="fixed inset-x-0 top-0 z-[60] max-h-dvh overflow-y-auto bg-background text-foreground outline-none"
+            onCloseAutoFocus={(event) => {
+              event.preventDefault();
+              if (routeClosing.current) {
+                routeClosing.current = false;
+                document.getElementById("main")?.focus({ preventScroll: true });
+              } else if (mobileTrigger.current?.getClientRects().length) {
+                mobileTrigger.current.focus();
+              } else {
+                businessTrigger.current?.focus();
+              }
+            }}>
+          <DialogPrimitive.Title className="sr-only">Mobile navigation</DialogPrimitive.Title>
+          <div className="flex h-16 items-center justify-between border-b border-border px-5">
+            <Wordmark onNavigate={closeForNavigation} />
+            <DialogPrimitive.Close asChild>
+              <Button variant="outline" size="icon" aria-label="Close menu" className={`min-h-11 min-w-11 ${navFocus}`}>
+                <X aria-hidden="true" />
+              </Button>
+            </DialogPrimitive.Close>
+          </div>
         <nav
-          id="mobile-nav"
           aria-label="Mobile"
-          className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-background lg:hidden"
         >
           <ul className="mx-auto max-w-7xl px-5 py-3 lg:px-8">
             {mobileMain.map((item, i) => {
-              const active = pathname === item.to;
+              const active = isCurrentPage(pathname, item.to);
               const row = (
                 <li key={item.to}>
                   <Link
                     to={item.to}
-                    onClick={() => setOpen(false)}
+                    activeOptions={{ exact: true }}
+                    onClick={closeForNavigation}
                     aria-current={active ? "page" : undefined}
-                    className={`block border-b border-border/60 py-3 text-base font-medium ${
+                    className={`flex min-h-11 items-center rounded-sm border-b border-border/60 py-3 text-base font-medium ${navFocus} ${
                       active ? "text-primary" : "text-foreground"
                     }`}
                   >
@@ -163,14 +212,15 @@ export function SiteHeader() {
                   <p className="eyebrow text-terracotta">Our businesses</p>
                   <ul className="mt-2 grid grid-cols-2 gap-x-4">
                     {businessNav.map((b) => {
-                      const on = pathname === b.to;
+                      const on = isCurrentPage(pathname, b.to);
                       return (
                         <li key={b.to}>
                           <Link
                             to={b.to}
-                            onClick={() => setOpen(false)}
+                            activeOptions={{ exact: true }}
+                            onClick={closeForNavigation}
                             aria-current={on ? "page" : undefined}
-                            className={`block py-2 text-[0.9375rem] font-medium ${on ? "text-primary" : "text-foreground"}`}
+                            className={`flex min-h-11 items-center rounded-sm py-2 text-[0.9375rem] font-medium ${navFocus} ${on ? "text-primary" : "text-foreground"}`}
                           >
                             {b.label}
                           </Link>
@@ -182,15 +232,17 @@ export function SiteHeader() {
               ];
             })}
             <li className="pt-4">
-              <Button asChild className="w-full">
-                <Link to={navCta.to} onClick={() => setOpen(false)}>
+              <Button asChild className={`min-h-11 w-full ${navFocus}`}>
+                <Link to={navCta.to} activeOptions={{ exact: true }} onClick={closeForNavigation} aria-current={isCurrentPage(pathname, navCta.to) ? "page" : undefined}>
                   {navCta.label}
                 </Link>
               </Button>
             </li>
           </ul>
         </nav>
-      ) : null}
+          </DialogPrimitive.Content>
+        </DialogPrimitive.Portal>
+      </DialogPrimitive.Root>
     </header>
   );
 }

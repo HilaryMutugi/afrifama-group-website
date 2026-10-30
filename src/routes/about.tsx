@@ -33,9 +33,7 @@ function About() {
       <header className="bg-primary-deep text-primary-foreground">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 pt-8 pb-10 lg:grid-cols-12 lg:items-center lg:gap-12 lg:px-8 lg:pb-14">
           <div className="lg:col-span-6">
-            <div className="[&_nav]:text-primary-foreground/75 [&_nav_a]:text-primary-foreground/75 [&_nav_span]:text-primary-foreground">
-              <Breadcrumbs items={[{ label: aboutStory.title }]} />
-            </div>
+            <Breadcrumbs inverted items={[{ label: aboutStory.title }]} />
             <p className="mt-8 eyebrow text-gold">{aboutStory.title} · Kilifi County, Kenya</p>
             <h1 className="mt-4 h1-hero font-extrabold">{aboutStory.heroTitle}</h1>
             <p className="mt-5 max-w-[52ch] body-copy text-primary-foreground/85">{aboutStory.heroLead}</p>
