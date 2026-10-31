@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section } from "@/components/site/primitives";
-import { company } from "@/content/site";
+import { company, enquiryCopy } from "@/content/site";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -30,7 +30,7 @@ const sections = [
   },
   {
     h: "Information we collect",
-    p: "The enquiry form on this website is a front-end prototype and does not currently store or transmit submissions. When enquiry handling is connected, we will collect only the details needed to respond: name, organisation, contact details, location and the content of your message.",
+    p: enquiryCopy.privacyCollection,
   },
   {
     h: "Farmer and flock data",
@@ -38,7 +38,7 @@ const sections = [
   },
   {
     h: "How information is used",
-    p: "Enquiry information is used to respond to you, assess suitability for the relevant Afrifama activity, and keep a record of the conversation. We do not sell personal information.",
+    p: enquiryCopy.privacyUse,
   },
   {
     h: "Retention and access",
@@ -46,7 +46,7 @@ const sections = [
   },
   {
     h: "Contact",
-    p: "Questions about this policy can be sent through the Contact page.",
+    p: enquiryCopy.policyStatus,
   },
 ];
 

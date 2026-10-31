@@ -17,14 +17,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { Breadcrumbs, Section, SectionHeading } from "@/components/site/primitives";
-import { company, impactFramework, imageSlots } from "@/content/site";
+import { company, impactFramework, imageSlots, enquiryCopy } from "@/content/site";
 import { KenyaMap } from "@/components/site/KenyaMap";
 
 export const Route = createFileRoute("/impact")({
   head: () => ({
     meta: [
-      { title: "Impact — Early progress in Kilifi County | Afrifama" },
-      { property: "og:title", content: "Impact — Early progress in Kilifi County | Afrifama" },
+      { title: "Impact | Early progress in Kilifi County | Afrifama" },
+      { property: "og:title", content: "Impact | Early progress in Kilifi County | Afrifama" },
       { property: "og:url", content: "/impact" },
       {
         name: "description",
@@ -247,9 +247,9 @@ function Impact() {
           <div>
             <p className="eyebrow text-gold">Partnership</p>
             <h2 className="mt-3 h2-section font-extrabold">Help build measurable farmer impact</h2>
-            <p className="mt-5 leading-relaxed text-primary-foreground/75">Connect with Afrifama around farmer capability, technical evidence, markets or commercially disciplined growth.</p>
+            <p className="mt-5 leading-relaxed text-primary-foreground/75">{enquiryCopy.impactClosing}</p>
           </div>
-          <Button asChild variant="secondary" size="lg"><Link to="/contact">Start a conversation <ArrowRight className="size-4" /></Link></Button>
+          <Button asChild variant="secondary" size="lg"><Link to="/about">{enquiryCopy.impactAction} <ArrowRight className="size-4" /></Link></Button>
         </div>
       </Section>
     </>

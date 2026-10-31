@@ -16,7 +16,9 @@ export const Route = createFileRoute("/field-notes/$slug")({
       meta: [
         { title: `${note.title} | Afrifama Field Notes` },
         { name: "description", content: note.excerpt },
-        { property: "og:title", content: note.title },
+        { property: "og:title", content: `${note.title} | Afrifama Field Notes` },
+        { property: "og:url", content: `/field-notes/${note.slug}` },
+        { name: "twitter:card", content: "summary_large_image" },
         { property: "og:description", content: note.excerpt },
         { property: "og:type", content: "article" },
       ],

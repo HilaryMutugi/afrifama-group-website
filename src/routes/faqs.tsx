@@ -7,13 +7,13 @@ import {
 } from "@/components/ui/accordion";
 import { PageHero, Section } from "@/components/site/primitives";
 import { CtaBand } from "@/components/site/CtaBand";
-import { company, faqGroups } from "@/content/site";
+import { company, faqGroups, enquiryCopy } from "@/content/site";
 
 export const Route = createFileRoute("/faqs")({
   head: () => ({
     meta: [
-      { title: "FAQs — Feeds, farmer partnership, poultry and genetics | Afrifama" },
-      { property: "og:title", content: "FAQs — Feeds, farmer partnership, poultry and genetics | Afrifama" },
+      { title: "FAQs | Feeds, farmer partnership, poultry and genetics | Afrifama" },
+      { property: "og:title", content: "FAQs | Feeds, farmer partnership, poultry and genetics | Afrifama" },
       { property: "og:url", content: "/faqs" },
       {
         name: "description",
@@ -52,7 +52,7 @@ function Faqs() {
       <PageHero
         eyebrow="FAQs"
         title="Questions we are asked most often."
-        lead="Grouped by topic, answered factually. If something is missing, send us the question through the contact page."
+        lead={enquiryCopy.faqLead}
         breadcrumbs={[{ label: "FAQs" }]}
       />
 

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section } from "@/components/site/primitives";
-import { company } from "@/content/site";
+import { company, enquiryCopy } from "@/content/site";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
@@ -38,7 +38,7 @@ const sections = [
   },
   {
     h: "Enquiries and applications",
-    p: "Submitting an enquiry or expression of interest does not create a partnership, supply arrangement or entitlement to input support. Partnerships are established only through a written agreement with Afrifama.",
+    p: enquiryCopy.termsApplications,
   },
   {
     h: "Intellectual property",
@@ -46,7 +46,7 @@ const sections = [
   },
   {
     h: "Contact",
-    p: "Questions about these terms can be sent through the Contact page.",
+    p: enquiryCopy.policyStatus,
   },
 ];
 
