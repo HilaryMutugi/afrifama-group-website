@@ -28,6 +28,8 @@ export const Route = createFileRoute("/businesses")({
         property: "og:description",
         content: "Afrifama's four business areas with clear operational status: poultry production, Afrifama Feeds, the smallholder farmer partnership, and genetics and hatchery development.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/businesses` }],
   }),

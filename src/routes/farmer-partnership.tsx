@@ -11,15 +11,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { Breadcrumbs, CheckList } from "@/components/site/primitives";
 import { PartnershipMural } from "@/components/site/PartnershipMural";
-import { company, farmerPartnership, faqGroups, imageSlots } from "@/content/site";
+import { company, farmerPartnership, faqGroups, imageSlots, enquiryCopy } from "@/content/site";
 
 const farmerFaqs = faqGroups.find((group) => group.group === "Farmer Partnership");
 
 export const Route = createFileRoute("/farmer-partnership")({
   head: () => ({
     meta: [
-      { title: "Smallholder Egg Partnership — Farmer readiness | Afrifama" },
-      { property: "og:title", content: "Smallholder Egg Partnership — Farmer readiness | Afrifama" },
+      { title: "Smallholder Egg Partnership | Farmer readiness | Afrifama" },
+      { property: "og:title", content: "Smallholder Egg Partnership | Farmer readiness | Afrifama" },
       { property: "og:url", content: "/farmer-partnership" },
       {
         name: "description",
@@ -140,7 +140,7 @@ function FarmerPartnership() {
         </div>
       </section>
 
-      <section className="bg-background section-pad">
+      <section id="farm-readiness" className="bg-background section-pad">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="max-w-2xl">
             <p className="eyebrow text-terracotta">04 / What matters</p>
@@ -250,14 +250,14 @@ function FarmerPartnership() {
         <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-12 lg:items-end lg:px-8">
           <div className="lg:col-span-8">
             <p className="eyebrow text-gold">Next step</p>
-            <h2 className="mt-4 h2-section font-extrabold">Tell us about your farm.</h2>
+            <h2 className="mt-4 h2-section font-extrabold">{enquiryCopy.farmerClosing.title}</h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/75">
-              Online applications are opening soon. For now, contact Afrifama with your location, housing status and production goals.
+              {enquiryCopy.farmerClosing.body}
             </p>
           </div>
           <div className="lg:col-span-4 lg:text-right">
             <Button asChild size="lg" variant="secondary">
-              <Link to="/contact">Contact Afrifama <ArrowRight aria-hidden="true" /></Link>
+              <a href="#farm-readiness">{enquiryCopy.farmerClosing.action} <ArrowRight aria-hidden="true" /></a>
             </Button>
           </div>
         </div>

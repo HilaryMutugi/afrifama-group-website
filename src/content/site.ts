@@ -47,7 +47,7 @@ export const primaryNav: NavItem[] = [
   { label: "Contact", to: "/contact" },
 ];
 
-export const navCta = { label: "Partner With Us", to: "/contact" } as const;
+export const navCta = { label: "Find Your Route", to: "/contact" } as const;
 
 /** Simplified desktop navigation; business pages sit inside the "Our Businesses" dropdown. */
 export const businessNav: NavItem[] = [
@@ -72,7 +72,7 @@ export const homeHero = {
   title: "One connected poultry system, from feed to flock.",
   lead: "Afrifama is an early-growth agribusiness in Kilifi County. We produce poultry, make stage-specific feed and work with farmers under structured partnerships—so each part strengthens the next.",
   primaryCta: { label: "See How It Fits Together", href: "#how-it-fits" },
-  secondaryCta: { label: "Partner With Afrifama", to: "/contact" },
+  secondaryCta: { label: "Find Your Route", to: "/contact" },
   /** Plain status summary shown under the hero actions. */
   statusToday: ["Poultry production", "Afrifama Feeds", "Farmer partnerships (pilot underway)"],
   statusDeveloping: "Genetics & hatchery — in development; no commercial chick supply yet.",
@@ -81,7 +81,7 @@ export const homeHero = {
     "Afrifama is an early-growth Kenyan agribusiness in Kilifi County connecting poultry production, stage-specific feeds and farmer partnerships, with genetics in development.",
 } as const;
 
-/** Homepage closing section; the contact form is a prototype, so copy never promises a reply. */
+/** Shared closing section offers information while online enquiries are unavailable. */
 export const homeClosing = {
   eyebrow: "Next step",
   title: "Building better poultry systems takes the right partners.",
@@ -235,9 +235,9 @@ export const poultryPathways = [
   {
     audience: "Strategic partners",
     title: "Strengthen the system around the flock",
-    body: "Discuss technical, supply, equipment or investment partnerships that support disciplined growth.",
-    label: "Start a conversation",
-    to: "/contact",
+    body: "Explore the evidence and development priorities behind Afrifama’s growth.",
+    label: "Explore our impact approach",
+    to: "/impact",
   },
 ] as const;
 
@@ -528,8 +528,8 @@ export const feedsPage = {
   customerPathways: [
     {
       title: "Poultry farmers",
-      body: "Discuss the flock type, production stage and product option that fits your current objective.",
-      to: "/contact",
+      body: "Compare feed options by flock type and production stage.",
+      to: "/feeds",
     },
     {
       title: "Partner farmers",
@@ -538,22 +538,22 @@ export const feedsPage = {
     },
     {
       title: "Dealers and distributors",
-      body: "Start a conversation about local demand, product access and distribution requirements.",
-      to: "/contact",
+      body: "Review the feed range. Online distribution enquiries are not yet being accepted.",
+      to: "/feeds",
     },
     {
       title: "Commercial farms",
-      body: "Discuss a stage-specific nutritional programme around your operating context.",
-      to: "/contact",
+      body: "Review the stage-specific nutrition approach for your production context.",
+      to: "/feeds",
     },
     {
       title: "Technical and nutrition partners",
-      body: "Contribute qualified expertise to formulation review, quality discipline and farmer guidance.",
-      to: "/contact",
+      body: "Review our formulation and quality approach. Online technical enquiries are not yet being accepted.",
+      to: "/feeds",
     },
     {
       title: "Raw-material suppliers",
-      body: "Share ingredient specifications, consistency controls and delivery capability.",
+      body: "Check the enquiry status. Online supplier enquiries are not yet being accepted.",
       to: "/contact",
     },
   ],
@@ -842,23 +842,23 @@ export const impactFramework = {
     },
     {
       title: "Technical partners",
-      body: "Contribute practical expertise across nutrition, flock health, genetics and monitoring.",
-      to: "/contact",
+      body: "Explore our developing genetics and hatchery direction.",
+      to: "/genetics-hatchery",
     },
     {
       title: "Market partners",
-      body: "Discuss reliable routes to market as verified egg volumes develop.",
-      to: "/contact",
+      body: "Review our poultry production work. Online market enquiries are not yet being accepted.",
+      to: "/poultry",
     },
     {
       title: "Researchers",
-      body: "Explore rigorous, responsible learning around poultry production and farmer outcomes.",
-      to: "/contact",
+      body: "Explore the company story behind our evidence-led approach.",
+      to: "/about",
     },
     {
       title: "Investors and development partners",
-      body: "Support commercially disciplined infrastructure and evidence-led growth.",
-      to: "/contact",
+      body: "Understand Afrifama’s early-growth stage and development priorities.",
+      to: "/about",
     },
   ],
 } as const;
@@ -942,7 +942,7 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         q: "What does Afrifama do?",
-        a: "Afrifama is a Kenyan agribusiness building an integrated poultry system: quality feed production, commercial layer production, structured smallholder farmer partnerships, and the technical foundations for improved poultry genetics and future hatchery capacity.",
+        a: "Afrifama is an early-growth poultry agribusiness in Kilifi County, Kenya. Poultry production and Afrifama Feeds are operating, the farmer partnership is a pilot, and Genetics & Hatchery is in development. We are building the connections between these areas as the business grows.",
       },
       {
         q: "Is Afrifama an NGO or charity?",
@@ -967,7 +967,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Can I buy feed without joining the farmer partnership?",
-        a: "Yes. Feed customers and distributors can enquire directly through the contact page.",
+        a: "Yes. Feed customers do not need to join the farmer partnership. See the Feeds page for the range and production stages. Online feed and distribution enquiries are not yet being accepted.",
       },
     ],
   },
@@ -980,7 +980,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Who can apply?",
-        a: "Farmers with suitable or nearly completed housing, reliable clean water, daily management capacity and willingness to follow the agreed production system may express interest. Applications are considered against current requirements and assessment capacity.",
+        a: "Farmers need suitable or nearly completed housing, reliable clean water, daily management capacity and willingness to follow the agreed production system. Online applications are not yet being accepted. Review the readiness information on the Farmer Partnership page before applications open.",
       },
       {
         q: "Does applying guarantee selection?",
@@ -1046,7 +1046,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Which genetics partners do you work with?",
-        a: "We are not naming genetics partners or specific bird strains publicly at this stage. Technical partners can reach us through the contact page.",
+        a: "We are not naming genetics partners or specific bird strains publicly at this stage. See Genetics & Hatchery for our development direction. Online technical enquiries are not yet being accepted.",
       },
     ],
   },
@@ -1055,11 +1055,11 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         q: "How can suppliers work with Afrifama?",
-        a: "Raw-material, equipment and service suppliers can submit a supplier enquiry through the contact page with details of what they supply and their delivery capability.",
+        a: "Online supplier enquiries are not yet being accepted. The Contact page shows the current enquiry status; it does not collect supplier details or send messages.",
       },
       {
         q: "Is Afrifama open to investors?",
-        a: "We are open to conversations with investors and strategic partners who understand agribusiness build-out timelines. Use the investor or strategic partnership route on the contact page.",
+        a: "Investors and strategic partners can review our Impact approach and About page to understand our early-growth stage and priorities. Online investment and strategic partnership enquiries are not yet being accepted.",
       },
     ],
   },
@@ -1118,28 +1118,28 @@ export const contactPage = {
 export const partnerPathways = [
   {
     title: "Farmers",
-    body: "Join a structured production partnership with training, monitoring and recoverable input support.",
+    body: "Review partnership readiness, training and recoverable input support. Online applications are not yet open.",
     to: "/farmer-partnership",
   },
   {
     title: "Feed customers",
-    body: "Buy stage-specific mash for your flock, or discuss distribution in your area.",
+    body: "Explore stage-specific mash for your flock. Online feed and distribution enquiries are not yet being accepted.",
     to: "/feeds",
   },
   {
     title: "Technical partners",
-    body: "Work with us on nutrition, veterinary practice, genetics and hatchery development.",
-    to: "/contact",
+    body: "Explore the developing genetics and hatchery direction. Online technical enquiries are not yet being accepted.",
+    to: "/genetics-hatchery",
   },
   {
     title: "Suppliers",
-    body: "Supply raw materials, equipment and services into a growing production system.",
+    body: "Check the current status for raw-material, equipment and service enquiries. Online supplier enquiries are not yet available.",
     to: "/contact",
   },
   {
     title: "Investors and strategic partners",
-    body: "Back practical poultry infrastructure being built for regional scale.",
-    to: "/contact",
+    body: "Review our early progress and evidence standards before considering future collaboration.",
+    to: "/impact",
   },
 ];
 
@@ -1204,7 +1204,7 @@ export const aboutStory = {
   closing: "If you believe coastal farmers deserve a fair chance, build with us.",
   paths: [
     { label: "I'm a farmer", to: "/farmer-partnership" },
-    { label: "Partner or invest", to: "/contact" },
+    { label: "Explore our impact approach", to: "/impact" },
   ],
   businessesLink: { label: "Explore our businesses", to: "/businesses" },
 } as const;
@@ -1247,12 +1247,52 @@ export const geneticsPage = {
   },
   partnership: {
     title: "Help shape a stronger beginning",
-    body: "We welcome conversations with genetics, parent-stock, veterinary, biosecurity and hatchery specialists who value responsible development and practical outcomes for farmers.",
-    cta: "Discuss a technical partnership",
+    body: "Genetics, parent-stock, veterinary, biosecurity and hatchery specialists can review our development priorities above. Online technical enquiries are not yet being accepted.",
+    cta: "Check enquiry status",
   },
 } as const;
 
 export const homePhotoStory = {
   slideLabels: ["Farmer partnership", "Feed production", "Poultry care", "Feed to flock"],
   illustrationCaption: "Concept illustration · genetics and hatchery in development",
+} as const;
+
+/** Search defaults and structured data describe the current stage, not future scale. */
+export const siteSeo = {
+  title: "Afrifama | Early-growth poultry agribusiness in Kilifi County, Kenya",
+  description: "Afrifama is an early-growth poultry agribusiness in Kilifi County, Kenya. Poultry production and feeds are operating, farmer partnerships are a pilot, and Genetics & Hatchery is in development.",
+} as const;
+
+export const fieldNotesSeo = {
+  description: "Sample Afrifama Field Notes on feeds, farmer readiness, poultry production and genetics in development. Illustrative articles await documented field work.",
+} as const;
+
+export const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: company.name,
+  description: siteSeo.description,
+  url: company.siteUrl,
+  slogan: company.tagline,
+  areaServed: ["Kenya"],
+  address: { "@type": "PostalAddress", addressRegion: "Kilifi County", addressCountry: "KE" },
+  knowsAbout: ["Poultry feed formulation", "Commercial layer production", "Farmer-partnership pilot", "Genetics and hatchery development"],
+} as const;
+
+export const enquiryCopy = {
+  statusLink: "Check enquiry status",
+  faqLead: "Answers grouped by topic. Online enquiries are not yet being accepted; Contact shows the current status only.",
+  farmerClosing: {
+    title: "Check your farm’s readiness",
+    body: "Online applications are not yet being accepted. Review the housing, water, biosecurity and daily-care requirements before applications open.",
+    action: "Review farm readiness",
+  },
+  feedsClosing: "Review the feed range and flock stages above. Online feed, distribution and supplier enquiries are not yet being accepted.",
+  feedsRangeAction: "Review feed range",
+  impactClosing: "Explore our early-growth company story and development priorities. Online partnership enquiries are not yet being accepted.",
+  impactAction: "Read our company story",
+  policyStatus: "The Contact page shows the current enquiry status only. Online enquiries are not yet being accepted, and this website cannot receive policy questions.",
+  privacyCollection: "This website does not collect or send enquiry messages or farmer applications. If online enquiries become available, this policy will be updated to explain what information is collected and how it is used.",
+  privacyUse: "No online enquiry information is currently collected. Any future use of enquiry information will be explained before collection begins. We do not sell personal information.",
+  termsApplications: "Online enquiries and applications are not yet being accepted. An expression of interest does not create a partnership, supply arrangement or entitlement to input support. Partnerships are established only through a written agreement with Afrifama.",
 } as const;

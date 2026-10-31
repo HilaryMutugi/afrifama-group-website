@@ -28,15 +28,15 @@ import {
   SectionHeading,
   StatusBadge,
 } from "@/components/site/primitives";
-import { company, feedProducts, feedsPage, faqGroups, imageSlots } from "@/content/site";
+import { company, feedProducts, feedsPage, faqGroups, imageSlots, enquiryCopy } from "@/content/site";
 
 const feedFaqs = faqGroups.find((group) => group.group === "Feed Products");
 
 export const Route = createFileRoute("/feeds")({
   head: () => ({
     meta: [
-      { title: "Afrifama Feeds — Chick, Growers, Layers and Kienyeji Mash" },
-      { property: "og:title", content: "Afrifama Feeds — Chick, Growers, Layers and Kienyeji Mash" },
+      { title: "Afrifama Feeds | Chick, Growers, Layers and Kienyeji Mash" },
+      { property: "og:title", content: "Afrifama Feeds | Chick, Growers, Layers and Kienyeji Mash" },
       { property: "og:url", content: "/feeds" },
       {
         name: "description",
@@ -95,7 +95,7 @@ function Feeds() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild size="lg"><a href="#feed-range">Explore Our Feeds <ArrowRight className="size-4" /></a></Button>
-                <Button asChild size="lg" variant="outline"><Link to="/contact">Talk to Our Team</Link></Button>
+                <Button asChild size="lg" variant="outline"><Link to="/contact">{enquiryCopy.statusLink}</Link></Button>
               </div>
             </div>
             <div className="flex flex-col justify-center overflow-hidden bg-secondary/60">
@@ -163,7 +163,7 @@ function Feeds() {
                   <div><dt className="font-semibold text-foreground">Main nutritional purpose</dt><dd className="mt-1 leading-relaxed text-muted-foreground">{product.purpose}</dd></div>
                   <div><dt className="font-semibold text-foreground">Suitable flock type</dt><dd className="mt-1 leading-relaxed text-muted-foreground">{product.flockType}</dd></div>
                 </dl>
-                <Button asChild variant="outline" className="mt-auto"><Link to="/contact">Request Product Information <ArrowRight className="size-4" /></Link></Button>
+                <Button asChild variant="outline" className="mt-auto"><Link to="/contact">{enquiryCopy.statusLink} <ArrowRight className="size-4" /></Link></Button>
               </article>
             );
           })}
@@ -261,8 +261,8 @@ function Feeds() {
 
       <Section tone="forest">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-          <div><p className="eyebrow text-gold">Farmers, farms and distributors</p><h2 className="mt-3 max-w-3xl h2-section font-extrabold">Find the right feed for your flock</h2><p className="mt-5 max-w-3xl text-lg leading-relaxed text-primary-foreground/80">Poultry farmers, partner farms, commercial farms, distributors, technical partners and raw-material suppliers can start with one focused enquiry.</p></div>
-          <div className="flex flex-wrap gap-3"><Button asChild size="lg" variant="secondary"><Link to="/contact">Discuss Your Flock</Link></Button><Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><Link to="/contact">Become a Distributor</Link></Button></div>
+          <div><p className="eyebrow text-gold">Farmers, farms and distributors</p><h2 className="mt-3 max-w-3xl h2-section font-extrabold">Find the right feed for your flock</h2><p className="mt-5 max-w-3xl text-lg leading-relaxed text-primary-foreground/80">{enquiryCopy.feedsClosing}</p></div>
+          <div className="flex flex-wrap gap-3"><Button asChild size="lg" variant="secondary"><a href="#feed-range">{enquiryCopy.feedsRangeAction}</a></Button><Button asChild size="lg" variant="outline" className="border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><Link to="/contact">{enquiryCopy.statusLink}</Link></Button></div>
         </div>
       </Section>
     </>

@@ -3,13 +3,13 @@ import { ArrowRight, BookOpen, Building2, ShieldCheck, Wheat } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { Breadcrumbs, CheckList, Section, SectionHeading, StatusBadge } from "@/components/site/primitives";
-import { company, imageSlots, poultryOperatingSystem, poultryProductionStages } from "@/content/site";
+import { company, imageSlots, poultryOperatingSystem, poultryProductionStages, enquiryCopy } from "@/content/site";
 
 export const Route = createFileRoute("/poultry")({
   head: () => ({
     meta: [
-      { title: "Afrifama Poultry — Commercial Layer Production in Kenya" },
-      { property: "og:title", content: "Afrifama Poultry — Commercial Layer Production in Kenya" },
+      { title: "Afrifama Poultry | Commercial Layer Production in Kenya" },
+      { property: "og:title", content: "Afrifama Poultry | Commercial Layer Production in Kenya" },
       { property: "og:url", content: "/poultry" },
       {
         name: "description",
@@ -163,7 +163,7 @@ function Poultry() {
       <Section tone="forest" compact>
         <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
           <div><p className="eyebrow text-gold">Next step</p><h2 className="mt-3 text-3xl font-extrabold">Build a more disciplined production system</h2><p className="mt-4 max-w-2xl text-primary-foreground/75">Connect flock management, stage-specific nutrition and reliable records around your production goals.</p></div>
-          <Button asChild size="lg" variant="secondary"><Link to="/contact">Talk to Afrifama <ArrowRight className="size-4" /></Link></Button>
+          <Button asChild size="lg" variant="secondary"><Link to="/contact">{enquiryCopy.statusLink} <ArrowRight className="size-4" /></Link></Button>
         </div>
       </Section>
     </>

@@ -14,7 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { company } from "@/content/site";
+import { organizationSchema, siteSeo } from "@/content/site";
 
 function NotFoundComponent() {
   return (
@@ -76,38 +76,16 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   );
 }
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Afrifama",
-  description:
-    "Kenyan agribusiness building an integrated poultry system: feed production, commercial layer production, structured smallholder farmer partnerships and poultry genetics development.",
-  url: company.siteUrl,
-  slogan: company.tagline,
-  areaServed: ["Kenya", "East Africa"],
-  address: {
-    "@type": "PostalAddress",
-    addressRegion: "Kilifi County",
-    addressCountry: "KE",
-  },
-  knowsAbout: [
-    "Poultry feed formulation",
-    "Commercial layer production",
-    "Smallholder farmer partnerships",
-    "Poultry genetics",
-  ],
-};
-
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Afrifama — Building a stronger poultry system from feed to flock" },
+      { title: siteSeo.title },
       {
         name: "description",
         content:
-          "Afrifama is a Kenyan agribusiness building an integrated poultry system around quality feed, commercial layer production, structured farmer partnerships and poultry genetics development.",
+          siteSeo.description,
       },
       { name: "author", content: "Afrifama" },
       ...(import.meta.env.BASE_URL !== "/"
