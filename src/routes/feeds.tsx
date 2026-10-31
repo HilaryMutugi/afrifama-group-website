@@ -262,7 +262,7 @@ function Feeds() {
       <Section tone="forest">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div><p className="eyebrow text-gold">Farmers, farms and distributors</p><h2 className="mt-3 max-w-3xl h2-section font-extrabold">Find the right feed for your flock</h2><p className="mt-5 max-w-3xl text-lg leading-relaxed text-primary-foreground/80">{enquiryCopy.feedsClosing}</p></div>
-          <div className="flex flex-wrap gap-3"><Button asChild size="lg" variant="secondary"><a href="#feed-range">{enquiryCopy.feedsRangeAction}</a></Button><Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><Link to="/contact">{enquiryCopy.statusLink}</Link></Button></div>
+          <div className="flex flex-wrap gap-3"><Button asChild size="lg" variant="secondary"><a href="#feed-range">{enquiryCopy.feedsRangeAction}</a></Button><Button asChild size="lg" variant="outline" className="border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><Link to="/contact">{enquiryCopy.statusLink}</Link></Button></div>
         </div>
       </Section>
     </>

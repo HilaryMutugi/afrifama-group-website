@@ -1,6 +1,6 @@
 # Current work
 
-- [ ] Correct cross-page enquiry wording and early-growth metadata; audit crawler settings and verify desktop/mobile without changing approved visuals or publishing.
+- [x] Correct cross-page enquiry wording and early-growth metadata; audit crawler settings and verify desktop/mobile without changing approved visuals or publishing.
 
 - [x] Improve shared navigation focus, current-page state, menu behaviour and dark-hero breadcrumbs; verify desktop, tablet and mobile without changing content.
 
