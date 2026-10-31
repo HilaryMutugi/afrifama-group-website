@@ -17,6 +17,8 @@ export const Route = createFileRoute("/terms")({
         property: "og:description",
         content: "Terms governing use of the Afrifama website, including the status of information published about operational and in-development activities.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/terms` }],
   }),

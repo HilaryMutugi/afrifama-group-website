@@ -1263,6 +1263,10 @@ export const siteSeo = {
   description: "Afrifama is an early-growth poultry agribusiness in Kilifi County, Kenya. Poultry production and feeds are operating, farmer partnerships are a pilot, and Genetics & Hatchery is in development.",
 } as const;
 
+export const fieldNotesSeo = {
+  description: "Sample Afrifama Field Notes on feeds, farmer readiness, poultry production and genetics in development. Illustrative articles await documented field work.",
+} as const;
+
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",

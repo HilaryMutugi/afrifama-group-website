@@ -17,6 +17,8 @@ export const Route = createFileRoute("/privacy")({
         property: "og:description",
         content: "How Afrifama handles enquiry information and farmer data, and what this early version of the website does and does not collect.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/privacy` }],
   }),

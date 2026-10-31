@@ -24,6 +24,8 @@ export const Route = createFileRoute("/faqs")({
         property: "og:description",
         content: "Answers to common questions about Afrifama: the business, feed products, the farmer partnership, poultry production, genetics and hatchery development, and partnerships.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/faqs` }],
     scripts: [

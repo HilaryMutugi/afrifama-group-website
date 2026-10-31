@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageHero, Section, Card } from "@/components/site/primitives";
 import { CtaBand } from "@/components/site/CtaBand";
-import { company, fieldNotes, fieldNoteCategories } from "@/content/site";
+import { company, fieldNotes, fieldNoteCategories, fieldNotesSeo } from "@/content/site";
 
 export const Route = createFileRoute("/field-notes/")({
   head: () => ({
@@ -14,12 +14,14 @@ export const Route = createFileRoute("/field-notes/")({
       {
         name: "description",
         content:
-          "Field Notes from Afrifama: feed formulation, farmer training, poultry production, genetics and company building, documented from the field in Kilifi County, Kenya.",
+          fieldNotesSeo.description,
       },
       {
         property: "og:description",
-        content: "Field Notes from Afrifama: feed formulation, farmer training, poultry production, genetics and company building, documented from the field in Kilifi County, Kenya.",
+        content: fieldNotesSeo.description,
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${company.siteUrl}/field-notes` }],
   }),
