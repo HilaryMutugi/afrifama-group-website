@@ -4,6 +4,12 @@ Work one unit at a time, in this order. The order matters: the narrative is lock
 
 Status values: Not started, Diagnosing, Awaiting my choice, Building, Verifying, Done.
 
+## Current evidence reconciliation, 2026-11-01
+
+This tracker originally describes sequential future page-rewrite units; its older Not started rows are not a statement that the current pages are absent or unchecked. Existing page work is recorded in roadmap.md and the decisions/history. All current public pages have now been checked at 1440/768/390 without reopening those redesign units. Historical branch/merge/deployment notes below are preserved as historical, not re-verified today.
+
+FINAL-HANDOFF.md is the current launch-readiness record. Unit 14's QA and handoff are complete, but factual/imagery/wording approvals, legal/manual accessibility checks, full formatting lint, hosted crawler verification and production bundle evidence remain open. Current source renders later supplied imagery through the image registry; the older placeholder-only completion note is superseded by IMAGE_CREDITS and actual source, not a current guarantee that the site has no images.
+
 ## Phase 0: Foundations
 
 | # | Unit | Files | Status | Date | Notes |
@@ -46,9 +52,13 @@ Status values: Not started, Diagnosing, Awaiting my choice, Building, Verifying,
 |---|------|-------|--------|------|-------|
 | 12 | Homepage | src/routes/index.tsx | Not started | | Written last, so it can tell the whole story in one scroll. The Codex homepage redesign (index.tsx, homepage.css, homepageStory in site.ts, homepage-only footer) is kept on origin/codex/homepage-rebuild for review here. Its award claims (Givaudan Start-Up Competition 2024 winner; WIDU / GIZ 2023 first runner-up, Coastal Region) must be confirmed by Hilary before use. Its copy has em dashes that need fixing. |
 | 13 | SEO, sitemap, social previews, performance and accessibility sweep | public/sitemap.xml, robots.txt, route head data | Verifying | 2026-10-31 | Narrow consistency pass: enquiry FAQs, policies and CTA/pathways now informational; early-growth Kilifi Organization schema serves Kenya only. Article OG URL/title fixed; explicit leaf social defaults added; sample Field Notes metadata qualified. Existing canonical/sitemap/robots and font display=swap preserved. Fourteen tests, scoped lint, sixteen public metadata/link checks and seven desktop/390px page checks pass. No redesign or deployment. Hosted preview noindex and bundle-size comparison remain unverified. |
-| 14 | Final QA at 1440, 768 and 390 pixels, then handover notes | whole site | Not started | | |
+| 14 | Final QA at 1440, 768 and 390 pixels, then handover notes | whole site | Done | 2026-11-01 | QA and FINAL-HANDOFF complete: 54 states, 18 tests pass, preview build OK, internal links/source-set assets checked, sample articles noindex and removed from sitemap, not-found noindex. Launch sign-off is NOT complete. Production bundle, hosted crawler protection, full formatting lint and manual accessibility remain explicitly open. |
 
 ## Parking Lot
+
+- **Current lint reconciliation, 2026-11-01:** Full lint still fails: initial current audit 495 formatting errors, later full run 519 formatting findings and 6 warnings. Disabling only Prettier yields 0 errors and 6 existing fast-refresh warnings. The historical 9,460 count and CRLF explanation below are not current verified evidence. No global formatter or line-ending change performed.
+- **Final launch decisions, 2026-11-01:** Confirm four core feeds versus six listed products, visible proof/pilot figures, source imagery representation, five wording approvals and draft policies. Eight rendered image positions remain placeholders. See FINAL-HANDOFF for exact missing slots and manual checks.
+- **Error and interaction follow-up, 2026-11-01:** Some existing non-navigation touch controls are below 44px; missing article slug resource status and router default error handling need dedicated review. Do not infer a WCAG certification from today's keyboard checks. Production artifacts/bundle sizes remain inaccessible; preview harness reports build OK.
 
 Problems found while working on another unit. Do not fix them out of order.
 

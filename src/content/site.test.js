@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { enquiryRoutes, organizationSchema, futureSurfaces, partnerPathways, poultryPathways, feedsPage, impactFramework } from "./site";
+import { enquiryRoutes, organizationSchema, futureSurfaces, partnerPathways, poultryPathways, feedsPage, impactFramework, fieldNotes, fieldNotePublication } from "./site";
 import { readFileSync } from "node:fs";
 
 describe("Contact enquiry destinations", () => {
@@ -55,5 +55,24 @@ describe("Current reach and information routes", () => {
     const paths = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => new URL(match[1]).pathname);
     expect(paths).not.toContain("/egg-supply-interest");
     expect(new Set(paths).size).toBe(paths.length);
+  });
+});
+
+describe("Sample publication restrictions", () => {
+  test.each(fieldNotes.map((note) => [note.slug, note]))("keeps sample %s noindex and outside the public sitemap", (slug, note) => {
+    const publication = fieldNotePublication(note);
+    expect(note.sample).toBe(true);
+    expect(publication.robots).toBe("noindex, nofollow");
+    expect(publication.includeInSitemap).toBe(false);
+    const sitemap = readFileSync(new URL("../../public/sitemap.xml", import.meta.url), "utf8");
+    const paths = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => new URL(match[1]).pathname);
+    expect(paths).not.toContain(`/field-notes/${slug}`);
+    expect(paths).toContain("/field-notes");
+  });
+
+  test("does not apply sample restrictions to a future documented article", () => {
+    const note = fieldNotes[0];
+    expect(fieldNotePublication({ ...note, sample: false }).robots).toBeUndefined();
+    expect(fieldNotePublication({ ...note, sample: false }).includeInSitemap).toBe(true);
   });
 });

@@ -3,13 +3,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageHero, Section, Card } from "@/components/site/primitives";
 import { CtaBand } from "@/components/site/CtaBand";
+import { Button } from "@/components/ui/button";
 import { company, fieldNotes, fieldNoteCategories, fieldNotesSeo } from "@/content/site";
 
 export const Route = createFileRoute("/field-notes/")({
   head: () => ({
     meta: [
-      { title: "Afrifama Field Notes — Practical notes from building a poultry system" },
-      { property: "og:title", content: "Afrifama Field Notes — Practical notes from building a poultry system" },
+      { title: fieldNotesSeo.title },
+      { property: "og:title", content: fieldNotesSeo.title },
       { property: "og:url", content: "/field-notes" },
       {
         name: "description",
@@ -37,8 +38,8 @@ function FieldNotesIndex() {
     <>
       <PageHero
         eyebrow="Field Notes"
-        title="Practical notes from building a poultry system."
-        lead="Afrifama documents the work as it happens — from feed formulation and farmer training to field learning, production and future hatchery development."
+        title={fieldNotesSeo.heading}
+        lead={fieldNotesSeo.lead}
         breadcrumbs={[{ label: "Field Notes" }]}
       />
 
@@ -47,19 +48,20 @@ function FieldNotesIndex() {
           {fieldNoteCategories.map((c) => {
             const active = c === category;
             return (
-              <button
+              <Button
                 key={c}
                 type="button"
                 aria-pressed={active}
                 onClick={() => setCategory(c)}
-                className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+                variant="outline"
+                className={`min-h-11 rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
                   active
                     ? "border-primary bg-primary text-primary-foreground"
                     : "border-border bg-card text-muted-foreground hover:bg-secondary"
                 }`}
               >
                 {c}
-              </button>
+              </Button>
             );
           })}
         </div>
@@ -71,9 +73,11 @@ function FieldNotesIndex() {
                 <span className="rounded-md bg-secondary px-2 py-1 text-xs font-semibold text-secondary-foreground">
                   {note.category}
                 </span>
-                <span className="rounded-md bg-gold/25 px-2 py-1 text-xs font-semibold text-gold-foreground">
-                  Sample content
-                </span>
+                {note.sample ? (
+                  <span className="rounded-md bg-gold/25 px-2 py-1 text-xs font-semibold text-gold-foreground">
+                    {fieldNotesSeo.sampleLabel}
+                  </span>
+                ) : null}
               </div>
               <h2 className="mt-4 font-display text-lg font-bold">{note.title}</h2>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
