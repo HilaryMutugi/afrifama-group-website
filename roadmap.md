@@ -1,6 +1,8 @@
 # Current work
 
-- [ ] Final QA across all routes at 1440/768/390, protect sample articles, reconcile notes and prepare an unpublished handoff. Production output and manual checks must remain explicitly unverified where unavailable.
+- [x] Final QA across all routes at 1440/768/390, protect sample articles, reconcile notes and prepare FINAL-HANDOFF. Preview checks complete; site remains unpublished.
+- [ ] Launch sign-off: waits on Hilary's wording/facts/product-range/imagery approval and professional policy review.
+- [ ] Release verification: waits on accessible production artifacts/bundle sizes, hosted crawler verification and manual accessibility/device checks in a separately authorised release session. Full formatting lint remains open, outside this no-formatting scope.
 
 - [x] Correct cross-page enquiry wording and early-growth metadata; audit crawler settings and verify desktop/mobile without changing approved visuals or publishing.
 
@@ -32,4 +34,4 @@
 - [x] Complete the free stock-photo set: soya, rice bran, limestone and millet added to the Feeds raw-materials mosaic, with credits
 - [x] SEO cleanup: og:title/og:description/og:url on every page, sitemap verified
 - [x] QA pass: Feeds and Genetics & Hatchery verified at 1440/768/390 (no overflow, no broken images, no console errors)
-- [x] Remove all website photographs and preserve labelled, responsive placeholders for future Afrifama photography.
+- [x] Historical placeholder-only removal completed, later superseded by supplied image-registry work documented in IMAGE_CREDITS. Current site includes presentation imagery plus eight rendered placeholder positions; no imagery changed during final QA.
