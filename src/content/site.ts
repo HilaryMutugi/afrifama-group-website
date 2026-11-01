@@ -870,7 +870,7 @@ export type FieldNote = {
   excerpt: string;
   readingTime: string;
   date: string;
-  sample: true;
+  sample: boolean;
   body: string[];
 };
 
@@ -1264,8 +1264,21 @@ export const siteSeo = {
 } as const;
 
 export const fieldNotesSeo = {
+  title: "Afrifama Field Notes | Sample articles",
+  heading: "Sample Field Notes",
+  lead: "These articles demonstrate the Field Notes template. They are examples, not published reports of Afrifama’s work.",
+  sampleLabel: "Sample content",
   description: "Sample Afrifama Field Notes on feeds, farmer readiness, poultry production and genetics in development. Illustrative articles await documented field work.",
 } as const;
+
+export function fieldNotePublication(note: FieldNote) {
+  return {
+    title: `${note.sample ? "Sample: " : ""}${note.title} | Afrifama Field Notes`,
+    description: note.sample ? `${fieldNotesSeo.lead} ${note.excerpt}` : note.excerpt,
+    robots: note.sample ? "noindex, nofollow" : undefined,
+    includeInSitemap: !note.sample,
+  };
+}
 
 export const organizationSchema = {
   "@context": "https://schema.org",

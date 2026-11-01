@@ -14,6 +14,7 @@
 - All Afrifama claims, statistics, product copy, navigation and FAQ content live in `src/content/site.ts` — one editable source so figures and wording can be updated without touching layout.
 - Shared site chrome (header, footer, skip link) lives in `src/routes/__root.tsx`; reusable page primitives live in `src/components/site/` — keeps every page visually consistent.
 - Future/unreleased surfaces (e.g. `/egg-supply-interest`) stay gated behind `futureSurfaces` flags in `src/content/site.ts`, noindex and out of nav/sitemap — so architecture can exist before the offering does.
+- Sample Field Notes use central publication restrictions, route-level noindex/nofollow, no Article schema and no public sitemap entry; only documented reporting can be indexable.
 - All photography positions render through the shared `ImagePlaceholder` component and use centrally named `imageSlots` from `src/content/site.ts` — so photos can be added later without changing page structure.
 - Page-specific editorial illustrations live as reusable components in `src/components/site/` and use global semantic colour tokens — keeping responsive artwork accessible and on-brand.
 - Contact renders only the typed information destinations in the central enquiry data, with no submission handler or integration, so unavailable delivery cannot look functional.

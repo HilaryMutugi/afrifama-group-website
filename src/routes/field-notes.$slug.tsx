@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Breadcrumbs, Section, Card } from "@/components/site/primitives";
 import { CtaBand } from "@/components/site/CtaBand";
-import { company, fieldNotes } from "@/content/site";
+import { company, fieldNotes, fieldNotesSeo, fieldNotePublication } from "@/content/site";
 
 export const Route = createFileRoute("/field-notes/$slug")({
   head: ({ params }) => {
@@ -12,18 +12,20 @@ export const Route = createFileRoute("/field-notes/$slug")({
         meta: [{ title: "Note not found | Afrifama Field Notes" }, { name: "robots", content: "noindex" }],
       };
     }
+    const publication = fieldNotePublication(note);
     return {
       meta: [
-        { title: `${note.title} | Afrifama Field Notes` },
-        { name: "description", content: note.excerpt },
-        { property: "og:title", content: `${note.title} | Afrifama Field Notes` },
+        { title: publication.title },
+        { name: "description", content: publication.description },
+        { property: "og:title", content: publication.title },
         { property: "og:url", content: `/field-notes/${note.slug}` },
         { name: "twitter:card", content: "summary_large_image" },
-        { property: "og:description", content: note.excerpt },
+        { property: "og:description", content: publication.description },
         { property: "og:type", content: "article" },
+        ...(publication.robots ? [{ name: "robots", content: publication.robots }] : []),
       ],
       links: [{ rel: "canonical", href: `${company.siteUrl}/field-notes/${note.slug}` }],
-      scripts: [
+      scripts: note.sample ? [] : [
         {
           type: "application/ld+json",
           children: JSON.stringify({
@@ -71,13 +73,16 @@ function FieldNote() {
               <span className="rounded-md bg-card px-2 py-1 text-xs font-semibold text-secondary-foreground">
                 {note.category}
               </span>
-              <span className="rounded-md bg-gold/25 px-2 py-1 text-xs font-semibold text-gold-foreground">
-                Sample content
-              </span>
+              {note.sample ? (
+                <span className="rounded-md bg-gold/25 px-2 py-1 text-xs font-semibold text-gold-foreground">
+                  {fieldNotesSeo.sampleLabel}
+                </span>
+              ) : null}
               <span className="text-xs text-muted-foreground">{note.readingTime}</span>
             </div>
             <h1 className="mt-5 h2-section font-extrabold">{note.title}</h1>
             <p className="mt-5 body-copy text-muted-foreground">{note.excerpt}</p>
+            {note.sample ? <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{fieldNotesSeo.lead}</p> : null}
           </div>
         </div>
 

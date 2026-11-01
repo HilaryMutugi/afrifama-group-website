@@ -1,5 +1,7 @@
 # Current work
 
+- [ ] Final QA across all routes at 1440/768/390, protect sample articles, reconcile notes and prepare an unpublished handoff. Production output and manual checks must remain explicitly unverified where unavailable.
+
 - [x] Correct cross-page enquiry wording and early-growth metadata; audit crawler settings and verify desktop/mobile without changing approved visuals or publishing.
 
 - [x] Improve shared navigation focus, current-page state, menu behaviour and dark-hero breadcrumbs; verify desktop, tablet and mobile without changing content.
