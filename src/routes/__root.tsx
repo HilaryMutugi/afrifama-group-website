@@ -19,6 +19,7 @@ import { organizationSchema, siteSeo } from "@/content/site";
 function NotFoundComponent() {
   return (
     <div className="flex min-h-[60vh] items-center justify-center bg-background px-4">
+      <meta name="robots" content="noindex, nofollow" />
       <div className="max-w-md text-center">
         <h1 className="font-display h1-hero font-extrabold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
