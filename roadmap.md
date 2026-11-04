@@ -1,8 +1,5 @@
 # Current work
 
-- [x] Homepage editorial redesign using only supplied non-generated photos; checked at 1440/768/390, tests and build OK. Unpublished.
-- [ ] Homepage sign-off: waits on Hilary confirming the three photos are genuine Afrifama photographs and approving new homepage wording.
-
 - [x] Final QA across all routes at 1440/768/390, protect sample articles, reconcile notes and prepare FINAL-HANDOFF. Preview checks complete; site remains unpublished.
 - [ ] Launch sign-off: waits on Hilary's wording/facts/product-range/imagery approval and professional policy review.
 - [ ] Release verification: waits on accessible production artifacts/bundle sizes, hosted crawler verification and manual accessibility/device checks in a separately authorised release session. Full formatting lint remains open, outside this no-formatting scope.
