@@ -1,8 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Egg } from "lucide-react";
+import { ArrowRight, Wheat, Egg, Users, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { siteImages } from "@/content/images";
-import { company, homeClosing, homeEditorial, homeHero, pillars, whyAfrifama } from "@/content/site";
+import { Section, SectionHeading, StatusBadge } from "@/components/site/primitives";
+import { EarlyProgressSection } from "@/components/site/EarlyProgress";
+import { CtaBand } from "@/components/site/CtaBand";
+import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
+import { HomePhotoSlideshow } from "@/components/site/HomePhotoSlideshow";
+import {
+  aboutStory,
+  company,
+  homeBusinesses,
+  homeHero,
+  pillars,
+  problems,
+  fieldNotes,
+  valueChain,
+  whyAfrifama,
+  imageSlots,
+  homePhotoStory,
+} from "@/content/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,249 +36,98 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const asset = (src: string) => `${import.meta.env.BASE_URL}${src.replace(/^\//, "")}`;
+const chainIcons = [Wheat, Egg, Users, Store];
 
-/** Renders a supplied Afrifama photograph from the image registry. */
-function SuppliedPhoto({
-  slot,
-  caption,
-  sizes,
-  className = "",
-  priority = false,
-}: {
-  slot: string;
-  caption: string;
-  sizes: string;
-  className?: string;
-  priority?: boolean;
-}) {
-  const image = siteImages[slot];
-  if (!image) return null;
-  return (
-    <figure className="min-w-0">
-      <div className={`overflow-hidden bg-secondary ${className}`}>
-        <img
-          src={asset(image.src)}
-          srcSet={image.srcSet.split(", ").map(asset).join(", ")}
-          sizes={sizes}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          loading={priority ? "eager" : "lazy"}
-          fetchPriority={priority ? "high" : "auto"}
-          decoding="async"
-          className="size-full object-cover"
-        />
-      </div>
-      <figcaption className="mt-2 text-xs leading-snug text-muted-foreground">{caption}</figcaption>
-    </figure>
-  );
+const problemImagePositions = [
+  "object-[55%_48%]",
+  "object-[55%_48%]",
+  "object-[54%_46%]",
+  "object-[48%_48%]",
+  "object-[56%_46%]",
+  "object-[58%_44%]",
+] as const;
+
+function responsiveStorySources(src: string) {
+  const stem = src.slice(0, -5);
+  return `${stem}-640.webp 640w, ${stem}-960.webp 960w, ${src} 1448w`;
+}
+
+function responsiveHeroSources(src: string) {
+  const stem = src.slice(0, -5);
+  return `${stem}-960.webp 960w, ${stem}-1400.webp 1400w, ${src} 1672w`;
 }
 
 function Hero() {
   return (
-    <section className="border-b border-border bg-background">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 pt-10 pb-12 sm:pt-14 lg:grid-cols-12 lg:gap-14 lg:px-8 lg:pt-20 lg:pb-20">
-        <div className="min-w-0 lg:col-span-6 lg:self-center">
+    <div className="border-b border-border bg-secondary/40">
+      <div className="mx-auto grid max-w-7xl items-center gap-7 px-5 pt-7 pb-9 sm:gap-8 sm:pt-10 sm:pb-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-14">
+        <div className="min-w-0 lg:col-span-6">
           <p className="eyebrow text-terracotta">{homeHero.eyebrow}</p>
-          <h1 className="mt-4 text-[clamp(2.25rem,4.6vw,3.75rem)] leading-[1.04] font-extrabold text-balance">
+          <h1 className="mt-3 text-[clamp(2.125rem,4.2vw,3.5rem)] leading-[1.06] font-extrabold text-balance">
             {homeHero.title}
           </h1>
-          <p className="mt-6 max-w-[54ch] body-copy text-muted-foreground">{homeHero.lead}</p>
-          <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
-            <Button asChild size="lg" className="min-h-11">
+          <p className="mt-4 max-w-[58ch] body-copy text-muted-foreground sm:mt-5">{homeHero.lead}</p>
+          <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap">
+            <Button asChild size="lg">
               <a href={homeHero.primaryCta.href}>
                 {homeHero.primaryCta.label}
-                <ArrowRight className="size-4" aria-hidden="true" />
+                <ArrowRight className="size-4" />
               </a>
             </Button>
-            <Link
-              to={homeHero.secondaryCta.to}
-              className="inline-flex min-h-11 items-center font-display text-sm font-bold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-            >
-              {homeHero.secondaryCta.label}
-            </Link>
+            <Button asChild size="lg" variant="outline">
+              <Link to={homeHero.secondaryCta.to}>{homeHero.secondaryCta.label}</Link>
+            </Button>
           </div>
-          <dl className="mt-10 grid gap-4 border-t border-border pt-5 text-sm sm:grid-cols-2">
-            <div>
-              <dt className="font-display font-bold text-foreground">Operating today</dt>
+          <dl className="mt-7 grid gap-3 border-t border-border pt-5 text-sm sm:grid-cols-2">
+            <div className="min-w-0">
+              <dt className="flex items-center gap-2 font-display font-bold text-foreground">
+                <span className="size-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                Operating today
+              </dt>
               <dd className="mt-1 leading-snug text-muted-foreground">{homeHero.statusToday.join(" · ")}</dd>
             </div>
-            <div>
-              <dt className="font-display font-bold text-foreground">In development</dt>
+            <div className="min-w-0">
+              <dt className="flex items-center gap-2 font-display font-bold text-foreground">
+                <span className="size-2 shrink-0 rounded-full bg-terracotta" aria-hidden="true" />
+                In development
+              </dt>
               <dd className="mt-1 leading-snug text-muted-foreground">{homeHero.statusDeveloping}</dd>
             </div>
           </dl>
         </div>
         <div className="min-w-0 lg:col-span-6">
-          <SuppliedPhoto
-            slot={homeEditorial.heroImage}
-            caption={homeEditorial.heroCaption}
-            sizes="(min-width: 1024px) 46vw, calc(100vw - 2.5rem)"
-            className="aspect-[4/3] rounded-sm lg:aspect-[5/6]"
-            priority
-          />
+          <HomePhotoSlideshow />
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
-function Proof() {
-  const { proof } = homeEditorial;
+function ValueChainStrip() {
   return (
-    <section aria-labelledby="proof-title" className="bg-secondary/50">
-      <div className="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
-          <div>
-            <p className="eyebrow text-terracotta">{proof.eyebrow}</p>
-            <h2 id="proof-title" className="mt-3 text-[clamp(1.6rem,2.6vw,2.25rem)] font-extrabold">
-              {proof.title}
-            </h2>
-          </div>
-          <p className="font-display text-sm font-bold text-muted-foreground">{proof.asOf}</p>
-        </div>
-        <dl className="mt-10 grid border-t border-foreground/15 sm:grid-cols-2 lg:grid-cols-4">
-          {proof.items.map((item) => (
-            <div
-              key={item.label}
-              className="flex flex-col-reverse gap-2 border-b border-foreground/15 py-6 sm:pr-6 lg:border-b-0 lg:border-r lg:px-6 lg:first:pl-0 lg:last:border-r-0"
-            >
-              <dt className="max-w-[26ch] text-sm leading-snug text-muted-foreground">{item.label}</dt>
-              <dd className="font-display text-5xl font-extrabold text-primary">{item.value}</dd>
-            </div>
-          ))}
-        </dl>
-        <p className="mt-6 max-w-[70ch] text-sm text-muted-foreground">{proof.caution}</p>
-      </div>
-    </section>
-  );
-}
-
-function Businesses() {
-  const { businesses } = homeEditorial;
-  const operating = pillars.filter((p) => p.status === "Operational");
-  const developing = pillars.filter((p) => p.status !== "Operational");
-  return (
-    <section id="how-it-fits" aria-labelledby="businesses-title" className="scroll-mt-20 bg-background">
-      <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
-        <div className="grid gap-6 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <p className="eyebrow text-terracotta">{businesses.eyebrow}</p>
-            <h2 id="businesses-title" className="mt-3 text-[clamp(1.75rem,3.2vw,2.75rem)] leading-tight font-extrabold text-balance">
-              {businesses.title}
-            </h2>
-          </div>
-          <p className="max-w-[48ch] body-copy text-muted-foreground lg:col-span-5 lg:self-end">{businesses.lead}</p>
-        </div>
-
-        <ol className="mt-12 border-t border-foreground/15">
-          {operating.map((pillar, index) => {
-            const photo = businesses.images[pillar.to];
-            const flip = index % 2 === 1;
-            return (
-              <li key={pillar.title} className="border-b border-foreground/15 py-10 lg:py-14">
-                <div className="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-14">
-                  <div className={`min-w-0 ${photo ? "lg:col-span-6" : "lg:col-span-8"} ${flip && photo ? "lg:order-2" : ""}`}>
-                    <p className="font-display text-sm font-extrabold tracking-[0.16em] text-gold-foreground">
-                      {String(index + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="mt-3 font-display text-2xl font-extrabold sm:text-3xl">{pillar.title}</h3>
-                    <p className="mt-4 max-w-[52ch] body-copy text-muted-foreground">{pillar.summary}</p>
-                    <ul className="mt-5 space-y-1.5 text-sm text-foreground">
-                      {pillar.points.map((point) => (
-                        <li key={point} className="flex gap-3">
-                          <span className="mt-2.5 h-px w-4 shrink-0 bg-terracotta" aria-hidden="true" />
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link
-                      to={pillar.to}
-                      className="mt-6 inline-flex min-h-11 items-center gap-2 font-display text-sm font-bold text-primary hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                    >
-                      Read about {pillar.title}
-                      <ArrowRight className="size-4" aria-hidden="true" />
-                    </Link>
-                  </div>
-                  {photo ? (
-                    <div className={`min-w-0 lg:col-span-6 ${flip ? "lg:order-1" : ""}`}>
-                      <SuppliedPhoto
-                        slot={photo.slot}
-                        caption={photo.caption}
-                        sizes="(min-width: 1024px) 46vw, calc(100vw - 2.5rem)"
-                        className={index === 0 ? "aspect-[16/10] rounded-sm" : "mx-auto aspect-[4/5] max-w-sm rounded-sm lg:max-w-none lg:aspect-[16/11]"}
-                      />
-                    </div>
+    <div className="border-b border-border bg-background">
+      <ol className="mx-auto grid max-w-7xl gap-6 px-5 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:px-8">
+        {valueChain.map((step, i) => {
+          const Icon = chainIcons[i] ?? Wheat;
+          return (
+            <li key={step.title} className="flex items-start gap-3 lg:px-5 lg:first:pl-0">
+              <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <Icon className="size-5" aria-hidden="true" />
+              </span>
+              <div className="min-w-0">
+                <p className="flex items-center gap-2 font-display text-base font-bold">
+                  {step.title}
+                  {i < valueChain.length - 1 ? (
+                    <ArrowRight className="hidden size-4 text-gold lg:inline" aria-hidden="true" />
                   ) : null}
-                </div>
-              </li>
-            );
-          })}
-        </ol>
-
-        {developing.map((pillar) => (
-          <div
-            key={pillar.title}
-            className="mt-10 grid gap-3 border-l-2 border-terracotta pl-5 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-8"
-          >
-            <div className="min-w-0">
-              <p className="font-display text-xs font-extrabold tracking-[0.16em] text-terracotta">IN DEVELOPMENT</p>
-              <h3 className="mt-1 font-display text-lg font-bold">{pillar.title}</h3>
-              <p className="mt-1 max-w-[70ch] text-sm text-muted-foreground">
-                {pillar.summary} {businesses.developingNote}
-              </p>
-            </div>
-            <Link
-              to={pillar.to}
-              className="inline-flex min-h-11 items-center gap-2 font-display text-sm font-bold text-primary hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-            >
-              See the development plan
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function WhyAfrifama() {
-  return (
-    <section aria-labelledby="why-title" className="border-t border-border bg-secondary/40">
-      <div className="mx-auto max-w-5xl px-5 py-20 lg:px-8 lg:py-32">
-        <p className="eyebrow text-terracotta">{whyAfrifama.label}</p>
-        <h2 id="why-title" className="mt-4 text-[clamp(2.25rem,5.4vw,4.5rem)] leading-[1.02] font-extrabold text-balance">
-          {whyAfrifama.title}
-        </h2>
-        <p className="mt-8 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">{whyAfrifama.lead}</p>
-      </div>
-    </section>
-  );
-}
-
-function Closing() {
-  return (
-    <section aria-labelledby="closing-title" className="bg-primary-deep text-primary-foreground">
-      <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 lg:grid-cols-12 lg:items-end lg:px-8 lg:py-24">
-        <div className="lg:col-span-8">
-          <p className="eyebrow text-gold">{homeClosing.eyebrow}</p>
-          <h2 id="closing-title" className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] leading-tight font-extrabold text-balance text-primary-foreground">
-            {homeClosing.title}
-          </h2>
-          <p className="mt-5 max-w-[56ch] body-copy text-primary-foreground/80">{homeEditorial.closingLead}</p>
-          <Button asChild variant="secondary" size="lg" className="mt-8 min-h-11">
-            <Link to={homeClosing.action.to}>
-              {homeClosing.action.label}
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
-          </Button>
-        </div>
-        <div className="hidden justify-end lg:col-span-4 lg:flex" aria-hidden="true">
-          <Egg className="size-32 text-gold/40" strokeWidth={1} />
-        </div>
-      </div>
-    </section>
+                </p>
+                <p className="mt-1 text-sm leading-snug text-muted-foreground">{step.body}</p>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
   );
 }
 
@@ -270,10 +135,195 @@ function Home() {
   return (
     <>
       <Hero />
-      <Proof />
-      <Businesses />
-      <WhyAfrifama />
-      <Closing />
+      <ValueChainStrip />
+
+      <Section tone="muted" compact id="how-it-fits" className="scroll-mt-20">
+        <SectionHeading
+          eyebrow={homeBusinesses.eyebrow}
+          title={homeBusinesses.title}
+          lead={homeBusinesses.lead}
+        />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((pillar, index) => (
+            <Link
+              key={pillar.title}
+              to={pillar.to}
+              className="group flex h-full flex-col rounded-2xl border border-border bg-secondary/55 p-6 transition-[transform,border-color,background-color] duration-200 ease-out focus-visible:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background md:hover:-translate-y-0.5 md:hover:border-primary/35 md:hover:bg-secondary/80 motion-reduce:transition-none motion-reduce:md:hover:translate-y-0"
+            >
+              <div className="relative mb-5 aspect-[4/3] w-full">
+                <ImagePlaceholder
+                  slot={imageSlots.home.businesses[index] ?? "home-business-unavailable"}
+                  className="size-full rounded-lg"
+                />
+                {index === 3 ? (
+                  <p className="absolute inset-x-2 bottom-2 text-[10px] leading-snug text-muted-foreground">
+                    {homePhotoStory.illustrationCaption}
+                  </p>
+                ) : null}
+              </div>
+              <h3 className="font-display text-lg font-extrabold leading-snug text-foreground">
+                {pillar.title}
+              </h3>
+              <div className="mt-2.5">
+                <StatusBadge status={pillar.status} />
+              </div>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {pillar.summary}
+              </p>
+              <span className="mt-6 inline-flex items-center gap-1.5 border-t border-border/80 pt-4 font-display text-sm font-bold text-primary">
+                Learn more
+                <ArrowRight
+                  className="size-4 opacity-70 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:opacity-100 motion-reduce:transition-none"
+                  aria-hidden="true"
+                />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
+      <Section compact>
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-5">
+            <p className="eyebrow text-terracotta">{aboutStory.title}</p>
+            <h2 className="mt-3 font-display text-2xl font-extrabold leading-tight sm:text-3xl">
+              {aboutStory.opening}
+            </h2>
+            <ImagePlaceholder
+              slot={imageSlots.home.story}
+              className="mt-5 aspect-[4/3] w-full rounded-xl"
+            />
+          </div>
+          <div className="lg:col-span-7">
+            <p className="border-l-2 border-gold pl-5 body-copy text-muted-foreground">
+              {aboutStory.scene}
+            </p>
+            <Link
+              to="/about"
+              className="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary hover:gap-2.5"
+            >
+              {aboutStory.readMore}
+              <ArrowRight className="size-4" />
+            </Link>
+          </div>
+        </div>
+      </Section>
+
+      <Section tone="muted" className="scroll-mt-16 overflow-hidden" id="why-afrifama" compact>
+        <div className="max-w-4xl">
+          <p className="font-display text-sm font-extrabold uppercase tracking-[0.18em] text-terracotta sm:text-[0.9375rem]">
+            {whyAfrifama.label}
+          </p>
+          <h2 id="why-afrifama-title" className="mt-4 h2-section font-extrabold">
+            {whyAfrifama.title}
+          </h2>
+          <p className="mt-5 max-w-[72ch] body-copy text-muted-foreground">{whyAfrifama.lead}</p>
+        </div>
+
+        <figure className="mt-7 overflow-hidden rounded-2xl border border-border bg-primary-deep sm:mt-8 lg:rounded-3xl">
+          <img
+            src={whyAfrifama.image.src}
+            srcSet={responsiveHeroSources(whyAfrifama.image.src)}
+            sizes="(min-width: 1280px) 1216px, calc(100vw - 2.5rem)"
+            alt={whyAfrifama.image.alt}
+            width="1672"
+            height="941"
+            loading="lazy"
+            decoding="async"
+            className="h-auto max-h-[540px] w-full object-contain"
+          />
+          <figcaption className="bg-secondary px-4 py-2 text-xs text-muted-foreground">
+            Generated storytelling illustration · the challenges farmers face
+          </figcaption>
+        </figure>
+
+        <ol
+          className="mt-8 grid min-w-0 gap-5 sm:mt-10 sm:grid-cols-2 lg:auto-rows-fr lg:grid-cols-3 lg:gap-6"
+          aria-label="The six problems Afrifama is connecting"
+        >
+          {problems.map((problem, index) => (
+            <li key={problem.number} data-story-step={problem.number} className="group min-w-0">
+              <article
+                aria-labelledby={`story-${problem.number}-title`}
+                className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card"
+              >
+                <div className="aspect-[4/3] overflow-hidden bg-primary-deep">
+                  <img
+                    src={problem.image}
+                    srcSet={responsiveStorySources(problem.image)}
+                    sizes="(min-width: 1024px) 31vw, (min-width: 640px) 48vw, calc(100vw - 2.5rem)"
+                    alt={problem.alt}
+                    width="1448"
+                    height="1086"
+                    loading="lazy"
+                    decoding="async"
+                    className={`size-full object-cover saturate-[0.88] contrast-[0.98] transition-transform duration-500 ease-out motion-reduce:transition-none lg:group-hover:scale-[1.018] ${problemImagePositions[index]}`}
+                  />
+                </div>
+                <div className="flex flex-1 flex-col border-t border-border px-5 py-5">
+                  <p className="font-display text-xs font-extrabold tracking-[0.16em] text-terracotta">
+                    {problem.number}
+                  </p>
+                  <h3
+                    id={`story-${problem.number}-title`}
+                    className="mt-2 font-display text-xl font-extrabold leading-tight text-foreground"
+                  >
+                    {problem.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    {problem.body}
+                  </p>
+                </div>
+              </article>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      <EarlyProgressSection tone="default" compact photoSlot={imageSlots.home.progress} />
+
+      <Section tone="muted" compact>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <SectionHeading eyebrow="Afrifama Field Notes" title="Latest field notes" />
+          <Button asChild variant="outline">
+            <Link to="/field-notes">
+              View All Field Notes
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+        </div>
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {fieldNotes.map((note) => (
+            <div
+              key={note.slug}
+              className="flex flex-col rounded-2xl border border-border bg-card p-5"
+            >
+              <div className="flex items-center gap-2">
+                <span className="rounded-md bg-secondary px-2 py-1 text-xs font-semibold text-secondary-foreground">
+                  {note.category}
+                </span>
+                <span className="rounded-md bg-gold/25 px-2 py-1 text-xs font-semibold text-gold-foreground">
+                  Sample content
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-lg font-bold">{note.title}</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {note.excerpt}
+              </p>
+              <Link
+                to="/field-notes/$slug"
+                params={{ slug: note.slug }}
+                className="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary hover:gap-2.5"
+              >
+                Read note
+                <ArrowRight className="size-4" />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <CtaBand />
     </>
   );
 }

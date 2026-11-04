@@ -81,46 +81,6 @@ export const homeHero = {
     "Afrifama is an early-growth Kenyan agribusiness in Kilifi County connecting poultry production, stage-specific feeds and farmer partnerships, with genetics in development.",
 } as const;
 
-/**
- * Editorial homepage. People and operations may only use supplied, non-generated
- * Afrifama photographs (see IMAGE_CREDITS.md); every other position stays empty.
- */
-export const homeEditorial = {
-  heroImage: "about-origin",
-  heroCaption: "From Afrifama's supplied photo collection: farm records and an egg tray.",
-  proof: {
-    eyebrow: "Early progress",
-    title: "Where we are today, stated plainly.",
-    asOf: "As of September 2026",
-    caution:
-      "These are early figures from a business still building. They are not impact claims, and we update them as verified data changes.",
-    items: [
-      { value: "150+", label: "Farmers reached through field visits, training and meetings" },
-      { value: "205+", label: "Farmer applications received and under review" },
-      { value: "7", label: "Kilifi County wards in the current working area" },
-      { value: "1st", label: "Layer-partnership rollout underway" },
-    ],
-  },
-  businesses: {
-    eyebrow: "Our businesses",
-    title: "Each part was built because the one before it needed it.",
-    lead: "Poultry production showed us where feed and farmer support were missing. The businesses now work as one pathway.",
-    images: {
-      "/poultry": {
-        slot: "partnership-farm-assessment",
-        caption: "Supplied Afrifama photograph: a record review inside a poultry house.",
-      },
-      "/feeds": {
-        slot: "feeds-kienyeji",
-        caption: "Supplied Afrifama photograph: Kienyeji Mash and Layers Mash bags.",
-      },
-    } as Record<string, { slot: string; caption: string }>,
-    developingNote: "Not commercially available. No chick supply yet.",
-  },
-  closingLead:
-    "Online enquiries are not yet being received. The Contact page shows which route fits you and the current status.",
-} as const;
-
 /** Shared closing section offers information while online enquiries are unavailable. */
 export const homeClosing = {
   eyebrow: "Next step",
