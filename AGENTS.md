@@ -21,3 +21,4 @@
 - Enquiry CTA and policy availability copy, search defaults and Organization data are centralised in `src/content/site.ts`; information links must not imply delivery while collection is unavailable, keeping visible and crawler-facing claims consistent.
 - Shared navigation uses exact current-page matching and separate active-section matching; mobile navigation uses the existing Radix dialog for focus, Escape and scroll isolation, with route selection handing focus to main.
 - Dark-hero breadcrumbs opt into the shared inverted variant; light PageHero breadcrumbs retain their default tokens to avoid route-local contrast overrides.
+- The homepage shows people, operations and products only through supplied, non-generated registry photos (`homeEditorial` in `src/content/site.ts`); ChatGPT-exported scenes are excluded so presentation imagery is never mistaken for evidence.
