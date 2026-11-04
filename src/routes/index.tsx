@@ -251,7 +251,7 @@ function Closing() {
           <h2 id="closing-title" className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] leading-tight font-extrabold text-balance text-primary-foreground">
             {homeClosing.title}
           </h2>
-          <p className="mt-5 max-w-[56ch] body-copy text-primary-foreground/80">{homeClosing.lead}</p>
+          <p className="mt-5 max-w-[56ch] body-copy text-primary-foreground/80">{homeEditorial.closingLead}</p>
           <Button asChild variant="secondary" size="lg" className="mt-8 min-h-11">
             <Link to={homeClosing.action.to}>
               {homeClosing.action.label}

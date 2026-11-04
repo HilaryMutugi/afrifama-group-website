@@ -117,6 +117,8 @@ export const homeEditorial = {
     } as Record<string, { slot: string; caption: string }>,
     developingNote: "Not commercially available. No chick supply yet.",
   },
+  closingLead:
+    "Online enquiries are not yet being received. The Contact page shows which route fits you and the current status.",
 } as const;
 
 /** Shared closing section offers information while online enquiries are unavailable. */
