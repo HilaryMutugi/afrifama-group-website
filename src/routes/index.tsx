@@ -166,7 +166,6 @@ function Businesses() {
                   <div className={`min-w-0 ${photo ? "lg:col-span-6" : "lg:col-span-8"} ${flip && photo ? "lg:order-2" : ""}`}>
                     <p className="font-display text-sm font-extrabold tracking-[0.16em] text-gold-foreground">
                       {String(index + 1).padStart(2, "0")}
-                      {index < operating.length - 1 ? <span className="text-muted-foreground"> · then</span> : null}
                     </p>
                     <h3 className="mt-3 font-display text-2xl font-extrabold sm:text-3xl">{pillar.title}</h3>
                     <p className="mt-4 max-w-[52ch] body-copy text-muted-foreground">{pillar.summary}</p>
